@@ -23,15 +23,15 @@ XTUM > ZTUM >
 Attempted to dereference garbage pointer 0x408778000010.
 
 Thread 72 Crashed:
-0   CiscoSparkPlugin                0x107d63c31         0x104dca000 + 199047
-1   CiscoSparkPlugin                0x107d63b51         0x104dca000 + 198823
-2   CiscoSparkPlugin                0x107d63e78         0x104dca000 + 199630
-3   CiscoSparkPlugin                0x107d639d4         0x104dca000 + 198442
-4   CiscoSparkPlugin                0x107d63622         0x104dca000 + 197496
-5   CiscoSparkPlugin                0x107d63289         0x104dca000 + 196575
-6   CiscoSparkPlugin                0x107d314da         0x104dca000 + 1576
-7   CiscoSparkPlugin                0x107d3146a         0x104dca000 + 1464
-8   CiscoSparkPlugin                0x107d30f7a         0x104dca000 + 200
+0   Plugin                          0x107d63c31         0x104dca000 + 199047
+1   Plugin                          0x107d63b51         0x104dca000 + 198823
+2   Plugin                          0x107d63e78         0x104dca000 + 199630
+3   Plugin                          0x107d639d4         0x104dca000 + 198442
+4   Plugin                          0x107d63622         0x104dca000 + 197496
+5   Plugin                          0x107d63289         0x104dca000 + 196575
+6   Plugin                          0x107d314da         0x104dca000 + 1576
+7   Plugin                          0x107d3146a         0x104dca000 + 1464
+8   Plugin                          0x107d30f7a         0x104dca000 + 200
 9   libscf.dylib                    0x1124b70f8         0x11007e000 + 925812
 10  libscf.dylib                    0x1124b6407         0x11007e000 + 922499
 11  libscf.dylib                    0x1124b6407         0x11007e000 + 922499
