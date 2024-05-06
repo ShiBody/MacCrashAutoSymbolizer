@@ -1,8 +1,9 @@
-import time, logging
+import time
+import logging
 from collections import namedtuple
 from multiprocessing import cpu_count, Pool
-from tools.subprocess_atos import SubProcessAtos
-from tools.utilities import get_list_chunks
+from MacAutoSymbolizer.tools.subprocess_atos import SubProcessAtos
+from MacAutoSymbolizer.tools.utilities import get_list_chunks
 
 UnSymbolItem = namedtuple("UnSymbolItem", "crash_id app_arch version un_symbol_lines")
 SymbolizedItem = namedtuple("SymbolizedItem", "crash_id app_arch version symbolized_lines")

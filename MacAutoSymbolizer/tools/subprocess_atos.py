@@ -1,4 +1,4 @@
-from tools.subprocess_cmd import SubProcessCmd
+from MacAutoSymbolizer.tools.subprocess_cmd import SubProcessCmd
 from collections import namedtuple
 import asyncio
 import time

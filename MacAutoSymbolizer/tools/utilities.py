@@ -1,18 +1,19 @@
-import base64
 import os.path
 import re
 import logging
 import subprocess
 import shutil
 
-from typing import Tuple
-from tools.enums import *
+
+from .enums import *
 import configparser
 Config = configparser.ConfigParser()
-Config.read(os.path.dirname(__file__) + '/../config.ini')
+ROOT_DIR = os.path.abspath(os.curdir)
+CONFIG_PATH = os.path.join(ROOT_DIR, 'config.ini')
+if os.path.exists(CONFIG_PATH):
+    Config.read(CONFIG_PATH)
 
-
-__author__  = "Cindt Shi <body1992218@gmail.com>"
+__author__  = "Cindy Shi <body1992218@gmail.com>"
 __status__  = "production"
 __version__ = "1.0"
 __date__    = "3 May 2024"
@@ -36,6 +37,13 @@ DEFAULT_CRASH_IDENTIFIERS = [
     'Exception Codes:',
     CRASH_THREAD_IDENTIFIERS
 ]
+
+
+def read(path):
+    if os.path.exists(path):
+        Config.read(path)
+    else:
+        raise Exception(f'Invalid path: {path}')
 
 
 def version_full_match(version: str):
@@ -129,6 +137,10 @@ def get_dst_dir_file(
 
 def get_symbol_dir() -> str:
     return Config.get('symbols', 'symbol_dir')
+
+
+def set_symbol_dir(symbol_dir: str):
+    Config.set('symbols', 'symbol_dir', symbol_dir)
 
 
 def list_unhidden_dir(path: str) -> list[str]:

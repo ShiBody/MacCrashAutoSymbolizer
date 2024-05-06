@@ -1,9 +1,9 @@
 from setuptools import setup
 
 setup(
-    name='symbolizer',
-    version='1.0',
-    packages=['tools'],
+    name='MacCrashAutoSymbolizer',
+    version='0.1.0',
+    packages=['MacAutoSymbolizer', 'MacAutoSymbolizer.tools'],
     url='',
     license='',
     author='CindyShi',

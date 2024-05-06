@@ -6,15 +6,15 @@ import shutil
 import sys
 import asyncio
 import uvloop
-from tools.enums import *
-from tools.scanner import CrashScanner
-from tools.multi_process_symnolizer import sub_process
-from tools.dylib_map import DylibMap, DyLibItem, DyLibRequest
-from tools.subprocess_atos import UnSymbolLine as UnSymbolLine
-from tools.multi_process_symnolizer import UnSymbolItem as UnSymbolItem
-from tools.multi_process_symnolizer import SymbolizedItem as SymbolizedItem
-from tools.fast_download import download, FastDownloadRequest
-import tools.utilities as utilities
+from MacAutoSymbolizer.tools.enums import *
+from MacAutoSymbolizer.tools.scanner import CrashScanner
+from MacAutoSymbolizer.tools.multi_process_symnolizer import sub_process
+from MacAutoSymbolizer.tools.dylib_map import DylibMap, DyLibItem, DyLibRequest
+from MacAutoSymbolizer.tools.subprocess_atos import UnSymbolLine as UnSymbolLine
+from MacAutoSymbolizer.tools.multi_process_symnolizer import UnSymbolItem as UnSymbolItem
+from MacAutoSymbolizer.tools.multi_process_symnolizer import SymbolizedItem as SymbolizedItem
+from MacAutoSymbolizer.tools.fast_download import download, FastDownloadRequest
+import MacAutoSymbolizer.tools.utilities as utilities
 
 asyncio.set_event_loop_policy(uvloop.EventLoopPolicy())
 
@@ -316,9 +316,10 @@ def unlock_symbols(lock_file: str):
 
 def symbolize(
         crash_content: str, version: str, arch: Arch
-) -> list[str]:
+) -> tuple[str, list[str]]:
     lock_file = ''
-    result = []
+    result_stacks = []
+    result_title = ''
     try:
         if not utilities.version_full_match(version):
             raise Exception(f'{__name__}._symbolize failed: version input is invalid')
@@ -347,15 +348,12 @@ def symbolize(
         lock_file = ''
 
         if symbolized_items:
-            result = [f'**Crash Actual Version: {final_version}**'] + package_symbolized_items(
-                symbolized_items, stack_blocks)
+            result_title = f'**Crash Actual Version: {final_version}**'
+            result_stacks = package_symbolized_items(symbolized_items, stack_blocks)
         else:
             raise Exception('No symbolized_items.')
     except Exception as e:
         logging.critical(e, exc_info=True)
     finally:
         unlock_symbols(lock_file)
-        return result
-
-
-
+        return result_title, result_stacks

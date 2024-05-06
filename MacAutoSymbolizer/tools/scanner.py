@@ -4,8 +4,8 @@ import asyncio
 import logging
 import re
 import time
-import tools.utilities as utilities
-from tools.enums import *
+import MacAutoSymbolizer.tools.utilities as utilities
+from MacAutoSymbolizer.tools.enums import *
 
 
 CRASH_IDENTIFIERS = utilities.crash_identifiers()
@@ -168,10 +168,3 @@ class CrashScanner:
         res = self._generate_result(results)
         return res
 
-
-if __name__ == '__main__':
-    with open('../../../tests/manual_symbol_job/test_crash_content', 'r') as f:
-        lines = f.readlines()
-        my = CrashScanner()
-        sxx = my.scan(lines)
-        print('sxx')
