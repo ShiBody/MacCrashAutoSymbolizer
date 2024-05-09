@@ -46,6 +46,13 @@ def read(path):
         raise Exception(f'Invalid path: {path}')
 
 
+def version_search(version: str):
+    matchObj = re.search(r'(4[4-9].[1-9][0-2]?|43.1[1-2]).0.[0-9]+', version)
+    if matchObj:
+        return matchObj.group()
+    return None
+
+
 def version_full_match(version: str):
     regex = Config.get('regex', 'version_full_regex')
     if regex:
