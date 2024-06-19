@@ -42,11 +42,11 @@ async def partial_download(url, headers, save_path, timeout_minutes, logger):
                         return True
             except asyncio.TimeoutError:
                 message = "Download " + url + " FAILED: asyncio.TimeoutError thrown!"
-                logger.error(message)
+                logger.error(message, bot_logging_type='pure')
                 return False
     except aiohttp.ClientPayloadError:
         message = "Download " + url + " FAILED: aiohttp.ClientPayloadError thrown!"
-        logger.error(message)
+        logger.error(message, bot_logging_type='pure')
         return False
 
 
@@ -57,18 +57,18 @@ async def process(request: FastDownloadRequest, timeout_minutes: int, logger=log
     url = request.url
 
     if os.path.exists(dest_file):
-        logging.info(f"Download {url} SUCCESS! Already existed")
+        logger.info(f"Download {url} SUCCESS! Already existed", bot_logging_type='pure')
         return True, request, ''
     dest_dir = os.path.dirname(dest_file)
     if not os.path.exists(dest_dir):
-        logging.info(f"creating directory {dest_dir}")
+        logging.info(f"creating directory {dest_dir}", bot_logging_type='pure')
         os.makedirs(dest_dir)
-    logger.info(f"Downloading {url} to {dest_file}")
+    logger.info(f"Downloading {url} to {dest_file}", bot_logging_type='pure')
     filename = os.path.basename(dest_file)
     tmp_dir = TemporaryDirectory(prefix='temp-' + filename + '.', dir=dest_dir)
     size = await get_content_length(url)
     if not size:
-        logger.error(f"Download {url} FAILED! Not Found in server.")
+        logger.error(f"Download {url} FAILED! Not Found in server.", bot_logging_type='pure')
         return False, request
     tasks = []
     file_parts = []
@@ -78,15 +78,16 @@ async def process(request: FastDownloadRequest, timeout_minutes: int, logger=log
         tasks.append(partial_download(
             url, {'Range': f'bytes={sizes[0]}-{sizes[1]}'}, part_file_name, timeout_minutes, logger))
     partial_results = await asyncio.gather(*tasks)
+
     if not False in partial_results:
         with open(dest_file, 'wb') as wfd:
             for f in file_parts:
                 with open(f, 'rb') as fd:
                     shutil.copyfileobj(fd, wfd)
-        logger.info(f"Download {url} SUCCESS.")
+        logger.info(f"Download {url} SUCCESS.", bot_logging_type='pure')
         return True, request
     else:
-        logger.error(f"Tried to download {url} 3 times but FAILED!")
+        logger.error(f"Tried to download {url} 3 times but FAILED!", bot_logging_type='pure')
         return False, request
 
 

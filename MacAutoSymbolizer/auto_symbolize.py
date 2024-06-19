@@ -70,7 +70,7 @@ def remove_useless_symbols(symbol_dir):
 
 
 def trigger_download(
-        version: str, arch: Arch
+        version: str, arch: Arch, logger=logging
 ) -> tuple[bool, str, str]:
     # check if exist unzip downloads
     dst_dir, zipfile = utilities.get_dst_dir_file(version, arch)
@@ -94,7 +94,7 @@ def trigger_download(
         )
         ok, need_download_list = download(
             download_items=[download_item],
-            logger=logging
+            logger=logger
         )
         if ok:
             return True, dst, dst_dir
@@ -102,7 +102,7 @@ def trigger_download(
 
 
 def unzip_symbol(
-        zip_file: str, dst_folder: str
+        zip_file: str, dst_folder: str, logger=logging
 ) -> str:
     if os.path.exists(zip_file):
         zip_dst, un_zip_ok, msg = utilities.unzip_file(zip_file=zip_file, delete_zip_file=True)
@@ -116,9 +116,9 @@ def unzip_symbol(
             )
             return zip_dst
         else:
-            logging.error(f'Cannot unzip file {zip_file}')
+            logger.error(f'Cannot unzip file {zip_file}', bot_logging_type='pure')
     else:
-        logging.error(f'Cannot find file {zip_file}')
+        logger.error(f'Cannot find file {zip_file}', bot_logging_type='pure')
     return ""
 
 
@@ -195,7 +195,7 @@ def package_symbolized_items(
 
 
 def scan_content(
-        crash_content: str, version: str, arch: str, limit: int = -1
+        crash_content: str, version: str, arch: str, limit: int = -1, logger=logging
 ) -> tuple[list, list, str]:
     # extract full stack into several thread-blocks
     # each block is a UnSymbolItem, but they all belong to same crash
@@ -225,11 +225,11 @@ def scan_content(
     addrs_to_download = utilities.get_diff_list(addrs, addrs_found)
     new_store_items = []
     if addrs_to_download and version:
-        ok, zip_file, dst_dir = trigger_download(version, arch)
+        ok, zip_file, dst_dir = trigger_download(version, arch, logger)
         if not ok:
             raise Exception(f'Failed to download symbol file of {version} {arch}.')
         if zip_file:
-            unzip_symbol(zip_file=zip_file, dst_folder=dst_dir)
+            unzip_symbol(zip_file=zip_file, dst_folder=dst_dir, logger=logger)
         # store to map
         symbols = utilities.list_unhidden_dir(dst_dir)
         for addr in addrs_to_download:
@@ -241,7 +241,7 @@ def scan_content(
         if new_store_items:
             LibMap.store_binaries(new_store_items)
             # return f'Store {len(items)} symbols to map: {version} {arch}'
-    logging.info(f'Symbols are ready.')
+    logger.info(f'Symbols are ready.', bot_logging_type='pure')
     un_symbol_items = []
     re_stack_blocks = []
 
@@ -315,7 +315,8 @@ def unlock_symbols(lock_file: str):
 
 
 def symbolize(
-        crash_content: str, version: str, arch: Arch
+        crash_content: str, version: str, arch: Arch,
+        logger=logging
 ) -> tuple[str, list[str]]:
     lock_file = ''
     result_stacks = []
@@ -331,7 +332,8 @@ def symbolize(
         un_symbol_items, stack_blocks, final_version = scan_content(
             crash_content=crash_content,
             version=version,
-            arch=arch
+            arch=arch,
+            logger=logger
         )
         if not stack_blocks:
             msg = f'No crash stack found or no valid images found via version {version}.'
@@ -353,7 +355,8 @@ def symbolize(
         else:
             raise Exception('No symbolized_items.')
     except Exception as e:
-        logging.critical(e, exc_info=True)
+        result_title = str(e)
+        logger.critical(e, exc_info=True)
     finally:
         unlock_symbols(lock_file)
         return result_title, result_stacks
