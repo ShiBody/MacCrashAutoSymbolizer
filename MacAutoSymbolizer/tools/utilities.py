@@ -253,6 +253,19 @@ def get_list_chunks(iterable, chunks: int) -> list:
     return divided_version_list
 
 
+def log_error(logger, message):
+    if logger != logging:
+        logger.error(message, bot_logging_type='pure')
+    else:
+        logger.error(message)
+
+
+def log_info(logger, message):
+    if logger != logging:
+        logger.info(message, bot_logging_type='pure')
+    else:
+        logger.info(message)
+
 
 
 

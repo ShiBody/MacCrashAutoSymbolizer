@@ -15,6 +15,7 @@ from MacAutoSymbolizer.tools.multi_process_symnolizer import UnSymbolItem as UnS
 from MacAutoSymbolizer.tools.multi_process_symnolizer import SymbolizedItem as SymbolizedItem
 from MacAutoSymbolizer.tools.fast_download import download, FastDownloadRequest
 import MacAutoSymbolizer.tools.utilities as utilities
+from MacAutoSymbolizer.tools.utilities import log_error, log_info
 
 asyncio.set_event_loop_policy(uvloop.EventLoopPolicy())
 
@@ -116,9 +117,9 @@ def unzip_symbol(
             )
             return zip_dst
         else:
-            logger.error(f'Cannot unzip file {zip_file}', bot_logging_type='pure')
+            log_error(logger, f'Cannot unzip file {zip_file}')
     else:
-        logger.error(f'Cannot find file {zip_file}', bot_logging_type='pure')
+        log_error(logger, f'Cannot find file {zip_file}')
     return ""
 
 
@@ -241,7 +242,7 @@ def scan_content(
         if new_store_items:
             LibMap.store_binaries(new_store_items)
             # return f'Store {len(items)} symbols to map: {version} {arch}'
-    logger.info(f'Symbols are ready.', bot_logging_type='pure')
+    log_info(logger, f'Symbols are ready.')
     un_symbol_items = []
     re_stack_blocks = []
 
@@ -353,10 +354,10 @@ def symbolize(
             result_title = f'**Crash Actual Version: {final_version}**'
             result_stacks = package_symbolized_items(symbolized_items, stack_blocks)
         else:
-            raise Exception('No symbolized_items.')
+            raise Exception('No symbolized_items. Stack may all be system related.')
     except Exception as e:
-        result_title = str(e)
-        logger.critical(e, exc_info=True)
+        # result_title = str(e)
+        logger.critical(str(e), exc_info=True)
     finally:
         unlock_symbols(lock_file)
         return result_title, result_stacks
