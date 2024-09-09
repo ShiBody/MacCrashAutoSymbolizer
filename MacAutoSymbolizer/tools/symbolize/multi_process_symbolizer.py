@@ -2,35 +2,11 @@ import time
 import logging
 from collections import namedtuple
 from multiprocessing import cpu_count, Pool
-from MacAutoSymbolizer.tools.subprocess_atos import SubProcessAtos
+from .subprocess_atos import SubProcessAtos
 from MacAutoSymbolizer.tools.utilities import get_list_chunks
 
 UnSymbolItem = namedtuple("UnSymbolItem", "crash_id app_arch version un_symbol_lines")
 SymbolizedItem = namedtuple("SymbolizedItem", "crash_id app_arch version symbolized_lines")
-
-
-def symbolized_item_to_string(item: SymbolizedItem, need_info: bool = True) -> list[str]:
-    res = []
-    if item:
-        if need_info:
-            res.append('''
-            _FeedbackID_ `{0}`
-            _Arch_ `{1}`
-            _Version_ `{2}`
-            '''.format(
-                item.crash_id,
-                item.app_arch,
-                item.version
-            ))
-        stack = ""
-        for line in item.symbolized_lines:
-            # idx return_code useful_output error
-            if line.error:
-                stack += f'{line.idx} {line.error}\n'
-            else:
-                stack += f'{line.idx} {line.useful_output}\n'
-        res.append("```\n" + stack + "\n```")
-    return res
 
 
 def sub_process(crash_chunk: list[UnSymbolItem]) -> list[SymbolizedItem]:

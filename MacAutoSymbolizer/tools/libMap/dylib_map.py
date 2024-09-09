@@ -1,11 +1,11 @@
-from MacAutoSymbolizer.tools.sqlite_db import SqliteDB
+from .sqlite_db import SqliteDB
 from MacAutoSymbolizer.tools.utilities import version_sort
 from collections import namedtuple
 from typing import Optional
 import logging
 
-DyLibRequest= namedtuple("DyLibRequest", "binary_addr version arch")
-DyLibItem = namedtuple("DyLibItem", "binary_addr version arch path")
+DyLibRequest= namedtuple("DyLibRequest", "uuid version arch")
+DyLibItem = namedtuple("DyLibItem", "uuid version arch path")
 VERSION_LIMIT = 50  # max versions stored
 
 
@@ -77,7 +77,7 @@ class DylibMap:
                     "{4}"
                 );'''.format(
             self.table_name,
-            item.binary_addr,
+            item.uuid,
             item.arch,
             item.version,
             item.path
@@ -87,7 +87,7 @@ class DylibMap:
         if not a_request or self.database is None:
             logging.error('No request or no database')
             return ''
-        filter_str = '''map_key="''' + a_request.binary_addr + \
+        filter_str = '''map_key="''' + a_request.uuid + \
                      '''" AND arch="''' + str(a_request.arch) + '''"'''
         res = self.database.fetch_data(filter_str, 'path')
         return res if res else ''
@@ -96,7 +96,7 @@ class DylibMap:
         if not requests or self.database is None:
             logging.error('Empty requests or no database')
             return []
-        filter_str = "map_key IN ('" + "', '".join([x.binary_addr for x in requests]) + "')"
+        filter_str = "map_key IN ('" + "', '".join([x.uuid for x in requests]) + "')"
         res = self.database.fetch_data(filter_str, 'map_key', 'arch', 'path')
         return res if res else []
 
@@ -117,7 +117,7 @@ class DylibMap:
             query_str_list=[self._add_query_str(x) for x in items]
         )
 
-    def delete_binaries_by_version(self, version_list: Optional[list[str]]) -> bool:
+    def delete_binaries_by_versions(self, version_list: Optional[list[str]]) -> bool:
         versions_to_delete = self.stored_version_list(version_list)
         if not versions_to_delete:
             logging.error('No version to delete.')

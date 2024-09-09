@@ -20,3 +20,8 @@ class CrashLineType(int, Enum):
     THREAD = 4
     SYMBOLED = 5
     BLANK = 6
+
+
+class ReturnType(int, Enum):
+    STRING = 0
+    TABLE = 1

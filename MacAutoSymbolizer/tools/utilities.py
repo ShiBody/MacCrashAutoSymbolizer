@@ -38,6 +38,8 @@ DEFAULT_CRASH_IDENTIFIERS = [
     CRASH_THREAD_IDENTIFIERS
 ]
 
+ARCH_IDENTIFIER = 'Code Type:'
+
 
 def read(path):
     if os.path.exists(path):

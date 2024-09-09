@@ -11,7 +11,7 @@ from tempfile import TemporaryDirectory
 from collections import namedtuple
 from MacAutoSymbolizer.tools.utilities import log_error, log_info
 
-FastDownloadRequest = namedtuple("FastDownloadRequest", "url dest_file version arch")
+DownloadRequest = namedtuple("FastDownloadRequest", "url dest_file version arch")
 
 
 async def get_content_length(url):
@@ -51,7 +51,7 @@ async def partial_download(url, headers, save_path, timeout_minutes, logger):
         return False
 
 
-async def process(request: FastDownloadRequest, timeout_minutes: int, logger=logging):
+async def process(request: DownloadRequest, timeout_minutes: int, logger=logging):
     # version = request.version
     # arch = request.arch
     dest_file = request.dest_file
@@ -92,14 +92,14 @@ async def process(request: FastDownloadRequest, timeout_minutes: int, logger=log
         return False, request
 
 
-async def async_download(download_requests: list[FastDownloadRequest], timeout_minutes: int = 10, logger=logging):
+async def async_download(download_requests: list[DownloadRequest], timeout_minutes: int = 10, logger=logging):
     tasks = [process(request=x, timeout_minutes=timeout_minutes, logger=logger) for x in download_requests]
     results = await asyncio.gather(*tasks)
     return results
 
 
-def download(
-        download_items: list[FastDownloadRequest],
+def fast_download(
+        download_items: list[DownloadRequest],
         timeout_minutes: int = 10,
         logger=logging
 ):
@@ -117,3 +117,5 @@ def download(
             fails.append(result[1])
     download_success = len(fails) == 0
     return download_success, fails
+
+

@@ -7,15 +7,13 @@ import sys
 import asyncio
 import uvloop
 from MacAutoSymbolizer.tools.enums import *
-from MacAutoSymbolizer.tools.scanner import CrashScanner
-from MacAutoSymbolizer.tools.multi_process_symnolizer import sub_process
-from MacAutoSymbolizer.tools.dylib_map import DylibMap, DyLibItem, DyLibRequest
-from MacAutoSymbolizer.tools.subprocess_atos import UnSymbolLine as UnSymbolLine
-from MacAutoSymbolizer.tools.multi_process_symnolizer import UnSymbolItem as UnSymbolItem
-from MacAutoSymbolizer.tools.multi_process_symnolizer import SymbolizedItem as SymbolizedItem
-from MacAutoSymbolizer.tools.fast_download import download, FastDownloadRequest
+from MacAutoSymbolizer.tools.scanner import scan
+from MacAutoSymbolizer.tools.symbolize.multi_process_symbolizer import sub_process
+from MacAutoSymbolizer.tools.symbolize.subprocess_atos import UnSymbolLine as UnSymbolLine
+from MacAutoSymbolizer.tools.symbolize.multi_process_symbolizer import UnSymbolItem as UnSymbolItem
+from MacAutoSymbolizer.tools.symbolize.multi_process_symbolizer import SymbolizedItem as SymbolizedItem
+from MacAutoSymbolizer.tools.downloader import download
 import MacAutoSymbolizer.tools.utilities as utilities
-from MacAutoSymbolizer.tools.utilities import log_error, log_info
 
 asyncio.set_event_loop_policy(uvloop.EventLoopPolicy())
 
@@ -24,8 +22,9 @@ __status__ = "production"
 __version__ = "1.0"
 __date__ = "3 May 2024"
 
-Scanner = CrashScanner()
-LibMap = DylibMap.create()
+
+
+logger = logging.getLogger(__name__)
 
 
 def can_delete_version(
@@ -67,11 +66,11 @@ def remove_useless_symbols(symbol_dir):
         exc_type, exc_obj, exc_tb = sys.exc_info()
         f_name = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
         message = "{} {} remove_useless_symbols ({}) FAILED: {}".format(exc_type, f_name, exc_tb.tb_lineno, str(e))
-        logging.error(message)
+        logger.error(message)
 
 
 def trigger_download(
-        version: str, arch: Arch, logger=logging
+        version: str, arch: Arch
 ) -> tuple[bool, str, str]:
     # check if exist unzip downloads
     dst_dir, zipfile = utilities.get_dst_dir_file(version, arch)
@@ -79,7 +78,7 @@ def trigger_download(
     if os.path.exists(dst_dir):
         parent_files = os.listdir(dst_dir)
         if parent_files:
-            logging.info(f'{version} already downloaded.')
+            logger.info(f'{version} already downloaded.')
             if zipfile in parent_files:
                 return True, dst, dst_dir
             return True, "", dst_dir
@@ -95,7 +94,6 @@ def trigger_download(
         )
         ok, need_download_list = download(
             download_items=[download_item],
-            logger=logger
         )
         if ok:
             return True, dst, dst_dir
@@ -103,11 +101,11 @@ def trigger_download(
 
 
 def unzip_symbol(
-        zip_file: str, dst_folder: str, logger=logging
+        zip_file: str, dst_folder: str,
 ) -> str:
     if os.path.exists(zip_file):
         zip_dst, un_zip_ok, msg = utilities.unzip_file(zip_file=zip_file, delete_zip_file=True)
-        logging.info(msg)
+        logger.info(msg)
         if un_zip_ok:
             utilities.copy_files(
                 src_folder=zip_dst,
@@ -196,7 +194,7 @@ def package_symbolized_items(
 
 
 def scan_content(
-        crash_content: str, version: str, arch: str, limit: int = -1, logger=logging
+        crash_content: str, version: str, arch: str, limit: int = -1
 ) -> tuple[list, list, str]:
     # extract full stack into several thread-blocks
     # each block is a UnSymbolItem, but they all belong to same crash
@@ -208,7 +206,7 @@ def scan_content(
     empty_crash_id = utilities.empty_crash_id()
 
     crash_lines: list[str] = crash_content.split('\n')
-    info, stack_blocks, content_arch, content_version, load_images = Scanner.scan(crash_lines)
+    info, stack_blocks, content_arch, content_version, load_images = scan(crash_lines)
     if not load_images:
         raise Exception(
             "No useful binary image address could be symbolize. \n See crash stacktrace format in wiki: https://confluence-eng-gpk2.cisco.com/conf/display/UC/Webex+Supportability+-+Mac+Crash+Handling#WebexSupportabilityMacCrashHandling-Case2:hascrashstacktrace ")
@@ -230,7 +228,7 @@ def scan_content(
         if not ok:
             raise Exception(f'Failed to download symbol file of {version} {arch}.')
         if zip_file:
-            unzip_symbol(zip_file=zip_file, dst_folder=dst_dir, logger=logger)
+            unzip_symbol(zip_file=zip_file, dst_folder=dst_dir)
         # store to map
         symbols = utilities.list_unhidden_dir(dst_dir)
         for addr in addrs_to_download:
@@ -317,7 +315,6 @@ def unlock_symbols(lock_file: str):
 
 def symbolize(
         crash_content: str, version: str, arch: Arch,
-        logger=logging
 ) -> tuple[str, list[str]]:
     lock_file = ''
     result_stacks = []
@@ -333,12 +330,11 @@ def symbolize(
         un_symbol_items, stack_blocks, final_version = scan_content(
             crash_content=crash_content,
             version=version,
-            arch=arch,
-            logger=logger
+            arch=arch
         )
         if not stack_blocks:
             msg = f'No crash stack found or no valid images found via version {version}.'
-            logging.error(f'{__name__}._symbolize failed: {msg}')
+            logger.error(f'{__name__}._symbolize failed: {msg}')
 
         # lock symbol files before do symbolize
         lock_file = lock_symbols(version=final_version)
@@ -356,8 +352,8 @@ def symbolize(
         else:
             raise Exception('No symbolized_items. Stack may all be system related.')
     except Exception as e:
-        # result_title = str(e)
         logger.critical(str(e), exc_info=True)
     finally:
         unlock_symbols(lock_file)
         return result_title, result_stacks
+
