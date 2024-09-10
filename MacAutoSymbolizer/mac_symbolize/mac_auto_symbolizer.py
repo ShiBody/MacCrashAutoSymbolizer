@@ -8,6 +8,7 @@ import os
 import shutil
 import asyncio
 import uvloop
+import logging
 from typing import Any
 
 import MacAutoSymbolizer.tools.utilities as utilities
@@ -24,16 +25,16 @@ from MacAutoSymbolizer.tools.symbolize import (
     build_unsymbol_items,
     process,
     symbolized_items_tolist,
-    SymbolzedItemProcessor,
-    SymbolizedItem
+    SymbolzedItemProcessor
 )
 
 
+_logger = logging.getLogger('MacAutoSymbolizer')
 asyncio.set_event_loop_policy(uvloop.EventLoopPolicy())
 
 
 class MacAutoSymbolizer:
-    def __init__(self, custom_logger, result_processor: SymbolzedItemProcessor=None):
+    def __init__(self, result_processor: SymbolzedItemProcessor=None):
         self._final_version = None
         self._stack_blocks = None
         self._un_symbol_items = None
@@ -43,7 +44,6 @@ class MacAutoSymbolizer:
         self._arch = None
         self._lock_file = None
         self._crash_content = None
-        self.logger = custom_logger
         self._result_processor = result_processor if result_processor else symbolized_items_tolist
 
     def __del__(self):
@@ -61,18 +61,6 @@ class MacAutoSymbolizer:
         self._unlock_symbols(self._lock_file)
         self._lock_file = None
 
-
-    @property
-    def logger(self):
-        return self._logger
-
-    @logger.setter
-    def logger(self, logger):
-        if not logger:
-            raise ValueError("Enter logger to record messages. It could be a bot logger.")
-        if not callable(logger.info) or not callable(logger.debug) or not callable(logger.error):
-            raise ValueError("Logger must have functions info, debug and error.")
-        self._logger = logger
 
     @property
     def version(self):
@@ -172,7 +160,7 @@ class MacAutoSymbolizer:
             if store_items:
                 store_dylib_items(store_items)
 
-        self.logger.info('Symbols are ready.')
+        _logger.info('Symbols are ready.')
 
         return build_unsymbol_items(
             scanner.crash_info(),
@@ -219,7 +207,7 @@ class MacAutoSymbolizer:
                 shutil.rmtree(os.path.join(self._symbol_dir, x), ignore_errors=True)
             delete_dylib_versions(versions_to_remove)
         # download
-        return download(self.version, self.arch, self.logger)
+        return download(self.version, self.arch, _logger)
 
     @staticmethod
     def _can_delete_version(path) -> bool:
@@ -291,6 +279,10 @@ class MacAutoSymbolizer:
             self._lock_file = self._lock_symbols(self.version)
 
             # do symbolize
+            title = f'Crash actual version is [{self.version}_{self.arch}]'
+            for key, value in scanner.crash_info().items():
+                title += f'\n {key} {value}'
+
             results = process(
                 self._un_symbol_items,
                 self._stack_blocks,
@@ -301,7 +293,7 @@ class MacAutoSymbolizer:
                 raise Exception("results is None")
             title = f'Crash Symbolized, actual version is [{self.version}_{self.arch}]'
         except Exception as e:
-            self.logger.error(f'[{__name__}.run] failed: {str(e)}', exc_info=True)
+            _logger.error(f'[{__name__}.run] failed: {str(e)}', exc_info=True)
         finally:
             self._reset() # unlock symbol files in reset
             return title, results

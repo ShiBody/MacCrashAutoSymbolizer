@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='MacCrashAutoSymbolizer',
-    version='2.0.0',
+    version='1.0.0',
     packages=['MacAutoSymbolizer', 'MacAutoSymbolizer.tools', 'MacAutoSymbolizer.tools.libMap', 'MacAutoSymbolizer.tools.scanner', 'MacAutoSymbolizer.tools.symbolize', 'MacAutoSymbolizer.tools.downloader', 'MacAutoSymbolizer.mac_symbolize'],
     url='https://github.com/ShiBody/MacCrashAutoSymbolizer',
     license='MIT',

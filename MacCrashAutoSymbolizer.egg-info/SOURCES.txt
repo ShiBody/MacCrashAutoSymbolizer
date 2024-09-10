@@ -1,7 +1,6 @@
 README.md
 setup.py
 MacAutoSymbolizer/__init__.py
-MacAutoSymbolizer/auto_symbolize.py
 MacAutoSymbolizer/mac_symbolize/__init__.py
 MacAutoSymbolizer/mac_symbolize/mac_auto_symbolizer.py
 MacAutoSymbolizer/tools/__init__.py

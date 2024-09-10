@@ -1,4 +1,4 @@
-import os
+import os, logging
 from MacAutoSymbolizer.tools.downloader.downloader import (
     download_symbols_archive,
     DownloadRequest
@@ -9,8 +9,10 @@ from MacAutoSymbolizer.tools.utilities import (
     get_dst_dir_file
 )
 
+_logger = logging.getLogger('MacAutoSymbolizer')
 
-def download(version, arch, logger):
+
+def download(version, arch):
     if not version:
         raise Exception(f'[{__name__}.download] No version')
     if not arch:
@@ -22,16 +24,16 @@ def download(version, arch, logger):
     if os.path.exists(zip_dir):
         zip_dir_files = [f for f in os.listdir(zip_dir) if not f.startswith('.')]
         if zip_dir_files:
-            logger.info(f'[{__name__}.download] {version}_{arch} already downloaded.')
+            _logger.info(f'[{__name__}.download] {version}_{arch} already downloaded.')
             if zip_filename in zip_dir_files:
                 return download_zip_file, zip_dir # has zip file
             return None, zip_dir # all zipped
     # start download
     url = get_download_full_url(version, arch)
     for tried_time in range(3):
-        logger.info(f'[{__name__}.download] Trying download for the {tried_time + 1} time...')
+        _logger.info(f'[{__name__}.download] Trying download for the {tried_time + 1} time...')
         download_item = DownloadRequest(url, download_zip_file, version, arch)
-        ok = download_symbols_archive(download_item, logger)
+        ok = download_symbols_archive(download_item, _logger)
         if ok:
             return download_zip_file, zip_dir
     raise Exception(f'[{__name__}.download] Try to download {url} for 3 times and all failed.')

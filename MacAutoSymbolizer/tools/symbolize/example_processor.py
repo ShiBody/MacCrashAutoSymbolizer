@@ -5,7 +5,6 @@ from .multi_process_symbolizer import (
 from MacAutoSymbolizer.tools.enums import (
     CrashLineType
 )
-from ..utilities import log_info
 
 """
 Examples for symbolizer result processor
@@ -79,11 +78,9 @@ def symbolized_items_totable(
         stack_blocks: list
 ):
     results: dict = {
-        'idx': [],
-        'package': [],
-        'address': [],
-        'function': [],
-        'offset': []
+        'title': ['#', 'package', 'address', 'function', 'offset'],
+        'rows': [],
+        'info': ''
     }
 
     def add_a_result(
@@ -93,12 +90,7 @@ def symbolized_items_totable(
             function: str = '',
             offset: str = ''
     ):
-        results['idx'].append(idx)
-        results['package'].append(package)
-        results['address'].append(address)
-        results['function'].append(function)
-        results['offset'].append(offset)
-
+        results['rows'].append([idx, package, address, function, offset])
 
     # extract symbolized items
     sorted_symbolized_lines = {}
