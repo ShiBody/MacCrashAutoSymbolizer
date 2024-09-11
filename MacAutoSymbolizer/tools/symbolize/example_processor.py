@@ -83,14 +83,8 @@ def symbolized_items_totable(
         'info': ''
     }
 
-    def add_a_result(
-            idx: str = '',
-            package: str = '',
-            address: str = '',
-            function: str = '',
-            offset: str = ''
-    ):
-        results['rows'].append([idx, package, address, function, offset])
+    def add_a_result(row:list[str]):
+        results['rows'].append(row)
 
     # extract symbolized items
     sorted_symbolized_lines = {}
@@ -101,7 +95,6 @@ def symbolized_items_totable(
     # build results
     for a_block in stack_blocks:
         # stack_blocks is sorted
-        stack_line_idx = 0
         for line in a_block:
             line_idx = line[0]
             line_type = line[1]
@@ -109,13 +102,11 @@ def symbolized_items_totable(
             if not line_info:
                 continue
             if line_type == CrashLineType.THREAD:
-                add_a_result(function=str(line_info[-1]))
+                add_a_result([str(line_info[-1])])
             elif line_type == CrashLineType.STACK:
                 symbolized_res = sorted_symbolized_lines.get(line_idx)
-                add_a_result(line_info[0], line_info[1], line_info[2], symbolized_res, line_info[4])
-                stack_line_idx += 1
+                add_a_result([line_info[0], line_info[1], line_info[2], symbolized_res, line_info[4]])
             elif line_type == CrashLineType.SYMBOLED:
-                add_a_result(*line_info[-1])
-                stack_line_idx += 1
+                add_a_result(list(line_info[-1]))
     return results
 

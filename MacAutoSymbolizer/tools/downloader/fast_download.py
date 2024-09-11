@@ -9,7 +9,6 @@ import aiohttp
 import time
 from tempfile import TemporaryDirectory
 from collections import namedtuple
-from MacAutoSymbolizer.tools.utilities import log_error, log_info
 
 DownloadRequest = namedtuple("FastDownloadRequest", "url dest_file version arch")
 
@@ -43,11 +42,11 @@ async def partial_download(url, headers, save_path, timeout_minutes, logger):
                         return True
             except asyncio.TimeoutError:
                 message = "Download " + url + " FAILED: asyncio.TimeoutError thrown!"
-                log_error(logger, message)
+                logging.error(message)
                 return False
     except aiohttp.ClientPayloadError:
         message = "Download " + url + " FAILED: aiohttp.ClientPayloadError thrown!"
-        log_error(logger, message)
+        logging.error(message)
         return False
 
 
@@ -58,18 +57,18 @@ async def process(request: DownloadRequest, timeout_minutes: int, logger=logging
     url = request.url
 
     if os.path.exists(dest_file):
-        log_info(logger, f"Download {url} SUCCESS! Already existed")
+        logging.info(f"Download {url} SUCCESS! Already existed")
         return True, request, ''
     dest_dir = os.path.dirname(dest_file)
     if not os.path.exists(dest_dir):
         logging.info(f"creating directory {dest_dir}")
         os.makedirs(dest_dir)
-    log_info(logger, f"Downloading {url} to {dest_file}")
+    logging.info(f"Downloading {url} to {dest_file}")
     filename = os.path.basename(dest_file)
     tmp_dir = TemporaryDirectory(prefix='temp-' + filename + '.', dir=dest_dir)
     size = await get_content_length(url)
     if not size:
-        log_error(logger, f"Download {url} FAILED! Not Found in server.")
+        logging.error(f"Download {url} FAILED! Not Found in server.")
         return False, request
     tasks = []
     file_parts = []
@@ -85,10 +84,10 @@ async def process(request: DownloadRequest, timeout_minutes: int, logger=logging
             for f in file_parts:
                 with open(f, 'rb') as fd:
                     shutil.copyfileobj(fd, wfd)
-        log_info(logger, f"Download {url} SUCCESS.")
+        logging.info(f"Download {url} SUCCESS.")
         return True, request
     else:
-        log_error(logger, f"Tried to download {url} 3 times but FAILED!")
+        logging.error(f"Tried to download {url} 3 times but FAILED!")
         return False, request
 
 

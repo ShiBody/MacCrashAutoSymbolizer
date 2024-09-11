@@ -3,7 +3,6 @@ __status__ = "production"
 __version__ = "1.0"
 __date__ = "3 May 2024"
 
-
 import os
 import shutil
 import asyncio
@@ -27,7 +26,7 @@ from MacAutoSymbolizer.tools.symbolize import (
     symbolized_items_tolist,
     SymbolzedItemProcessor
 )
-
+from MacAutoSymbolizer.tools.utilities import is_debug
 
 _logger = logging.getLogger('MacAutoSymbolizer')
 asyncio.set_event_loop_policy(uvloop.EventLoopPolicy())
@@ -100,6 +99,7 @@ class MacAutoSymbolizer:
         self._un_symbol_items, self._stack_blocks = self._scan_content(content)
         if not self._stack_blocks:
             raise ValueError("No crash stack found or no valid images found.")
+        self._crash_content = content
 
     def _scan_content(self, crash_content: str) -> tuple[list, list]:
         """
@@ -110,7 +110,9 @@ class MacAutoSymbolizer:
         scanner.scan(crash_lines)
         binary_images_in_stack:dict = scanner.binary_images_in_stack() #whose keys are part of binary_images
         if not binary_images_in_stack:
-            raise Exception("No binary image address in stack. \n See crash stacktrace format in wiki: https://confluence-eng-gpk2.cisco.com/conf/display/UC/Webex+Supportability+-+Mac+Crash+Handling#WebexSupportabilityMacCrashHandling-Case2:hascrashstacktrace ")
+            wiki_link = "https://confluence-eng-gpk2.cisco.com/conf/display/UC/Webex+Supportability+-+Mac+Crash+Handling#WebexSupportabilityMacCrashHandling-Case2:hascrashstacktrace"
+            wiki = f'<a href = "{wiki_link}" class ="text-decoration-none">wiki</a>'
+            raise Exception(f"No binary image address in stack. Refer format in {wiki}")
         if scanner.version_in_stack():
             self.version = scanner.version_in_stack()
         if scanner.arch_in_stack():
@@ -160,7 +162,7 @@ class MacAutoSymbolizer:
             if store_items:
                 store_dylib_items(store_items)
 
-        _logger.info('Symbols are ready.')
+        _logger.info(f'[{__name__}] dSYM files are ready.')
 
         return build_unsymbol_items(
             scanner.crash_info(),
@@ -175,7 +177,10 @@ class MacAutoSymbolizer:
             zip_file: str, dst_folder: str,
     ) -> str:
         if os.path.exists(zip_file):
-            zip_dst, un_zip_ok, msg = utilities.unzip_file(zip_file=zip_file, delete_zip_file=True)
+            try:
+                zip_dst, un_zip_ok, msg = utilities.unzip_file(zip_file=zip_file, delete_zip_file=True)
+            except Exception as e:
+                raise Exception(f'[{__name__}] unzip file {zip_file} failed: {str(e)}')
             if un_zip_ok:
                 utilities.copy_files(
                     src_folder=zip_dst,
@@ -185,9 +190,9 @@ class MacAutoSymbolizer:
                 )
                 return zip_dst
             else:
-                raise Exception(f'[{__name__}._unzip_symbol] unzip file failed {zip_file}')
+                raise Exception(f'[{__name__}] unzip {zip_file} failed: {msg}')
         else:
-            raise Exception(f'[{__name__}._unzip_symbol] can not find {zip_file}')
+            raise Exception(f'[{__name__}] can not find {zip_file}')
 
     def _trigger_download(self):
         # delete old versions before download
@@ -207,7 +212,7 @@ class MacAutoSymbolizer:
                 shutil.rmtree(os.path.join(self._symbol_dir, x), ignore_errors=True)
             delete_dylib_versions(versions_to_remove)
         # download
-        return download(self.version, self.arch, _logger)
+        return download(self.version, self.arch)
 
     @staticmethod
     def _can_delete_version(path) -> bool:
@@ -267,21 +272,23 @@ class MacAutoSymbolizer:
         return ''
 
 
-    def run(self, crash_content: str, version: str, arch: Arch) -> tuple[str, Any]:
+    def run(self, crash_content: str, version: str, arch: Arch) -> tuple[str, list[str], Any]:
         results = None
         title = ''
+        infos = []
         try:
             self.version = version
             self.arch = arch
-            self.crash_content = crash_content # crash be scanned and symbol downloaded here
 
             # lock symbol files before do symbolize
             self._lock_file = self._lock_symbols(self.version)
 
+            self.crash_content = crash_content  # crash be scanned and symbol downloaded here
+
             # do symbolize
             title = f'Crash actual version is [{self.version}_{self.arch}]'
             for key, value in scanner.crash_info().items():
-                title += f'\n {key} {value}'
+                infos.append(f'{key} {value}')
 
             results = process(
                 self._un_symbol_items,
@@ -291,10 +298,9 @@ class MacAutoSymbolizer:
 
             if not results:
                 raise Exception("results is None")
-            title = f'Crash Symbolized, actual version is [{self.version}_{self.arch}]'
         except Exception as e:
-            _logger.error(f'[{__name__}.run] failed: {str(e)}', exc_info=True)
+            _logger.error(f'[{__name__}.run] failed: {str(e)}', exc_info=is_debug())
         finally:
             self._reset() # unlock symbol files in reset
-            return title, results
+            return title, infos, results
 

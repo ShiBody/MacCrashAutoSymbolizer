@@ -7,7 +7,7 @@ from MacAutoSymbolizer.tools.utilities import get_list_chunks
 
 UnSymbolItem = namedtuple("UnSymbolItem", "crash_id app_arch version un_symbol_lines")
 SymbolizedItem = namedtuple("SymbolizedItem", "crash_id app_arch version symbolized_lines")
-
+_logger = logging.getLogger('MacAutoSymbolizer')
 
 def sub_process(crash_chunk: list[UnSymbolItem]) -> list[SymbolizedItem]:
     res = []
@@ -44,7 +44,7 @@ def multi_process(crashes: list[UnSymbolItem]) -> list[SymbolizedItem]:
             pool.apply_async(sub_process, args=a_chunk, callback=results.append)
         pool.close()
         pool.join()
-    logging.info(f'Pool takes {time.monotonic() - start} seconds, {len(results)}')
+    _logger.info(f'Pool takes {time.monotonic() - start} seconds, {len(results)}')
     return results
 
 

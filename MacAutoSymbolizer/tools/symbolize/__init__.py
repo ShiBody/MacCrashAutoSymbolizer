@@ -1,4 +1,5 @@
 import re
+import logging
 from typing import Any
 from collections.abc import Callable
 from typing_extensions import TypeAlias
@@ -22,6 +23,9 @@ from MacAutoSymbolizer.tools.utilities import (
 from MacAutoSymbolizer.tools.enums import (
     CrashLineType
 )
+
+
+_logger = logging.getLogger('MacAutoSymbolizer')
 
 
 def get_crash_id_from_info(info: dict) -> int:
@@ -48,9 +52,7 @@ def build_unsymbol_items(
     version: str,
 ) -> tuple[list, list]:
     """
-    extract full stack into several thread-blocks
-    each block is a UnSymbolItem, but they all belong to same crash
-    
+    filter out stack lines from stack_blocks, and build unsymbol items list
     :param info:
     :param stack_blocks:
     :param binary_images_in_stack:
@@ -59,8 +61,10 @@ def build_unsymbol_items(
     :return: list[UnSymbolItem], stack_blocks
     """
     un_symbol_items = []
-    re_stack_blocks = []
-    for a_block in stack_blocks:
+    re_stack_blocks = [''] # use a string for crashed thread
+    for block_idx, a_block in enumerate(stack_blocks):
+        if _LIMIT > 0 and block_idx > _LIMIT and re_stack_blocks[0]:
+            break  # break when reach limit and got crashed thread
         un_symbol_lines = []
         is_crash_thread = False
         for x in a_block:
@@ -83,16 +87,21 @@ def build_unsymbol_items(
                 dyLibPath = binary_images_in_stack.get(imgAddr, None)
                 if dyLibPath:
                     un_symbol_lines.append(UnSymbolLine(idx, arch, dyLibPath, imgAddr, address))
-        if un_symbol_lines:
-            new_item = UnSymbolItem(_EMPTY_CRASH_ID, arch, version, un_symbol_lines)
-            if is_crash_thread:
+
+        new_item = UnSymbolItem(_EMPTY_CRASH_ID, arch, version, un_symbol_lines) if un_symbol_lines else None
+        if is_crash_thread:
+            re_stack_blocks[0] = a_block
+            if new_item:
                 un_symbol_items.insert(0, new_item)
-                re_stack_blocks.insert(0, a_block)
-            else:
+        else:
+            re_stack_blocks.append(a_block)
+            if new_item:
                 un_symbol_items.append(new_item)
-                re_stack_blocks.append(a_block)
+
     if _LIMIT > 0:
-        return un_symbol_items[:_LIMIT], re_stack_blocks[:_LIMIT]
+        un_symbol_items, re_stack_blocks = un_symbol_items[:_LIMIT], re_stack_blocks[:_LIMIT]
+    _logger.info(
+        f'[{__name__}] {len(un_symbol_items)}(Un-symbolized)/{len(stack_blocks)} threads. Return {len(re_stack_blocks)} threads.')
     return un_symbol_items, re_stack_blocks
 
 

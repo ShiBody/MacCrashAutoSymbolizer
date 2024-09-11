@@ -33,7 +33,7 @@ def download(version, arch):
     for tried_time in range(3):
         _logger.info(f'[{__name__}.download] Trying download for the {tried_time + 1} time...')
         download_item = DownloadRequest(url, download_zip_file, version, arch)
-        ok = download_symbols_archive(download_item, _logger)
+        ok = download_symbols_archive(download_item)
         if ok:
             return download_zip_file, zip_dir
     raise Exception(f'[{__name__}.download] Try to download {url} for 3 times and all failed.')

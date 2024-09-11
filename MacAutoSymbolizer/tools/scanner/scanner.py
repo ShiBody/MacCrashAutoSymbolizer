@@ -12,7 +12,7 @@ from collections import namedtuple
 
 ImageBinary = namedtuple('ImageBinary', ['uuid', 'name', 'path'])
 CRASH_IDENTIFIERS = utilities.crash_identifiers()
-_log = logging.getLogger('MacAutoSymbolizer')
+_logger = logging.getLogger('MacAutoSymbolizer')
 
 class CrashScanner:
     def __init__(self):
@@ -168,10 +168,11 @@ class CrashScanner:
                 _stack_lines.append(result)
             elif line_type == CrashLineType.STACK:
                 line_info: list = result[2]
-                if line_info[-4:]:
+                if len(line_info) == 5:
                     image_name = line_info[-4]
                     image_addr = line_info[-2]
-                    binary_images_in_stack[image_addr] = ''
+                    if not binary_images_in_stack.keys().__contains__(image_addr):
+                        binary_images_in_stack[image_addr] = ''
                     if not images_dict.get(image_addr):
                         images_dict[image_addr] = ImageBinary('', image_name, '')
                 _stack_lines.append(result)
@@ -181,6 +182,8 @@ class CrashScanner:
                 line_info: list = result[2]
                 if len(line_info) == 4:
                     [image_addr, image_name, uuid, app_path] = line_info
+                    if images_dict.get(image_addr):
+                        image_name = images_dict.get(image_addr).name
                     images_dict[image_addr] = ImageBinary(uuid, image_name, '')
                     if not version_in_stack:
                         version_in_stack = utilities.version_search(app_path)
@@ -213,7 +216,8 @@ class CrashScanner:
         asyncio.set_event_loop(loop)
         self._reset()
         results = loop.run_until_complete(self._scan_lines(lines))
-        _log.info(f'[{__name__}] run {time.monotonic() - start_code} seconds!')
+        _logger.debug(f'[{__name__}] run {time.monotonic() - start_code} seconds!')
+
         (self.crash_info,
          self.stack_blocks,
          self.arch_in_stack,
@@ -221,3 +225,5 @@ class CrashScanner:
          self.images_dict,
          self.keys_in_stack,
          self.binary_images_in_stack) = self._generate_result(results)
+
+

@@ -10,16 +10,15 @@ logging.basicConfig()
 _logger.root.setLevel(logging.NOTSET)
 
 
-def symbol(
+def symbolize(
         crash_content: str,
         version: str,
         arch: Arch,
-        log_handler: logging.Handler = None,
+        log_handlers: list[logging.Handler] = None,
         result_processor: SymbolzedItemProcessor = None
 ):
-    if log_handler:
-        _logger.handlers.clear()
-        _logger.addHandler(log_handler)
+    if log_handlers:
+        _logger.handlers = log_handlers
     symbolizer = MacAutoSymbolizer(result_processor)
     if not symbolizer:
         _logger.error(f'[{__name__}.symbol] symbolizer init failed')

@@ -157,6 +157,11 @@ def list_unhidden_dir(path: str) -> list[str]:
         return [x for x in os.listdir(path) if not x.startswith('.')]
     return []
 
+def is_debug() -> bool:
+    try:
+        return Config.getboolean('mode', 'debug')
+    except:
+        return False
 
 def unzip_file(
         zip_file: str, delete_zip_file: bool = False, tried_times: int = 3
@@ -253,21 +258,4 @@ def get_list_chunks(iterable, chunks: int) -> list:
     for i in range(0, len(iterable), chunks):
         divided_version_list.append(iterable[i:i + chunks])
     return divided_version_list
-
-
-def log_error(logger, message):
-    if logger != logging:
-        logger.error(message, bot_logging_type='pure')
-    else:
-        logger.error(message)
-
-
-def log_info(logger, message):
-    if logger != logging:
-        logger.info(message, bot_logging_type='pure')
-    else:
-        logger.info(message)
-
-
-
 
