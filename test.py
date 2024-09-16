@@ -42,13 +42,13 @@ def test_symbolized_items_totable(
 if __name__=='__main__':
     logger.info(f'[{__name__}]sxx')
     crash = ''
-    with open('crash_example.txt', 'r') as file:
+    with open('crash_sentry.txt', 'r') as file:
         crash = file.read()
 
-    title, rest = symbolize(
+    title, rest, infos = symbolize(
         crash_content=str(crash),
-        version="44.11.0.30702",
-        arch=Arch.osx,
+        version="44.11.0.30770",
+        arch=Arch.arm,
         result_processor=symbolized_items_totable
     )
 

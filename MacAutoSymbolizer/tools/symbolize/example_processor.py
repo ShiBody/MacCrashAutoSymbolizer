@@ -105,7 +105,7 @@ def symbolized_items_totable(
                 add_a_result([str(line_info[-1])])
             elif line_type == CrashLineType.STACK:
                 symbolized_res = sorted_symbolized_lines.get(line_idx)
-                add_a_result([line_info[0], line_info[1], line_info[2], symbolized_res, line_info[4]])
+                add_a_result([line_info[0], line_info[1], line_info[2], symbolized_res or line_info[3], line_info[4]])
             elif line_type == CrashLineType.SYMBOLED:
                 add_a_result(list(line_info[-1]))
     return results

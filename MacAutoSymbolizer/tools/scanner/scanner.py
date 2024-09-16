@@ -92,8 +92,9 @@ class CrashScanner:
     async def _scan_line(crash_line: str, idx: int):
         crash_line = crash_line.replace('\n', '')
         crash_line = crash_line.removeprefix('b\'').lstrip(' ')
+        crash_line = crash_line.strip()
         # check whether is empty
-        if not crash_line.strip():
+        if not crash_line:
             return idx, CrashLineType.BLANK, []
         # check whether is info
         ok, key, value = CrashScanner.is_info_line(crash_line, CRASH_IDENTIFIERS)

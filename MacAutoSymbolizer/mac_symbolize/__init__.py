@@ -23,4 +23,4 @@ def symbolize(
     if not symbolizer:
         _logger.error(f'[{__name__}.symbol] symbolizer init failed')
         exit(0)
-    return symbolizer.run(crash_content, version, arch)
+    return symbolizer.run(crash_content.strip(), version, arch)
