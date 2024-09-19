@@ -1,3 +1,5 @@
+from requests.packages import package
+
 from .multi_process_symbolizer import (
     SymbolizedItem
 )
@@ -5,6 +7,8 @@ from .multi_process_symbolizer import (
 from MacAutoSymbolizer.tools.enums import (
     CrashLineType
 )
+
+from MacAutoSymbolizer.tools.hash import crash_tag
 
 """
 Examples for symbolizer result processor
@@ -80,11 +84,13 @@ def symbolized_items_totable(
     results: dict = {
         'title': ['#', 'package', 'address', 'function', 'offset'],
         'rows': [],
-        'info': ''
+        # 'hash': '',
+        'tags': []
     }
 
     def add_a_result(row:list[str]):
         results['rows'].append(row)
+
 
     # extract symbolized items
     sorted_symbolized_lines = {}
@@ -93,6 +99,8 @@ def symbolized_items_totable(
             sorted_symbolized_lines[a_line.idx] = a_line.error if a_line.error else a_line.useful_output
 
     # build results
+    packages = []
+    functions = []
     for a_block in stack_blocks:
         # stack_blocks is sorted
         for line in a_block:
@@ -105,8 +113,12 @@ def symbolized_items_totable(
                 add_a_result([str(line_info[-1])])
             elif line_type == CrashLineType.STACK:
                 symbolized_res = sorted_symbolized_lines.get(line_idx)
+                if symbolized_res:
+                    packages.append(line_info[1])
+                    functions.append(symbolized_res)
                 add_a_result([line_info[0], line_info[1], line_info[2], symbolized_res or line_info[3], line_info[4]])
             elif line_type == CrashLineType.SYMBOLED:
                 add_a_result(list(line_info[-1]))
+    results['tags'] = crash_tag(packages, functions)
     return results
 

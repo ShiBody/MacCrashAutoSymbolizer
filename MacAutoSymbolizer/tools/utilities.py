@@ -135,6 +135,9 @@ def get_diff_list(listA: list, listB: list) -> list:
 def max_cached_symbol_count() -> int:
     return Config.getint('symbols', 'max_cached_symbol_count')
 
+def word_freq_hash() -> int:
+    return Config.getboolean('symbols', 'word_freq_hash')
+
 
 def get_dst_dir_file(
         version: str, architecture: Arch

@@ -9,6 +9,8 @@ MacAutoSymbolizer/tools/utilities.py
 MacAutoSymbolizer/tools/downloader/__init__.py
 MacAutoSymbolizer/tools/downloader/downloader.py
 MacAutoSymbolizer/tools/downloader/fast_download.py
+MacAutoSymbolizer/tools/hash/__init__.py
+MacAutoSymbolizer/tools/hash/word_frequency.py
 MacAutoSymbolizer/tools/libMap/__init__.py
 MacAutoSymbolizer/tools/libMap/dylib_map.py
 MacAutoSymbolizer/tools/libMap/sqlite_db.py
