@@ -1,4 +1,3 @@
-from requests.packages import package
 
 from .multi_process_symbolizer import (
     SymbolizedItem

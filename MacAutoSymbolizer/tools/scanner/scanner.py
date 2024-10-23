@@ -194,7 +194,7 @@ class CrashScanner:
         # build keys_in_stack
         for addr in binary_images_in_stack:
             item:ImageBinary = images_dict.get(addr, None)
-            if item:
+            if item and item.uuid:
                 keys_in_stack.append(item.uuid)
                 binary_images_in_stack[addr] = item.uuid
             else:
