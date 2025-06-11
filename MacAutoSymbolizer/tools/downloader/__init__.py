@@ -6,7 +6,10 @@ from MacAutoSymbolizer.tools.downloader.downloader import (
 
 from MacAutoSymbolizer.tools.utilities import (
     get_download_full_url,
-    get_dst_dir_file
+    get_dst_dir_file,
+    get_download_token,
+    get_download_full_url_backup,
+    get_download_token_backup
 )
 
 _logger = logging.getLogger('MacAutoSymbolizer')
@@ -34,12 +37,20 @@ def download(version, arch):
             return None, zip_dir # all zipped
     # start download
     url = get_download_full_url(version, arch)
-    if not url:
-        raise Exception(f'[{__name__}.download] No url_x86/url_arm64 set in config.ini')
-    for tried_time in range(3):
-        _logger.info(f'[{__name__}.download] Trying download for the {tried_time + 1} time...')
-        download_item = DownloadRequest(url, download_zip_file, version, arch)
-        ok = download_symbols_archive(download_item)
-        if ok:
-            return download_zip_file, zip_dir
-    raise Exception(f'[{__name__}.download] Try to download {url} for 3 times and all failed.')
+    if url:
+        for tried_time in range(3):
+            _logger.info(f'[{__name__}.download] Trying download for the {tried_time + 1} time...')
+            download_item = DownloadRequest(url, download_zip_file, version, arch)
+            ok = download_symbols_archive(download_item, basic_token=get_download_token())
+            if ok:
+                return download_zip_file, zip_dir
+    backup_url = get_download_full_url_backup(version, arch)
+    if backup_url:
+        for tried_time in range(3, 6):
+            _logger.info(f'[{__name__}.download] Trying download for the {tried_time + 1} time...')
+            download_item = DownloadRequest(backup_url, download_zip_file, version, arch)
+            ok = download_symbols_archive(download_item, basic_token=get_download_token_backup())
+            if ok:
+                return download_zip_file, zip_dir
+
+    raise Exception(f'[{__name__}.download] Try to download {url} and {backup_url} all failed.')

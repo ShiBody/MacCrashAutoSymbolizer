@@ -255,6 +255,19 @@ def get_download_full_url(version: str, arch: Arch) -> str:
     else:
         return os.path.join(Config.get('symbols', 'url_x86'), version, zipfile)
 
+def get_download_full_url_backup(version: str, arch: Arch) -> str:
+    zipfile = Config.get('symbols', 'symbol_zip')
+    if arch == Arch.arm:
+        return os.path.join(Config.get('symbols', 'url_arm64_backup'), version, zipfile)
+    else:
+        return os.path.join(Config.get('symbols', 'url_x86_backup'), version, zipfile)
+
+def get_download_token() -> str:
+    return Config.get('symbols', 'basic_token')
+
+def get_download_token_backup() -> str:
+    return Config.get('symbols', 'basic_token_backup')
+
 
 def get_list_chunks(iterable, chunks: int) -> list:
     divided_version_list = []

@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='MacCrashAutoSymbolizer',
-    version='1.0.0',
+    version='1.1.3',
     packages=['MacAutoSymbolizer',
               'MacAutoSymbolizer.tools',
               'MacAutoSymbolizer.tools.hash',
@@ -25,7 +25,6 @@ setup(
         'frozenlist==1.4.1',
         'idna==3.7',
         'multidict==6.0.5',
-        'uvloop==0.19.0',
         'yarl==1.9.4',
     ],
     python_requires=">=3.9"
