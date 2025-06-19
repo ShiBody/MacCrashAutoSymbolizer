@@ -6,7 +6,6 @@ __date__ = "3 May 2024"
 import os
 import shutil
 import asyncio
-import uvloop
 import logging
 from typing import Any
 
@@ -29,7 +28,6 @@ from MacAutoSymbolizer.tools.symbolize import (
 from MacAutoSymbolizer.tools.utilities import is_debug
 
 _logger = logging.getLogger('MacAutoSymbolizer')
-asyncio.set_event_loop_policy(uvloop.EventLoopPolicy())
 
 
 class MacAutoSymbolizer:

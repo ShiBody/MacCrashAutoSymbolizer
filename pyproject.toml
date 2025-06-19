@@ -1,7 +1,7 @@
 [project]
 name = "maccrashautosymbolizer"
-version = "0.2.0"
-description = "Add your description here"
+version = "2.0.2"
+description = "Automatically symbolize macOS crash reports using the Webex symbol server."
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
@@ -28,6 +28,7 @@ dependencies = [
     "pillow>=10.4.0",
     "pygments>=2.18.0",
     "pyparsing>=3.1.4",
+    "pypdl>=1.5.4",
     "python-dateutil>=2.9.0.post0",
     "regex>=2024.9.11",
     "requests>=2.32.3",
@@ -38,3 +39,4 @@ dependencies = [
     "yarl>=1.9.4",
     "zipp>=3.20.2",
 ]
+

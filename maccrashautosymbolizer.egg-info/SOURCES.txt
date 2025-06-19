@@ -1,5 +1,5 @@
 README.md
-setup.py
+pyproject.toml
 MacAutoSymbolizer/__init__.py
 MacAutoSymbolizer/mac_symbolize/__init__.py
 MacAutoSymbolizer/mac_symbolize/mac_auto_symbolizer.py
@@ -8,7 +8,6 @@ MacAutoSymbolizer/tools/enums.py
 MacAutoSymbolizer/tools/utilities.py
 MacAutoSymbolizer/tools/downloader/__init__.py
 MacAutoSymbolizer/tools/downloader/downloader.py
-MacAutoSymbolizer/tools/downloader/fast_download.py
 MacAutoSymbolizer/tools/hash/__init__.py
 MacAutoSymbolizer/tools/hash/word_frequency.py
 MacAutoSymbolizer/tools/libMap/__init__.py
@@ -21,8 +20,8 @@ MacAutoSymbolizer/tools/symbolize/example_processor.py
 MacAutoSymbolizer/tools/symbolize/multi_process_symbolizer.py
 MacAutoSymbolizer/tools/symbolize/subprocess_atos.py
 MacAutoSymbolizer/tools/symbolize/subprocess_cmd.py
-MacCrashAutoSymbolizer.egg-info/PKG-INFO
-MacCrashAutoSymbolizer.egg-info/SOURCES.txt
-MacCrashAutoSymbolizer.egg-info/dependency_links.txt
-MacCrashAutoSymbolizer.egg-info/requires.txt
-MacCrashAutoSymbolizer.egg-info/top_level.txt
+maccrashautosymbolizer.egg-info/PKG-INFO
+maccrashautosymbolizer.egg-info/SOURCES.txt
+maccrashautosymbolizer.egg-info/dependency_links.txt
+maccrashautosymbolizer.egg-info/requires.txt
+maccrashautosymbolizer.egg-info/top_level.txt

@@ -3,6 +3,9 @@ import re
 import logging
 import subprocess
 import shutil
+import os
+import base64
+import asyncio
 
 
 from .enums import *
@@ -166,6 +169,7 @@ def is_debug() -> bool:
     except:
         return False
 
+
 def unzip_file(
         zip_file: str, delete_zip_file: bool = False, tried_times: int = 3
 ) -> tuple[str, bool, str]:
@@ -205,6 +209,33 @@ def unzip_file(
             ext_error = exit_code
     return dst, ok, \
         f'Extracting {archive_filename} failed with {ext_error}'
+
+
+async def unzip_symbol(
+        zip_file: str,
+        dst_folder: str,
+) -> str:
+    if await asyncio.to_thread(os.path.exists, zip_file):
+        try:
+            zip_dst, un_zip_ok, msg = await asyncio.to_thread(unzip_file,
+                zip_file=zip_file,
+                delete_zip_file=True
+            )
+        except Exception as e:
+            raise Exception(f'[{__name__}] unzip file {zip_file} failed: {str(e)}')
+        if un_zip_ok:
+            await asyncio.to_thread(
+                copy_files,
+                src_folder=zip_dst,
+                dst_folder=dst_folder,
+                rm_tree_dir=True,
+                ext='.dSYM'
+            )
+            return zip_dst
+        else:
+            raise Exception(f'[{__name__}] unzip {zip_file} failed: {msg}')
+    else:
+        raise Exception(f'[{__name__}] can not find {zip_file}')
 
 
 def copy_files(
@@ -255,6 +286,7 @@ def get_download_full_url(version: str, arch: Arch) -> str:
     else:
         return os.path.join(Config.get('symbols', 'url_x86'), version, zipfile)
 
+
 def get_download_full_url_backup(version: str, arch: Arch) -> str:
     zipfile = Config.get('symbols', 'symbol_zip')
     if arch == Arch.arm:
@@ -262,11 +294,23 @@ def get_download_full_url_backup(version: str, arch: Arch) -> str:
     else:
         return os.path.join(Config.get('symbols', 'url_x86_backup'), version, zipfile)
 
-def get_download_token() -> str:
-    return Config.get('symbols', 'basic_token')
+
+def get_download_token(
+    username:str = os.environ.get('MAVEN_USER'),
+    pwd:str = os.environ.get('MAVEN_TOKEN')
+) -> str:
+    auth_string = f"{username}:{pwd}"
+    encoded_auth = base64.b64encode(auth_string.encode('utf-8')).decode('utf-8')
+    return encoded_auth
+
 
 def get_download_token_backup() -> str:
-    return Config.get('symbols', 'basic_token_backup')
+    if os.environ.get('MAVEN_USER_BACKUP'):
+        username = os.environ.get('MAVEN_USER_BACKUP')
+        pwd = os.environ.get('MAVEN_TOKEN_BACKUP')
+        return get_download_token(username, pwd)
+    else:
+        return get_download_token()
 
 
 def get_list_chunks(iterable, chunks: int) -> list:
@@ -274,4 +318,20 @@ def get_list_chunks(iterable, chunks: int) -> list:
     for i in range(0, len(iterable), chunks):
         divided_version_list.append(iterable[i:i + chunks])
     return divided_version_list
+
+
+# decorator
+def log_handler(handler_func):
+    def log_decorator(func):
+        def wrapper(*args, **kwargs):
+            try:
+                result = func(*args, **kwargs)
+                return result
+            except Exception as e:
+                logging.error(f'[{func.__name__}] Error: {str(e)}', exc_info=True)
+                kwargs['e'] = e
+                handler_func(*args, **kwargs)
+                return None
+        return wrapper
+    return log_decorator
 

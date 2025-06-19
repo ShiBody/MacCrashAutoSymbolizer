@@ -121,3 +121,24 @@ def symbolized_items_totable(
     results['tags'] = crash_tag(packages, functions)
     return results
 
+
+def symbolized_item_toMCP(item: SymbolizedItem, need_info: bool = True) -> list[str]:
+    res = []
+    if item:
+        if need_info:
+            res.append('''
+            _Arch_ `{0}`
+            _Version_ `{1}`
+            '''.format(
+                item.app_arch,
+                item.version
+            ))
+        stack = ""
+        for line in item.symbolized_lines:
+            # idx return_code useful_output error
+            if line.error:
+                stack += f'{line.idx} {line.error}\n'
+            else:
+                stack += f'{line.idx} {line.useful_output}\n'
+        res.append("```\n" + stack + "\n```")
+    return res

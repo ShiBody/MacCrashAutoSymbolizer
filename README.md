@@ -1,4 +1,8 @@
 ## This is a tool for auto-symbolizing Mac crash stack of your app
+```commandline
+brew install p7zip
+```
+
 
 ### Example:
 ```commandline
