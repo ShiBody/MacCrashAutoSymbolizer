@@ -1,9 +1,26 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
 [project]
 name = "maccrashautosymbolizer"
 version = "3.0.0"
-description = "Add your description here"
+description = "MacCrash Auto Symbolizer - A tool for automatically symbolizing macOS crash logs"
 readme = "README.md"
 requires-python = ">=3.10"
+authors = [
+    {name = "Your Name", email = "your.email@example.com"},
+]
+license = {text = "MIT"}
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
 dependencies = [
     "aiofiles>=23.2.1",
     "aiohttp>=3.9.5",
@@ -42,8 +59,27 @@ dependencies = [
     "tqdm>=4.66.5",
     "typing-extensions>=4.12.2",
     "urllib3>=2.2.2",
-    "uvicorn>=0.35.0",
+    "uvicorn[standard]>=0.35.0",
     "uvloop>=0.21.0",
     "yarl>=1.9.4",
     "zipp>=3.20.2",
 ]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+    "black>=23.0.0",
+    "ruff>=0.1.0",
+]
+
+[project.scripts]
+maccrash-symbolizer = "main:main"
+
+[project.urls]
+Homepage = "https://github.com/yourusername/MacCrashAutoSymbolizer"
+Repository = "https://github.com/yourusername/MacCrashAutoSymbolizer"
+Issues = "https://github.com/yourusername/MacCrashAutoSymbolizer/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["MacAutoSymbolizer"]

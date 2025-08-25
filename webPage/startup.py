@@ -34,18 +34,20 @@ def main():
     os.chdir(project_root)
     print(f"切换工作目录到: {os.getcwd()}")
     
-    # 使用uvicorn命令行启动
+    # 修复的uvicorn启动命令 - 不使用reload模式避免警告
     cmd = [
         sys.executable, "-m", "uvicorn",
         "webPage.app:app",
         "--host", "0.0.0.0",
-        "--port", "5001",
-        "--reload", 
-        "--reload-dir", webPage_dir
+        "--port", "5001"
     ]
-    
+
+    # 只在开发环境添加reload选项
+    if os.getenv('DEVELOPMENT', 'false').lower() == 'true':
+        cmd.extend(["--reload", "--reload-dir", webPage_dir])
+
     print("启动命令:", " ".join(cmd))
-    print("服务器将在 http://localhost:8080 启动")
+    print("服务器将在 http://localhost:5001 启动")
     print("按 Ctrl+C 停止服务器")
     print("=" * 50)
     
