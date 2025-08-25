@@ -176,8 +176,8 @@ class Arch(str, Enum):
 Set these environment variables for authenticated symbol downloads:
 
 ```bash
-export MAVEN_USER="your_username"
-export MAVEN_TOKEN="your_access_token"
+export DOWNLOAD_USER="your_username"
+export DOWNLOAD_PASSWORD="your_access_token"
 ```
 
 ### Config File
