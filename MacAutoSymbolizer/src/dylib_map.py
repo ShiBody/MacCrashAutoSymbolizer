@@ -1,5 +1,5 @@
 from .sqlite_db import SqliteDB
-from MacAutoSymbolizer.tools.utilities import version_sort
+from MacAutoSymbolizer.src.utilities import version_sort
 from collections import namedtuple
 from typing import Optional
 import logging

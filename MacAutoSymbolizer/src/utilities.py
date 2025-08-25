@@ -3,24 +3,14 @@ import re
 import logging
 import subprocess
 import shutil
-
-
-from .enums import *
 import configparser
-Config = configparser.ConfigParser()
+from enum import Enum
+from pydantic import BaseModel
+
+# --- Constants --- #
 ROOT_DIR = os.path.abspath(os.curdir)
-CONFIG_PATH = os.path.join(ROOT_DIR, 'config.ini')
-if os.path.exists(CONFIG_PATH):
-    Config.read(CONFIG_PATH)
-
-__author__  = "Cindy Shi <body1992218@gmail.com>"
-__status__  = "production"
-__version__ = "1.0"
-__date__    = "3 May 2024"
-
-
 CRASH_THREAD_IDENTIFIERS = 'Crashed Thread:'
-
+ARCH_IDENTIFIER = 'Code Type:'
 DEFAULT_CRASH_IDENTIFIERS = [
     'Incident Identifier:',
     'Hardware Model:',
@@ -38,14 +28,24 @@ DEFAULT_CRASH_IDENTIFIERS = [
     CRASH_THREAD_IDENTIFIERS
 ]
 
-ARCH_IDENTIFIER = 'Code Type:'
+
+# --- Config --- #
+Config = configparser.ConfigParser()
+def read_config(path: str = None):
+    if not path:
+        path = os.path.join(ROOT_DIR, 'config.ini')
+
+    if path:
+        if os.path.exists(path):
+            Config.read(path)
+        else:
+            raise Exception(f'Invalid path: {path}')
 
 
-def read(path):
-    if os.path.exists(path):
-        Config.read(path)
-    else:
-        raise Exception(f'Invalid path: {path}')
+# --- Enums --- #
+class Arch(str, Enum):
+    osx = 'x86_64'
+    arm = 'arm64'
 
 
 def version_search(version: str):
@@ -103,6 +103,9 @@ def address_idx() -> int:
 def load_address_idx() -> int:
     return Config.getint('constants', 'load_address_idx')
 
+def binary_with_version() -> str:
+    return Config.get('constants', 'binary_with_version')
+
 
 def arch_x86_regex() -> str:
     return Config.get('regex', 'arch_x86_regex')
@@ -127,6 +130,8 @@ def binary_image_regex() -> str:
 def thread_start_regex() -> str:
     return Config.get('regex', 'thread_start_regex')
 
+def diag_line_regex() -> str:
+    return Config.get('regex', 'diag_line_regex')
 
 def get_diff_list(listA: list, listB: list) -> list:
     return list(set(listA).difference(set(listB)))
@@ -146,6 +151,19 @@ def get_dst_dir_file(
     zipfile = Config.get('symbols', 'symbol_zip')
     return os.path.join(symbol_dir, version, architecture), zipfile
 
+def get_dst_information(
+        version: str,
+        architecture: Arch,
+        ndi: bool = False
+) -> tuple[str, str]:
+    symbol_dir = Config.get('symbols', 'symbol_dir')
+    zipfile = Config.get('symbols', 'symbol_zip')
+    if ndi:
+        dst_dir = os.path.join(symbol_dir, f'{version}_backup', architecture)
+    else:
+        dst_dir = os.path.join(symbol_dir, version, architecture)
+    dst_file = os.path.join(dst_dir, zipfile)
+    return dst_dir, dst_file
 
 def get_symbol_dir() -> str:
     return Config.get('symbols', 'symbol_dir')
@@ -248,19 +266,16 @@ def version_sort(version: str):
     return [int(i) for i in nums]
 
 
-def get_download_full_url(version: str, arch: Arch) -> str:
+def get_download_full_url(version: str, arch: Arch, isBackup: bool) -> str:
     zipfile = Config.get('symbols', 'symbol_zip')
-    if arch == Arch.arm:
-        return os.path.join(Config.get('symbols', 'url_arm64'), version, zipfile)
-    else:
-        return os.path.join(Config.get('symbols', 'url_x86'), version, zipfile)
-
-def get_download_full_url_backup(version: str, arch: Arch) -> str:
-    zipfile = Config.get('symbols', 'symbol_zip')
-    if arch == Arch.arm:
-        return os.path.join(Config.get('symbols', 'url_arm64_backup'), version, zipfile)
-    else:
-        return os.path.join(Config.get('symbols', 'url_x86_backup'), version, zipfile)
+    arm_url = Config.get('symbols', 'url_arm64_backup') if isBackup else Config.get('symbols', 'url_arm64')
+    x86_url = Config.get('symbols', 'url_x86_backup') if isBackup else Config.get('symbols', 'url_x86')
+    base_url = arm_url if arch == Arch.arm else x86_url
+    url = Config.get('symbols', 'symbol_file_format_backup')  if isBackup else Config.get('symbols', 'symbol_file_format')
+    url = url.replace('{base_url}', base_url)
+    url = url.replace('{version}', version)
+    url = url.replace('{symbol_zip}', zipfile)
+    return url
 
 def get_download_token() -> str:
     return Config.get('symbols', 'basic_token')
@@ -269,9 +284,63 @@ def get_download_token_backup() -> str:
     return Config.get('symbols', 'basic_token_backup')
 
 
+def get_atos_tool_path() -> str:
+    
+    return 'atos'
+
+
+def safe_read_file(file_path: str) -> str:
+    """
+    安全读取文件，自动检测编码方式
+    
+    Args:
+        file_path: 文件路径
+        
+    Returns:
+        文件内容字符串
+        
+    Raises:
+        FileNotFoundError: 文件不存在
+        IOError: 文件读取失败
+    """
+    if not os.path.exists(file_path):
+        raise FileNotFoundError(f"文件不存在: {file_path}")
+    
+    # 尝试多种编码方式
+    encodings = ['utf-8', 'utf-8-sig', 'latin1', 'cp1252', 'iso-8859-1', 'gbk', 'big5']
+    
+    for encoding in encodings:
+        try:
+            with open(file_path, 'r', encoding=encoding) as f:
+                return f.read()
+        except UnicodeDecodeError:
+            continue
+        except Exception as e:
+            # 其他错误直接抛出
+            raise IOError(f"读取文件失败 {file_path}: {e}")
+    
+    # 如果所有编码都失败，使用 utf-8 并替换错误字符
+    try:
+        with open(file_path, 'r', encoding='utf-8', errors='replace') as f:
+            content = f.read()
+            logger = logging.getLogger(__name__)
+            logger.warning(f"文件 {file_path} 包含不可识别的字符，已进行替换处理")
+            return content
+    except Exception as e:
+        raise IOError(f"读取文件失败 {file_path}: {e}")
+
+
 def get_list_chunks(iterable, chunks: int) -> list:
     divided_version_list = []
     for i in range(0, len(iterable), chunks):
         divided_version_list.append(iterable[i:i + chunks])
     return divided_version_list
 
+
+
+if __name__ == '__main__':
+    read_config()
+    print(get_download_full_url('44.1.0.30800', Arch.arm, False))
+    print(get_download_full_url('44.1.0.30800', Arch.osx, False))
+    print(get_download_full_url('44.1.0.30800', Arch.arm, True))
+    print(get_download_full_url('44.1.0.30800', Arch.osx, True))

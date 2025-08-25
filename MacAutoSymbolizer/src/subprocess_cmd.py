@@ -46,7 +46,25 @@ class SubProcessCmd:
             **self._kwargs
         )
         stdout, stderr = await process.communicate()
-        return process.returncode, stdout.decode(), stderr.decode()
+        
+        # 尝试安全解码输出，处理可能的编码问题
+        def safe_decode(data):
+            if not data:
+                return ""
+            
+            # 尝试多种编码方式
+            encodings = ['utf-8', 'latin1', 'cp1252', 'iso-8859-1']
+            
+            for encoding in encodings:
+                try:
+                    return data.decode(encoding)
+                except UnicodeDecodeError:
+                    continue
+            
+            # 如果所有编码都失败，使用 utf-8 并替换错误字符
+            return data.decode('utf-8', errors='replace')
+        
+        return process.returncode, safe_decode(stdout), safe_decode(stderr)
 
     async def start(self, args_list):
         tasks = [self.cmd(*x) for x in args_list]

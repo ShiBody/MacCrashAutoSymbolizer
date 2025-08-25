@@ -3,7 +3,7 @@ from .multi_process_symbolizer import (
     SymbolizedItem
 )
 
-from MacAutoSymbolizer.tools.enums import (
+from MacAutoSymbolizer.src.enums import (
     CrashLineType
 )
 
@@ -59,7 +59,7 @@ def symbolized_items_tolist(
                 continue
             if line_type == CrashLineType.THREAD:
                 thread_res.append(str(line_info[-1]))
-            elif line_type == CrashLineType.STACK:
+            elif line_type == CrashLineType.RAW:
                 symbolized_res = sorted_symbolized_lines.get(line_idx)
                 if symbolized_res:
                     thread_res.append(f'{stack_line_idx}   {symbolized_res}')
@@ -110,7 +110,7 @@ def symbolized_items_totable(
                 continue
             if line_type == CrashLineType.THREAD:
                 add_a_result([str(line_info[-1])])
-            elif line_type == CrashLineType.STACK:
+            elif line_type == CrashLineType.RAW:
                 symbolized_res = sorted_symbolized_lines.get(line_idx)
                 if symbolized_res:
                     packages.append(line_info[1])
