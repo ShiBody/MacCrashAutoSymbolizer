@@ -66,15 +66,15 @@ class ScannedLine(BaseModel):
         # This ensures subclasses are properly handled
         use_enum_values = True
 
+    def __str__(self):
+        return self.line
+
 
 class TheadLine(ScannedLine):
     type: Literal[CrashLineType.THREAD] = CrashLineType.THREAD
     threadIdx: int = 0
     threadName: str = ''
     crashed: bool = False
-
-    def __str__(self):
-        return self.line
 
 
 # https://developer.apple.com/documentation/xcode/adding-identifiable-symbol-names-to-a-crash-report#Symbolicate-the-crash-report-with-the-command-line
