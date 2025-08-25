@@ -1,0 +1,718 @@
+-------------------------------------
+Translated Report (Full Report Below)
+-------------------------------------
+
+Process:               Webex [41908]
+Path:                  /Applications/Webex.app/Contents/MacOS/Webex
+Identifier:            Cisco-Systems.Spark
+Version:               45.8.0.32653 (32653)
+Code Type:             ARM-64 (Native)
+Parent Process:        launchd [1]
+User ID:               501
+
+Date/Time:             2025-08-23 13:52:59.5225 +0800
+OS Version:            macOS 15.6.1 (24G90)
+Report Version:        12
+Anonymous UUID:        D4529A41-A1DE-861D-DD73-72A92A32FBE4
+
+Sleep/Wake UUID:       EC634D67-E8C9-4B99-AEF4-2A0721222C0E
+
+Time Awake Since Boot: 84000 seconds
+Time Since Wake:       17330 seconds
+
+System Integrity Protection: enabled
+
+Crashed Thread:        0  t-main-ui  Dispatch queue: com.apple.main-thread
+
+Exception Type:        EXC_CRASH (SIGABRT)
+Exception Codes:       0x0000000000000000, 0x0000000000000000
+
+Application Specific Information:
+abort() called
+
+
+Thread 0 Crashed:: t-main-ui Dispatch queue: com.apple.main-thread
+0   libsystem_kernel.dylib        	       0x19b7a2388 __pthread_kill + 8
+1   libsystem_pthread.dylib       	       0x19b7db88c pthread_kill + 296
+2   libsystem_c.dylib             	       0x19b6e4a3c abort + 124
+3   CiscoSparkPlugin              	       0x3092743f4 0x308b58000 + 7455732
+4   CiscoSparkPlugin              	       0x309765e44 0x308b58000 + 12639812
+5   libdispatch.dylib             	       0x19b63d85c _dispatch_client_callout + 16
+6   libdispatch.dylib             	       0x19b6285e0 _dispatch_continuation_pop + 596
+7   libdispatch.dylib             	       0x19b63b620 _dispatch_source_latch_and_call + 396
+8   libdispatch.dylib             	       0x19b63a2f8 _dispatch_source_invoke + 844
+9   libdispatch.dylib             	       0x19b65aaa4 _dispatch_main_queue_drain.cold.5 + 592
+10  libdispatch.dylib             	       0x19b632db0 _dispatch_main_queue_drain + 180
+11  libdispatch.dylib             	       0x19b632cec _dispatch_main_queue_callback_4CF + 44
+12  CoreFoundation                	       0x19b904be0 __CFRUNLOOP_IS_SERVICING_THE_MAIN_DISPATCH_QUEUE__ + 16
+13  CoreFoundation                	       0x19b8c58dc __CFRunLoopRun + 1980
+14  CoreFoundation                	       0x19b8c4a98 CFRunLoopRunSpecific + 572
+15  HIToolbox                     	       0x1a736727c RunCurrentEventLoopInMode + 324
+16  HIToolbox                     	       0x1a736a4e8 ReceiveNextEventCommon + 676
+17  HIToolbox                     	       0x1a74f5484 _BlockUntilNextEventMatchingListInModeWithFilter + 76
+18  AppKit                        	       0x19f7e9a34 _DPSNextEvent + 684
+19  AppKit                        	       0x1a0188940 -[NSApplication(NSEventRouting) _nextEventMatchingEventMask:untilDate:inMode:dequeue:] + 688
+20  AppKit                        	       0x19f7dcbe4 -[NSApplication run] + 480
+21  AppKit                        	       0x19f7b32dc NSApplicationMain + 880
+22  dyld                          	       0x19b43ab98 start + 6076
+
+Thread 1:
+0   libsystem_pthread.dylib       	       0x19b7d6b6c start_wqthread + 0
+
+Thread 2:: :MediaProcess.cpp:915:onEventReceived Dispatch queue: com.apple.root.default-qos
+0   libscf.dylib                  	       0x179fb73d0 AppMonitor::MemTable::MemTable(std::__1::weak_ptr<AppMonitor::IMemTableHealthListener>) + 16
+1   libscf.dylib                  	       0x179fb4f18 AppMonitor::MemMonitor::onTaskStarted() + 220
+2   libscf.dylib                  	       0x179fa082c AppMonitor::AppMonitor::onScopedTaskStarted() + 164
+3   ThreadUtilities               	       0x109e6f5e8 0x109e68000 + 30184
+4   ThreadUtilities               	       0x109e6e5f8 ThreadUtilities::ScopedThreadName::init(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 144
+5   ThreadUtilities               	       0x109e6e534 ThreadUtilities::ScopedThreadName::ScopedThreadName(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, bool) + 36
+6   libscf.dylib                  	       0x17ba1dc28 0x178000000 + 60939304
+7   libscf.dylib                  	       0x1783cf864 0x178000000 + 3995748
+8   libscf.dylib                  	       0x17ba1facc 0x178000000 + 60947148
+9   libscf.dylib                  	       0x17ba1f894 0x178000000 + 60946580
+10  CiscoSparkPlugin              	       0x30e128904 pplx::details::_TaskProcHandle::_RunChoreBridge(void*) + 28
+11  libdispatch.dylib             	       0x19b63d85c _dispatch_client_callout + 16
+12  libdispatch.dylib             	       0x19b65a490 <deduplicated_symbol> + 32
+13  libdispatch.dylib             	       0x19b635fa4 _dispatch_root_queue_drain + 736
+14  libdispatch.dylib             	       0x19b6365d4 _dispatch_worker_thread2 + 156
+15  libsystem_pthread.dylib       	       0x19b7d7e28 _pthread_wqthread + 232
+16  libsystem_pthread.dylib       	       0x19b7d6b74 start_wqthread + 8
+
+Thread 3::  Dispatch queue: app exceptions timeout queue
+0   libsystem_malloc.dylib        	       0x19b5db730 nanov2_size + 184
+1   libsystem_malloc.dylib        	       0x19b5e1484 malloc_size + 124
+2   libscf.dylib                  	       0x179fc026c void mem_monitor::scf_free<0>(_malloc_zone_t*, void*) + 32
+3   CoreFoundation                	       0x19b99ad94 _CFRelease + 1224
+4   CoreFoundation                	       0x19b872ff0 cow_cleanup + 164
+5   CoreFoundation                	       0x19b88190c -[__NSFrozenDictionaryM dealloc] + 124
+6   CoreFoundation                	       0x19b872ff0 cow_cleanup + 164
+7   CoreFoundation                	       0x19b88190c -[__NSFrozenDictionaryM dealloc] + 124
+8   LaunchServices                	       0x19bda8eb4 -[_LSExceptions .cxx_destruct] + 32
+9   libobjc.A.dylib               	       0x19b3f3e00 object_cxxDestructFromClass(objc_object*, objc_class*) + 116
+10  libobjc.A.dylib               	       0x19b41b7c8 objc_destructInstance_nonnull_realized(objc_object*) + 76
+11  libobjc.A.dylib               	       0x19b3eb384 _objc_rootDealloc + 72
+12  LaunchServices                	       0x19bda8e58 +[_LSExceptions(Private) invalidateSharedInstance] + 80
+13  LaunchServices                	       0x19bda8df8 __31+[_LSExceptions sharedInstance]_block_invoke_3 + 108
+14  libdispatch.dylib             	       0x19b63d85c _dispatch_client_callout + 16
+15  libdispatch.dylib             	       0x19b6285e0 _dispatch_continuation_pop + 596
+16  libdispatch.dylib             	       0x19b63b620 _dispatch_source_latch_and_call + 396
+17  libdispatch.dylib             	       0x19b63a2f8 _dispatch_source_invoke + 844
+18  libdispatch.dylib             	       0x19b62c1b8 _dispatch_lane_serial_drain + 332
+19  libdispatch.dylib             	       0x19b62ce60 _dispatch_lane_invoke + 440
+20  libdispatch.dylib             	       0x19b637264 _dispatch_root_queue_drain_deferred_wlh + 292
+21  libdispatch.dylib             	       0x19b636ae8 _dispatch_workloop_worker_thread + 540
+22  libsystem_pthread.dylib       	       0x19b7d7e64 _pthread_wqthread + 292
+23  libsystem_pthread.dylib       	       0x19b7d6b74 start_wqthread + 8
+
+Thread 4:
+0   libsystem_pthread.dylib       	       0x19b7d6b6c start_wqthread + 0
+
+Thread 5:
+0   libsystem_pthread.dylib       	       0x19b7d6b6c start_wqthread + 0
+
+Thread 6:
+0   libsystem_pthread.dylib       	       0x19b7d6b6c start_wqthread + 0
+
+Thread 7:
+0   libsystem_pthread.dylib       	       0x19b7d6b6c start_wqthread + 0
+
+Thread 8:
+0   libsystem_pthread.dylib       	       0x19b7d6b6c start_wqthread + 0
+
+Thread 9:
+0   libsystem_pthread.dylib       	       0x19b7d6b6c start_wqthread + 0
+
+Thread 10:
+0   libsystem_pthread.dylib       	       0x19b7d6b6c start_wqthread + 0
+
+Thread 11:
+0   libsystem_pthread.dylib       	       0x19b7d6b6c start_wqthread + 0
+
+Thread 12:: AsyncQueue::RootLogger
+0   libsystem_kernel.dylib        	       0x19b79d3cc __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x19b7dc0e0 _pthread_cond_wait + 984
+2   libc++.1.dylib                	       0x19b70c268 std::__1::condition_variable::wait(std::__1::unique_lock<std::__1::mutex>&) + 32
+3   RootLogger                    	       0x10aea696c AsyncQueue::Context::doWork() + 1560
+4   RootLogger                    	       0x10aea9584 0x10ae94000 + 87428
+5   libsystem_pthread.dylib       	       0x19b7dbc0c _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x19b7d6b80 thread_start + 8
+
+Thread 13:: AsyncQueue::UrlProtocolStateMachine
+0   libsystem_kernel.dylib        	       0x19b79d3cc __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x19b7dc0e0 _pthread_cond_wait + 984
+2   libc++.1.dylib                	       0x19b70c268 std::__1::condition_variable::wait(std::__1::unique_lock<std::__1::mutex>&) + 32
+3   libscf.dylib                  	       0x17ba2bad8 AsyncQueue::Context::doWork() + 1560
+4   libscf.dylib                  	       0x17ba2e208 0x178000000 + 61006344
+5   libsystem_pthread.dylib       	       0x19b7dbc0c _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x19b7d6b80 thread_start + 8
+
+Thread 14:: TimerManager
+0   libsystem_kernel.dylib        	       0x19b79d3cc __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x19b7dc0e0 _pthread_cond_wait + 984
+2   libc++.1.dylib                	       0x19b70c300 std::__1::condition_variable::__do_timed_wait(std::__1::unique_lock<std::__1::mutex>&, std::__1::chrono::time_point<std::__1::chrono::system_clock, std::__1::chrono::duration<long long, std::__1::ratio<1l, 1000000000l>>>) + 104
+3   libscf.dylib                  	       0x17ba17da8 TimerManager::Context::threadStart() + 740
+4   libscf.dylib                  	       0x17ba19bf8 0x178000000 + 60922872
+5   libsystem_pthread.dylib       	       0x19b7dbc0c _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x19b7d6b80 thread_start + 8
+
+Thread 15:: AsyncQueue::sharedDb
+0   libsystem_kernel.dylib        	       0x19b79d3cc __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x19b7dc0e0 _pthread_cond_wait + 984
+2   libc++.1.dylib                	       0x19b70c268 std::__1::condition_variable::wait(std::__1::unique_lock<std::__1::mutex>&) + 32
+3   libscf.dylib                  	       0x17ba2bad8 AsyncQueue::Context::doWork() + 1560
+4   libscf.dylib                  	       0x17ba2e208 0x178000000 + 61006344
+5   libsystem_pthread.dylib       	       0x19b7dbc0c _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x19b7d6b80 thread_start + 8
+
+Thread 16:: AsyncQueue::common-task-queue
+0   libsystem_kernel.dylib        	       0x19b79d3cc __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x19b7dc0e0 _pthread_cond_wait + 984
+2   libc++.1.dylib                	       0x19b70c268 std::__1::condition_variable::wait(std::__1::unique_lock<std::__1::mutex>&) + 32
+3   libscf.dylib                  	       0x17ba2bad8 AsyncQueue::Context::doWork() + 1560
+4   libscf.dylib                  	       0x17ba2e208 0x178000000 + 61006344
+5   libsystem_pthread.dylib       	       0x19b7dbc0c _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x19b7d6b80 thread_start + 8
+
+Thread 17:
+0   libsystem_kernel.dylib        	       0x19b79d1c8 __semwait_signal + 8
+1   libsystem_c.dylib             	       0x19b6796f4 nanosleep + 220
+2   libc++.1.dylib                	       0x19b70df38 std::__1::this_thread::sleep_for(std::__1::chrono::duration<long long, std::__1::ratio<1l, 1000000000l>> const&) + 84
+3   libscf.dylib                  	       0x17841eabc 0x178000000 + 4319932
+4   libscf.dylib                  	       0x17b6b96d0 spark::TaskMonitor::statusLoop(std::__1::weak_ptr<spark::TaskMonitor>) + 680
+5   libscf.dylib                  	       0x17b6b9868 0x178000000 + 57383016
+6   libsystem_pthread.dylib       	       0x19b7dbc0c _pthread_start + 136
+7   libsystem_pthread.dylib       	       0x19b7d6b80 thread_start + 8
+
+Thread 18:: AsyncQueue::preLoginDb
+0   libsystem_kernel.dylib        	       0x19b79d3cc __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x19b7dc0e0 _pthread_cond_wait + 984
+2   libc++.1.dylib                	       0x19b70c268 std::__1::condition_variable::wait(std::__1::unique_lock<std::__1::mutex>&) + 32
+3   libscf.dylib                  	       0x17ba2bad8 AsyncQueue::Context::doWork() + 1560
+4   libscf.dylib                  	       0x17ba2e208 0x178000000 + 61006344
+5   libsystem_pthread.dylib       	       0x19b7dbc0c _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x19b7d6b80 thread_start + 8
+
+Thread 19:: Sentry::monitorCachedData
+0   libsystem_kernel.dylib        	       0x19b79d1c8 __semwait_signal + 8
+1   libsystem_c.dylib             	       0x19b6796f4 nanosleep + 220
+2   libsystem_c.dylib             	       0x19b6826d0 sleep + 52
+3   Sentry                        	       0x10b84b364 monitorCachedData + 676 (SentryCrashCachedData.c:147)
+4   libsystem_pthread.dylib       	       0x19b7dbc0c _pthread_start + 136
+5   libsystem_pthread.dylib       	       0x19b7d6b80 thread_start + 8
+
+Thread 20:: SentryCrash Exception Handler (Secondary)
+0   libsystem_kernel.dylib        	       0x19b799c34 mach_msg2_trap + 8
+1   libsystem_kernel.dylib        	       0x19b7ac3a0 mach_msg2_internal + 76
+2   libsystem_kernel.dylib        	       0x19b7c9884 thread_suspend + 108
+3   Sentry                        	       0x10b838630 handleExceptions + 120 (SentryCrashMonitor_MachException.c:305)
+4   libsystem_pthread.dylib       	       0x19b7dbc0c _pthread_start + 136
+5   libsystem_pthread.dylib       	       0x19b7d6b80 thread_start + 8
+
+Thread 21:: SentryCrash Exception Handler (Primary)
+0   libsystem_kernel.dylib        	       0x19b799c34 mach_msg2_trap + 8
+1   libsystem_kernel.dylib        	       0x19b7ac3a0 mach_msg2_internal + 76
+2   libsystem_kernel.dylib        	       0x19b7a2764 mach_msg_overwrite + 484
+3   libsystem_kernel.dylib        	       0x19b799fa8 mach_msg + 24
+4   Sentry                        	       0x10b83865c handleExceptions + 164 (SentryCrashMonitor_MachException.c:313)
+5   libsystem_pthread.dylib       	       0x19b7dbc0c _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x19b7d6b80 thread_start + 8
+
+Thread 22:: com.apple.NSEventThread
+0   libsystem_kernel.dylib        	       0x19b799c34 mach_msg2_trap + 8
+1   libsystem_kernel.dylib        	       0x19b7ac3a0 mach_msg2_internal + 76
+2   libsystem_kernel.dylib        	       0x19b7a2764 mach_msg_overwrite + 484
+3   libsystem_kernel.dylib        	       0x19b799fa8 mach_msg + 24
+4   SkyLight                      	       0x1a1820854 CGSSnarfAndDispatchDatagrams + 160
+5   SkyLight                      	       0x1a1c2b59c SLSGetNextEventRecordInternal + 296
+6   SkyLight                      	       0x1a198d790 SLEventCreateNextEvent + 20
+7   HIToolbox                     	       0x1a7361f48 PullEventsFromWindowServerOnConnection(unsigned int, unsigned char, __CFMachPortBoost*) + 64
+8   HIToolbox                     	       0x1a735f294 MessageHandler(__CFMachPort*, void*, long, void*) + 60
+9   CoreFoundation                	       0x19b8f30c0 __CFMachPortPerform + 240
+10  CoreFoundation                	       0x19b8c7090 __CFRUNLOOP_IS_CALLING_OUT_TO_A_SOURCE1_PERFORM_FUNCTION__ + 60
+11  CoreFoundation                	       0x19b8c6fb8 __CFRunLoopDoSource1 + 508
+12  CoreFoundation                	       0x19b8c59b8 __CFRunLoopRun + 2200
+13  CoreFoundation                	       0x19b8c4a98 CFRunLoopRunSpecific + 572
+14  AppKit                        	       0x19f90d78c _NSEventThread + 140
+15  libsystem_pthread.dylib       	       0x19b7dbc0c _pthread_start + 136
+16  libsystem_pthread.dylib       	       0x19b7d6b80 thread_start + 8
+
+Thread 23:: AsyncQueue::spark_roaming_store.db
+0   libsystem_kernel.dylib        	       0x19b79d3cc __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x19b7dc0e0 _pthread_cond_wait + 984
+2   libc++.1.dylib                	       0x19b70c268 std::__1::condition_variable::wait(std::__1::unique_lock<std::__1::mutex>&) + 32
+3   libscf.dylib                  	       0x17ba2bad8 AsyncQueue::Context::doWork() + 1560
+4   libscf.dylib                  	       0x17ba2e208 0x178000000 + 61006344
+5   libsystem_pthread.dylib       	       0x19b7dbc0c _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x19b7d6b80 thread_start + 8
+
+Thread 24:: AsyncQueue::userDb
+0   libsystem_kernel.dylib        	       0x19b79d3cc __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x19b7dc0e0 _pthread_cond_wait + 984
+2   libc++.1.dylib                	       0x19b70c268 std::__1::condition_variable::wait(std::__1::unique_lock<std::__1::mutex>&) + 32
+3   libscf.dylib                  	       0x17ba2bad8 AsyncQueue::Context::doWork() + 1560
+4   libscf.dylib                  	       0x17ba2e208 0x178000000 + 61006344
+5   libsystem_pthread.dylib       	       0x19b7dbc0c _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x19b7d6b80 thread_start + 8
+
+Thread 25:: AsyncQueue::common-task-queue
+0   libsystem_kernel.dylib        	       0x19b79d3cc __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x19b7dc0e0 _pthread_cond_wait + 984
+2   libc++.1.dylib                	       0x19b70c268 std::__1::condition_variable::wait(std::__1::unique_lock<std::__1::mutex>&) + 32
+3   libscf.dylib                  	       0x17ba2bad8 AsyncQueue::Context::doWork() + 1560
+4   libscf.dylib                  	       0x17ba2e208 0x178000000 + 61006344
+5   libsystem_pthread.dylib       	       0x19b7dbc0c _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x19b7d6b80 thread_start + 8
+
+Thread 26:: AsyncQueue::ExParticipantUpdateQueue
+0   libsystem_kernel.dylib        	       0x19b79d3cc __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x19b7dc0e0 _pthread_cond_wait + 984
+2   libc++.1.dylib                	       0x19b70c268 std::__1::condition_variable::wait(std::__1::unique_lock<std::__1::mutex>&) + 32
+3   libscf.dylib                  	       0x17ba2bad8 AsyncQueue::Context::doWork() + 1560
+4   libscf.dylib                  	       0x17ba2e208 0x178000000 + 61006344
+5   libsystem_pthread.dylib       	       0x19b7dbc0c _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x19b7d6b80 thread_start + 8
+
+Thread 27:: AsyncQueue::LocusSequenceManager
+0   libsystem_kernel.dylib        	       0x19b79d3cc __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x19b7dc0e0 _pthread_cond_wait + 984
+2   libc++.1.dylib                	       0x19b70c268 std::__1::condition_variable::wait(std::__1::unique_lock<std::__1::mutex>&) + 32
+3   libscf.dylib                  	       0x17ba2bad8 AsyncQueue::Context::doWork() + 1560
+4   libscf.dylib                  	       0x17ba2e208 0x178000000 + 61006344
+5   libsystem_pthread.dylib       	       0x19b7dbc0c _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x19b7d6b80 thread_start + 8
+
+Thread 28:: AsyncQueue::OfficeAdapter
+0   libsystem_kernel.dylib        	       0x19b79d3cc __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x19b7dc0e0 _pthread_cond_wait + 984
+2   libc++.1.dylib                	       0x19b70c268 std::__1::condition_variable::wait(std::__1::unique_lock<std::__1::mutex>&) + 32
+3   libscf.dylib                  	       0x17ba2bad8 AsyncQueue::Context::doWork() + 1560
+4   libscf.dylib                  	       0x17ba2e208 0x178000000 + 61006344
+5   libsystem_pthread.dylib       	       0x19b7dbc0c _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x19b7d6b80 thread_start + 8
+
+Thread 29:: AsyncQueue::MediaDispatcher
+0   libsystem_kernel.dylib        	       0x19b79d3cc __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x19b7dc0e0 _pthread_cond_wait + 984
+2   libc++.1.dylib                	       0x19b70c268 std::__1::condition_variable::wait(std::__1::unique_lock<std::__1::mutex>&) + 32
+3   libscf.dylib                  	       0x17ba2bad8 AsyncQueue::Context::doWork() + 1560
+4   libscf.dylib                  	       0x17ba2e208 0x178000000 + 61006344
+5   libsystem_pthread.dylib       	       0x19b7dbc0c _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x19b7d6b80 thread_start + 8
+
+Thread 30:: mdi_41908_1_evt::listener
+0   libsystem_kernel.dylib        	       0x19b7a8b44 sem_wait + 8
+1   libscf.dylib                  	       0x1783d9b44 0x178000000 + 4037444
+2   libscf.dylib                  	       0x17ae1156c 0x178000000 + 48305516
+3   libscf.dylib                  	       0x17ae15abc 0x178000000 + 48323260
+4   libscf.dylib                  	       0x17ae15724 0x178000000 + 48322340
+5   libsystem_pthread.dylib       	       0x19b7dbc0c _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x19b7d6b80 thread_start + 8
+
+Thread 31:: mdi_41908_1_frm_uhd::listener
+0   libsystem_kernel.dylib        	       0x19b7a8b44 sem_wait + 8
+1   libscf.dylib                  	       0x1783d9b44 0x178000000 + 4037444
+2   libscf.dylib                  	       0x17ae27f20 0x178000000 + 48398112
+3   libscf.dylib                  	       0x17ae2bf4c 0x178000000 + 48414540
+4   libscf.dylib                  	       0x17ae2bbb4 0x178000000 + 48413620
+5   libsystem_pthread.dylib       	       0x19b7dbc0c _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x19b7d6b80 thread_start + 8
+
+Thread 32:: mdi_41908_1_frm_fhd::listener
+0   libsystem_kernel.dylib        	       0x19b7a8b44 sem_wait + 8
+1   libscf.dylib                  	       0x1783d9b44 0x178000000 + 4037444
+2   libscf.dylib                  	       0x17ae2f91c 0x178000000 + 48429340
+3   libscf.dylib                  	       0x17ae33948 0x178000000 + 48445768
+4   libscf.dylib                  	       0x17ae335b0 0x178000000 + 48444848
+5   libsystem_pthread.dylib       	       0x19b7dbc0c _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x19b7d6b80 thread_start + 8
+
+Thread 33:: mdi_41908_1_frm_hd::listener
+0   libsystem_kernel.dylib        	       0x19b7a8b44 sem_wait + 8
+1   libscf.dylib                  	       0x1783d9b44 0x178000000 + 4037444
+2   libscf.dylib                  	       0x17ae3730c 0x178000000 + 48460556
+3   libscf.dylib                  	       0x17ae3b338 0x178000000 + 48476984
+4   libscf.dylib                  	       0x17ae3afa0 0x178000000 + 48476064
+5   libsystem_pthread.dylib       	       0x19b7dbc0c _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x19b7d6b80 thread_start + 8
+
+Thread 34:: mdi_41908_1_frm_sd::listener
+0   libsystem_kernel.dylib        	       0x19b7a8b44 sem_wait + 8
+1   libscf.dylib                  	       0x1783d9b44 0x178000000 + 4037444
+2   libscf.dylib                  	       0x17ae3ecfc 0x178000000 + 48491772
+3   libscf.dylib                  	       0x17ae42d28 0x178000000 + 48508200
+4   libscf.dylib                  	       0x17ae42990 0x178000000 + 48507280
+5   libsystem_pthread.dylib       	       0x19b7dbc0c _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x19b7d6b80 thread_start + 8
+
+Thread 35:: mdi_41908_1_frm_ld::listener
+0   libsystem_kernel.dylib        	       0x19b7a8b44 sem_wait + 8
+1   libscf.dylib                  	       0x1783d9b44 0x178000000 + 4037444
+2   libscf.dylib                  	       0x17ae466ec 0x178000000 + 48522988
+3   libscf.dylib                  	       0x17ae4a718 0x178000000 + 48539416
+4   libscf.dylib                  	       0x17ae4a380 0x178000000 + 48538496
+5   libsystem_pthread.dylib       	       0x19b7dbc0c _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x19b7d6b80 thread_start + 8
+
+Thread 36:: AsyncQueue::DeviceManagerDispatcher
+0   libsystem_kernel.dylib        	       0x19b79d3cc __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x19b7dc0e0 _pthread_cond_wait + 984
+2   libc++.1.dylib                	       0x19b70c268 std::__1::condition_variable::wait(std::__1::unique_lock<std::__1::mutex>&) + 32
+3   libscf.dylib                  	       0x17ba2bad8 AsyncQueue::Context::doWork() + 1560
+4   libscf.dylib                  	       0x17ba2e208 0x178000000 + 61006344
+5   libsystem_pthread.dylib       	       0x19b7dbc0c _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x19b7d6b80 thread_start + 8
+
+Thread 37:: ipc_1.writer
+0   libsystem_kernel.dylib        	       0x19b7a8b44 sem_wait + 8
+1   CiscoSparkPlugin              	       0x30d8950bc mseutil::Ipc::doWrite() + 856
+2   CiscoSparkPlugin              	       0x30d89e9d0 0x308b58000 + 81029584
+3   libsystem_pthread.dylib       	       0x19b7dbc0c _pthread_start + 136
+4   libsystem_pthread.dylib       	       0x19b7d6b80 thread_start + 8
+
+Thread 38:: ipc_1.channel.listener
+0   libsystem_kernel.dylib        	       0x19b7a8b44 sem_wait + 8
+1   CiscoSparkPlugin              	       0x30d89f2d8 0x308b58000 + 81031896
+2   CiscoSparkPlugin              	       0x30d89ef18 0x308b58000 + 81030936
+3   CiscoSparkPlugin              	       0x30d89ebc4 0x308b58000 + 81030084
+4   libsystem_pthread.dylib       	       0x19b7dbc0c _pthread_start + 136
+5   libsystem_pthread.dylib       	       0x19b7d6b80 thread_start + 8
+
+Thread 39:: NetEventRepObs
+0   libsystem_kernel.dylib        	       0x19b79d3cc __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x19b7dc10c _pthread_cond_wait + 1028
+2   libcsfnetutils.dylib          	       0x16ef2e944 csf::Condition::timedWait(csf::Mutex&, long) + 84 (Condition.cpp:110)
+3   libcsfnetutils.dylib          	       0x16ef2b628 csf::PoolWorker::run() + 148 (ThreadPool.cpp:151)
+4   libcsfnetutils.dylib          	       0x16ef2b8d8 csf::poolThreadMain(void*) + 20 (ThreadPool.cpp:209)
+5   libsystem_pthread.dylib       	       0x19b7dbc0c _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x19b7d6b80 thread_start + 8
+
+Thread 40:: CommonTaskDisp
+0   libsystem_kernel.dylib        	       0x19b79d3cc __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x19b7dc10c _pthread_cond_wait + 1028
+2   libServicesFramework.dylib    	       0x12acd0c5c csf::Condition::timedWait(csf::Mutex&, long) + 84 (Condition.cpp:110)
+3   libServicesFramework.dylib    	       0x12acce8c8 csf::PoolWorker::run() + 148 (ThreadPool.cpp:151)
+4   libServicesFramework.dylib    	       0x12acceafc csf::poolThreadMain(void*) + 20 (ThreadPool.cpp:209)
+5   libsystem_pthread.dylib       	       0x19b7dbc0c _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x19b7d6b80 thread_start + 8
+
+Thread 41:: CommonTaskDisp
+0   libsystem_kernel.dylib        	       0x19b79d3cc __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x19b7dc10c _pthread_cond_wait + 1028
+2   libServicesFramework.dylib    	       0x12acd0c5c csf::Condition::timedWait(csf::Mutex&, long) + 84 (Condition.cpp:110)
+3   libServicesFramework.dylib    	       0x12acce8c8 csf::PoolWorker::run() + 148 (ThreadPool.cpp:151)
+4   libServicesFramework.dylib    	       0x12acceafc csf::poolThreadMain(void*) + 20 (ThreadPool.cpp:209)
+5   libsystem_pthread.dylib       	       0x19b7dbc0c _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x19b7d6b80 thread_start + 8
+
+Thread 42:: CommonTaskDisp
+0   libsystem_kernel.dylib        	       0x19b79d3cc __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x19b7dc10c _pthread_cond_wait + 1028
+2   libServicesFramework.dylib    	       0x12acd0c5c csf::Condition::timedWait(csf::Mutex&, long) + 84 (Condition.cpp:110)
+3   libServicesFramework.dylib    	       0x12acce8c8 csf::PoolWorker::run() + 148 (ThreadPool.cpp:151)
+4   libServicesFramework.dylib    	       0x12acceafc csf::poolThreadMain(void*) + 20 (ThreadPool.cpp:209)
+5   libsystem_pthread.dylib       	       0x19b7dbc0c _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x19b7d6b80 thread_start + 8
+
+Thread 43:: CommonTaskDisp
+0   libsystem_kernel.dylib        	       0x19b79d3cc __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x19b7dc10c _pthread_cond_wait + 1028
+2   libServicesFramework.dylib    	       0x12acd0c5c csf::Condition::timedWait(csf::Mutex&, long) + 84 (Condition.cpp:110)
+3   libServicesFramework.dylib    	       0x12acce8c8 csf::PoolWorker::run() + 148 (ThreadPool.cpp:151)
+4   libServicesFramework.dylib    	       0x12acceafc csf::poolThreadMain(void*) + 20 (ThreadPool.cpp:209)
+5   libsystem_pthread.dylib       	       0x19b7dbc0c _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x19b7d6b80 thread_start + 8
+
+Thread 44:: ServicesDispat
+0   libsystem_kernel.dylib        	       0x19b79d3cc __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x19b7dc10c _pthread_cond_wait + 1028
+2   libServicesFramework.dylib    	       0x12acd0c5c csf::Condition::timedWait(csf::Mutex&, long) + 84 (Condition.cpp:110)
+3   libServicesFramework.dylib    	       0x12acce1c4 csf::Event::timedWait(long) + 72 (Event.cpp:101)
+4   libServicesFramework.dylib    	       0x12acaefe8 CSFUnified::ServiceFactoryImpl::waitForDispatcherTask(long) + 60 (ServiceFactoryImpl.cpp:48)
+5   libSystemService.dylib        	       0x16f3ab818 0x16f178000 + 2308120
+6   libSystemService.dylib        	       0x16f3ab788 0x16f178000 + 2307976
+7   libSystemService.dylib        	       0x16f486510 0x16f178000 + 3204368
+8   libsystem_pthread.dylib       	       0x19b7dbc0c _pthread_start + 136
+9   libsystem_pthread.dylib       	       0x19b7d6b80 thread_start + 8
+
+Thread 45:: FeatureSets
+0   libsystem_kernel.dylib        	       0x19b79d3cc __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x19b7dc10c _pthread_cond_wait + 1028
+2   libServicesFramework.dylib    	       0x12acd0c5c csf::Condition::timedWait(csf::Mutex&, long) + 84 (Condition.cpp:110)
+3   libServicesFramework.dylib    	       0x12acce8c8 csf::PoolWorker::run() + 148 (ThreadPool.cpp:151)
+4   libServicesFramework.dylib    	       0x12acceafc csf::poolThreadMain(void*) + 20 (ThreadPool.cpp:209)
+5   libsystem_pthread.dylib       	       0x19b7dbc0c _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x19b7d6b80 thread_start + 8
+
+Thread 46:: JCFThreadUtils
+0   libsystem_kernel.dylib        	       0x19b79d3cc __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x19b7dc10c _pthread_cond_wait + 1028
+2   libJCFCoreUtils.dylib         	       0x12ac773c4 csf::Condition::timedWait(csf::Mutex&, long) + 84 (Condition.cpp:110)
+3   libJCFCoreUtils.dylib         	       0x12ac74788 csf::PoolWorker::run() + 148 (ThreadPool.cpp:151)
+4   libJCFCoreUtils.dylib         	       0x12ac74a38 csf::poolThreadMain(void*) + 20 (ThreadPool.cpp:209)
+5   libsystem_pthread.dylib       	       0x19b7dbc0c _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x19b7d6b80 thread_start + 8
+
+Thread 47:: JCFThreadUtils
+0   libsystem_kernel.dylib        	       0x19b79d3cc __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x19b7dc10c _pthread_cond_wait + 1028
+2   libJCFCoreUtils.dylib         	       0x12ac773c4 csf::Condition::timedWait(csf::Mutex&, long) + 84 (Condition.cpp:110)
+3   libJCFCoreUtils.dylib         	       0x12ac74788 csf::PoolWorker::run() + 148 (ThreadPool.cpp:151)
+4   libJCFCoreUtils.dylib         	       0x12ac74a38 csf::poolThreadMain(void*) + 20 (ThreadPool.cpp:209)
+5   libsystem_pthread.dylib       	       0x19b7dbc0c _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x19b7d6b80 thread_start + 8
+
+Thread 48:: JCFThreadUtils
+0   libsystem_kernel.dylib        	       0x19b79d3cc __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x19b7dc10c _pthread_cond_wait + 1028
+2   libJCFCoreUtils.dylib         	       0x12ac773c4 csf::Condition::timedWait(csf::Mutex&, long) + 84 (Condition.cpp:110)
+3   libJCFCoreUtils.dylib         	       0x12ac74788 csf::PoolWorker::run() + 148 (ThreadPool.cpp:151)
+4   libJCFCoreUtils.dylib         	       0x12ac74a38 csf::poolThreadMain(void*) + 20 (ThreadPool.cpp:209)
+5   libsystem_pthread.dylib       	       0x19b7dbc0c _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x19b7d6b80 thread_start + 8
+
+Thread 49:: JCFThreadUtils
+0   libsystem_kernel.dylib        	       0x19b79d3cc __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x19b7dc10c _pthread_cond_wait + 1028
+2   libJCFCoreUtils.dylib         	       0x12ac773c4 csf::Condition::timedWait(csf::Mutex&, long) + 84 (Condition.cpp:110)
+3   libJCFCoreUtils.dylib         	       0x12ac74788 csf::PoolWorker::run() + 148 (ThreadPool.cpp:151)
+4   libJCFCoreUtils.dylib         	       0x12ac74a38 csf::poolThreadMain(void*) + 20 (ThreadPool.cpp:209)
+5   libsystem_pthread.dylib       	       0x19b7dbc0c _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x19b7d6b80 thread_start + 8
+
+Thread 50:: JCFThreadUtils
+0   libsystem_kernel.dylib        	       0x19b79d3cc __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x19b7dc10c _pthread_cond_wait + 1028
+2   libJCFCoreUtils.dylib         	       0x12ac773c4 csf::Condition::timedWait(csf::Mutex&, long) + 84 (Condition.cpp:110)
+3   libJCFCoreUtils.dylib         	       0x12ac74788 csf::PoolWorker::run() + 148 (ThreadPool.cpp:151)
+4   libJCFCoreUtils.dylib         	       0x12ac74a38 csf::poolThreadMain(void*) + 20 (ThreadPool.cpp:209)
+5   libsystem_pthread.dylib       	       0x19b7dbc0c _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x19b7d6b80 thread_start + 8
+
+Thread 51:: JCFThreadUtils
+0   libsystem_kernel.dylib        	       0x19b79d3cc __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x19b7dc10c _pthread_cond_wait + 1028
+2   libJCFCoreUtils.dylib         	       0x12ac773c4 csf::Condition::timedWait(csf::Mutex&, long) + 84 (Condition.cpp:110)
+3   libJCFCoreUtils.dylib         	       0x12ac74788 csf::PoolWorker::run() + 148 (ThreadPool.cpp:151)
+4   libJCFCoreUtils.dylib         	       0x12ac74a38 csf::poolThreadMain(void*) + 20 (ThreadPool.cpp:209)
+5   libsystem_pthread.dylib       	       0x19b7dbc0c _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x19b7d6b80 thread_start + 8
+
+Thread 52:: JCFThreadUtils
+0   libsystem_kernel.dylib        	       0x19b79d3cc __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x19b7dc10c _pthread_cond_wait + 1028
+2   libJCFCoreUtils.dylib         	       0x12ac773c4 csf::Condition::timedWait(csf::Mutex&, long) + 84 (Condition.cpp:110)
+3   libJCFCoreUtils.dylib         	       0x12ac74788 csf::PoolWorker::run() + 148 (ThreadPool.cpp:151)
+4   libJCFCoreUtils.dylib         	       0x12ac74a38 csf::poolThreadMain(void*) + 20 (ThreadPool.cpp:209)
+5   libsystem_pthread.dylib       	       0x19b7dbc0c _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x19b7d6b80 thread_start + 8
+
+Thread 53:: JCFThreadUtils
+0   libsystem_kernel.dylib        	       0x19b79d3cc __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x19b7dc10c _pthread_cond_wait + 1028
+2   libJCFCoreUtils.dylib         	       0x12ac773c4 csf::Condition::timedWait(csf::Mutex&, long) + 84 (Condition.cpp:110)
+3   libJCFCoreUtils.dylib         	       0x12ac74788 csf::PoolWorker::run() + 148 (ThreadPool.cpp:151)
+4   libJCFCoreUtils.dylib         	       0x12ac74a38 csf::poolThreadMain(void*) + 20 (ThreadPool.cpp:209)
+5   libsystem_pthread.dylib       	       0x19b7dbc0c _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x19b7d6b80 thread_start + 8
+
+Thread 54:: DiscoveryHandl
+0   libsystem_kernel.dylib        	       0x19b7a2498 poll + 8
+1   libcurl.dylib                 	       0x109dc7b6c Curl_poll + 196
+2   libcurl.dylib                 	       0x109dbf73c multi_wait + 816
+3   libcurl.dylib                 	       0x109da08b0 curl_easy_perform + 472
+4   libcsfnetutils.dylib          	       0x16ee8cb78 csf::http::performCurlRequest(std::__1::shared_ptr<csf::http::HttpRequestData>) + 288 (BasicHttpClientImpl.cpp:745) [inlined]
+5   libcsfnetutils.dylib          	       0x16ee8cb78 csf::http::performRequest(std::__1::shared_ptr<csf::http::HttpClientData>, std::__1::shared_ptr<csf::http::HttpRequestData>, std::__1::function<void (csf::http::HttpClientResult::Result, bool)>) + 668 (BasicHttpClientImpl.cpp:651)
+6   libcsfnetutils.dylib          	       0x16ee88270 csf::http::executeImpl(std::__1::shared_ptr<csf::http::HttpClientData>, std::__1::shared_ptr<csf::http::HttpRequestData>) + 988 (BasicHttpClientImpl.cpp:551)
+7   libcsfnetutils.dylib          	       0x16ee86b8c csf::http::BasicHttpClientImpl::execute(std::__1::shared_ptr<csf::http::Request>, csf::http::Response&) + 1768 (BasicHttpClientImpl.cpp:385)
+8   libSystemService.dylib        	       0x16f476e9c 0x16f178000 + 3141276
+9   libSystemService.dylib        	       0x16f474a24 0x16f178000 + 3131940
+10  libSystemService.dylib        	       0x16f3e51f4 0x16f178000 + 2544116
+11  libSystemService.dylib        	       0x16f3e4398 0x16f178000 + 2540440
+12  libSystemService.dylib        	       0x16f3e3428 0x16f178000 + 2536488
+13  libSystemService.dylib        	       0x16f3e2f4c 0x16f178000 + 2535244
+14  libSystemService.dylib        	       0x16f3d220c 0x16f178000 + 2466316
+15  libSystemService.dylib        	       0x16f455fb0 0x16f178000 + 3006384
+16  libSystemService.dylib        	       0x16f4558ac 0x16f178000 + 3004588
+17  libSystemService.dylib        	       0x16f45c610 0x16f178000 + 3032592
+18  libSystemService.dylib        	       0x16f445c3c 0x16f178000 + 2939964
+19  libSystemService.dylib        	       0x16f44441c 0x16f178000 + 2933788
+20  libSystemService.dylib        	       0x16f2b3b3c 0x16f178000 + 1293116
+21  libSystemService.dylib        	       0x16f2b5998 0x16f178000 + 1300888
+22  libSystemService.dylib        	       0x16f1c7308 0x16f178000 + 324360
+23  libSystemService.dylib        	       0x16f1d9dc4 0x16f178000 + 400836
+24  libJCFCoreUtils.dylib         	       0x12ac74888 csf::PoolWorker::run() + 404 (ThreadPool.cpp:175)
+25  libJCFCoreUtils.dylib         	       0x12ac74a38 csf::poolThreadMain(void*) + 20 (ThreadPool.cpp:209)
+26  libsystem_pthread.dylib       	       0x19b7dbc0c _pthread_start + 136
+27  libsystem_pthread.dylib       	       0x19b7d6b80 thread_start + 8
+
+Thread 55:: JCFThreadUtils
+0   libsystem_kernel.dylib        	       0x19b79d3cc __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x19b7dc10c _pthread_cond_wait + 1028
+2   libJCFCoreUtils.dylib         	       0x12ac773c4 csf::Condition::timedWait(csf::Mutex&, long) + 84 (Condition.cpp:110)
+3   libJCFCoreUtils.dylib         	       0x12ac74788 csf::PoolWorker::run() + 148 (ThreadPool.cpp:151)
+4   libJCFCoreUtils.dylib         	       0x12ac74a38 csf::poolThreadMain(void*) + 20 (ThreadPool.cpp:209)
+5   libsystem_pthread.dylib       	       0x19b7dbc0c _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x19b7d6b80 thread_start + 8
+
+Thread 56:: csf-diagnostic
+0   libsystem_kernel.dylib        	       0x19b79d3cc __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x19b7dc10c _pthread_cond_wait + 1028
+2   libcsfdiagnostics.dylib       	       0x129ac59e0 csf::Condition::timedWait(csf::Mutex&, long) + 84 (Condition.cpp:110)
+3   libcsfdiagnostics.dylib       	       0x129ac4058 csf::PoolWorker::run() + 148 (ThreadPool.cpp:151)
+4   libcsfdiagnostics.dylib       	       0x129ac4308 csf::poolThreadMain(void*) + 20 (ThreadPool.cpp:209)
+5   libsystem_pthread.dylib       	       0x19b7dbc0c _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x19b7d6b80 thread_start + 8
+
+Thread 57:: EdgeVisiChange
+0   libsystem_kernel.dylib        	       0x19b79d3cc __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x19b7dc10c _pthread_cond_wait + 1028
+2   libcsfnetutils.dylib          	       0x16ef2e944 csf::Condition::timedWait(csf::Mutex&, long) + 84 (Condition.cpp:110)
+3   libcsfnetutils.dylib          	       0x16ef2b628 csf::PoolWorker::run() + 148 (ThreadPool.cpp:151)
+4   libcsfnetutils.dylib          	       0x16ef2b8d8 csf::poolThreadMain(void*) + 20 (ThreadPool.cpp:209)
+5   libsystem_pthread.dylib       	       0x19b7dbc0c _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x19b7d6b80 thread_start + 8
+
+Thread 58:: EdgeNetSense
+0   libsystem_kernel.dylib        	       0x19b79d3cc __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x19b7dc10c _pthread_cond_wait + 1028
+2   libcsfnetutils.dylib          	       0x16ef2e944 csf::Condition::timedWait(csf::Mutex&, long) + 84 (Condition.cpp:110)
+3   libcsfnetutils.dylib          	       0x16ef2b628 csf::PoolWorker::run() + 148 (ThreadPool.cpp:151)
+4   libcsfnetutils.dylib          	       0x16ef2b8d8 csf::poolThreadMain(void*) + 20 (ThreadPool.cpp:209)
+5   libsystem_pthread.dylib       	       0x19b7dbc0c _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x19b7d6b80 thread_start + 8
+
+Thread 59:: Edge Tran Ctrl
+0   libsystem_kernel.dylib        	       0x19b79d3cc __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x19b7dc0e0 _pthread_cond_wait + 984
+2   libcsfnetutils.dylib          	       0x16eed7c08 csf::common::Reactor::runEventLoop() + 560 (Reactor.cpp:196)
+3   libcsfnetutils.dylib          	       0x16ef2eba8 csf::threadMain(void*) + 368 (Thread.cpp:46)
+4   libsystem_pthread.dylib       	       0x19b7dbc0c _pthread_start + 136
+5   libsystem_pthread.dylib       	       0x19b7d6b80 thread_start + 8
+
+Thread 60:: AsyncQueue::UCVoicemailContactManager
+0   libsystem_kernel.dylib        	       0x19b79d3cc __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x19b7dc0e0 _pthread_cond_wait + 984
+2   libc++.1.dylib                	       0x19b70c268 std::__1::condition_variable::wait(std::__1::unique_lock<std::__1::mutex>&) + 32
+3   libscf.dylib                  	       0x17ba2bad8 AsyncQueue::Context::doWork() + 1560
+4   libscf.dylib                  	       0x17ba2e208 0x178000000 + 61006344
+5   libsystem_pthread.dylib       	       0x19b7dbc0c _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x19b7d6b80 thread_start + 8
+
+Thread 61:
+0   libsystem_pthread.dylib       	       0x19b7d6b6c start_wqthread + 0
+
+Thread 62:
+0   libsystem_pthread.dylib       	       0x19b7d6b6c start_wqthread + 0
+
+Thread 63:: Edge Infr Ctrl
+0   libsystem_kernel.dylib        	       0x19b79d3cc __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x19b7dc0e0 _pthread_cond_wait + 984
+2   libcsfnetutils.dylib          	       0x16eed7c08 csf::common::Reactor::runEventLoop() + 560 (Reactor.cpp:196)
+3   libcsfnetutils.dylib          	       0x16ef2eba8 csf::threadMain(void*) + 368 (Thread.cpp:46)
+4   libsystem_pthread.dylib       	       0x19b7dbc0c _pthread_start + 136
+5   libsystem_pthread.dylib       	       0x19b7d6b80 thread_start + 8
+
+Thread 64:: com.apple.NSURLConnectionLoader
+0   libsystem_kernel.dylib        	       0x19b799c34 mach_msg2_trap + 8
+1   libsystem_kernel.dylib        	       0x19b7ac3a0 mach_msg2_internal + 76
+2   libsystem_kernel.dylib        	       0x19b7a2764 mach_msg_overwrite + 484
+3   libsystem_kernel.dylib        	       0x19b799fa8 mach_msg + 24
+4   CoreFoundation                	       0x19b8c6cbc __CFRunLoopServiceMachPort + 160
+5   CoreFoundation                	       0x19b8c55d8 __CFRunLoopRun + 1208
+6   CoreFoundation                	       0x19b8c4a98 CFRunLoopRunSpecific + 572
+7   CFNetwork                     	       0x1a15cf2f4 +[__CFN_CoreSchedulingSetRunnable _run:] + 416
+8   Foundation                    	       0x19ce8eba8 __NSThread__start__ + 732
+9   libsystem_pthread.dylib       	       0x19b7dbc0c _pthread_start + 136
+10  libsystem_pthread.dylib       	       0x19b7d6b80 thread_start + 8
+
+Thread 65:: JavaScriptCore libpas scavenger
+0   libsystem_kernel.dylib        	       0x19b79d3cc __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x19b7dc0e0 _pthread_cond_wait + 984
+2   JavaScriptCore                	       0x1bba39960 scavenger_thread_main + 1584
+3   libsystem_pthread.dylib       	       0x19b7dbc0c _pthread_start + 136
+4   libsystem_pthread.dylib       	       0x19b7d6b80 thread_start + 8
+
+
+Thread 0 crashed with ARM Thread State (64-bit):
+    x0: 0x0000000000000000   x1: 0x0000000000000000   x2: 0x0000000000000000   x3: 0x0000000000000000
+    x4: 0x0000000000003803   x5: 0x00000b0300000000   x6: 0x0000000000000002   x7: 0x00000000ffffffff
+    x8: 0x0c0d1531979784f5   x9: 0x0c0d15339ee16435  x10: 0x0000000000000000  x11: 0x0000000000000100
+   x12: 0x0000000000002000  x13: 0x0000000000000006  x14: 0x0060000000000000  x15: 0x0000000000000000
+   x16: 0x0000000000000148  x17: 0x000000020a7c5558  x18: 0x0000000000000000  x19: 0x0000000000000006
+   x20: 0x0000000000000103  x21: 0x000000020976e1a0  x22: 0x0000000000000110  x23: 0x0000000000000000
+   x24: 0x0000000000000000  x25: 0x000000020976e1a0  x26: 0x0000000209771c40  x27: 0xffe00040fffffffc
+   x28: 0x000000020976e1a0   fp: 0x000000016b671d90   lr: 0x000000019b7db88c
+    sp: 0x000000016b671d70   pc: 0x000000019b7a2388 cpsr: 0x40001000
+   far: 0x0000000000000000  esr: 0x56000080  Address size fault
+
+Binary Images:
+       0x10478c000 -        0x104797fff Cisco-Systems.Spark (45.8.0.32653) <0cf04ff7-a8a7-3e9c-8dcf-c7bd3daf34a6> /Applications/Webex.app/Contents/MacOS/Webex
+       0x10897c000 -        0x108987fff cisco.SparkFinder (45.8.0.32653) <8138df8e-689f-3c10-b5e3-8c6c16104a6b> /Applications/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/PlugIns/SparkFinder.bundle/Contents/MacOS/SparkFinder
+       0x108a04000 -        0x108a23fff com.apple.security.csparser (3.0) <3a905673-ada9-3c57-992e-b83f555baa61> /System/Library/Frameworks/Security.framework/Versions/A/PlugIns/csparser.bundle/Contents/MacOS/csparser
+       0x308b58000 -        0x30fa17fff Cisco-Systems.Spark.main (45.10.0.32958) <4f2ec3bb-eaaf-335e-856e-76726099986c> /Users/USER/Library/Application Support/Cisco Spark/*/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/MacOS/CiscoSparkPlugin
+       0x109800000 -        0x109a63fff com.cisco.webex.UIToolkit (45) <d773599f-671f-332c-a8fc-08918973b468> /Users/USER/Library/Application Support/Cisco Spark/*/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/UIToolkit.framework/Versions/A/UIToolkit
+       0x108a40000 -        0x108baffff com.airbnb.Lottie (1.0) <83b8d293-bf99-3fb9-9bb6-d7f1169ad7a6> /Users/USER/Library/Application Support/Cisco Spark/*/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/Lottie.framework/Versions/A/Lottie
+       0x10b800000 -        0x10b907fff io.sentry.Sentry (8.52.1) <47c143ad-9208-3bfa-9a0b-5a43e5fb522e> /Users/USER/Library/Application Support/Cisco Spark/*/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/Sentry.framework/Versions/A/Sentry
+       0x109b84000 -        0x109c9bfff Cisco.appshare (1.0) <e701f66d-e349-3823-850d-bc8573c88059> /Users/USER/Library/Application Support/Cisco Spark/*/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/appshare.framework/Versions/A/appshare
+       0x1089c8000 -        0x1089dffff com.cisco.AudioDriverHost (1.0) <88e5901f-c7c0-3689-841c-83b7d27cfcd1> /Users/USER/Library/Application Support/Cisco Spark/*/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/AudioDriverHost.framework/Versions/A/AudioDriverHost
+       0x108f0c000 -        0x108f9ffff com.cisco.mediaconverter (20500.2014) <425d6c94-e54c-370e-bb80-4a024268ef91> /Users/USER/Library/Application Support/Cisco Spark/*/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/mediaconverter.framework/Versions/A/mediaconverter
+       0x108e50000 -        0x108e5bfff www.cisco.wme.PluginInstall (1.0) <cda15656-06a5-3d51-9a60-62c8deea369c> /Users/USER/Library/Application Support/Cisco Spark/*/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/PluginInstall.framework/Versions/A/PluginInstall
+       0x109ef4000 -        0x10a0bffff com.cisco.wmeclient (20500.2014) <b215814e-9c3f-3592-954b-355eb72fe54f> /Users/USER/Library/Application Support/Cisco Spark/*/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/wmeclient.framework/Versions/A/wmeclient
+       0x10a57c000 -        0x10a95ffff com.cisco.MediaSession (20500.2014) <8cb32173-740e-3808-8924-f23b5e19d951> /Users/USER/Library/Application Support/Cisco Spark/*/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/MediaSession.framework/Versions/A/MediaSession
+       0x108ea0000 -        0x108ebbfff com.cisco.webex.cwsinterface (15.43.0500) <60386ddf-0aa9-38db-8707-b6602aac1e38> /Users/USER/Library/Application Support/Cisco Spark/*/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/cwsinterface.framework/Versions/A/cwsinterface
+       0x10a10c000 -        0x10a213fff libxml2.2.dylib (*) <2b98807d-a508-30ba-a3c7-600ea7a4b49c> /Users/USER/Library/Application Support/Cisco Spark/*/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/libxml2.2.dylib
+       0x109d80000 -        0x109e03fff libcurl.dylib (*) <9c2c2e81-b364-36d2-bda9-245fb4b42682> /Users/USER/Library/Application Support/Cisco Spark/*/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/libcurl.dylib
+       0x108ed4000 -        0x108ef7fff libnghttp2.dylib (*) <b6832d29-855f-3ef7-9ecf-4276c1d2cf5e> /Users/USER/Library/Application Support/Cisco Spark/*/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/libnghttp2.dylib
+       0x109d18000 -        0x109d37fff libcsflogger.dylib (*) <afb3565e-4135-3414-8b99-7d51eb5dd79d> /Users/USER/Library/Application Support/Cisco Spark/*/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/libcsflogger.dylib
+       0x10a9f0000 -        0x10abbbfff libcrypto.dylib (*) <d2f2140b-b85a-3849-b41d-e933107b7337> /Users/USER/Library/Application Support/Cisco Spark/*/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/libcrypto.dylib
+       0x10a248000 -        0x10a29ffff libssl.dylib (*) <7110fcda-51b0-3bd6-939d-ae9a51da2202> /Users/USER/Library/Application Support/Cisco Spark/*/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/libssl.dylib
+       0x178000000 -        0x17cf5bfff libscf.dylib (*) <8a4c0431-88ce-3aa1-967d-b15c4f74bb53> /Users/USER/Library/Application Support/Cisco Spark/*/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/libscf.dylib
+       0x10c4c8000 -        0x10cac3fff libbwc.dylib (*) <a6394627-0100-3cfe-8223-66ba0f8b1cef> /Users/USER/Library/Application Support/Cisco Spark/*/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/libbwc.dylib
+       0x108e6c000 -        0x108e7bfff libusb.dylib (*) <2e0a5831-0cd4-346b-83be-c91312652dcc> /Users/USER/Library/Application Support/Cisco Spark/*/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/libusb.dylib
+       0x108fd0000 -        0x108febfff libsrtp.dylib (*) <07634fe5-06a6-3e55-ad7b-a39e58a88fb8> /Users/USER/Library/Application Support/Cisco Spark/*/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/libsrtp.dylib
+       0x10d98c000 -        0x10e507fff libenhanced-callcontrol.dylib (*) <2dbae4a2-8dc5-3289-9675-e5af9ea461bb> /Users/USER/Library/Application Support/Cisco Spark/*/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/libenhanced-callcontrol.dylib
+       0x10ac24000 -        0x10ae2bfff com.cisco.wseclient (*) <c90d4852-5584-3417-a5dd-600b7f8c6d44> /Users/USER/Library/Application Support/Cisco Spark/*/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/wseclient.framework/Versions/A/wseclient
+       0x10a418000 -        0x10a533fff com.cisco.tp (1.0) <9fbc37aa-c389-3cae-9677-05b5e486d597> /Users/USER/Library/Application Support/Cisco Spark/*/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/tp.framework/Versions/A/tp
+       0x10a2c0000 -        0x10a323fff com.cisco.util (1.0) <18ed933a-c139-3c35-b312-d55976e30281> /Users/USER/Library/Application Support/Cisco Spark/*/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/util.framework/Versions/A/util
+       0x118000000 -        0x11844bfff com.cisco.wbxaecodec (1.0) <f820bf43-0880-3246-beba-0b4d570d82f3> /Users/USER/Library/Application Support/Cisco Spark/*/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/wbxaecodec.framework/Versions/A/wbxaecodec
+       0x10e8a4000 -        0x10eb37fff com.cisco.wbxaudioengine (3.0) <58960b12-a9bb-383b-8eaf-38c44c7139e1> /Users/USER/Library/Application Support/Cisco Spark/*/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/wbxaudioengine.framework/Versions/A/wbxaudioengine
+       0x1089ac000 -        0x1089affff com.cisco.wmeutil (1.0) <a6bfe4f8-4787-3259-8abd-85b807037bc1> /Users/USER/Library/Application Support/Cisco Spark/*/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/wmeutil.framework/Versions/A/wmeutil
+       0x10a34c000 -        0x10a3dffff com.cisco.wqos (1.0) <055552c9-8009-320d-8b72-865b447aac64> /Users/USER/Library/Application Support/Cisco Spark/*/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/wqos.framework/Versions/A/wqos
+       0x10bf04000 -        0x10c04bfff com.cisco.wrtp (1.0) <396e0065-f1d6-3264-b4cc-65fc3ae4eee0> /Users/USER/Library/Application Support/Cisco Spark/*/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/wrtp.framework/Versions/A/wrtp
+       0x10ae94000 -        0x10af07fff com.cisco.webex.RootLogger (45) <47f4689a-26d1-3a18-8abb-7b9b58a9050d> /Users/USER/Library/Application Support/Cisco Spark/*/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/RootLogger.framework/Versions/A/RootLogger
+       0x109e68000 -        0x109e8ffff com.cisco.webex.ThreadUtilities (45) <d521a207-9cfb-3373-a14c-73ec61fbf7a2> /Users/USER/Library/Application Support/Cisco Spark/*/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/ThreadUtilities.framework/Versions/A/ThreadUtilities
+       0x109eb0000 -        0x109ed3fff libEncryptedString.dylib (*) <74d17b32-e58b-3b39-9fa4-6b21c460ce91> /Users/USER/Library/Application Support/Cisco Spark/*/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/libEncryptedString.dylib
+       0x109e20000 -        0x109e3ffff com.cisco.mediastores (1.0) <bf6df79a-2745-36fd-b12b-09c89f4bb907> /Users/USER/Library/Application Support/Cisco Spark/*/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/mediastores.framework/Versions/A/mediastores
+       0x10bd64000 -        0x10bdf7fff libvideoprocess.dylib (*) <c0542c40-cb7d-3fbc-b845-15074e219c39> /Users/USER/Library/Application Support/Cisco Spark/*/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/libvideoprocess.dylib
+       0x108998000 -        0x1089a3fff libobjc-trampolines.dylib (*) <a3faee04-0f8b-3428-9497-560c97eca6fb> /usr/lib/libobjc-trampolines.dylib
+       0x11f388000 -        0x11fabbfff com.apple.AGXMetalG15X-M1 (329.2) <cdc48620-e31f-3f04-9455-5f54282a08ab> /System/Library/Extensions/AGXMetalG15X_M1.bundle/Contents/MacOS/AGXMetalG15X_M1
+       0x16f178000 -        0x16f58ffff libSystemService.dylib (*) <6e027b81-eb31-3a7f-b1b5-0394d6568274> /Users/USER/Library/Application Support/Cisco Spark/*/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/libSystemService.dylib
+       0x129abc000 -        0x129ac7fff libcsfdiagnostics.dylib (*) <758757b4-01ee-3a5d-a046-c9918c8cc104> /Users/USER/Library/Application Support/Cisco Spark/*/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/libcsfdiagnostics.dylib
+       0x12abc0000 -        0x12abd3fff libcsfstorage.dylib (*) <a073b36c-def6-32ab-9559-8b8b4eed99c0> /Users/USER/Library/Application Support/Cisco Spark/*/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/libcsfstorage.dylib
+       0x12ac44000 -        0x12ac7ffff libJCFCoreUtils.dylib (*) <e32261c7-83b5-3a88-a99c-5ac2167a48d7> /Users/USER/Library/Application Support/Cisco Spark/*/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/libJCFCoreUtils.dylib
+       0x129adc000 -        0x129ae7fff libHttpDownloader.dylib (*) <e0f2f0eb-3e8f-3590-b6c6-4050ade4a186> /Users/USER/Library/Application Support/Cisco Spark/*/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/libHttpDownloader.dylib
+       0x12aca0000 -        0x12acdffff libServicesFramework.dylib (*) <ccff489a-f745-327f-b14e-6aca114f4c1f> /Users/USER/Library/Application Support/Cisco Spark/*/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/libServicesFramework.dylib
+       0x12acfc000 -        0x12ad17fff libdnsutils.dylib (*) <9619b530-b3da-3fe8-a10e-261a80bbc460> /Users/USER/Library/Application Support/Cisco Spark/*/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/libdnsutils.dylib
+       0x12ff44000 -        0x12ffabfff libConfigService.dylib (*) <b41741ba-8ea6-38f9-8625-abd889db8ceb> /Users/USER/Library/Application Support/Cisco Spark/*/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/libConfigService.dylib
+       0x16ee2c000 -        0x16ef6bfff libcsfnetutils.dylib (*) <e4fd62a3-cfad-37ef-a6e7-f5dccc1c4574> /Users/USER/Library/Application Support/Cisco Spark/*/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/libcsfnetutils.dylib
+       0x12ab98000 -        0x12ab9ffff libSystemMonitor.dylib (*) <5e0f714e-ba3c-3cc1-a680-9662c3ad9453> /Users/USER/Library/Application Support/Cisco Spark/*/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/libSystemMonitor.dylib
+       0x19b799000 -        0x19b7d4653 libsystem_kernel.dylib (*) <6e4a96ad-04b8-3e8a-b91d-087e62306246> /usr/lib/system/libsystem_kernel.dylib
+       0x19b7d5000 -        0x19b7e1a47 libsystem_pthread.dylib (*) <d6494ba9-171e-39fc-b1aa-28ecf87975d1> /usr/lib/system/libsystem_pthread.dylib
+       0x19b66c000 -        0x19b6ed243 libsystem_c.dylib (*) <dfea8794-80ce-37c3-8f6a-108aa1d0b1b0> /usr/lib/system/libsystem_c.dylib
+       0x19b622000 -        0x19b66875f libdispatch.dylib (*) <24ce0d89-4114-30c2-a81a-3db1f5931cff> /usr/lib/system/libdispatch.dylib
+       0x19b84a000 -        0x19bd88fff com.apple.CoreFoundation (6.9) <8d45baee-6cc0-3b89-93fd-ea1c8e15c6d7> /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation
+       0x1a72a4000 -        0x1a75aafdf com.apple.HIToolbox (2.1.1) <1a037942-11e0-3fc8-aad2-20b11e7ae1a4> /System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/HIToolbox.framework/Versions/A/HIToolbox
+       0x19f7af000 -        0x1a0c3fe3f com.apple.AppKit (6.9) <860c164c-d04c-30ff-8c6f-e672b74caf11> /System/Library/Frameworks/AppKit.framework/Versions/C/AppKit
+       0x19b434000 -        0x19b4cf577 dyld (*) <3247e185-ced2-36ff-9e29-47a77c23e004> /usr/lib/dyld
+               0x0 - 0xffffffffffffffff ??? (*) <00000000-0000-0000-0000-000000000000> ???
+       0x19b6ee000 -        0x19b77aff7 libc++.1.dylib (*) <643ed232-ce19-3f63-8015-0aee768c002f> /usr/lib/libc++.1.dylib
+       0x19b5da000 -        0x19b62106f libsystem_malloc.dylib (*) <85947f4e-385d-3b6d-9bf5-844efe876d53> /usr/lib/system/libsystem_malloc.dylib
+       0x19bd89000 -        0x19c07b13f com.apple.LaunchServices (1141.1) <1e58a116-8211-3368-8f5a-5df00d6f8971> /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/LaunchServices
+       0x19b3e0000 -        0x19b433893 libobjc.A.dylib (*) <8ca52e4d-f699-3d14-8061-eea9d4366538> /usr/lib/libobjc.A.dylib
+       0x1ff5b9000 -        0x2006c5e7f com.apple.MetalPerformanceShadersGraph (5.6.2) <3f34c8ad-534e-3602-baf4-6b8a9e09c231> /System/Library/Frameworks/MetalPerformanceShadersGraph.framework/Versions/A/MetalPerformanceShadersGraph
+       0x1a1817000 -        0x1a1d3d05f com.apple.SkyLight (1.600.0) <4e052846-80c2-38af-85bf-1482e070a32b> /System/Library/PrivateFrameworks/SkyLight.framework/Versions/A/SkyLight
+       0x1a137b000 -        0x1a1744a5f com.apple.CFNetwork (1.0) <45ad6442-531d-3e9a-967e-b3aa0d01f24f> /System/Library/Frameworks/CFNetwork.framework/Versions/A/CFNetwork
+       0x19ce3b000 -        0x19dc2459f com.apple.Foundation (6.9) <b9a92060-f21e-3ecf-9ded-94a65c68a6f4> /System/Library/Frameworks/Foundation.framework/Versions/C/Foundation
+       0x1ba342000 -        0x1bbc4799f com.apple.JavaScriptCore (20621) <124e513d-5932-3a30-9f2d-15086a1e382c> /System/Library/Frameworks/JavaScriptCore.framework/Versions/A/JavaScriptCore
+
+

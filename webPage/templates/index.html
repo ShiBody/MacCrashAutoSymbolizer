@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-en="MacCrash Auto Symbolizer" data-zh="MacCrash 自动符号化工具">MacCrash Auto Symbolizer</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/style.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/octicons/16.0.1/octicons.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- GitHub风格的导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <a href="#" class="nav-brand">
+                    <i class="fas fa-bug"></i>
+                    <span data-en="MacCrash Auto Symbolizer" data-zh="MacCrash 自动符号化">MacCrash Auto Symbolizer</span>
+                </a>
+            </div>
+            <div class="nav-right">
+                <!-- 语言切换按钮 -->
+                <div class="language-switcher">
+                    <button id="langSwitch" class="btn-lang" type="button" aria-label="Switch Language">
+                        <i class="fas fa-globe"></i>
+                        <span id="currentLang">中文</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="lang-dropdown" id="langDropdown">
+                        <a href="#" data-lang="zh" class="lang-option active">
+                            <span>🇨🇳</span> 中文
+                        </a>
+                        <a href="#" data-lang="en" class="lang-option">
+                            <span>🇺🇸</span> English
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-wrapper">
+        <!-- 页面标题区域 -->
+        <div class="page-header">
+            <div class="container">
+                <h1 class="page-title">
+                    <i class="fas fa-tools"></i>
+                    <span data-en="MacCrash Auto Symbolizer" data-zh="MacCrash 自动符号化工具">MacCrash Auto Symbolizer</span>
+                </h1>
+                <p class="page-description" data-en="Automatically symbolize Mac crash logs with ease" data-zh="轻松自动符号化Mac崩溃日志">
+                    轻松自动符号化Mac崩溃日志
+                </p>
+            </div>
+        </div>
+
+        <!-- 主要内容区域 -->
+        <div class="container">
+            <div class="content-layout">
+                <!-- 左侧输入区域 -->
+                <div class="input-panel">
+                    <div class="panel">
+                        <div class="panel-header">
+                            <h3 class="panel-title">
+                                <i class="octicon octicon-gear"></i>
+                                <span data-en="Configuration" data-zh="配置参数">配置参数</span>
+                            </h3>
+                        </div>
+                        <div class="panel-body">
+                            <form id="symbolizeForm" enctype="multipart/form-data">
+                                <!-- 版本号输入 -->
+                                <div class="form-group">
+                                    <label class="form-label" for="version">
+                                        <span data-en="Version" data-zh="版本号">版本号</span>
+                                        <span class="label-required">*</span>
+                                    </label>
+                                    <input 
+                                        type="text" 
+                                        id="version" 
+                                        name="version" 
+                                        class="form-control"
+                                        data-placeholder-en="e.g., 45.8.0.32875"
+                                        data-placeholder-zh="例如: 45.8.0.32875"
+                                        placeholder="例如: 45.8.0.32875"
+                                        required
+                                    >
+                                    <small class="form-note" data-en="Enter the Webex version number" data-zh="请输入Webex版本号">
+                                        请输入Webex版本号
+                                    </small>
+                                </div>
+
+                                <!-- 架构选择 -->
+                                <div class="form-group">
+                                    <label class="form-label" for="arch">
+                                        <span data-en="Architecture" data-zh="架构">架构</span>
+                                        <span class="label-required">*</span>
+                                    </label>
+                                    <select id="arch" name="arch" class="form-select" required>
+                                        <option value="" data-en="Select architecture..." data-zh="请选择架构...">请选择架构...</option>
+                                        <option value="arm64">ARM64 (Apple Silicon)</option>
+                                        <option value="x86">x86_64 (Intel)</option>
+                                    </select>
+                                </div>
+
+                                <!-- NDI模式切换 -->
+                                <div class="form-group">
+                                    <div class="form-checkbox">
+                                        <input type="checkbox" id="isNDI" name="isNDI" class="form-checkbox-input">
+                                        <label for="isNDI" class="form-checkbox-label">
+                                            <span data-en="NDI" data-zh="NDI">NDI</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!-- 输入方式选择 -->
+                                <div class="form-group">
+                                    <label class="form-label">
+                                        <span data-en="Input Method" data-zh="输入方式">输入方式</span>
+                                    </label>
+                                    
+                                    <div class="segmented-control">
+                                        <input type="radio" id="input-text" name="inputMethod" value="text" class="sr-only" checked>
+                                        <label for="input-text" class="segment-item">
+                                            <i class="octicon octicon-code"></i>
+                                            <span data-en="Text Input" data-zh="文本输入">文本输入</span>
+                                        </label>
+                                        
+                                        <input type="radio" id="input-file" name="inputMethod" value="file" class="sr-only">
+                                        <label for="input-file" class="segment-item">
+                                            <i class="octicon octicon-upload"></i>
+                                            <span data-en="File Upload" data-zh="文件上传">文件上传</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!-- 文本输入区域 -->
+                                <div class="input-content" id="text-input">
+                                    <div class="form-group">
+                                        <label class="form-label" for="stack_content">
+                                            <span data-en="Stack Trace Content" data-zh="堆栈跟踪内容">堆栈跟踪内容</span>
+                                        </label>
+                                        <textarea 
+                                            id="stack_content" 
+                                            name="stack_content" 
+                                            class="form-textarea"
+                                            rows="8"
+                                            data-placeholder-en="Paste your crash log stack trace here..."
+                                            data-placeholder-zh="请粘贴崩溃日志的堆栈信息..."
+                                            placeholder="请粘贴崩溃日志的堆栈信息..."
+                                        ></textarea>
+                                    </div>
+                                </div>
+
+                                <!-- 文件上传区域 -->
+                                <div class="input-content" id="file-input" style="display: none;">
+                                    <div class="form-group">
+                                        <label class="form-label" for="crash_file">
+                                            <span data-en="Crash File" data-zh="崩溃文件">崩溃文件</span>
+                                        </label>
+                                        <div class="file-upload-area" id="fileUploadArea">
+                                            <input type="file" id="crash_file" name="crash_file" accept=".ips,.diag,.spin,.txt,.log" class="file-input">
+                                            <div class="file-upload-content">
+                                                <i class="octicon octicon-cloud-upload"></i>
+                                                <p class="upload-text" data-en="Drag and drop files here or click to browse" data-zh="拖拽文件到此区域或点击浏览">
+                                                    拖拽文件到此区域或点击浏览
+                                                </p>
+                                                <small class="upload-note" data-en="Supports .ips, .diag, .spin, .txt, .log formats" data-zh="支持 .ips, .diag, .spin, .txt, .log 格式">
+                                                    支持 .ips, .diag, .spin, .txt, .log 格式
+                                                </small>
+                                            </div>
+                                            <div class="file-info" id="fileInfo" style="display: none;">
+                                                <i class="octicon octicon-file"></i>
+                                                <span id="fileName"></span>
+                                                <button type="button" id="removeFile" class="btn-remove">
+                                                    <i class="fas fa-times"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- 操作按钮 -->
+                                <div class="form-actions">
+                                    <button type="submit" id="symbolizeBtn" class="btn btn-primary">
+                                        <i class="octicon octicon-play"></i>
+                                        <span data-en="Start Symbolization" data-zh="开始符号化">开始符号化</span>
+                                    </button>
+                                    <button type="button" id="clearBtn" class="btn btn-secondary">
+                                        <i class="octicon octicon-trash"></i>
+                                        <span data-en="Clear Results" data-zh="清空结果">清空结果</span>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 右侧输出区域 -->
+                <div class="output-panel">
+                    <div class="panel">
+                        <div class="panel-header">
+                            <h3 class="panel-title">
+                                <i class="octicon octicon-terminal"></i>
+                                <span data-en="Output Results" data-zh="输出结果">输出结果</span>
+                            </h3>
+                            <div class="panel-actions">
+                                <div class="btn-group">
+                                    <button type="button" class="btn-tab active" data-tab="result">
+                                        <i class="octicon octicon-list-unordered"></i>
+                                        <span data-en="Results" data-zh="结果">结果</span>
+                                    </button>
+                                    <button type="button" class="btn-tab" data-tab="logs">
+                                        <i class="octicon octicon-terminal"></i>
+                                        <span data-en="Logs" data-zh="日志">日志</span>
+                                    </button>
+                                </div>
+                                <div class="btn-group">
+                                    <button type="button" id="copyResultBtn" class="btn btn-sm">
+                                        <i class="octicon octicon-copy"></i>
+                                        <span data-en="Copy" data-zh="复制">复制</span>
+                                    </button>
+                                    <button type="button" id="downloadResultBtn" class="btn btn-sm">
+                                        <i class="octicon octicon-download"></i>
+                                        <span data-en="Download" data-zh="下载">下载</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="output-content active" id="result-output">
+                                <pre id="symbolizeResult" class="output-code" data-empty-en="Waiting for symbolization to start... Click 'Start Symbolization' to process crash logs." data-empty-zh="等待开始符号化处理... 点击'开始符号化'按钮来处理崩溃日志。"></pre>
+                            </div>
+                            <div class="output-content" id="logs-output">
+                                <pre id="logsResult" class="output-code" data-empty-en="No log information available..." data-empty-zh="暂无日志信息..."></pre>
+                            </div>
+                            
+                            <!-- 进度指示器 -->
+                            <div class="progress-container" id="progressIndicator" style="display: none;">
+                                <div class="progress-bar">
+                                    <div class="progress-fill"></div>
+                                </div>
+                                <p class="progress-text" data-en="Processing, please wait..." data-zh="正在处理中，请稍候...">
+                                    正在处理中，请稍候...
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- GitHub风格的页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <span data-en="© 2025 MacCrash Auto Symbolizer" data-zh="© 2025 MacCrash 自动符号化工具">© 2025 MacCrash Auto Symbolizer</span>
+                </div>
+                <div class="footer-right">
+                    <span data-en="Built with" data-zh="基于">基于</span>
+                    <a href="https://fastapi.tiangolo.com/" target="_blank">FastAPI</a>
+                    <span data-en="and" data-zh="和">和</span>
+                    <a href="https://primer.style/" target="_blank">GitHub Primer</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 消息提示容器 -->
+    <div id="messageContainer" class="flash-messages"></div>
+
+    <script src="{{ url_for('static', path='/js/app.js') }}"></script>
+</body>
+</html>

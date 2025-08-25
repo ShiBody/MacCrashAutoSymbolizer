@@ -1,0 +1,775 @@
+-------------------------------------
+Translated Report (Full Report Below)
+-------------------------------------
+
+Process:               Webex [92182]
+Path:                  /Applications/Webex.app/Contents/MacOS/Webex
+Identifier:            Cisco-Systems.Spark
+Version:               45.10.0.32891 (32891)
+Code Type:             ARM-64 (Native)
+Parent Process:        launchd [1]
+User ID:               501
+
+Date/Time:             2025-08-12 11:30:51.1308 +0530
+OS Version:            macOS 14.0 (23A344)
+Report Version:        12
+Anonymous UUID:        27EC0285-3AD1-4762-A4A9-80F1C4E04731
+
+
+Time Awake Since Boot: 2500000 seconds
+
+System Integrity Protection: enabled
+
+Crashed Thread:        0  t-main-ui  Dispatch queue: com.apple.main-thread
+
+Exception Type:        EXC_BREAKPOINT (SIGTRAP)
+Exception Codes:       0x0000000000000001, 0x000000018ffd44b8
+Termination Reason:    Namespace SIGNAL, Code 5 Trace/BPT trap: 5
+Terminating Process:   exc handler [92182]
+
+
+Application Specific Backtrace 0:
+0   CoreFoundation                      0x000000018c5948c0 __exceptionPreprocess + 176
+1   libobjc.A.dylib                     0x000000018c08deb4 objc_exception_throw + 60
+2   Foundation                          0x000000018d6db18c -[NSCalendarDate initWithCoder:] + 0
+3   AppKit                              0x000000018fcebbdc -[NSMenu itemAtIndex:] + 156
+4   AppKit                              0x000000018fceb5f0 -[NSApplication(NSWindowsMenu) setWindowsMenu:] + 124
+5   AppKit                              0x000000018fcea358 -[NSMenu _finishedMakingConnections] + 312
+6   CoreFoundation                      0x000000018c513c50 -[NSSet makeObjectsPerformSelector:] + 176
+7   AppKit                              0x000000018fcdb354 -[NSIBObjectData nibInstantiateWithOwner:options:topLevelObjects:] + 788
+8   AppKit                              0x000000018fd41eec -[NSNib _instantiateNibWithExternalNameTable:options:] + 332
+9   AppKit                              0x000000018fd41cd8 -[NSNib _instantiateWithOwner:options:topLevelObjects:] + 132
+10  AppKit                              0x000000018fd41640 -[NSViewController loadView] + 296
+11  AppKit                              0x000000018fd4143c -[NSViewController _loadViewIfRequired] + 72
+12  AppKit                              0x00000001901fbbec __24-[NSViewController view]_block_invoke + 28
+13  AppKit                              0x000000018fd3adc4 NSPerformVisuallyAtomicChange + 108
+14  AppKit                              0x000000018fd413ac -[NSViewController view] + 160
+15  AppKit                              0x000000018fe77a98 -[NSTabView selectTabViewItem:] + 364
+16  CiscoSparkPlugin                    0x00000001620b761c _ZN29WhiteboardServiceEventHandler30onWhiteboardSetBackgroundImageERKN5spark4guidES3_RKNSt3__110shared_ptrIN5model5ImageEEE + 20609904
+17  CiscoSparkPlugin                    0x00000001620b86b4 _ZN29WhiteboardServiceEventHandler30onWhiteboardSetBackgroundImageERKN5spark4guidES3_RKNSt3__110shared_ptrIN5model5ImageEEE + 20614152
+18  CiscoSparkPlugin                    0x00000001620b920c _ZN29WhiteboardServiceEventHandler30onWhiteboardSetBackgroundImageERKN5spark4guidES3_RKNSt3__110shared_ptrIN5model5ImageEEE + 20617056
+19  CiscoSparkPlugin                    0x00000001620b92b0 _ZN29WhiteboardServiceEventHandler30onWhiteboardSetBackgroundImageERKN5spark4guidES3_RKNSt3__110shared_ptrIN5model5ImageEEE + 20617220
+20  CoreFoundation                      0x000000018c514780 __CFNOTIFICATIONCENTER_IS_CALLING_OUT_TO_AN_OBSERVER__ + 148
+21  CoreFoundation                      0x000000018c5a89a8 ___CFXRegistrationPost_block_invoke + 88
+22  CoreFoundation                      0x000000018c5a88f0 _CFXRegistrationPost + 440
+23  CoreFoundation                      0x000000018c4e3434 _CFXNotificationPost + 764
+24  Foundation                          0x000000018d5d4c74 -[NSNotificationCenter postNotificationName:object:userInfo:] + 88
+25  AppKit                              0x000000018fde9750 -[NSTableView _sendSelectionChangedNotificationForRows:columns:] + 200
+26  AppKit                              0x000000018fde8f30 -[NSTableView _doSelectIndexes:byExtendingSelection:indexType:funnelThroughSingleIndexVersion:] + 1748
+27  AppKit                              0x000000018fde8824 -[NSTableView selectRowIndexes:byExtendingSelection:] + 128
+28  UIToolkit                           0x0000000104d027fc UIToolkit + 1386492
+29  UIToolkit                           0x0000000104d02fac UIToolkit + 1388460
+30  UIToolkit                           0x0000000104d02ee8 UIToolkit + 1388264
+31  CiscoSparkPlugin                    0x00000001620b66a8 _ZN29WhiteboardServiceEventHandler30onWhiteboardSetBackgroundImageERKN5spark4guidES3_RKNSt3__110shared_ptrIN5model5ImageEEE + 20605948
+32  CiscoSparkPlugin                    0x00000001620b412c _ZN29WhiteboardServiceEventHandler30onWhiteboardSetBackgroundImageERKN5spark4guidES3_RKNSt3__110shared_ptrIN5model5ImageEEE + 20596352
+33  CiscoSparkPlugin                    0x00000001620b43f0 _ZN29WhiteboardServiceEventHandler30onWhiteboardSetBackgroundImageERKN5spark4guidES3_RKNSt3__110shared_ptrIN5model5ImageEEE + 20597060
+34  AppKit                              0x000000018fe64dbc -[NSWindowController _windowDidLoad] + 620
+35  AppKit                              0x000000018fe61140 -[NSWindowController window] + 84
+36  AppKit                              0x000000018fec4b2c -[NSWindowController showWindow:] + 44
+37  CiscoSparkPlugin                    0x0000000161fbd330 _ZN29WhiteboardServiceEventHandler30onWhiteboardSetBackgroundImageERKN5spark4guidES3_RKNSt3__110shared_ptrIN5model5ImageEEE + 19585156
+38  CiscoSparkPlugin                    0x0000000160de3544 _ZN29WhiteboardServiceEventHandler30onWhiteboardSetBackgroundImageERKN5spark4guidES3_RKNSt3__110shared_ptrIN5model5ImageEEE + 866968
+39  CoreFoundation                      0x000000018c514780 __CFNOTIFICATIONCENTER_IS_CALLING_OUT_TO_AN_OBSERVER__ + 148
+40  CoreFoundation                      0x000000018c5a89a8 ___CFXRegistrationPost_block_invoke + 88
+41  CoreFoundation                      0x000000018c5a88f0 _CFXRegistrationPost + 440
+42  CoreFoundation                      0x000000018c4e3434 _CFXNotificationPost + 764
+43  Foundation                          0x000000018d5d4c74 -[NSNotificationCenter postNotificationName:object:userInfo:] + 88
+44  CiscoSparkPlugin                    0x0000000161ae8768 _ZN29WhiteboardServiceEventHandler30onWhiteboardSetBackgroundImageERKN5spark4guidES3_RKNSt3__110shared_ptrIN5model5ImageEEE + 14519484
+45  CiscoSparkPlugin                    0x0000000161ae6510 _ZN29WhiteboardServiceEventHandler30onWhiteboardSetBackgroundImageERKN5spark4guidES3_RKNSt3__110shared_ptrIN5model5ImageEEE + 14510692
+46  UIToolkit                           0x0000000104ce3ed0 UIToolkit + 1261264
+47  UIToolkit                           0x0000000104cdfa78 UIToolkit + 1243768
+48  UIToolkit                           0x0000000104ce3f74 UIToolkit + 1261428
+49  UIToolkit                           0x0000000104ce4994 UIToolkit + 1264020
+50  UIToolkit                           0x0000000104cde8ac UIToolkit + 1239212
+51  UIToolkit                           0x0000000104d08de4 UIToolkit + 1412580
+52  UIToolkit                           0x0000000104d10bb0 UIToolkit + 1444784
+53  UIToolkit                           0x0000000104d108f0 UIToolkit + 1444080
+54  AppKit                              0x000000018fe9e68c -[NSApplication(NSResponder) sendAction:to:from:] + 460
+55  AppKit                              0x000000018fe9e490 -[NSControl sendAction:to:] + 72
+56  AppKit                              0x000000018ffa01ec -[NSTableView _sendAction:to:row:column:] + 116
+57  AppKit                              0x000000018ff9ec64 -[NSTableView mouseDown:] + 4680
+58  AppKit                              0x000000018fe93998 forwardMethod + 252
+59  AppKit                              0x000000018fe93998 forwardMethod + 252
+60  AppKit                              0x000000018fe93998 forwardMethod + 252
+61  AppKit                              0x000000018fe993b4 -[NSWindow(NSEventRouting) _handleMouseDownEvent:isDelayedEvent:] + 3472
+62  AppKit                              0x000000018fe24b6c -[NSWindow(NSEventRouting) _reallySendEvent:isDelayedEvent:] + 364
+63  AppKit                              0x000000018fe2482c -[NSWindow(NSEventRouting) sendEvent:] + 284
+64  AppKit                              0x00000001904cbc08 -[NSApplication(NSEventRouting) sendEvent:] + 1556
+65  AppKit                              0x000000019011f1bc -[NSApplication _handleEvent:] + 60
+66  AppKit                              0x000000018fcec460 -[NSApplication run] + 512
+67  AppKit                              0x000000018fcc3708 NSApplicationMain + 880
+68  dyld                                0x000000018c0c9058 start + 2224
+
+
+Thread 0 Crashed:: t-main-ui Dispatch queue: com.apple.main-thread
+0   AppKit                        	       0x18ffd44b8 -[NSApplication _crashOnException:] + 240
+1   Sentry                        	       0x104f42268 __65+[SentryUncaughtNSExceptions swizzleNSApplicationReportException]_block_invoke_2.31 + 84
+2   AppKit                        	       0x18ffd4290 -[NSApplication reportException:] + 440
+3   Sentry                        	       0x104f42178 __65+[SentryUncaughtNSExceptions swizzleNSApplicationReportException]_block_invoke_2 + 84
+4   AppKit                        	       0x19011d604 NSApplicationUncaughtExceptionHandler + 152
+5   Sentry                        	       0x104f72014 handleUncaughtException + 736
+6   Sentry                        	       0x104f422ec +[SentryUncaughtNSExceptions capture:] + 112
+7   Sentry                        	       0x104f4215c __65+[SentryUncaughtNSExceptions swizzleNSApplicationReportException]_block_invoke_2 + 56
+8   AppKit                        	       0x18fcec4ec -[NSApplication run] + 652
+9   AppKit                        	       0x18fcc3708 NSApplicationMain + 880
+10   dyld                          	       0x18c0c9058 start + 2224
+
+Thread 1:
+0   libsystem_pthread.dylib       	       0x18c43de28 start_wqthread
+
+Thread 2:
+0   libsystem_pthread.dylib       	       0x18c43de28 start_wqthread
+
+Thread 3:
+0   libsystem_pthread.dylib       	       0x18c43de28 start_wqthread
+
+Thread 4:
+0   libsystem_pthread.dylib       	       0x18c43de28 start_wqthread
+
+Thread 5:
+0   libsystem_pthread.dylib       	       0x18c43de28 start_wqthread
+
+Thread 6:
+0   libsystem_pthread.dylib       	       0x18c43de28 start_wqthread
+
+Thread 7:
+0   libsystem_pthread.dylib       	       0x18c43de28 start_wqthread
+
+Thread 8:
+0   libsystem_pthread.dylib       	       0x18c43de28 start_wqthread
+
+Thread 9:
+0   libsystem_pthread.dylib       	       0x18c43de28 start_wqthread
+
+Thread 10:: AsyncQueue::RootLogger
+0   libsystem_kernel.dylib        	       0x18c4060ac __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x18c4435fc _pthread_cond_wait + 1228
+2   libc++.1.dylib                	       0x18c36e4dc std::__1::condition_variable::wait(std::__1::unique_lock<std::__1::mutex>&) + 28
+3   RootLogger                    	       0x105bf6b40 AsyncQueue::Context::doWork() + 1560
+4   RootLogger                    	       0x105bf9758 0x105be4000 + 87896
+5   libsystem_pthread.dylib       	       0x18c443034 _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x18c43de3c thread_start + 8
+
+Thread 11:: AsyncQueue::UrlProtocolStateMachine
+0   libsystem_kernel.dylib        	       0x18c4060ac __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x18c4435fc _pthread_cond_wait + 1228
+2   libc++.1.dylib                	       0x18c36e4dc std::__1::condition_variable::wait(std::__1::unique_lock<std::__1::mutex>&) + 28
+3   libscf.dylib                  	       0x173c28dc8 AsyncQueue::Context::doWork() + 1560
+4   libscf.dylib                  	       0x173c2b4f8 0x1701f4000 + 61043960
+5   libsystem_pthread.dylib       	       0x18c443034 _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x18c43de3c thread_start + 8
+
+Thread 12:: TimerManager
+0   libsystem_kernel.dylib        	       0x18c4060ac __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x18c4435fc _pthread_cond_wait + 1228
+2   libc++.1.dylib                	       0x18c36e570 std::__1::condition_variable::__do_timed_wait(std::__1::unique_lock<std::__1::mutex>&, std::__1::chrono::time_point<std::__1::chrono::system_clock, std::__1::chrono::duration<long long, std::__1::ratio<1l, 1000000000l>>>) + 100
+3   libscf.dylib                  	       0x173c150ec TimerManager::Context::threadStart() + 740
+4   libscf.dylib                  	       0x173c16f3c 0x1701f4000 + 60960572
+5   libsystem_pthread.dylib       	       0x18c443034 _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x18c43de3c thread_start + 8
+
+Thread 13:: AsyncQueue::sharedDb
+0   libsystem_kernel.dylib        	       0x18c4060ac __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x18c4435fc _pthread_cond_wait + 1228
+2   libc++.1.dylib                	       0x18c36e4dc std::__1::condition_variable::wait(std::__1::unique_lock<std::__1::mutex>&) + 28
+3   libscf.dylib                  	       0x173c28dc8 AsyncQueue::Context::doWork() + 1560
+4   libscf.dylib                  	       0x173c2b4f8 0x1701f4000 + 61043960
+5   libsystem_pthread.dylib       	       0x18c443034 _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x18c43de3c thread_start + 8
+
+Thread 14:: AsyncQueue::common-task-queue
+0   libsystem_kernel.dylib        	       0x18c4060ac __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x18c4435fc _pthread_cond_wait + 1228
+2   libc++.1.dylib                	       0x18c36e4dc std::__1::condition_variable::wait(std::__1::unique_lock<std::__1::mutex>&) + 28
+3   libscf.dylib                  	       0x173c28dc8 AsyncQueue::Context::doWork() + 1560
+4   libscf.dylib                  	       0x173c2b4f8 0x1701f4000 + 61043960
+5   libsystem_pthread.dylib       	       0x18c443034 _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x18c43de3c thread_start + 8
+
+Thread 15:
+0   libsystem_kernel.dylib        	       0x18c405ea8 __semwait_signal + 8
+1   libsystem_c.dylib             	       0x18c2e94c4 nanosleep + 220
+2   libc++.1.dylib                	       0x18c37c81c std::__1::this_thread::sleep_for(std::__1::chrono::duration<long long, std::__1::ratio<1l, 1000000000l>> const&) + 84
+3   libscf.dylib                  	       0x17063d120 0x1701f4000 + 4493600
+4   libscf.dylib                  	       0x1738b9964 spark::TaskMonitor::statusLoop(std::__1::weak_ptr<spark::TaskMonitor>) + 680
+5   libscf.dylib                  	       0x1738b9afc 0x1701f4000 + 57432828
+6   libsystem_pthread.dylib       	       0x18c443034 _pthread_start + 136
+7   libsystem_pthread.dylib       	       0x18c43de3c thread_start + 8
+
+Thread 16:: Sentry::monitorCachedData
+0   libsystem_kernel.dylib        	       0x18c405ea8 __semwait_signal + 8
+1   libsystem_c.dylib             	       0x18c2e94c4 nanosleep + 220
+2   libsystem_c.dylib             	       0x18c2f2284 sleep + 52
+3   Sentry                        	       0x104f78818 monitorCachedData + 672
+4   libsystem_pthread.dylib       	       0x18c443034 _pthread_start + 136
+5   libsystem_pthread.dylib       	       0x18c43de3c thread_start + 8
+
+Thread 17:: SentryCrash Exception Handler (Secondary)
+0   libsystem_kernel.dylib        	       0x18c4028b4 mach_msg2_trap + 8
+1   libsystem_kernel.dylib        	       0x18c414d30 mach_msg2_internal + 80
+2   libsystem_kernel.dylib        	       0x18c431518 thread_suspend + 112
+3   Sentry                        	       0x104f66a90 handleExceptions + 116
+4   libsystem_pthread.dylib       	       0x18c443034 _pthread_start + 136
+5   libsystem_pthread.dylib       	       0x18c43de3c thread_start + 8
+
+Thread 18:: AsyncQueue::preLoginDb
+0   libsystem_kernel.dylib        	       0x18c4060ac __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x18c4435fc _pthread_cond_wait + 1228
+2   libc++.1.dylib                	       0x18c36e4dc std::__1::condition_variable::wait(std::__1::unique_lock<std::__1::mutex>&) + 28
+3   libscf.dylib                  	       0x173c28dc8 AsyncQueue::Context::doWork() + 1560
+4   libscf.dylib                  	       0x173c2b4f8 0x1701f4000 + 61043960
+5   libsystem_pthread.dylib       	       0x18c443034 _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x18c43de3c thread_start + 8
+
+Thread 19:: com.apple.NSEventThread
+0   libsystem_kernel.dylib        	       0x18c4028b4 mach_msg2_trap + 8
+1   libsystem_kernel.dylib        	       0x18c414d30 mach_msg2_internal + 80
+2   libsystem_kernel.dylib        	       0x18c40b4f0 mach_msg_overwrite + 476
+3   libsystem_kernel.dylib        	       0x18c402c38 mach_msg + 24
+4   CoreFoundation                	       0x18c51fed0 __CFRunLoopServiceMachPort + 160
+5   CoreFoundation                	       0x18c51e798 __CFRunLoopRun + 1208
+6   CoreFoundation                	       0x18c51dc2c CFRunLoopRunSpecific + 608
+7   AppKit                        	       0x18fe228e0 _NSEventThread + 144
+8   libsystem_pthread.dylib       	       0x18c443034 _pthread_start + 136
+9   libsystem_pthread.dylib       	       0x18c43de3c thread_start + 8
+
+Thread 20:: AsyncQueue::spark_roaming_store.db
+0   libsystem_kernel.dylib        	       0x18c4060ac __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x18c4435fc _pthread_cond_wait + 1228
+2   libc++.1.dylib                	       0x18c36e4dc std::__1::condition_variable::wait(std::__1::unique_lock<std::__1::mutex>&) + 28
+3   libscf.dylib                  	       0x173c28dc8 AsyncQueue::Context::doWork() + 1560
+4   libscf.dylib                  	       0x173c2b4f8 0x1701f4000 + 61043960
+5   libsystem_pthread.dylib       	       0x18c443034 _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x18c43de3c thread_start + 8
+
+Thread 21:: AsyncQueue::userDb
+0   libsystem_kernel.dylib        	       0x18c4060ac __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x18c4435fc _pthread_cond_wait + 1228
+2   libc++.1.dylib                	       0x18c36e4dc std::__1::condition_variable::wait(std::__1::unique_lock<std::__1::mutex>&) + 28
+3   libscf.dylib                  	       0x173c28dc8 AsyncQueue::Context::doWork() + 1560
+4   libscf.dylib                  	       0x173c2b4f8 0x1701f4000 + 61043960
+5   libsystem_pthread.dylib       	       0x18c443034 _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x18c43de3c thread_start + 8
+
+Thread 22:: AsyncQueue::common-task-queue
+0   libsystem_kernel.dylib        	       0x18c4060ac __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x18c4435fc _pthread_cond_wait + 1228
+2   libc++.1.dylib                	       0x18c36e4dc std::__1::condition_variable::wait(std::__1::unique_lock<std::__1::mutex>&) + 28
+3   libscf.dylib                  	       0x173c28dc8 AsyncQueue::Context::doWork() + 1560
+4   libscf.dylib                  	       0x173c2b4f8 0x1701f4000 + 61043960
+5   libsystem_pthread.dylib       	       0x18c443034 _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x18c43de3c thread_start + 8
+
+Thread 23:: AsyncQueue::ExParticipantUpdateQueue
+0   libsystem_kernel.dylib        	       0x18c4060ac __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x18c4435fc _pthread_cond_wait + 1228
+2   libc++.1.dylib                	       0x18c36e4dc std::__1::condition_variable::wait(std::__1::unique_lock<std::__1::mutex>&) + 28
+3   libscf.dylib                  	       0x173c28dc8 AsyncQueue::Context::doWork() + 1560
+4   libscf.dylib                  	       0x173c2b4f8 0x1701f4000 + 61043960
+5   libsystem_pthread.dylib       	       0x18c443034 _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x18c43de3c thread_start + 8
+
+Thread 24:: AsyncQueue::LocusSequenceManager
+0   libsystem_kernel.dylib        	       0x18c4060ac __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x18c4435fc _pthread_cond_wait + 1228
+2   libc++.1.dylib                	       0x18c36e4dc std::__1::condition_variable::wait(std::__1::unique_lock<std::__1::mutex>&) + 28
+3   libscf.dylib                  	       0x173c28dc8 AsyncQueue::Context::doWork() + 1560
+4   libscf.dylib                  	       0x173c2b4f8 0x1701f4000 + 61043960
+5   libsystem_pthread.dylib       	       0x18c443034 _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x18c43de3c thread_start + 8
+
+Thread 25:: AsyncQueue::OfficeAdapter
+0   libsystem_kernel.dylib        	       0x18c4060ac __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x18c4435fc _pthread_cond_wait + 1228
+2   libc++.1.dylib                	       0x18c36e4dc std::__1::condition_variable::wait(std::__1::unique_lock<std::__1::mutex>&) + 28
+3   libscf.dylib                  	       0x173c28dc8 AsyncQueue::Context::doWork() + 1560
+4   libscf.dylib                  	       0x173c2b4f8 0x1701f4000 + 61043960
+5   libsystem_pthread.dylib       	       0x18c443034 _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x18c43de3c thread_start + 8
+
+Thread 26:: t-main
+0   libsystem_kernel.dylib        	       0x18c4028b4 mach_msg2_trap + 8
+1   libsystem_kernel.dylib        	       0x18c414d30 mach_msg2_internal + 80
+2   libsystem_kernel.dylib        	       0x18c40b4f0 mach_msg_overwrite + 476
+3   libsystem_kernel.dylib        	       0x18c402c38 mach_msg + 24
+4   CoreFoundation                	       0x18c51fed0 __CFRunLoopServiceMachPort + 160
+5   CoreFoundation                	       0x18c51e798 __CFRunLoopRun + 1208
+6   CoreFoundation                	       0x18c51dc2c CFRunLoopRunSpecific + 608
+7   CoreFoundation                	       0x18c59ba50 CFRunLoopRun + 64
+8   libscf.dylib                  	       0x1731c1744 MediaDispatcherIOS::runLoop() + 136
+9   libscf.dylib                  	       0x1731c363c 0x1701f4000 + 50132540
+10   libsystem_pthread.dylib       	       0x18c443034 _pthread_start + 136
+11   libsystem_pthread.dylib       	       0x18c43de3c thread_start + 8
+
+Thread 27:: t-network
+0   libsystem_kernel.dylib        	       0x18c40da14 __select + 8
+1   tp                            	       0x10650dbec 0x106434000 + 891884
+2   tp                            	       0x10651a73c 0x106434000 + 943932
+3   util                          	       0x105b8a8f8 0x105b58000 + 207096
+4   util                          	       0x105b89c84 0x105b58000 + 203908
+5   libsystem_pthread.dylib       	       0x18c443034 _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x18c43de3c thread_start + 8
+
+Thread 28:: t-neta
+0   libsystem_kernel.dylib        	       0x18c40da14 __select + 8
+1   tp                            	       0x10650dbec 0x106434000 + 891884
+2   tp                            	       0x10651a73c 0x106434000 + 943932
+3   util                          	       0x105b8a8f8 0x105b58000 + 207096
+4   util                          	       0x105b89c84 0x105b58000 + 203908
+5   libsystem_pthread.dylib       	       0x18c443034 _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x18c43de3c thread_start + 8
+
+Thread 29:: t-netv
+0   libsystem_kernel.dylib        	       0x18c40da14 __select + 8
+1   tp                            	       0x10650dbec 0x106434000 + 891884
+2   tp                            	       0x10651a73c 0x106434000 + 943932
+3   util                          	       0x105b8a8f8 0x105b58000 + 207096
+4   util                          	       0x105b89c84 0x105b58000 + 203908
+5   libsystem_pthread.dylib       	       0x18c443034 _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x18c43de3c thread_start + 8
+
+Thread 30:: t-nets
+0   libsystem_kernel.dylib        	       0x18c40da14 __select + 8
+1   tp                            	       0x10650dbec 0x106434000 + 891884
+2   tp                            	       0x10651a73c 0x106434000 + 943932
+3   util                          	       0x105b8a8f8 0x105b58000 + 207096
+4   util                          	       0x105b89c84 0x105b58000 + 203908
+5   libsystem_pthread.dylib       	       0x18c443034 _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x18c43de3c thread_start + 8
+
+Thread 31:: t-gamestate
+0   libsystem_kernel.dylib        	       0x18c40da14 __select + 8
+1   tp                            	       0x10650dbec 0x106434000 + 891884
+2   tp                            	       0x10651a73c 0x106434000 + 943932
+3   util                          	       0x105b8a8f8 0x105b58000 + 207096
+4   util                          	       0x105b89c84 0x105b58000 + 203908
+5   libsystem_pthread.dylib       	       0x18c443034 _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x18c43de3c thread_start + 8
+
+Thread 32:: AsyncQueue::DeviceManagerDispatcher
+0   libsystem_kernel.dylib        	       0x18c4060ac __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x18c4435fc _pthread_cond_wait + 1228
+2   libc++.1.dylib                	       0x18c36e4dc std::__1::condition_variable::wait(std::__1::unique_lock<std::__1::mutex>&) + 28
+3   libscf.dylib                  	       0x173c28dc8 AsyncQueue::Context::doWork() + 1560
+4   libscf.dylib                  	       0x173c2b4f8 0x1701f4000 + 61043960
+5   libsystem_pthread.dylib       	       0x18c443034 _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x18c43de3c thread_start + 8
+
+Thread 33:: init_relighting_thread
+0   libsystem_kernel.dylib        	       0x18c4060ac __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x18c4435fc _pthread_cond_wait + 1228
+2   util                          	       0x105b678c0 0x105b58000 + 63680
+3   util                          	       0x105b8e3fc 0x105b58000 + 222204
+4   util                          	       0x105b8ea28 0x105b58000 + 223784
+5   util                          	       0x105b8a8f8 0x105b58000 + 207096
+6   util                          	       0x105b89c84 0x105b58000 + 203908
+7   libsystem_pthread.dylib       	       0x18c443034 _pthread_start + 136
+8   libsystem_pthread.dylib       	       0x18c43de3c thread_start + 8
+
+Thread 34:
+0   libsystem_pthread.dylib       	       0x18c43de28 start_wqthread
+
+Thread 35:: WseVideoPortraitFilterCoreML
+0   libsystem_kernel.dylib        	       0x18c4060ac __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x18c4435fc _pthread_cond_wait + 1228
+2   util                          	       0x105b678c0 0x105b58000 + 63680
+3   util                          	       0x105b8e3fc 0x105b58000 + 222204
+4   util                          	       0x105b8ea28 0x105b58000 + 223784
+5   util                          	       0x105b8a8f8 0x105b58000 + 207096
+6   util                          	       0x105b89c84 0x105b58000 + 203908
+7   libsystem_pthread.dylib       	       0x18c443034 _pthread_start + 136
+8   libsystem_pthread.dylib       	       0x18c43de3c thread_start + 8
+
+Thread 36:
+0   libsystem_pthread.dylib       	       0x18c43de28 start_wqthread
+
+Thread 37:: a-engine
+0   libsystem_kernel.dylib        	       0x18c4060ac __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x18c4435fc _pthread_cond_wait + 1228
+2   util                          	       0x105b678c0 0x105b58000 + 63680
+3   util                          	       0x105b8e3fc 0x105b58000 + 222204
+4   util                          	       0x105b8ea28 0x105b58000 + 223784
+5   util                          	       0x105b8a8f8 0x105b58000 + 207096
+6   util                          	       0x105b89c84 0x105b58000 + 203908
+7   libsystem_pthread.dylib       	       0x18c443034 _pthread_start + 136
+8   libsystem_pthread.dylib       	       0x18c43de3c thread_start + 8
+
+Thread 38:: a-engine-onidle
+0   libsystem_kernel.dylib        	       0x18c4060ac __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x18c4435fc _pthread_cond_wait + 1228
+2   util                          	       0x105b678c0 0x105b58000 + 63680
+3   util                          	       0x105b8e3fc 0x105b58000 + 222204
+4   util                          	       0x105b8ea28 0x105b58000 + 223784
+5   util                          	       0x105b8a8f8 0x105b58000 + 207096
+6   util                          	       0x105b89c84 0x105b58000 + 203908
+7   libsystem_pthread.dylib       	       0x18c443034 _pthread_start + 136
+8   libsystem_pthread.dylib       	       0x18c43de3c thread_start + 8
+
+Thread 39:: a-deviceEnum
+0   libsystem_kernel.dylib        	       0x18c4060ac __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x18c4435fc _pthread_cond_wait + 1228
+2   util                          	       0x105b678c0 0x105b58000 + 63680
+3   util                          	       0x105b8e3fc 0x105b58000 + 222204
+4   util                          	       0x105b8ea28 0x105b58000 + 223784
+5   util                          	       0x105b8a8f8 0x105b58000 + 207096
+6   util                          	       0x105b89c84 0x105b58000 + 203908
+7   libsystem_pthread.dylib       	       0x18c443034 _pthread_start + 136
+8   libsystem_pthread.dylib       	       0x18c43de3c thread_start + 8
+
+Thread 40:: caulk.messenger.shared:17
+0   libsystem_kernel.dylib        	       0x18c402830 semaphore_wait_trap + 8
+1   caulk                         	       0x196777690 caulk::semaphore::timed_wait(double) + 212
+2   caulk                         	       0x196777544 caulk::concurrent::details::worker_thread::run() + 36
+3   caulk                         	       0x196777244 void* caulk::thread_proxy<std::__1::tuple<caulk::thread::attributes, void (caulk::concurrent::details::worker_thread::*)(), std::__1::tuple<caulk::concurrent::details::worker_thread*>>>(void*) + 96
+4   libsystem_pthread.dylib       	       0x18c443034 _pthread_start + 136
+5   libsystem_pthread.dylib       	       0x18c43de3c thread_start + 8
+
+Thread 41:: caulk.messenger.shared:high
+0   libsystem_kernel.dylib        	       0x18c402830 semaphore_wait_trap + 8
+1   caulk                         	       0x196777690 caulk::semaphore::timed_wait(double) + 212
+2   caulk                         	       0x196777544 caulk::concurrent::details::worker_thread::run() + 36
+3   caulk                         	       0x196777244 void* caulk::thread_proxy<std::__1::tuple<caulk::thread::attributes, void (caulk::concurrent::details::worker_thread::*)(), std::__1::tuple<caulk::concurrent::details::worker_thread*>>>(void*) + 96
+4   libsystem_pthread.dylib       	       0x18c443034 _pthread_start + 136
+5   libsystem_pthread.dylib       	       0x18c43de3c thread_start + 8
+
+Thread 42:
+0   libsystem_pthread.dylib       	       0x18c43de28 start_wqthread
+
+Thread 43:
+0   libsystem_pthread.dylib       	       0x18c43de28 start_wqthread
+
+Thread 44:
+0   libsystem_pthread.dylib       	       0x18c43de28 start_wqthread
+
+Thread 45:: a-enc
+0   libsystem_kernel.dylib        	       0x18c4060ac __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x18c4435fc _pthread_cond_wait + 1228
+2   util                          	       0x105b678c0 0x105b58000 + 63680
+3   util                          	       0x105b67e30 0x105b58000 + 65072
+4   wbxaudioengine                	       0x1180e9c94 0x118000000 + 957588
+5   util                          	       0x105b8a8f8 0x105b58000 + 207096
+6   util                          	       0x105b89c84 0x105b58000 + 203908
+7   libsystem_pthread.dylib       	       0x18c443034 _pthread_start + 136
+8   libsystem_pthread.dylib       	       0x18c43de3c thread_start + 8
+
+Thread 46:: a-enc
+0   libsystem_kernel.dylib        	       0x18c4060ac __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x18c4435fc _pthread_cond_wait + 1228
+2   util                          	       0x105b678c0 0x105b58000 + 63680
+3   util                          	       0x105b67e30 0x105b58000 + 65072
+4   wbxaudioengine                	       0x1180e9c94 0x118000000 + 957588
+5   util                          	       0x105b8a8f8 0x105b58000 + 207096
+6   util                          	       0x105b89c84 0x105b58000 + 203908
+7   libsystem_pthread.dylib       	       0x18c443034 _pthread_start + 136
+8   libsystem_pthread.dylib       	       0x18c43de3c thread_start + 8
+
+Thread 47:: a-enc
+0   libsystem_kernel.dylib        	       0x18c4060ac __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x18c4435fc _pthread_cond_wait + 1228
+2   util                          	       0x105b678c0 0x105b58000 + 63680
+3   util                          	       0x105b67e30 0x105b58000 + 65072
+4   wbxaudioengine                	       0x1180e9c94 0x118000000 + 957588
+5   util                          	       0x105b8a8f8 0x105b58000 + 207096
+6   util                          	       0x105b89c84 0x105b58000 + 203908
+7   libsystem_pthread.dylib       	       0x18c443034 _pthread_start + 136
+8   libsystem_pthread.dylib       	       0x18c43de3c thread_start + 8
+
+Thread 48:: urt-proc
+0   libsystem_kernel.dylib        	       0x18c4060ac __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x18c4435fc _pthread_cond_wait + 1228
+2   util                          	       0x105b678c0 0x105b58000 + 63680
+3   util                          	       0x105b8e3fc 0x105b58000 + 222204
+4   util                          	       0x105b8ea28 0x105b58000 + 223784
+5   util                          	       0x105b8a8f8 0x105b58000 + 207096
+6   util                          	       0x105b89c84 0x105b58000 + 203908
+7   libsystem_pthread.dylib       	       0x18c443034 _pthread_start + 136
+8   libsystem_pthread.dylib       	       0x18c43de3c thread_start + 8
+
+Thread 49:: urt-proc
+0   libsystem_kernel.dylib        	       0x18c4060ac __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x18c4435fc _pthread_cond_wait + 1228
+2   util                          	       0x105b678c0 0x105b58000 + 63680
+3   util                          	       0x105b8e3fc 0x105b58000 + 222204
+4   util                          	       0x105b8ea28 0x105b58000 + 223784
+5   util                          	       0x105b8a8f8 0x105b58000 + 207096
+6   util                          	       0x105b89c84 0x105b58000 + 203908
+7   libsystem_pthread.dylib       	       0x18c443034 _pthread_start + 136
+8   libsystem_pthread.dylib       	       0x18c43de3c thread_start + 8
+
+Thread 50:: urt-proc
+0   libsystem_kernel.dylib        	       0x18c4060ac __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x18c4435fc _pthread_cond_wait + 1228
+2   util                          	       0x105b678c0 0x105b58000 + 63680
+3   util                          	       0x105b8e3fc 0x105b58000 + 222204
+4   util                          	       0x105b8ea28 0x105b58000 + 223784
+5   util                          	       0x105b8a8f8 0x105b58000 + 207096
+6   util                          	       0x105b89c84 0x105b58000 + 203908
+7   libsystem_pthread.dylib       	       0x18c443034 _pthread_start + 136
+8   libsystem_pthread.dylib       	       0x18c43de3c thread_start + 8
+
+Thread 51:: urt-proc
+0   libsystem_kernel.dylib        	       0x18c4060ac __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x18c4435fc _pthread_cond_wait + 1228
+2   util                          	       0x105b678c0 0x105b58000 + 63680
+3   util                          	       0x105b8e3fc 0x105b58000 + 222204
+4   util                          	       0x105b8ea28 0x105b58000 + 223784
+5   util                          	       0x105b8a8f8 0x105b58000 + 207096
+6   util                          	       0x105b89c84 0x105b58000 + 203908
+7   libsystem_pthread.dylib       	       0x18c443034 _pthread_start + 136
+8   libsystem_pthread.dylib       	       0x18c43de3c thread_start + 8
+
+Thread 52:: a-capture
+0   libsystem_kernel.dylib        	       0x18c4060ac __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x18c4435fc _pthread_cond_wait + 1228
+2   util                          	       0x105b678c0 0x105b58000 + 63680
+3   util                          	       0x105b8e3fc 0x105b58000 + 222204
+4   util                          	       0x105b8ea28 0x105b58000 + 223784
+5   util                          	       0x105b8a8f8 0x105b58000 + 207096
+6   util                          	       0x105b89c84 0x105b58000 + 203908
+7   libsystem_pthread.dylib       	       0x18c443034 _pthread_start + 136
+8   libsystem_pthread.dylib       	       0x18c43de3c thread_start + 8
+
+Thread 53:: a-playback
+0   libsystem_kernel.dylib        	       0x18c4060ac __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x18c4435fc _pthread_cond_wait + 1228
+2   util                          	       0x105b678c0 0x105b58000 + 63680
+3   util                          	       0x105b8e3fc 0x105b58000 + 222204
+4   util                          	       0x105b8ea28 0x105b58000 + 223784
+5   util                          	       0x105b8a8f8 0x105b58000 + 207096
+6   util                          	       0x105b89c84 0x105b58000 + 203908
+7   libsystem_pthread.dylib       	       0x18c443034 _pthread_start + 136
+8   libsystem_pthread.dylib       	       0x18c43de3c thread_start + 8
+
+Thread 54:: H11ANEServicesThread
+0   libsystem_kernel.dylib        	       0x18c4028b4 mach_msg2_trap + 8
+1   libsystem_kernel.dylib        	       0x18c414d30 mach_msg2_internal + 80
+2   libsystem_kernel.dylib        	       0x18c40b4f0 mach_msg_overwrite + 476
+3   libsystem_kernel.dylib        	       0x18c402c38 mach_msg + 24
+4   CoreFoundation                	       0x18c51fed0 __CFRunLoopServiceMachPort + 160
+5   CoreFoundation                	       0x18c51e798 __CFRunLoopRun + 1208
+6   CoreFoundation                	       0x18c51dc2c CFRunLoopRunSpecific + 608
+7   CoreFoundation                	       0x18c59ba50 CFRunLoopRun + 64
+8   ANEServices                   	       0x1a4e1a6c0 H11ANE::H11ANEServicesThreadStart(H11ANE::H11ANEServicesThreadParams*) + 132
+9   libsystem_pthread.dylib       	       0x18c443034 _pthread_start + 136
+10   libsystem_pthread.dylib       	       0x18c43de3c thread_start + 8
+
+Thread 55:: QoEM
+0   libsystem_kernel.dylib        	       0x18c4060ac __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x18c443628 _pthread_cond_wait + 1272
+2   util                          	       0x105b67868 0x105b58000 + 63592
+3   util                          	       0x105b67e30 0x105b58000 + 65072
+4   wbxaudioengine                	       0x1181855d8 0x118000000 + 1594840
+5   util                          	       0x105b8a8f8 0x105b58000 + 207096
+6   util                          	       0x105b89c84 0x105b58000 + 203908
+7   libsystem_pthread.dylib       	       0x18c443034 _pthread_start + 136
+8   libsystem_pthread.dylib       	       0x18c43de3c thread_start + 8
+
+Thread 56:: init_relighting_thread
+0   libsystem_kernel.dylib        	       0x18c4060ac __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x18c4435fc _pthread_cond_wait + 1228
+2   util                          	       0x105b678c0 0x105b58000 + 63680
+3   util                          	       0x105b8e3fc 0x105b58000 + 222204
+4   util                          	       0x105b8ea28 0x105b58000 + 223784
+5   util                          	       0x105b8a8f8 0x105b58000 + 207096
+6   util                          	       0x105b89c84 0x105b58000 + 203908
+7   libsystem_pthread.dylib       	       0x18c443034 _pthread_start + 136
+8   libsystem_pthread.dylib       	       0x18c43de3c thread_start + 8
+
+Thread 57:: a-playback
+0   libsystem_kernel.dylib        	       0x18c4060ac __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x18c4435fc _pthread_cond_wait + 1228
+2   util                          	       0x105b678c0 0x105b58000 + 63680
+3   util                          	       0x105b8e3fc 0x105b58000 + 222204
+4   util                          	       0x105b8ea28 0x105b58000 + 223784
+5   util                          	       0x105b8a8f8 0x105b58000 + 207096
+6   util                          	       0x105b89c84 0x105b58000 + 203908
+7   libsystem_pthread.dylib       	       0x18c443034 _pthread_start + 136
+8   libsystem_pthread.dylib       	       0x18c43de3c thread_start + 8
+
+Thread 58:: a-capture
+0   libsystem_kernel.dylib        	       0x18c4060ac __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x18c4435fc _pthread_cond_wait + 1228
+2   util                          	       0x105b678c0 0x105b58000 + 63680
+3   util                          	       0x105b8e3fc 0x105b58000 + 222204
+4   util                          	       0x105b8ea28 0x105b58000 + 223784
+5   util                          	       0x105b8a8f8 0x105b58000 + 207096
+6   util                          	       0x105b89c84 0x105b58000 + 203908
+7   libsystem_pthread.dylib       	       0x18c443034 _pthread_start + 136
+8   libsystem_pthread.dylib       	       0x18c43de3c thread_start + 8
+
+Thread 59:: H11ANEServicesThread
+0   libsystem_kernel.dylib        	       0x18c4028b4 mach_msg2_trap + 8
+1   libsystem_kernel.dylib        	       0x18c414d30 mach_msg2_internal + 80
+2   libsystem_kernel.dylib        	       0x18c40b4f0 mach_msg_overwrite + 476
+3   libsystem_kernel.dylib        	       0x18c402c38 mach_msg + 24
+4   CoreFoundation                	       0x18c51fed0 __CFRunLoopServiceMachPort + 160
+5   CoreFoundation                	       0x18c51e798 __CFRunLoopRun + 1208
+6   CoreFoundation                	       0x18c51dc2c CFRunLoopRunSpecific + 608
+7   CoreFoundation                	       0x18c59ba50 CFRunLoopRun + 64
+8   ANEServices                   	       0x1a4e1a6c0 H11ANE::H11ANEServicesThreadStart(H11ANE::H11ANEServicesThreadParams*) + 132
+9   libsystem_pthread.dylib       	       0x18c443034 _pthread_start + 136
+10   libsystem_pthread.dylib       	       0x18c43de3c thread_start + 8
+
+Thread 60:: H11ANEServicesThread
+0   libsystem_kernel.dylib        	       0x18c4028b4 mach_msg2_trap + 8
+1   libsystem_kernel.dylib        	       0x18c414d30 mach_msg2_internal + 80
+2   libsystem_kernel.dylib        	       0x18c40b4f0 mach_msg_overwrite + 476
+3   libsystem_kernel.dylib        	       0x18c402c38 mach_msg + 24
+4   CoreFoundation                	       0x18c51fed0 __CFRunLoopServiceMachPort + 160
+5   CoreFoundation                	       0x18c51e798 __CFRunLoopRun + 1208
+6   CoreFoundation                	       0x18c51dc2c CFRunLoopRunSpecific + 608
+7   CoreFoundation                	       0x18c59ba50 CFRunLoopRun + 64
+8   ANEServices                   	       0x1a4e1a6c0 H11ANE::H11ANEServicesThreadStart(H11ANE::H11ANEServicesThreadParams*) + 132
+9   libsystem_pthread.dylib       	       0x18c443034 _pthread_start + 136
+10   libsystem_pthread.dylib       	       0x18c43de3c thread_start + 8
+
+Thread 61:: H11ANEServicesThread
+0   libsystem_kernel.dylib        	       0x18c4028b4 mach_msg2_trap + 8
+1   libsystem_kernel.dylib        	       0x18c414d30 mach_msg2_internal + 80
+2   libsystem_kernel.dylib        	       0x18c40b4f0 mach_msg_overwrite + 476
+3   libsystem_kernel.dylib        	       0x18c402c38 mach_msg + 24
+4   CoreFoundation                	       0x18c51fed0 __CFRunLoopServiceMachPort + 160
+5   CoreFoundation                	       0x18c51e798 __CFRunLoopRun + 1208
+6   CoreFoundation                	       0x18c51dc2c CFRunLoopRunSpecific + 608
+7   CoreFoundation                	       0x18c59ba50 CFRunLoopRun + 64
+8   ANEServices                   	       0x1a4e1a6c0 H11ANE::H11ANEServicesThreadStart(H11ANE::H11ANEServicesThreadParams*) + 132
+9   libsystem_pthread.dylib       	       0x18c443034 _pthread_start + 136
+10   libsystem_pthread.dylib       	       0x18c43de3c thread_start + 8
+
+Thread 62:: H11ANEServicesThread
+0   libsystem_kernel.dylib        	       0x18c4028b4 mach_msg2_trap + 8
+1   libsystem_kernel.dylib        	       0x18c414d30 mach_msg2_internal + 80
+2   libsystem_kernel.dylib        	       0x18c40b4f0 mach_msg_overwrite + 476
+3   libsystem_kernel.dylib        	       0x18c402c38 mach_msg + 24
+4   CoreFoundation                	       0x18c51fed0 __CFRunLoopServiceMachPort + 160
+5   CoreFoundation                	       0x18c51e798 __CFRunLoopRun + 1208
+6   CoreFoundation                	       0x18c51dc2c CFRunLoopRunSpecific + 608
+7   CoreFoundation                	       0x18c59ba50 CFRunLoopRun + 64
+8   ANEServices                   	       0x1a4e1a6c0 H11ANE::H11ANEServicesThreadStart(H11ANE::H11ANEServicesThreadParams*) + 132
+9   libsystem_pthread.dylib       	       0x18c443034 _pthread_start + 136
+10   libsystem_pthread.dylib       	       0x18c43de3c thread_start + 8
+
+Thread 63:: com.apple.NSURLConnectionLoader
+0   libsystem_kernel.dylib        	       0x18c4028b4 mach_msg2_trap + 8
+1   libsystem_kernel.dylib        	       0x18c414d30 mach_msg2_internal + 80
+2   libsystem_kernel.dylib        	       0x18c40b4f0 mach_msg_overwrite + 476
+3   libsystem_kernel.dylib        	       0x18c402c38 mach_msg + 24
+4   CoreFoundation                	       0x18c51fed0 __CFRunLoopServiceMachPort + 160
+5   CoreFoundation                	       0x18c51e798 __CFRunLoopRun + 1208
+6   CoreFoundation                	       0x18c51dc2c CFRunLoopRunSpecific + 608
+7   CFNetwork                     	       0x191902390
+8   Foundation                    	       0x18d61fd14 __NSThread__start__ + 716
+9   libsystem_pthread.dylib       	       0x18c443034 _pthread_start + 136
+10   libsystem_pthread.dylib       	       0x18c43de3c thread_start + 8
+
+Thread 64:: JavaScriptCore libpas scavenger
+0   libsystem_kernel.dylib        	       0x18c4060ac __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x18c4435fc _pthread_cond_wait + 1228
+2   JavaScriptCore                	       0x1a9519728 scavenger_thread_main + 1512
+3   libsystem_pthread.dylib       	       0x18c443034 _pthread_start + 136
+4   libsystem_pthread.dylib       	       0x18c43de3c thread_start + 8
+
+Thread 65:: ipc_1.writer
+0   libsystem_kernel.dylib        	       0x18c411934 sem_wait + 8
+1   CiscoSparkPlugin              	       0x16586bb20 mseutil::Ipc::doWrite() + 856
+2   CiscoSparkPlugin              	       0x165875434 0x160b84000 + 80679988
+3   libsystem_pthread.dylib       	       0x18c443034 _pthread_start + 136
+4   libsystem_pthread.dylib       	       0x18c43de3c thread_start + 8
+
+Thread 66:: ipc_1.channel.listener
+0   libsystem_kernel.dylib        	       0x18c411934 sem_wait + 8
+1   CiscoSparkPlugin              	       0x165875d3c 0x160b84000 + 80682300
+2   CiscoSparkPlugin              	       0x16587597c 0x160b84000 + 80681340
+3   CiscoSparkPlugin              	       0x165875628 0x160b84000 + 80680488
+4   libsystem_pthread.dylib       	       0x18c443034 _pthread_start + 136
+5   libsystem_pthread.dylib       	       0x18c43de3c thread_start + 8
+
+Thread 67:: ipc_2.writer
+0   libsystem_kernel.dylib        	       0x18c411934 sem_wait + 8
+1   CiscoSparkPlugin              	       0x1658740f4 0x160b84000 + 80675060
+2   CiscoSparkPlugin              	       0x16586bad8 mseutil::Ipc::doWrite() + 784
+3   CiscoSparkPlugin              	       0x165875434 0x160b84000 + 80679988
+4   libsystem_pthread.dylib       	       0x18c443034 _pthread_start + 136
+5   libsystem_pthread.dylib       	       0x18c43de3c thread_start + 8
+
+Thread 68:
+0   libsystem_pthread.dylib       	       0x18c43de28 start_wqthread
+
+Thread 69:: 5002737856_share_source
+0   libsystem_kernel.dylib        	       0x18c4060ac __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x18c4435fc _pthread_cond_wait + 1228
+2   util                          	       0x105b678c0 0x105b58000 + 63680
+3   util                          	       0x105b8e3fc 0x105b58000 + 222204
+4   util                          	       0x105b8ea28 0x105b58000 + 223784
+5   util                          	       0x105b8a8f8 0x105b58000 + 207096
+6   util                          	       0x105b89c84 0x105b58000 + 203908
+7   libsystem_pthread.dylib       	       0x18c443034 _pthread_start + 136
+8   libsystem_pthread.dylib       	       0x18c43de3c thread_start + 8
+
+Thread 70:: 5002739536_share_source
+0   libsystem_kernel.dylib        	       0x18c4060ac __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x18c4435fc _pthread_cond_wait + 1228
+2   util                          	       0x105b678c0 0x105b58000 + 63680
+3   util                          	       0x105b8e3fc 0x105b58000 + 222204
+4   util                          	       0x105b8ea28 0x105b58000 + 223784
+5   util                          	       0x105b8a8f8 0x105b58000 + 207096
+6   util                          	       0x105b89c84 0x105b58000 + 203908
+7   libsystem_pthread.dylib       	       0x18c443034 _pthread_start + 136
+8   libsystem_pthread.dylib       	       0x18c43de3c thread_start + 8
+
+Binary Images:
+     0x12a6c4000 -             0x12a70bfff com.apple.cmio.DAL.VDC-4 (810.0) <6f4154f0-01b3-3c0b-880d-3c1c6660f302> /System/Library/Frameworks/CoreMediaIO.framework/Versions/A/Resources/VDC.plugin/Contents/MacOS/VDC
+     0x100358000 -             0x100363fff libobjc-trampolines.dylib <562f95b3-8118-3d61-a13f-34e819dd863d> /usr/lib/libobjc-trampolines.dylib
+     0x160b84000 -             0x167a6bfff Cisco-Systems.Spark.main (45.10.0.32891) <8b9a7903-5cf1-3029-8f5d-daca4281c3cd> /Applications/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/MacOS/CiscoSparkPlugin
+     0x104bb0000 -             0x104e0ffff com.cisco.webex.UIToolkit (1.0) <47466b6a-5ff7-3ae0-bf60-30a0b1345e13> /Applications/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/UIToolkit.framework/Versions/A/UIToolkit
+     0x105748000 -             0x1058b7fff com.airbnb.Lottie (1.0) <83b8d293-bf99-3fb9-9bb6-d7f1169ad7a6> /Applications/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/Lottie.framework/Versions/A/Lottie
+     0x104f30000 -             0x10502bfff io.sentry.Sentry (8.52.1) <4f5776fd-9725-3d55-b90c-d24000f46dd7> /Applications/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/Sentry.framework/Versions/A/Sentry
+     0x102e8c000 -             0x102f9ffff Cisco.appshare (1.0) <e763876f-c9ae-3526-8064-09c42d7ca049> /Applications/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/appshare.framework/Versions/A/appshare
+     0x100388000 -             0x10039ffff com.cisco.AudioDriverHost (1.0) <88e5901f-c7c0-3689-841c-83b7d27cfcd1> /Applications/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/AudioDriverHost.framework/Versions/A/AudioDriverHost
+     0x102d38000 -             0x102dcbfff com.cisco.mediaconverter (20500.2014) <a5e30b7c-2ddf-3bcb-987b-117928ff5813> /Applications/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/mediaconverter.framework/Versions/A/mediaconverter
+     0x100408000 -             0x100413fff www.cisco.wme.PluginInstall (1.0) <cda15656-06a5-3d51-9a60-62c8deea369c> /Applications/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/PluginInstall.framework/Versions/A/PluginInstall
+     0x10549c000 -             0x105667fff com.cisco.wmeclient (20500.2014) <ba43a0ae-aec5-35c4-876d-d48dd7b3fec5> /Applications/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/wmeclient.framework/Versions/A/wmeclient
+     0x105fc4000 -             0x1063a3fff com.cisco.MediaSession (20500.2014) <a9ff4ddf-03cf-3d9c-968f-8e175e983408> /Applications/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/MediaSession.framework/Versions/A/MediaSession
+     0x100458000 -             0x100473fff com.cisco.webex.cwsinterface (15.43.0500) <60386ddf-0aa9-38db-8707-b6602aac1e38> /Applications/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/cwsinterface.framework/Versions/A/cwsinterface
+     0x104978000 -             0x104a7ffff libxml2.2.dylib <2b98807d-a508-30ba-a3c7-600ea7a4b49c> /Applications/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/libxml2.2.dylib
+     0x104ab4000 -             0x104b37fff libcurl.dylib <9c2c2e81-b364-36d2-bda9-245fb4b42682> /Applications/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/libcurl.dylib
+     0x10048c000 -             0x1004affff libnghttp2.dylib <b6832d29-855f-3ef7-9ecf-4276c1d2cf5e> /Applications/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/libnghttp2.dylib
+     0x102dfc000 -             0x102e1bfff libcsflogger.dylib <afb3565e-4135-3414-8b99-7d51eb5dd79d> /Applications/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/libcsflogger.dylib
+     0x105d88000 -             0x105f53fff libcrypto.dylib <d2f2140b-b85a-3849-b41d-e933107b7337> /Applications/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/libcrypto.dylib
+     0x1048b4000 -             0x10490bfff libssl.dylib <7110fcda-51b0-3bd6-939d-ae9a51da2202> /Applications/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/libssl.dylib
+     0x1701f4000 -             0x175157fff libscf.dylib <80f4b304-6fe3-38d4-aa16-f4a0c86d4621> /Applications/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/libscf.dylib
+     0x106b98000 -             0x107193fff libbwc.dylib <39e2250d-4dac-35a4-ac00-1d1b55e4dd83> /Applications/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/libbwc.dylib
+     0x100424000 -             0x100433fff libusb.dylib <2e0a5831-0cd4-346b-83be-c91312652dcc> /Applications/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/libusb.dylib
+     0x1004c0000 -             0x1004dbfff libsrtp.dylib <07634fe5-06a6-3e55-ad7b-a39e58a88fb8> /Applications/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/libsrtp.dylib
+     0x118d5c000 -             0x1198d7fff libenhanced-callcontrol.dylib <8f236e39-bec3-30b8-80ea-1f946acfaaa4> /Applications/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/libenhanced-callcontrol.dylib
+     0x1066a0000 -             0x1068a7fff com.cisco.wseclient (2508.06.15100.003598) <75f6eff3-14ff-31ed-9b15-9a0da2cdf5be> /Applications/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/wseclient.framework/Versions/A/wseclient
+     0x106434000 -             0x10654ffff com.cisco.tp (1.0) <532d13fc-c438-3080-98d2-91aa2a282cc0> /Applications/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/tp.framework/Versions/A/tp
+     0x105b58000 -             0x105bbbfff com.cisco.util (1.0) <5a69f72f-3acd-33bb-934e-760a1bf1518f> /Applications/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/util.framework/Versions/A/util
+     0x11c800000 -             0x11cc4bfff com.cisco.wbxaecodec (1.0) <65a98ac2-e4d2-3a8f-a510-2730074e4566> /Applications/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/wbxaecodec.framework/Versions/A/wbxaecodec
+     0x118000000 -             0x118293fff com.cisco.wbxaudioengine (3.0) <dd937a75-041c-3c22-9e01-3bfec4be6e3e> /Applications/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/wbxaudioengine.framework/Versions/A/wbxaudioengine
+     0x10036c000 -             0x10036ffff com.cisco.wmeutil (1.0) <a6bfe4f8-4787-3259-8abd-85b807037bc1> /Applications/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/wmeutil.framework/Versions/A/wmeutil
+     0x105ca0000 -             0x105d2ffff com.cisco.wqos (1.0) <7138650d-b640-3125-82fd-403128a916a5> /Applications/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/wqos.framework/Versions/A/wqos
+     0x107300000 -             0x107447fff com.cisco.wrtp (1.0) <3ffc10c1-96ba-387c-903b-66bd7104fb14> /Applications/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/wrtp.framework/Versions/A/wrtp
+     0x105be4000 -             0x105c57fff com.cisco.webex.RootLogger <28dfc750-cbbf-3306-8159-ab1b3954ddb5> /Applications/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/RootLogger.framework/Versions/A/RootLogger
+     0x10483c000 -             0x104863fff com.cisco.webex.ThreadUtilities <38181983-6b63-31a6-bd61-506a4554ff29> /Applications/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/ThreadUtilities.framework/Versions/A/ThreadUtilities
+     0x10492c000 -             0x10494ffff libEncryptedString.dylib <5c27dc80-1af1-3dc1-b2e4-f63fa723e49b> /Applications/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/libEncryptedString.dylib
+     0x104b54000 -             0x104b73fff com.cisco.mediastores (1.0) <d0bc0e60-95b9-3587-9b49-efbeb6d2411c> /Applications/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/mediastores.framework/Versions/A/mediastores
+     0x106910000 -             0x1069a3fff libvideoprocess.dylib <7f6ebdc8-a218-32f1-93ee-79d27695f616> /Applications/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/libvideoprocess.dylib
+     0x1003cc000 -             0x1003ebfff com.apple.security.csparser (3.0) <ada5ddea-96d7-3640-9609-e1e3fefe4dba> /System/Library/Frameworks/Security.framework/Versions/A/PlugIns/csparser.bundle/Contents/MacOS/csparser
+     0x10033c000 -             0x100347fff cisco.SparkFinder (45.10.0.32891) <f19eedec-c60d-3b50-ac5c-af6523a768fe> /Applications/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/PlugIns/SparkFinder.bundle/Contents/MacOS/SparkFinder
+     0x1000f8000 -             0x100103fff Cisco-Systems.Spark (45.10.0.32891) <a8231c0a-7053-3718-8a07-c2b42d97ba90> /Applications/Webex.app/Contents/MacOS/Webex
+     0x18fcbf000 -             0x190fcffff com.apple.AppKit (6.9) <a4e78dd1-6b6e-3f57-924a-4a6a2e679789> /System/Library/Frameworks/AppKit.framework/Versions/C/AppKit
+     0x18c0c3000 -             0x18c156873 dyld <ffd8ab66-c9ab-31df-ab80-3a3dff367ddd> /usr/lib/dyld
+             0x0 -                     0x0 * <*> 
+     0x18c46e000 -             0x18c474ffb libsystem_platform.dylib <e7e2f10a-772a-397f-bd19-a7ea5a54e49f> /usr/lib/system/libsystem_platform.dylib
+     0x18c43c000 -             0x18c448ff3 libsystem_pthread.dylib <e4debb6e-421d-33d0-9e17-77ae0e0fe4dc> /usr/lib/system/libsystem_pthread.dylib
+     0x18c401000 -             0x18c43bfef libsystem_kernel.dylib <a7d3c07d-0a1e-3c4c-8fba-66905e16bf99> /usr/lib/system/libsystem_kernel.dylib
+     0x18c35b000 -             0x18c3e8ff7 libc++.1.dylib <93fbd681-fc78-33a3-affe-568702676142> /usr/lib/libc++.1.dylib
+     0x18c2dc000 -             0x18c35aff3 libsystem_c.dylib <1b84a7e4-8958-330c-98b8-27d491dff69e> /usr/lib/system/libsystem_c.dylib
+     0x1ffff4000 -             0x20008dfff com.apple.CalendarDaemon (1.0) <0d4e87c0-9114-3cf2-88d0-b316725884f5> /System/Library/PrivateFrameworks/CalendarDaemon.framework/Versions/A/CalendarDaemon
+     0x18c4a2000 -             0x18c978fff com.apple.CoreFoundation (6.9) <a68b8c77-1dbd-35b0-83fe-42ad58dd6629> /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation
+     0x18c25b000 -             0x18c291fff libsystem_malloc.dylib <00379936-c90e-3d9d-a569-3f97338f1472> /usr/lib/system/libsystem_malloc.dylib
+     0x196775000 -             0x19679efff com.apple.audio.caulk (1.0) <3863bf77-fb9e-3c5f-8790-d879a2bb092a> /System/Library/PrivateFrameworks/caulk.framework/Versions/A/caulk
+     0x1a4e0b000 -             0x1a4e2efff com.apple.ANEServices (7.23) <45ea4c9d-1f05-38f8-b090-4f22b79f5154> /System/Library/PrivateFrameworks/ANEServices.framework/Versions/A/ANEServices
+     0x1916a5000 -             0x191a75fff com.apple.CFNetwork (1.0) <034d0565-49cb-342f-8e6a-3888b596c736> /System/Library/Frameworks/CFNetwork.framework/Versions/A/CFNetwork
+     0x18d5cb000 -             0x18e21dfff com.apple.Foundation (6.9) <11eb37ae-355b-3a35-af1b-13b599244410> /System/Library/Frameworks/Foundation.framework/Versions/C/Foundation
+     0x1a7f7c000 -             0x1a9677fff com.apple.JavaScriptCore (19616) <338fa253-2b8f-3b4c-8adf-665fd7c5e9ef> /System/Library/Frameworks/JavaScriptCore.framework/Versions/A/JavaScriptCore

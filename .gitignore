@@ -1,0 +1,22 @@
+**/.DS_Store
+**/.idea
+**/.vscode
+**/.pytest_cache
+**/.coverage
+**/.coverage.*
+**/.cache
+**/.eggs
+**/.eggs
+
+# Default ignored files
+/shelf/
+/workspace.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
+**/__pycache__
+**/*.pyc
+**/download_symbols
+dev.env

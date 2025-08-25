@@ -1,3 +1,3 @@
-from MacAutoSymbolizer.tools import utilities
+from MacAutoSymbolizer.src import utilities
 
 utilities.read('../config.ini')

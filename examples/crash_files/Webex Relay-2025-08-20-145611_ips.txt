@@ -1,0 +1,391 @@
+-------------------------------------
+Translated Report (Full Report Below)
+-------------------------------------
+
+Process:               Webex Relay [23761]
+Path:                  /Applications/Webex Relay.app/Contents/MacOS/Webex Relay
+Identifier:            Cisco-Systems.Relay
+Version:               45.10.0.32917 (32917)
+Code Type:             ARM-64 (Native)
+Parent Process:        launchd [1]
+User ID:               501
+
+Date/Time:             2025-08-20 14:56:05.2775 +0800
+OS Version:            macOS 15.6 (24G84)
+Report Version:        12
+Anonymous UUID:        90F87515-FD74-4852-AFE5-AA6B81C1CE3A
+
+Sleep/Wake UUID:       F1F7F04F-CB42-40F0-8DA6-0EB025B5497C
+
+Time Awake Since Boot: 210000 seconds
+Time Since Wake:       7483 seconds
+
+System Integrity Protection: enabled
+
+Crashed Thread:        0  t-main-ui  Dispatch queue: com.apple.main-thread
+
+Exception Type:        EXC_CRASH (SIGABRT)
+Exception Codes:       0x0000000000000000, 0x0000000000000000
+
+
+Application Specific Information:
+abort() called
+
+
+Thread 0 Crashed:: t-main-ui Dispatch queue: com.apple.main-thread
+0   libsystem_kernel.dylib        	       0x18aa3a388 __pthread_kill + 8
+1   libsystem_pthread.dylib       	       0x18aa7388c pthread_kill + 296
+2   libsystem_c.dylib             	       0x18a97ca3c abort + 124
+3   libswiftCore.dylib            	       0x19c5a5b94 swift::fatalErrorv(unsigned int, char const*, char*) + 144
+4   libswiftCore.dylib            	       0x19c5a5bb4 swift::fatalError(unsigned int, char const*, ...) + 32
+5   libswiftCore.dylib            	       0x19c5a61f0 swift::runtime::AccessSet::insert(swift::runtime::Access*, void*, void*, swift::ExclusivityFlags) + 540
+6   libswiftCore.dylib            	       0x19c5a6244 swift_beginAccess + 84
+7   WebexRelayPlugin              	       0x11709c0d0 0x116ea4000 + 2064592
+8   WebexRelayPlugin              	       0x11709c314 0x116ea4000 + 2065172
+9   AppKit                        	       0x18ebe72fc -[NSWindowController release] + 168
+10   WebexRelayPlugin              	       0x11768f18c 0x116ea4000 + 8302988
+11   libobjc.A.dylib               	       0x18a68be00 object_cxxDestructFromClass(objc_object*, objc_class*) + 116
+12   libobjc.A.dylib               	       0x18a6b37c8 objc_destructInstance_nonnull_realized(objc_object*) + 76
+13   libobjc.A.dylib               	       0x18a683384 _objc_rootDealloc + 72
+14   WebexRelayPlugin              	       0x117153078 0x116ea4000 + 2814072
+15   libobjc.A.dylib               	       0x18a68be00 object_cxxDestructFromClass(objc_object*, objc_class*) + 116
+16   libobjc.A.dylib               	       0x18a6b37c8 objc_destructInstance_nonnull_realized(objc_object*) + 76
+17   libobjc.A.dylib               	       0x18a683384 _objc_rootDealloc + 72
+18   WebexRelayPlugin              	       0x117152f74 0x116ea4000 + 2813812
+19   WebexRelayPlugin              	       0x117152fdc 0x116ea4000 + 2813916
+20   WebexRelayPlugin              	       0x117049b24 0x116ea4000 + 1727268
+21   WebexRelayPlugin              	       0x11710fa80 0x116ea4000 + 2538112
+22   WebexRelayPlugin              	       0x11830af90 0x116ea4000 + 21393296
+23   WebexRelayPlugin              	       0x1172089a8 0x116ea4000 + 3557800
+24   WebexRelayPlugin              	       0x116f1eeb8 0x116ea4000 + 503480
+25   WebexRelayPlugin              	       0x116f1df00 0x116ea4000 + 499456
+26   WebexRelayPlugin              	       0x119f23668 0x116ea4000 + 50853480
+27   WebexRelayPlugin              	       0x119f232cc appsession::AppSessionManager::destroySession(appsession::AppSessionDestroyReason) + 984
+28   WebexRelayPlugin              	       0x116f1c914 0x116ea4000 + 493844
+29   WebexRelayPlugin              	       0x116fca850 0x116ea4000 + 1206352
+30   WebexRelayPlugin              	       0x1182ec4cc 0x116ea4000 + 21267660
+31   WebexRelayPlugin              	       0x1182ecb1c 0x116ea4000 + 21269276
+32   WebexRelayPlugin              	       0x1182ecd00 0x116ea4000 + 21269760
+33   CoreFoundation                	       0x18ab5346c __CFNOTIFICATIONCENTER_IS_CALLING_OUT_TO_AN_OBSERVER__ + 148
+34   CoreFoundation                	       0x18abe2b28 ___CFXRegistrationPost_block_invoke + 92
+35   CoreFoundation                	       0x18abe2a6c _CFXRegistrationPost + 436
+36   CoreFoundation                	       0x18ab228b8 _CFXNotificationPost + 740
+37   Foundation                    	       0x18c0dc680 -[NSNotificationCenter postNotificationName:object:userInfo:] + 88
+38   AppKit                        	       0x18ec88190 -[NSApplication terminate:] + 1660
+39   WebexRelayPlugin              	       0x116f79eb0 0x116ea4000 + 876208
+40   Foundation                    	       0x18c166fcc __NSFireTimer + 104
+41   CoreFoundation                	       0x18ab77c50 __CFRUNLOOP_IS_CALLING_OUT_TO_A_TIMER_CALLBACK_FUNCTION__ + 32
+42   CoreFoundation                	       0x18ab77910 __CFRunLoopDoTimer + 980
+43   CoreFoundation                	       0x18ab7744c __CFRunLoopDoTimers + 332
+44   CoreFoundation                	       0x18ab5d858 __CFRunLoopRun + 1848
+45   CoreFoundation                	       0x18ab5ca98 CFRunLoopRunSpecific + 572
+46   HIToolbox                     	       0x1965ff27c RunCurrentEventLoopInMode + 324
+47   HIToolbox                     	       0x1966024e8 ReceiveNextEventCommon + 676
+48   HIToolbox                     	       0x19678d484 _BlockUntilNextEventMatchingListInModeWithFilter + 76
+49   AppKit                        	       0x18ea81a34 _DPSNextEvent + 684
+50   AppKit                        	       0x18f420940 -[NSApplication(NSEventRouting) _nextEventMatchingEventMask:untilDate:inMode:dequeue:] + 688
+51   AppKit                        	       0x18ea74be4 -[NSApplication run] + 480
+52   AppKit                        	       0x18ea4b2dc NSApplicationMain + 880
+53   dyld                          	       0x18a6d2b98 start + 6076
+
+Thread 1:: AsyncQueue::RootLogger
+0   libsystem_kernel.dylib        	       0x18aa353cc __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x18aa740e0 _pthread_cond_wait + 984
+2   libc++.1.dylib                	       0x18a9a4268 std::__1::condition_variable::wait(std::__1::unique_lock<std::__1::mutex>&) + 32
+3   RootLogger                    	       0x10fcca92c AsyncQueue::Context::doWork() + 1560
+4   RootLogger                    	       0x10fccd544 0x10fcb8000 + 87364
+5   libsystem_pthread.dylib       	       0x18aa73c0c _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x18aa6eb80 thread_start + 8
+
+Thread 2:: AsyncQueue::UrlProtocolStateMachine
+0   libsystem_kernel.dylib        	       0x18aa353cc __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x18aa740e0 _pthread_cond_wait + 984
+2   libc++.1.dylib                	       0x18a9a4268 std::__1::condition_variable::wait(std::__1::unique_lock<std::__1::mutex>&) + 32
+3   libscf.dylib                  	       0x123228490 AsyncQueue::Context::doWork() + 1560
+4   libscf.dylib                  	       0x12322abc0 0x11f808000 + 60959680
+5   libsystem_pthread.dylib       	       0x18aa73c0c _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x18aa6eb80 thread_start + 8
+
+Thread 3:: TimerManager
+0   libscf.dylib                  	       0x1232148cc TimerManager::Context::threadStart() + 828
+1   libscf.dylib                  	       0x1232166c4 0x11f808000 + 60876484
+2   libsystem_pthread.dylib       	       0x18aa73c0c _pthread_start + 136
+3   libsystem_pthread.dylib       	       0x18aa6eb80 thread_start + 8
+
+Thread 4:: AsyncQueue::common-task-queue
+0   libsystem_kernel.dylib        	       0x18aa353cc __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x18aa740e0 _pthread_cond_wait + 984
+2   libc++.1.dylib                	       0x18a9a4268 std::__1::condition_variable::wait(std::__1::unique_lock<std::__1::mutex>&) + 32
+3   libscf.dylib                  	       0x123228490 AsyncQueue::Context::doWork() + 1560
+4   libscf.dylib                  	       0x12322abc0 0x11f808000 + 60959680
+5   libsystem_pthread.dylib       	       0x18aa73c0c _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x18aa6eb80 thread_start + 8
+
+Thread 5:
+0   libsystem_kernel.dylib        	       0x18aa351c8 __semwait_signal + 8
+1   libsystem_c.dylib             	       0x18a9116f4 nanosleep + 220
+2   libc++.1.dylib                	       0x18a9a5f38 std::__1::this_thread::sleep_for(std::__1::chrono::duration<long long, std::__1::ratio<1l, 1000000000l>> const&) + 84
+3   libscf.dylib                  	       0x11fc2549c 0x11f808000 + 4314268
+4   libscf.dylib                  	       0x122eb6838 spark::TaskMonitor::statusLoop(std::__1::weak_ptr<spark::TaskMonitor>) + 680
+5   libscf.dylib                  	       0x122eb69d0 0x11f808000 + 57338320
+6   libsystem_pthread.dylib       	       0x18aa73c0c _pthread_start + 136
+7   libsystem_pthread.dylib       	       0x18aa6eb80 thread_start + 8
+
+Thread 6:: Sentry::monitorCachedData
+0   libsystem_kernel.dylib        	       0x18aa351c8 __semwait_signal + 8
+1   libsystem_c.dylib             	       0x18a9116f4 nanosleep + 220
+2   libsystem_c.dylib             	       0x18a91a6d0 sleep + 52
+3   Sentry                        	       0x10ed2b364 monitorCachedData + 676
+4   libsystem_pthread.dylib       	       0x18aa73c0c _pthread_start + 136
+5   libsystem_pthread.dylib       	       0x18aa6eb80 thread_start + 8
+
+Thread 7:: SentryCrash Exception Handler (Secondary)
+0   libsystem_kernel.dylib        	       0x18aa31c34 mach_msg2_trap + 8
+1   libsystem_kernel.dylib        	       0x18aa443a0 mach_msg2_internal + 76
+2   libsystem_kernel.dylib        	       0x18aa61884 thread_suspend + 108
+3   Sentry                        	       0x10ed18630 handleExceptions + 120
+4   libsystem_pthread.dylib       	       0x18aa73c0c _pthread_start + 136
+5   libsystem_pthread.dylib       	       0x18aa6eb80 thread_start + 8
+
+Thread 8:: SentryCrash Exception Handler (Primary)
+0   libsystem_kernel.dylib        	       0x18aa31c34 mach_msg2_trap + 8
+1   libsystem_kernel.dylib        	       0x18aa443a0 mach_msg2_internal + 76
+2   libsystem_kernel.dylib        	       0x18aa3a764 mach_msg_overwrite + 484
+3   libsystem_kernel.dylib        	       0x18aa31fa8 mach_msg + 24
+4   Sentry                        	       0x10ed1865c handleExceptions + 164
+5   libsystem_pthread.dylib       	       0x18aa73c0c _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x18aa6eb80 thread_start + 8
+
+Thread 9:: com.apple.NSEventThread
+0   libsystem_kernel.dylib        	       0x18aa31c34 mach_msg2_trap + 8
+1   libsystem_kernel.dylib        	       0x18aa443a0 mach_msg2_internal + 76
+2   libsystem_kernel.dylib        	       0x18aa3a764 mach_msg_overwrite + 484
+3   libsystem_kernel.dylib        	       0x18aa31fa8 mach_msg + 24
+4   CoreFoundation                	       0x18ab5ecbc __CFRunLoopServiceMachPort + 160
+5   CoreFoundation                	       0x18ab5d5d8 __CFRunLoopRun + 1208
+6   CoreFoundation                	       0x18ab5ca98 CFRunLoopRunSpecific + 572
+7   AppKit                        	       0x18eba578c _NSEventThread + 140
+8   libsystem_pthread.dylib       	       0x18aa73c0c _pthread_start + 136
+9   libsystem_pthread.dylib       	       0x18aa6eb80 thread_start + 8
+
+Thread 10:: AsyncQueue::DeviceManagerDispatcher
+0   libsystem_kernel.dylib        	       0x18aa353cc __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x18aa740e0 _pthread_cond_wait + 984
+2   libc++.1.dylib                	       0x18a9a4268 std::__1::condition_variable::wait(std::__1::unique_lock<std::__1::mutex>&) + 32
+3   libscf.dylib                  	       0x123228490 AsyncQueue::Context::doWork() + 1560
+4   libscf.dylib                  	       0x12322abc0 0x11f808000 + 60959680
+5   libsystem_pthread.dylib       	       0x18aa73c0c _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x18aa6eb80 thread_start + 8
+
+Thread 11:: caulk.messenger.shared:17
+0   libsystem_kernel.dylib        	       0x18aa31bb0 semaphore_wait_trap + 8
+1   caulk                         	       0x1960e6cc8 caulk::semaphore::timed_wait(double) + 224
+2   caulk                         	       0x1960e6b70 caulk::concurrent::details::worker_thread::run() + 32
+3   caulk                         	       0x1960e6844 void* caulk::thread_proxy<std::__1::tuple<caulk::thread::attributes, void (caulk::concurrent::details::worker_thread::*)(), std::__1::tuple<caulk::concurrent::details::worker_thread*>>>(void*) + 96
+4   libsystem_pthread.dylib       	       0x18aa73c0c _pthread_start + 136
+5   libsystem_pthread.dylib       	       0x18aa6eb80 thread_start + 8
+
+Thread 12:: caulk.messenger.shared:high
+0   libsystem_kernel.dylib        	       0x18aa31bb0 semaphore_wait_trap + 8
+1   caulk                         	       0x1960e6cc8 caulk::semaphore::timed_wait(double) + 224
+2   caulk                         	       0x1960e6b70 caulk::concurrent::details::worker_thread::run() + 32
+3   caulk                         	       0x1960e6844 void* caulk::thread_proxy<std::__1::tuple<caulk::thread::attributes, void (caulk::concurrent::details::worker_thread::*)(), std::__1::tuple<caulk::concurrent::details::worker_thread*>>>(void*) + 96
+4   libsystem_pthread.dylib       	       0x18aa73c0c _pthread_start + 136
+5   libsystem_pthread.dylib       	       0x18aa6eb80 thread_start + 8
+
+Thread 13:: com.apple.NSURLConnectionLoader
+0   libsystem_kernel.dylib        	       0x18aa31c34 mach_msg2_trap + 8
+1   libsystem_kernel.dylib        	       0x18aa443a0 mach_msg2_internal + 76
+2   libsystem_kernel.dylib        	       0x18aa3a764 mach_msg_overwrite + 484
+3   libsystem_kernel.dylib        	       0x18aa31fa8 mach_msg + 24
+4   CoreFoundation                	       0x18ab5ecbc __CFRunLoopServiceMachPort + 160
+5   CoreFoundation                	       0x18ab5d5d8 __CFRunLoopRun + 1208
+6   CoreFoundation                	       0x18ab5ca98 CFRunLoopRunSpecific + 572
+7   CFNetwork                     	       0x1908672f4 +[__CFN_CoreSchedulingSetRunnable _run:] + 416
+8   Foundation                    	       0x18c126ba8 __NSThread__start__ + 732
+9   libsystem_pthread.dylib       	       0x18aa73c0c _pthread_start + 136
+10   libsystem_pthread.dylib       	       0x18aa6eb80 thread_start + 8
+
+Thread 14:: AsyncQueue::AccessoriesDispatcher
+0   libsystem_kernel.dylib        	       0x18aa353cc __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x18aa740e0 _pthread_cond_wait + 984
+2   libc++.1.dylib                	       0x18a9a4268 std::__1::condition_variable::wait(std::__1::unique_lock<std::__1::mutex>&) + 32
+3   libscf.dylib                  	       0x123228490 AsyncQueue::Context::doWork() + 1560
+4   libscf.dylib                  	       0x12322abc0 0x11f808000 + 60959680
+5   libsystem_pthread.dylib       	       0x18aa73c0c _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x18aa6eb80 thread_start + 8
+
+Thread 15:: H11ANEServicesThread
+0   libsystem_kernel.dylib        	       0x18aa31c34 mach_msg2_trap + 8
+1   libsystem_kernel.dylib        	       0x18aa443a0 mach_msg2_internal + 76
+2   libsystem_kernel.dylib        	       0x18aa3a764 mach_msg_overwrite + 484
+3   libsystem_kernel.dylib        	       0x18aa31fa8 mach_msg + 24
+4   CoreFoundation                	       0x18ab5ecbc __CFRunLoopServiceMachPort + 160
+5   CoreFoundation                	       0x18ab5d5d8 __CFRunLoopRun + 1208
+6   CoreFoundation                	       0x18ab5ca98 CFRunLoopRunSpecific + 572
+7   CoreFoundation                	       0x18abd6554 CFRunLoopRun + 64
+8   ANEServices                   	       0x1a5e26524 H11ANE::H11ANEServicesThreadStart(H11ANE::H11ANEServicesThreadParams*) + 152
+9   libsystem_pthread.dylib       	       0x18aa73c0c _pthread_start + 136
+10   libsystem_pthread.dylib       	       0x18aa6eb80 thread_start + 8
+
+Thread 16:: H11ANEServicesThread
+0   libsystem_kernel.dylib        	       0x18aa31c34 mach_msg2_trap + 8
+1   libsystem_kernel.dylib        	       0x18aa443a0 mach_msg2_internal + 76
+2   libsystem_kernel.dylib        	       0x18aa3a764 mach_msg_overwrite + 484
+3   libsystem_kernel.dylib        	       0x18aa31fa8 mach_msg + 24
+4   CoreFoundation                	       0x18ab5ecbc __CFRunLoopServiceMachPort + 160
+5   CoreFoundation                	       0x18ab5d5d8 __CFRunLoopRun + 1208
+6   CoreFoundation                	       0x18ab5ca98 CFRunLoopRunSpecific + 572
+7   CoreFoundation                	       0x18abd6554 CFRunLoopRun + 64
+8   ANEServices                   	       0x1a5e26524 H11ANE::H11ANEServicesThreadStart(H11ANE::H11ANEServicesThreadParams*) + 152
+9   libsystem_pthread.dylib       	       0x18aa73c0c _pthread_start + 136
+10   libsystem_pthread.dylib       	       0x18aa6eb80 thread_start + 8
+
+Thread 17:: H11ANEServicesThread
+0   libsystem_kernel.dylib        	       0x18aa31c34 mach_msg2_trap + 8
+1   libsystem_kernel.dylib        	       0x18aa443a0 mach_msg2_internal + 76
+2   libsystem_kernel.dylib        	       0x18aa3a764 mach_msg_overwrite + 484
+3   libsystem_kernel.dylib        	       0x18aa31fa8 mach_msg + 24
+4   CoreFoundation                	       0x18ab5ecbc __CFRunLoopServiceMachPort + 160
+5   CoreFoundation                	       0x18ab5d5d8 __CFRunLoopRun + 1208
+6   CoreFoundation                	       0x18ab5ca98 CFRunLoopRunSpecific + 572
+7   CoreFoundation                	       0x18abd6554 CFRunLoopRun + 64
+8   ANEServices                   	       0x1a5e26524 H11ANE::H11ANEServicesThreadStart(H11ANE::H11ANEServicesThreadParams*) + 152
+9   libsystem_pthread.dylib       	       0x18aa73c0c _pthread_start + 136
+10   libsystem_pthread.dylib       	       0x18aa6eb80 thread_start + 8
+
+Thread 18:: AsyncQueue::MediaConnectionQueue
+0   libsystem_kernel.dylib        	       0x18aa353cc __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x18aa740e0 _pthread_cond_wait + 984
+2   libc++.1.dylib                	       0x18a9a4268 std::__1::condition_variable::wait(std::__1::unique_lock<std::__1::mutex>&) + 32
+3   libscf.dylib                  	       0x123228490 AsyncQueue::Context::doWork() + 1560
+4   libscf.dylib                  	       0x12322abc0 0x11f808000 + 60959680
+5   libsystem_pthread.dylib       	       0x18aa73c0c _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x18aa6eb80 thread_start + 8
+
+Thread 19:: caulk::deferred_logger
+0   libsystem_kernel.dylib        	       0x18aa31bb0 semaphore_wait_trap + 8
+1   caulk                         	       0x1960e6cc8 caulk::semaphore::timed_wait(double) + 224
+2   caulk                         	       0x1960e6b70 caulk::concurrent::details::worker_thread::run() + 32
+3   caulk                         	       0x1960e6844 void* caulk::thread_proxy<std::__1::tuple<caulk::thread::attributes, void (caulk::concurrent::details::worker_thread::*)(), std::__1::tuple<caulk::concurrent::details::worker_thread*>>>(void*) + 96
+4   libsystem_pthread.dylib       	       0x18aa73c0c _pthread_start + 136
+5   libsystem_pthread.dylib       	       0x18aa6eb80 thread_start + 8
+
+Thread 20:: wseenc_s_0x148cdea00
+0   libsystem_kernel.dylib        	       0x18aa353cc __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x18aa740e0 _pthread_cond_wait + 984
+2   util                          	       0x10fba7160 0x10fb98000 + 61792
+3   util                          	       0x10fbcdca4 0x10fb98000 + 220324
+4   wmeutil                       	       0x10e552df4 WSEUTIL::ComTaskThread::OnThreadRun() + 372
+5   util                          	       0x10fbca198 0x10fb98000 + 205208
+6   util                          	       0x10fbc9524 0x10fb98000 + 202020
+7   libsystem_pthread.dylib       	       0x18aa73c0c _pthread_start + 136
+8   libsystem_pthread.dylib       	       0x18aa6eb80 thread_start + 8
+
+Thread 21:: av1enc
+0   libsystem_kernel.dylib        	       0x18aa353cc __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x18aa740e0 _pthread_cond_wait + 984
+2   libc++.1.dylib                	       0x18a9a4268 std::__1::condition_variable::wait(std::__1::unique_lock<std::__1::mutex>&) + 32
+3   wseclient                     	       0x1106cd540 0x110670000 + 382272
+4   wseclient                     	       0x1106d3234 0x110670000 + 406068
+5   libsystem_pthread.dylib       	       0x18aa73c0c _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x18aa6eb80 thread_start + 8
+
+Thread 22:: av1enc
+0   libsystem_kernel.dylib        	       0x18aa353cc __psynch_cvwait + 8
+1   libsystem_pthread.dylib       	       0x18aa740e0 _pthread_cond_wait + 984
+2   libc++.1.dylib                	       0x18a9a4268 std::__1::condition_variable::wait(std::__1::unique_lock<std::__1::mutex>&) + 32
+3   wseclient                     	       0x1106cd540 0x110670000 + 382272
+4   wseclient                     	       0x1106d3234 0x110670000 + 406068
+5   libsystem_pthread.dylib       	       0x18aa73c0c _pthread_start + 136
+6   libsystem_pthread.dylib       	       0x18aa6eb80 thread_start + 8
+
+Thread 23:
+0   libsystem_pthread.dylib       	       0x18aa6eb6c start_wqthread
+
+Thread 24:
+0   libsystem_pthread.dylib       	       0x18aa6eb6c start_wqthread
+
+Thread 25 Dispatch queue: com.apple.root.user-interactive-qos.overcommit
+0   CoreFoundation                	       0x18aafda80 __CFBasicHashDrain + 80
+1   CoreFoundation                	       0x18ac329f4 _CFRelease + 296
+2   CoreFoundation                	       0x18ab8bab8 __CFRunLoopDeallocate + 336
+3   CoreFoundation                	       0x18ac329f4 _CFRelease + 296
+4   Foundation                    	       0x18c9f306c __45-[NSConcreteTask launchWithDictionary:error:]_block_invoke.192 + 464
+5   libdispatch.dylib             	       0x18a8d585c _dispatch_client_callout + 16
+6   libdispatch.dylib             	       0x18a8c05e0 _dispatch_continuation_pop + 596
+7   libdispatch.dylib             	       0x18a8d3620 _dispatch_source_latch_and_call + 396
+8   libdispatch.dylib             	       0x18a8d22f8 _dispatch_source_invoke + 844
+9   libdispatch.dylib             	       0x18a8cef6c _dispatch_root_queue_drain_deferred_item + 216
+10   libdispatch.dylib             	       0x18a8ce810 _dispatch_kevent_worker_thread + 500
+11   libsystem_pthread.dylib       	       0x18aa6fe9c _pthread_wqthread + 348
+12   libsystem_pthread.dylib       	       0x18aa6eb74 start_wqthread + 8
+
+Thread 26:
+0   libsystem_pthread.dylib       	       0x18aa6eb6c start_wqthread
+
+Thread 27:
+0   libsystem_pthread.dylib       	       0x18aa6eb6c start_wqthread
+
+Binary Images:
+     0x1044c8000 -             0x1044d3fff Cisco-Systems.Relay (45.10.0.32917) <beb5011e-3b1d-38d2-af3f-865bd8e8ca86> /Applications/Webex Relay.app/Contents/MacOS/Webex Relay
+     0x10e520000 -             0x10e52bfff cisco.SparkFinder (45.10.0.32917) <70042da3-533c-34e3-bfa1-65a61af4a7dc> /Applications/Webex Relay.app/Contents/PlugIns/WebexRelayPlugin.bundle/Contents/PlugIns/SparkFinder.bundle/Contents/MacOS/SparkFinder
+     0x10e5a8000 -             0x10e5c7fff com.apple.security.csparser (3.0) <3a905673-ada9-3c57-992e-b83f555baa61> /System/Library/Frameworks/Security.framework/Versions/A/PlugIns/csparser.bundle/Contents/MacOS/csparser
+     0x116ea4000 -             0x11db33fff Cisco-Systems.Relay.main (45.10.0.32937) <37949af7-b6ec-33d3-bb9c-b40003b0d539> /Users/USER/Library/Application Support/Webex Relay/*/Webex Relay.app/Contents/PlugIns/WebexRelayPlugin.bundle/Contents/MacOS/WebexRelayPlugin
+     0x10e95c000 -             0x10ebbffff com.cisco.webex.UIToolkit <7ebdee29-426a-396a-bba8-a0e15e02719f> /Users/USER/Library/Application Support/Webex Relay/*/Webex Relay.app/Contents/PlugIns/WebexRelayPlugin.bundle/Contents/Frameworks/UIToolkit.framework/Versions/A/UIToolkit
+     0x10f4f8000 -             0x10f667fff com.airbnb.Lottie (1.0) <83b8d293-bf99-3fb9-9bb6-d7f1169ad7a6> /Users/USER/Library/Application Support/Webex Relay/*/Webex Relay.app/Contents/PlugIns/WebexRelayPlugin.bundle/Contents/Frameworks/Lottie.framework/Versions/A/Lottie
+     0x10ece0000 -             0x10ede7fff io.sentry.Sentry (8.52.1) <47c143ad-9208-3bfa-9a0b-5a43e5fb522e> /Users/USER/Library/Application Support/Webex Relay/*/Webex Relay.app/Contents/PlugIns/WebexRelayPlugin.bundle/Contents/Frameworks/Sentry.framework/Versions/A/Sentry
+     0x10e73c000 -             0x10e853fff Cisco.appshare (1.0) <5f45ad0f-797e-30df-9990-b2fb09b694b5> /Users/USER/Library/Application Support/Webex Relay/*/Webex Relay.app/Contents/PlugIns/WebexRelayPlugin.bundle/Contents/Frameworks/appshare.framework/Versions/A/appshare
+     0x10e56c000 -             0x10e583fff com.cisco.AudioDriverHost (1.0) <88e5901f-c7c0-3689-841c-83b7d27cfcd1> /Users/USER/Library/Application Support/Webex Relay/*/Webex Relay.app/Contents/PlugIns/WebexRelayPlugin.bundle/Contents/Frameworks/AudioDriverHost.framework/Versions/A/AudioDriverHost
+     0x10e898000 -             0x10e92bfff com.cisco.mediaconverter (20500.2014) <425d6c94-e54c-370e-bb80-4a024268ef91> /Users/USER/Library/Application Support/Webex Relay/*/Webex Relay.app/Contents/PlugIns/WebexRelayPlugin.bundle/Contents/Frameworks/mediaconverter.framework/Versions/A/mediaconverter
+     0x10e5e4000 -             0x10e5effff www.cisco.wme.PluginInstall (1.0) <cda15656-06a5-3d51-9a60-62c8deea369c> /Users/USER/Library/Application Support/Webex Relay/*/Webex Relay.app/Contents/PlugIns/WebexRelayPlugin.bundle/Contents/Frameworks/PluginInstall.framework/Versions/A/PluginInstall
+     0x10f908000 -             0x10fad3fff com.cisco.wmeclient (20500.2014) <867303b6-fecd-34c6-a29a-7ef438f5fe8c> /Users/USER/Library/Application Support/Webex Relay/*/Webex Relay.app/Contents/PlugIns/WebexRelayPlugin.bundle/Contents/Frameworks/wmeclient.framework/Versions/A/wmeclient
+     0x10ff90000 -             0x110373fff com.cisco.MediaSession (20500.2014) <fb90b786-debd-323b-a5de-a3db43512c76> /Users/USER/Library/Application Support/Webex Relay/*/Webex Relay.app/Contents/PlugIns/WebexRelayPlugin.bundle/Contents/Frameworks/MediaSession.framework/Versions/A/MediaSession
+     0x10e634000 -             0x10e64ffff com.cisco.webex.cwsinterface (15.43.0500) <60386ddf-0aa9-38db-8707-b6602aac1e38> /Users/USER/Library/Application Support/Webex Relay/*/Webex Relay.app/Contents/PlugIns/WebexRelayPlugin.bundle/Contents/Frameworks/cwsinterface.framework/Versions/A/cwsinterface
+     0x10f380000 -             0x10f487fff libxml2.2.dylib <2b98807d-a508-30ba-a3c7-600ea7a4b49c> /Users/USER/Library/Application Support/Webex Relay/*/Webex Relay.app/Contents/PlugIns/WebexRelayPlugin.bundle/Contents/Frameworks/libxml2.2.dylib
+     0x10f244000 -             0x10f2c7fff libcurl.dylib <9c2c2e81-b364-36d2-bda9-245fb4b42682> /Users/USER/Library/Application Support/Webex Relay/*/Webex Relay.app/Contents/PlugIns/WebexRelayPlugin.bundle/Contents/Frameworks/libcurl.dylib
+     0x10e668000 -             0x10e68bfff libnghttp2.dylib <b6832d29-855f-3ef7-9ecf-4276c1d2cf5e> /Users/USER/Library/Application Support/Webex Relay/*/Webex Relay.app/Contents/PlugIns/WebexRelayPlugin.bundle/Contents/Frameworks/libnghttp2.dylib
+     0x10e6d4000 -             0x10e6f3fff libcsflogger.dylib <afb3565e-4135-3414-8b99-7d51eb5dd79d> /Users/USER/Library/Application Support/Webex Relay/*/Webex Relay.app/Contents/PlugIns/WebexRelayPlugin.bundle/Contents/Frameworks/libcsflogger.dylib
+     0x10fd50000 -             0x10ff1bfff libcrypto.dylib <d2f2140b-b85a-3849-b41d-e933107b7337> /Users/USER/Library/Application Support/Webex Relay/*/Webex Relay.app/Contents/PlugIns/WebexRelayPlugin.bundle/Contents/Frameworks/libcrypto.dylib
+     0x10fb20000 -             0x10fb77fff libssl.dylib <7110fcda-51b0-3bd6-939d-ae9a51da2202> /Users/USER/Library/Application Support/Webex Relay/*/Webex Relay.app/Contents/PlugIns/WebexRelayPlugin.bundle/Contents/Frameworks/libssl.dylib
+     0x11f808000 -             0x124757fff libscf.dylib <78309896-ccc2-3c63-ad7d-738db3f29677> /Users/USER/Library/Application Support/Webex Relay/*/Webex Relay.app/Contents/PlugIns/WebexRelayPlugin.bundle/Contents/Frameworks/libscf.dylib
+     0x110b68000 -             0x111163fff libbwc.dylib <36112eeb-a67a-31da-afba-cbd4a958bac6> /Users/USER/Library/Application Support/Webex Relay/*/Webex Relay.app/Contents/PlugIns/WebexRelayPlugin.bundle/Contents/Frameworks/libbwc.dylib
+     0x10e600000 -             0x10e60ffff libusb.dylib <3797fd2d-e6e5-3a65-9203-bfb1ca80c334> /Users/USER/Library/Application Support/Webex Relay/*/Webex Relay.app/Contents/PlugIns/WebexRelayPlugin.bundle/Contents/Frameworks/libusb.dylib
+     0x10e69c000 -             0x10e6b7fff libsrtp.dylib <07634fe5-06a6-3e55-ad7b-a39e58a88fb8> /Users/USER/Library/Application Support/Webex Relay/*/Webex Relay.app/Contents/PlugIns/WebexRelayPlugin.bundle/Contents/Frameworks/libsrtp.dylib
+     0x11202c000 -             0x112ba7fff libenhanced-callcontrol.dylib <f266ac16-01b6-3bb5-9120-67f5615182f3> /Users/USER/Library/Application Support/Webex Relay/*/Webex Relay.app/Contents/PlugIns/WebexRelayPlugin.bundle/Contents/Frameworks/libenhanced-callcontrol.dylib
+     0x110670000 -             0x110877fff com.cisco.wseclient (2508.15.15100.003631) <bf8de367-c222-3213-8a08-dd7f43e4f844> /Users/USER/Library/Application Support/Webex Relay/*/Webex Relay.app/Contents/PlugIns/WebexRelayPlugin.bundle/Contents/Frameworks/wseclient.framework/Versions/A/wseclient
+     0x110404000 -             0x11051ffff com.cisco.tp (1.0) <98f9d7e2-04ca-3394-a3e8-891d0005ece9> /Users/USER/Library/Application Support/Webex Relay/*/Webex Relay.app/Contents/PlugIns/WebexRelayPlugin.bundle/Contents/Frameworks/tp.framework/Versions/A/tp
+     0x10fb98000 -             0x10fbfbfff com.cisco.util (1.0) <18ed933a-c139-3c35-b312-d55976e30281> /Users/USER/Library/Application Support/Webex Relay/*/Webex Relay.app/Contents/PlugIns/WebexRelayPlugin.bundle/Contents/Frameworks/util.framework/Versions/A/util
+     0x112f44000 -             0x11338ffff com.cisco.wbxaecodec (1.0) <f820bf43-0880-3246-beba-0b4d570d82f3> /Users/USER/Library/Application Support/Webex Relay/*/Webex Relay.app/Contents/PlugIns/WebexRelayPlugin.bundle/Contents/Frameworks/wbxaecodec.framework/Versions/A/wbxaecodec
+     0x114a74000 -             0x114d07fff com.cisco.wbxaudioengine (3.0) <49fddc07-8444-3e35-a2b4-44e3cf300c62> /Users/USER/Library/Application Support/Webex Relay/*/Webex Relay.app/Contents/PlugIns/WebexRelayPlugin.bundle/Contents/Frameworks/wbxaudioengine.framework/Versions/A/wbxaudioengine
+     0x10e550000 -             0x10e553fff com.cisco.wmeutil (1.0) <a6bfe4f8-4787-3259-8abd-85b807037bc1> /Users/USER/Library/Application Support/Webex Relay/*/Webex Relay.app/Contents/PlugIns/WebexRelayPlugin.bundle/Contents/Frameworks/wmeutil.framework/Versions/A/wmeutil
+     0x11055c000 -             0x1105effff com.cisco.wqos (1.0) <73319eda-ecac-3bbb-be29-b95116c36766> /Users/USER/Library/Application Support/Webex Relay/*/Webex Relay.app/Contents/PlugIns/WebexRelayPlugin.bundle/Contents/Frameworks/wqos.framework/Versions/A/wqos
+     0x1112d0000 -             0x111417fff com.cisco.wrtp (1.0) <14796155-2781-39a9-904b-b9d7250d96fb> /Users/USER/Library/Application Support/Webex Relay/*/Webex Relay.app/Contents/PlugIns/WebexRelayPlugin.bundle/Contents/Frameworks/wrtp.framework/Versions/A/wrtp
+     0x10f324000 -             0x10f347fff libEncryptedString.dylib <b5ae8ff3-599e-3d21-9724-8588271c351e> /Users/USER/Library/Application Support/Webex Relay/*/Webex Relay.app/Contents/PlugIns/WebexRelayPlugin.bundle/Contents/Frameworks/libEncryptedString.dylib
+     0x10fcb8000 -             0x10fd2bfff com.cisco.webex.RootLogger <04d2ec02-23e7-38c4-a7d3-4c0c5307cecf> /Users/USER/Library/Application Support/Webex Relay/*/Webex Relay.app/Contents/PlugIns/WebexRelayPlugin.bundle/Contents/Frameworks/RootLogger.framework/Versions/A/RootLogger
+     0x10fc6c000 -             0x10fc93fff com.cisco.webex.ThreadUtilities <b63c522c-c8b5-346e-a923-5b11af90684d> /Users/USER/Library/Application Support/Webex Relay/*/Webex Relay.app/Contents/PlugIns/WebexRelayPlugin.bundle/Contents/Frameworks/ThreadUtilities.framework/Versions/A/ThreadUtilities
+     0x10f4bc000 -             0x10f4dbfff com.cisco.mediastores (1.0) <47b25f6f-df53-3091-a2ab-c6029e41503c> /Users/USER/Library/Application Support/Webex Relay/*/Webex Relay.app/Contents/PlugIns/WebexRelayPlugin.bundle/Contents/Frameworks/mediastores.framework/Versions/A/mediastores
+     0x110990000 -             0x110a23fff libvideoprocess.dylib <0ddc798f-74c6-3a9f-a844-4c5a52eb2b0c> /Users/USER/Library/Application Support/Webex Relay/*/Webex Relay.app/Contents/PlugIns/WebexRelayPlugin.bundle/Contents/Frameworks/libvideoprocess.dylib
+     0x10e53c000 -             0x10e547fff libobjc-trampolines.dylib <a3faee04-0f8b-3428-9497-560c97eca6fb> /usr/lib/libobjc-trampolines.dylib
+     0x12e2a8000 -             0x12e9dbfff com.apple.AGXMetalG15X-M1 (329.2) <cdc48620-e31f-3f04-9455-5f54282a08ab> /System/Library/Extensions/AGXMetalG15X_M1.bundle/Contents/MacOS/AGXMetalG15X_M1
+     0x133c3c000 -             0x133f4ffff com.cisco.ladon.LadonSDK (1.5.2) <d52b302d-44ea-386f-9056-ff79dfb62194> /Users/USER/Library/Application Support/Webex Relay/*/Webex Relay.app/Contents/PlugIns/WebexRelayPlugin.bundle/Contents/Frameworks/LadonSDK.framework/Versions/A/LadonSDK
+     0x14fd44000 -             0x14fe7ffff com.apple.audio.units.Components (1.14) <351a431e-1520-3b3b-bb1e-f034da294ecd> /System/Library/Components/CoreAudio.component/Contents/MacOS/CoreAudio
+     0x10d284000 -             0x10d3abfff libav1enc.dylib <bf0ab923-30ae-3e55-8676-879df78ffec1> /Users/USER/Library/Application Support/Webex Relay/*/Webex Relay.app/Contents/PlugIns/WebexRelayPlugin.bundle/Contents/Frameworks/libav1enc.dylib
+     0x1335d0000 -             0x1336d7fff libopenh264.dylib <880defba-c0a7-3749-9454-781e3c05698d> /Users/USER/Library/Application Support/Webex Relay/*/Webex Relay.app/Contents/PlugIns/WebexRelayPlugin.bundle/Contents/Frameworks/libopenh264.dylib
+     0x16f284000 -             0x16fbd3fff com.apple.audio.AudioDSPComponents (1.0) <a6c9df5a-a3a9-3018-b05c-b20ef924641a> /System/Library/Components/AudioDSP.component/Contents/MacOS/AudioDSP
+     0x18aa31000 -             0x18aa6c653 libsystem_kernel.dylib <6e4a96ad-04b8-3e8a-b91d-087e62306246> /usr/lib/system/libsystem_kernel.dylib
+     0x18aa6d000 -             0x18aa79a47 libsystem_pthread.dylib <d6494ba9-171e-39fc-b1aa-28ecf87975d1> /usr/lib/system/libsystem_pthread.dylib
+     0x18a904000 -             0x18a985243 libsystem_c.dylib <dfea8794-80ce-37c3-8f6a-108aa1d0b1b0> /usr/lib/system/libsystem_c.dylib
+     0x19c210000 -             0x19c77ef3f libswiftCore.dylib <7186c5c8-2a46-3f35-b27f-f7f6923f7186> /usr/lib/swift/libswiftCore.dylib
+     0x18ea47000 -             0x18fed7e3f com.apple.AppKit (6.9) <860c164c-d04c-30ff-8c6f-e672b74caf11> /System/Library/Frameworks/AppKit.framework/Versions/C/AppKit
+     0x18a678000 -             0x18a6cb893 libobjc.A.dylib <8ca52e4d-f699-3d14-8061-eea9d4366538> /usr/lib/libobjc.A.dylib
+     0x18aae2000 -             0x18b020fff com.apple.CoreFoundation (6.9) <8d45baee-6cc0-3b89-93fd-ea1c8e15c6d7> /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation
+     0x18c0d3000 -             0x18cebc59f com.apple.Foundation (6.9) <b9a92060-f21e-3ecf-9ded-94a65c68a6f4> /System/Library/Frameworks/Foundation.framework/Versions/C/Foundation
+     0x19653c000 -             0x196842fdf com.apple.HIToolbox (2.1.1) <1a037942-11e0-3fc8-aad2-20b11e7ae1a4> /System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/HIToolbox.framework/Versions/A/HIToolbox
+     0x18a6cc000 -             0x18a767577 dyld <3247e185-ced2-36ff-9e29-47a77c23e004> /usr/lib/dyld
+             0x0 -                     0x0 * <*> 
+     0x18a986000 -             0x18aa12ff7 libc++.1.dylib <643ed232-ce19-3f63-8015-0aee768c002f> /usr/lib/libc++.1.dylib
+     0x1960e5000 -             0x19610cddf com.apple.audio.caulk (1.0) <42085f32-42e2-3f11-b0b4-0343137b5f72> /System/Library/PrivateFrameworks/caulk.framework/Versions/A/caulk
+     0x190613000 -             0x1909dca5f com.apple.CFNetwork (1.0) <45ad6442-531d-3e9a-967e-b3aa0d01f24f> /System/Library/Frameworks/CFNetwork.framework/Versions/A/CFNetwork
+     0x1a5e11000 -             0x1a5e3e01f com.apple.ANEServices (8.600) <d4c6f312-d1c4-3130-9c71-d63ca4e4cbfe> /System/Library/PrivateFrameworks/ANEServices.framework/Versions/A/ANEServices
+     0x18a8ba000 -             0x18a90075f libdispatch.dylib <24ce0d89-4114-30c2-a81a-3db1f5931cff> /usr/lib/system/libdispatch.dylib

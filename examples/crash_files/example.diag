@@ -1,0 +1,811 @@
+Date/Time:        2025-08-12 11:03:42.786 +0800
+End time:         2025-08-12 16:19:16.507 +0800
+OS Version:       macOS 26.0 (Build 25A5316i)
+Architecture:     arm64e
+Report Version:   65
+Incident Identifier: AB3EDFCA-B763-42D1-A0F7-BD1EA1D87C65
+
+Data Source:      Microstackshots
+Shared Cache:     2677B64E-F482-3086-80BD-0A61DF066F45 slid base address 0x181698000, slide 0x1698000
+
+Command:          Webex
+Path:             /Applications/Webex.app/Contents/MacOS/Webex
+Identifier:       Cisco-Systems.Spark
+Version:          45.10.0.32870 (32870)
+Team ID:          DE8Y96K9QP
+Is First Party:   No
+Beta Identifier:  A000951D-4AD5-556B-8532-2F983187F47A
+Resource Coalition: "Cisco-Systems.Spark"(45831)
+Architecture:     arm64
+Parent:           UNKNOWN [1]
+PID:              72060
+
+Event:            disk writes
+Action taken:     none
+Writes:           2147.49 MB of file backed memory dirtied over 18934 seconds (113.42 KB per second average), exceeding limit of 24.86 KB per second over 86400 seconds
+Writes limit:     2147.48 MB
+Limit duration:   86400s
+Writes caused:    2147.49 MB
+Writes duration:  18934s
+Duration:         18933.72s
+Duration Sampled: 18907.85s (event starts 20.94s before samples, event ends 4.93s after samples)
+Steps:            177 (10.49 MB/step)
+
+Hardware model:   iMac21,1
+Active cpus:      8
+Memory size:      8 GB
+HW page size:     16384
+VM page size:     16384
+Shared cache residency: 4.86% (251.69 MB / 5175.91 MB)
+
+Time Since Boot:  522004s
+Time Awake Since Boot: 521965s
+Time Since Wake:  406259s
+
+Total CPU Time:   515.854s
+Advisory levels:  Battery -> 2, User -> 2, ThermalPressure -> 0, Combined -> 2
+Free disk space:  59.13 GB/228.27 GB, low space threshold 3072 MB
+Vnodes Available: 67.62% (79843/118074)
+Models:           none
+
+Preferred User Language: en-CN, zh-Hans-CN
+Country Code:     CN
+Keyboards:        ABC
+OS Cryptex File Extents: 1517
+
+Heaviest stack for the target process:
+  170  thread_start + 8 (libsystem_pthread.dylib + 7040) [0x181b57b80]
+  170  _pthread_start + 136 (libsystem_pthread.dylib + 27592) [0x181b5cbc8]
+  157  ??? (libscf.dylib + 60782472) [0x11fd9f788]
+  157  AsyncQueue::Context::doWork() + 1324 (libscf.dylib + 60772204) [0x11fd9cf6c]
+  157  ??? (libscf.dylib + 9058200) [0x11cc4b798]
+  157  ??? (libscf.dylib + 9131516) [0x11cc5d5fc]
+  157  ??? (libscf.dylib + 9058200) [0x11cc4b798]
+  62   ??? (libscf.dylib + 56839700) [0x11f9dce14]
+  35   ??? (libscf.dylib + 8846768) [0x11cc17db0]
+  35   DatabaseWrapper::DBWrapper::_insertIntoDatabase(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::vector<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>>> const&, std::__1::vector<std::__1::vector<DatabaseWrapper::DBType, std::__1::allocator<DatabaseWrapper::DBType>>, std::__1::allocator<std::__1::vector<DatabaseWrapper::DBType, std::__1::allocator<DatabaseWrapper::DBType>>>> const&, bool, bool) + 2164 (libscf.dylib + 9077960) [0x11cc504c8]
+  35   ??? (libscf.dylib + 55577060) [0x11f8a89e4]
+  25   ??? (libscf.dylib + 55742068) [0x11f8d0e74]
+  25   ??? (libscf.dylib + 55775020) [0x11f8d8f2c]
+  25   ??? (libscf.dylib + 55791476) [0x11f8dcf74]
+  25   ??? (libscf.dylib + 55675028) [0x11f8c0894]
+  25   ??? (libscf.dylib + 55796260) [0x11f8de224]
+  25   ??? (libscf.dylib + 55694920) [0x11f8c5648]
+  25   ??? (libscf.dylib + 55647088) [0x11f8b9b70]
+  25   pwrite + 8 (libsystem_kernel.dylib + 17436) [0x181b1d41c]
+
+
+Powerstats for:   Webex [72060] [unique pid 570094]
+UUID:             A8231C0A-7053-3718-8A07-C2B42D97BA90
+Path:             /Applications/Webex.app/Contents/MacOS/Webex
+Identifier:       Cisco-Systems.Spark
+Version:          45.10.0.32870 (32870)
+Team ID:          DE8Y96K9QP
+Is First Party:   No
+Beta Identifier:  A000951D-4AD5-556B-8532-2F983187F47A
+Resource Coalition: 177 samples "Cisco-Systems.Spark"(45831)
+Architecture:     arm64
+Parent:           UNKNOWN [1]
+UID:              502
+Footprint:        161.98 MB -> 612.64 MB (+450.66 MB) (max 1167.22 MB )
+Pageins:          108698 pages
+Start time:       2025-08-12 11:04:03.723 +0800
+End time:         2025-08-12 16:19:11.573 +0800
+Num samples:      177 (100%)
+Num threads:      10
+Primary state:    99 samples Non-Frontmost App, Non-Suppressed, Kernel mode, Effective Thread QoS Default, Requested Thread QoS Default, Override Thread QoS Unspecified, p-core
+User Activity:    122 samples Idle, 55 samples Active
+Power Source:     0 samples on Battery, 177 samples on AC
+  170  thread_start + 8 (libsystem_pthread.dylib + 7040) [0x181b57b80]
+    170  _pthread_start + 136 (libsystem_pthread.dylib + 27592) [0x181b5cbc8]
+      157  ??? (libscf.dylib + 60782472) [0x11fd9f788]
+        157  AsyncQueue::Context::doWork() + 1324 (libscf.dylib + 60772204) [0x11fd9cf6c]
+          157  ??? (libscf.dylib + 9058200) [0x11cc4b798]
+            157  ??? (libscf.dylib + 9131516) [0x11cc5d5fc]
+              157  ??? (libscf.dylib + 9058200) [0x11cc4b798]
+                62   ??? (libscf.dylib + 56839700) [0x11f9dce14]
+                  35   ??? (libscf.dylib + 8846768) [0x11cc17db0]
+                    35   DatabaseWrapper::DBWrapper::_insertIntoDatabase(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::vector<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>>> const&, std::__1::vector<std::__1::vector<DatabaseWrapper::DBType, std::__1::allocator<DatabaseWrapper::DBType>>, std::__1::allocator<std::__1::vector<DatabaseWrapper::DBType, std::__1::allocator<DatabaseWrapper::DBType>>>> const&, bool, bool) + 2164 (libscf.dylib + 9077960) [0x11cc504c8]
+                      35   ??? (libscf.dylib + 55577060) [0x11f8a89e4]
+                        25   ??? (libscf.dylib + 55742068) [0x11f8d0e74]
+                          25   ??? (libscf.dylib + 55775020) [0x11f8d8f2c]
+                            25   ??? (libscf.dylib + 55791476) [0x11f8dcf74]
+                              25   ??? (libscf.dylib + 55675028) [0x11f8c0894]
+                                25   ??? (libscf.dylib + 55796260) [0x11f8de224]
+                                  25   ??? (libscf.dylib + 55694920) [0x11f8c5648]
+                                    25   ??? (libscf.dylib + 55647088) [0x11f8b9b70]
+                                      25   pwrite + 8 (libsystem_kernel.dylib + 17436) [0x181b1d41c]
+                                        3    <Frontmost App>
+                        5    ??? (libscf.dylib + 55751900) [0x11f8d34dc]
+                          5    ??? (libscf.dylib + 55779668) [0x11f8da154]
+                            5    ??? (libscf.dylib + 55689592) [0x11f8c4178]
+                              5    ??? (libscf.dylib + 55690140) [0x11f8c439c]
+                                5    ??? (libscf.dylib + 55647088) [0x11f8b9b70]
+                                  5    pwrite + 8 (libsystem_kernel.dylib + 17436) [0x181b1d41c]
+                        1    ??? (libscf.dylib + 55747920) [0x11f8d2550]
+                          1    ??? (libscf.dylib + 55776768) [0x11f8d9600]
+                            1    ??? (libscf.dylib + 55775020) [0x11f8d8f2c]
+                              1    ??? (libscf.dylib + 55791476) [0x11f8dcf74]
+                                1    ??? (libscf.dylib + 55675028) [0x11f8c0894]
+                                  1    ??? (libscf.dylib + 55796260) [0x11f8de224]
+                                    1    ??? (libscf.dylib + 55694920) [0x11f8c5648]
+                                      1    ??? (libscf.dylib + 55647088) [0x11f8b9b70]
+                                        1    pwrite + 8 (libsystem_kernel.dylib + 17436) [0x181b1d41c]
+                        1    ??? (libscf.dylib + 55747816) [0x11f8d24e8]
+                          1    ??? (libscf.dylib + 55778304) [0x11f8d9c00]
+                            1    ??? (libscf.dylib + 55799876) [0x11f8df044]
+                              1    ??? (libscf.dylib + 55706532) [0x11f8c83a4]
+                                1    ??? (libscf.dylib + 55708008) [0x11f8c8968]
+                                  1    ??? (libscf.dylib + 55672312) [0x11f8bfdf8]
+                                    1    ??? (libscf.dylib + 55675028) [0x11f8c0894]
+                                      1    ??? (libscf.dylib + 55796260) [0x11f8de224]
+                                        1    ??? (libscf.dylib + 55694920) [0x11f8c5648]
+                                          1    ??? (libscf.dylib + 55647088) [0x11f8b9b70]
+                                            1    pwrite + 8 (libsystem_kernel.dylib + 17436) [0x181b1d41c]
+                        1    ??? (libscf.dylib + 55746284) [0x11f8d1eec]
+                          1    ??? (libscf.dylib + 55779668) [0x11f8da154]
+                            1    ??? (libscf.dylib + 55689592) [0x11f8c4178]
+                              1    ??? (libscf.dylib + 55690140) [0x11f8c439c]
+                                1    ??? (libscf.dylib + 55647088) [0x11f8b9b70]
+                                  1    pwrite + 8 (libsystem_kernel.dylib + 17436) [0x181b1d41c]
+                        1    ??? (libscf.dylib + 55735760) [0x11f8cf5d0]
+                          1    ??? (libscf.dylib + 55774096) [0x11f8d8b90]
+                            1    ??? (libscf.dylib + 55791196) [0x11f8dce5c]
+                              1    ??? (libscf.dylib + 55791476) [0x11f8dcf74]
+                                1    ??? (libscf.dylib + 55675028) [0x11f8c0894]
+                                  1    ??? (libscf.dylib + 55796260) [0x11f8de224]
+                                    1    ??? (libscf.dylib + 55694920) [0x11f8c5648]
+                                      1    ??? (libscf.dylib + 55647088) [0x11f8b9b70]
+                                        1    pwrite + 8 (libsystem_kernel.dylib + 17436) [0x181b1d41c]
+                        1    ??? (libscf.dylib + 55735392) [0x11f8cf460]
+                          1    ??? (libscf.dylib + 55775020) [0x11f8d8f2c]
+                            1    ??? (libscf.dylib + 55791476) [0x11f8dcf74]
+                              1    ??? (libscf.dylib + 55675028) [0x11f8c0894]
+                                1    ??? (libscf.dylib + 55796260) [0x11f8de224]
+                                  1    ??? (libscf.dylib + 55694920) [0x11f8c5648]
+                                    1    ??? (libscf.dylib + 55647088) [0x11f8b9b70]
+                                      1    pwrite + 8 (libsystem_kernel.dylib + 17436) [0x181b1d41c]
+                  10   ??? (libscf.dylib + 8674960) [0x11cbede90]
+                    10   DatabaseWrapper::DBWrapper::_insertIntoDatabase(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::vector<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>>> const&, std::__1::vector<std::__1::vector<DatabaseWrapper::DBType, std::__1::allocator<DatabaseWrapper::DBType>>, std::__1::allocator<std::__1::vector<DatabaseWrapper::DBType, std::__1::allocator<DatabaseWrapper::DBType>>>> const&, bool, bool) + 2164 (libscf.dylib + 9077960) [0x11cc504c8]
+                      10   ??? (libscf.dylib + 55577060) [0x11f8a89e4]
+                        9    ??? (libscf.dylib + 55747920) [0x11f8d2550]
+                          6    ??? (libscf.dylib + 55778304) [0x11f8d9c00]
+                            4    ??? (libscf.dylib + 55799744) [0x11f8defc0]
+                              2    ??? (libscf.dylib + 55689812) [0x11f8c4254]
+                                2    ??? (libscf.dylib + 55690740) [0x11f8c45f4]
+                                  2    ??? (libscf.dylib + 55647088) [0x11f8b9b70]
+                                    2    pwrite + 8 (libsystem_kernel.dylib + 17436) [0x181b1d41c]
+                                      1    <Frontmost App>
+                              2    ??? (libscf.dylib + 55689592) [0x11f8c4178]
+                                2    ??? (libscf.dylib + 55690140) [0x11f8c439c]
+                                  2    ??? (libscf.dylib + 55647088) [0x11f8b9b70]
+                                    2    pwrite + 8 (libsystem_kernel.dylib + 17436) [0x181b1d41c]
+                                      1    <Frontmost App>
+                            2    ??? (libscf.dylib + 55803476) [0x11f8dfe54]
+                              2    ??? (libscf.dylib + 55689592) [0x11f8c4178]
+                                2    ??? (libscf.dylib + 55690140) [0x11f8c439c]
+                                  2    ??? (libscf.dylib + 55647088) [0x11f8b9b70]
+                                    2    pwrite + 8 (libsystem_kernel.dylib + 17436) [0x181b1d41c]
+                                      2    <Frontmost App>
+                          3    ??? (libscf.dylib + 55778032) [0x11f8d9af0]
+                            2    ??? (libscf.dylib + 55689592) [0x11f8c4178]
+                              2    ??? (libscf.dylib + 55690140) [0x11f8c439c]
+                                2    ??? (libscf.dylib + 55647088) [0x11f8b9b70]
+                                  2    pwrite + 8 (libsystem_kernel.dylib + 17436) [0x181b1d41c]
+                                    2    <Frontmost App>
+                            1    ??? (libscf.dylib + 55689784) [0x11f8c4238]
+                              1    ??? (libscf.dylib + 55573160) [0x11f8a7aa8]
+                                1    ??? (libscf.dylib + 55659924) [0x11f8bcd94]
+                                  1    ??? (libscf.dylib + 55665060) [0x11f8be1a4]
+                                    1    __open + 8 (libsystem_kernel.dylib + 5764) [0x181b1a684]
+                        1    ??? (libscf.dylib + 55746284) [0x11f8d1eec]
+                          1    ??? (libscf.dylib + 55779668) [0x11f8da154]
+                            1    ??? (libscf.dylib + 55689592) [0x11f8c4178]
+                              1    ??? (libscf.dylib + 55690140) [0x11f8c439c]
+                                1    ??? (libscf.dylib + 55647088) [0x11f8b9b70]
+                                  1    pwrite + 8 (libsystem_kernel.dylib + 17436) [0x181b1d41c]
+                                    1    <Frontmost App>
+                  8    ??? (libscf.dylib + 8884436) [0x11cc210d4]
+                    8    DatabaseWrapper::DBWrapper::_insertIntoDatabase(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::vector<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>>> const&, std::__1::vector<std::__1::vector<DatabaseWrapper::DBType, std::__1::allocator<DatabaseWrapper::DBType>>, std::__1::allocator<std::__1::vector<DatabaseWrapper::DBType, std::__1::allocator<DatabaseWrapper::DBType>>>> const&, bool, bool) + 2164 (libscf.dylib + 9077960) [0x11cc504c8]
+                      8    ??? (libscf.dylib + 55577060) [0x11f8a89e4]
+                        5    ??? (libscf.dylib + 55747920) [0x11f8d2550]
+                          5    ??? (libscf.dylib + 55778032) [0x11f8d9af0]
+                            4    ??? (libscf.dylib + 55689812) [0x11f8c4254]
+                              4    ??? (libscf.dylib + 55690740) [0x11f8c45f4]
+                                4    ??? (libscf.dylib + 55647088) [0x11f8b9b70]
+                                  4    pwrite + 8 (libsystem_kernel.dylib + 17436) [0x181b1d41c]
+                                    1    <Frontmost App>
+                                    1    <e-core>
+                                    1    <Frontmost App, e-core>
+                            1    ??? (libscf.dylib + 55689592) [0x11f8c4178]
+                              1    ??? (libscf.dylib + 55690140) [0x11f8c439c]
+                                1    ??? (libscf.dylib + 55647088) [0x11f8b9b70]
+                                  1    pwrite + 8 (libsystem_kernel.dylib + 17436) [0x181b1d41c]
+                                    1    <Frontmost App>
+                        3    ??? (libscf.dylib + 55746284) [0x11f8d1eec]
+                          3    ??? (libscf.dylib + 55779668) [0x11f8da154]
+                            2    ??? (libscf.dylib + 55689812) [0x11f8c4254]
+                              2    ??? (libscf.dylib + 55690740) [0x11f8c45f4]
+                                2    ??? (libscf.dylib + 55647088) [0x11f8b9b70]
+                                  2    pwrite + 8 (libsystem_kernel.dylib + 17436) [0x181b1d41c]
+                                    1    <e-core>
+                                    1    <Frontmost App, e-core>
+                            1    ??? (libscf.dylib + 55689592) [0x11f8c4178]
+                              1    ??? (libscf.dylib + 55690140) [0x11f8c439c]
+                                1    ??? (libscf.dylib + 55647088) [0x11f8b9b70]
+                                  1    pwrite + 8 (libsystem_kernel.dylib + 17436) [0x181b1d41c]
+                                    1    <Frontmost App>
+                  2    ??? (CiscoSparkPlugin + 86248832) [0x1189a8d80]
+                    2    DatabaseWrapper::DBWrapper::_insertIntoDatabase(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::vector<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>>> const&, std::__1::vector<std::__1::vector<DatabaseWrapper::DBType, std::__1::allocator<DatabaseWrapper::DBType>>, std::__1::allocator<std::__1::vector<DatabaseWrapper::DBType, std::__1::allocator<DatabaseWrapper::DBType>>>> const&, bool, bool) + 2164 (libscf.dylib + 9077960) [0x11cc504c8]
+                      2    ??? (libscf.dylib + 55577060) [0x11f8a89e4]
+                        2    ??? (libscf.dylib + 55746284) [0x11f8d1eec]
+                          2    ??? (libscf.dylib + 55779860) [0x11f8da214]
+                            1    ??? (libscf.dylib + 55803476) [0x11f8dfe54]
+                              1    ??? (libscf.dylib + 55689592) [0x11f8c4178]
+                                1    ??? (libscf.dylib + 55690140) [0x11f8c439c]
+                                  1    ??? (libscf.dylib + 55647088) [0x11f8b9b70]
+                                    1    pwrite + 8 (libsystem_kernel.dylib + 17436) [0x181b1d41c]
+                                      1    <Frontmost App>
+                            1    ??? (libscf.dylib + 55799744) [0x11f8defc0]
+                              1    ??? (libscf.dylib + 55689592) [0x11f8c4178]
+                                1    ??? (libscf.dylib + 55690140) [0x11f8c439c]
+                                  1    ??? (libscf.dylib + 55647088) [0x11f8b9b70]
+                                    1    pwrite + 8 (libsystem_kernel.dylib + 17436) [0x181b1d41c]
+                                      1    <Frontmost App>
+                  1    ??? (libscf.dylib + 8831868) [0x11cc1437c]
+                    1    DatabaseWrapper::DBWrapper::_insertIntoDatabase(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::vector<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>>> const&, std::__1::vector<std::__1::vector<DatabaseWrapper::DBType, std::__1::allocator<DatabaseWrapper::DBType>>, std::__1::allocator<std::__1::vector<DatabaseWrapper::DBType, std::__1::allocator<DatabaseWrapper::DBType>>>> const&, bool, bool) + 2164 (libscf.dylib + 9077960) [0x11cc504c8]
+                      1    ??? (libscf.dylib + 55577060) [0x11f8a89e4]
+                        1    ??? (libscf.dylib + 55733800) [0x11f8cee28]
+                          1    ??? (libscf.dylib + 55723356) [0x11f8cc55c]
+                            1    ??? (libscf.dylib + 56314376) [0x11f95ca08]
+                              1    ??? (libscf.dylib + 56401208) [0x11f971d38]
+                                1    ??? (libscf.dylib + 56356980) [0x11f967074]
+                                  1    ??? (libscf.dylib + 56366400) [0x11f969540]
+                                    1    ??? (libscf.dylib + 56366260) [0x11f9694b4]
+                                      1    ??? (libscf.dylib + 56324704) [0x11f95f260]
+                                        1    ??? (libscf.dylib + 55577060) [0x11f8a89e4]
+                                          1    ??? (libscf.dylib + 55747816) [0x11f8d24e8]
+                                            1    ??? (libscf.dylib + 55778304) [0x11f8d9c00]
+                                              1    ??? (libscf.dylib + 55799744) [0x11f8defc0]
+                                                1    ??? (libscf.dylib + 55689592) [0x11f8c4178]
+                                                  1    ??? (libscf.dylib + 55690140) [0x11f8c439c]
+                                                    1    ??? (libscf.dylib + 55647088) [0x11f8b9b70]
+                                                      1    pwrite + 8 (libsystem_kernel.dylib + 17436) [0x181b1d41c]
+                                                        1    <Frontmost App>
+                  1    ??? (libscf.dylib + 8830492) [0x11cc13e1c]
+                    1    DatabaseWrapper::DBWrapper::_insertIntoDatabase(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::vector<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>>> const&, std::__1::vector<std::__1::vector<DatabaseWrapper::DBType, std::__1::allocator<DatabaseWrapper::DBType>>, std::__1::allocator<std::__1::vector<DatabaseWrapper::DBType, std::__1::allocator<DatabaseWrapper::DBType>>>> const&, bool, bool) + 2164 (libscf.dylib + 9077960) [0x11cc504c8]
+                      1    ??? (libscf.dylib + 55577060) [0x11f8a89e4]
+                        1    ??? (libscf.dylib + 55751900) [0x11f8d34dc]
+                          1    ??? (libscf.dylib + 55779668) [0x11f8da154]
+                            1    ??? (libscf.dylib + 55689592) [0x11f8c4178]
+                              1    ??? (libscf.dylib + 55690140) [0x11f8c439c]
+                                1    ??? (libscf.dylib + 55647088) [0x11f8b9b70]
+                                  1    pwrite + 8 (libsystem_kernel.dylib + 17436) [0x181b1d41c]
+                  1    ??? (libscf.dylib + 8676372) [0x11cbee414]
+                    1    DatabaseWrapper::DBWrapper::_insertIntoDatabase(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::vector<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>>> const&, std::__1::vector<std::__1::vector<DatabaseWrapper::DBType, std::__1::allocator<DatabaseWrapper::DBType>>, std::__1::allocator<std::__1::vector<DatabaseWrapper::DBType, std::__1::allocator<DatabaseWrapper::DBType>>>> const&, bool, bool) + 2164 (libscf.dylib + 9077960) [0x11cc504c8]
+                      1    ??? (libscf.dylib + 55577060) [0x11f8a89e4]
+                        1    ??? (libscf.dylib + 55747920) [0x11f8d2550]
+                          1    ??? (libscf.dylib + 55778304) [0x11f8d9c00]
+                            1    ??? (libscf.dylib + 55803476) [0x11f8dfe54]
+                              1    ??? (libscf.dylib + 55689592) [0x11f8c4178]
+                                1    ??? (libscf.dylib + 55690140) [0x11f8c439c]
+                                  1    ??? (libscf.dylib + 55647088) [0x11f8b9b70]
+                                    1    pwrite + 8 (libsystem_kernel.dylib + 17436) [0x181b1d41c]
+                                      1    <Frontmost App>
+                  1    ??? (CiscoSparkPlugin + 87078052) [0x118a734a4]
+                    1    DatabaseWrapper::DBWrapper::_insertIntoDatabase(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::vector<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>>> const&, std::__1::vector<std::__1::vector<DatabaseWrapper::DBType, std::__1::allocator<DatabaseWrapper::DBType>>, std::__1::allocator<std::__1::vector<DatabaseWrapper::DBType, std::__1::allocator<DatabaseWrapper::DBType>>>> const&, bool, bool) + 2164 (libscf.dylib + 9077960) [0x11cc504c8]
+                      1    ??? (libscf.dylib + 55577060) [0x11f8a89e4]
+                        1    ??? (libscf.dylib + 55746284) [0x11f8d1eec]
+                          1    ??? (libscf.dylib + 55779668) [0x11f8da154]
+                            1    ??? (libscf.dylib + 55689592) [0x11f8c4178]
+                              1    ??? (libscf.dylib + 55690140) [0x11f8c439c]
+                                1    ??? (libscf.dylib + 55647088) [0x11f8b9b70]
+                                  1    pwrite + 8 (libsystem_kernel.dylib + 17436) [0x181b1d41c]
+                  1    ??? (CiscoSparkPlugin + 86257696) [0x1189ab020]
+                    1    DatabaseWrapper::DBWrapper::_insertIntoDatabase(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::vector<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>>> const&, std::__1::vector<std::__1::vector<DatabaseWrapper::DBType, std::__1::allocator<DatabaseWrapper::DBType>>, std::__1::allocator<std::__1::vector<DatabaseWrapper::DBType, std::__1::allocator<DatabaseWrapper::DBType>>>> const&, bool, bool) + 2164 (libscf.dylib + 9077960) [0x11cc504c8]
+                      1    ??? (libscf.dylib + 55577060) [0x11f8a89e4]
+                        1    ??? (libscf.dylib + 55747920) [0x11f8d2550]
+                          1    ??? (libscf.dylib + 55778032) [0x11f8d9af0]
+                            1    ??? (libscf.dylib + 55689592) [0x11f8c4178]
+                              1    ??? (libscf.dylib + 55690140) [0x11f8c439c]
+                                1    ??? (libscf.dylib + 55647088) [0x11f8b9b70]
+                                  1    pwrite + 8 (libsystem_kernel.dylib + 17436) [0x181b1d41c]
+                                    1    <Frontmost App>
+                  1    ??? (CiscoSparkPlugin + 86256416) [0x1189aab20]
+                    1    DatabaseWrapper::DBWrapper::_insertIntoDatabase(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::vector<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>>> const&, std::__1::vector<std::__1::vector<DatabaseWrapper::DBType, std::__1::allocator<DatabaseWrapper::DBType>>, std::__1::allocator<std::__1::vector<DatabaseWrapper::DBType, std::__1::allocator<DatabaseWrapper::DBType>>>> const&, bool, bool) + 2164 (libscf.dylib + 9077960) [0x11cc504c8]
+                      1    ??? (libscf.dylib + 55577060) [0x11f8a89e4]
+                        1    ??? (libscf.dylib + 55746284) [0x11f8d1eec]
+                          1    ??? (libscf.dylib + 55779668) [0x11f8da154]
+                            1    ??? (libscf.dylib + 55689592) [0x11f8c4178]
+                              1    ??? (libscf.dylib + 55690140) [0x11f8c439c]
+                                1    ??? (libscf.dylib + 55647088) [0x11f8b9b70]
+                                  1    pwrite + 8 (libsystem_kernel.dylib + 17436) [0x181b1d41c]
+                                    1    <Frontmost App>
+                  1    ??? (CiscoSparkPlugin + 86249904) [0x1189a91b0]
+                    1    DatabaseWrapper::DBWrapper::_insertIntoDatabase(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::vector<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>>> const&, std::__1::vector<std::__1::vector<DatabaseWrapper::DBType, std::__1::allocator<DatabaseWrapper::DBType>>, std::__1::allocator<std::__1::vector<DatabaseWrapper::DBType, std::__1::allocator<DatabaseWrapper::DBType>>>> const&, bool, bool) + 2164 (libscf.dylib + 9077960) [0x11cc504c8]
+                      1    ??? (libscf.dylib + 55577060) [0x11f8a89e4]
+                        1    ??? (libscf.dylib + 55751900) [0x11f8d34dc]
+                          1    ??? (libscf.dylib + 55779668) [0x11f8da154]
+                            1    ??? (libscf.dylib + 55689592) [0x11f8c4178]
+                              1    ??? (libscf.dylib + 55690140) [0x11f8c439c]
+                                1    ??? (libscf.dylib + 55647088) [0x11f8b9b70]
+                                  1    pwrite + 8 (libsystem_kernel.dylib + 17436) [0x181b1d41c]
+                                    1    <Frontmost App>
+                56   ??? (libscf.dylib + 56852140) [0x11f9dfeac]
+                  20   ??? (libscf.dylib + 8831868) [0x11cc1437c]
+                    20   DatabaseWrapper::DBWrapper::_insertIntoDatabase(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::vector<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>>> const&, std::__1::vector<std::__1::vector<DatabaseWrapper::DBType, std::__1::allocator<DatabaseWrapper::DBType>>, std::__1::allocator<std::__1::vector<DatabaseWrapper::DBType, std::__1::allocator<DatabaseWrapper::DBType>>>> const&, bool, bool) + 2164 (libscf.dylib + 9077960) [0x11cc504c8]
+                      20   ??? (libscf.dylib + 55577060) [0x11f8a89e4]
+                        14   ??? (libscf.dylib + 55763496) [0x11f8d6228]
+                          14   ??? (libscf.dylib + 55712860) [0x11f8c9c5c]
+                            13   ??? (libscf.dylib + 55715072) [0x11f8ca500]
+                              13   ??? (libscf.dylib + 55586756) [0x11f8aafc4]
+                                13   ??? (libscf.dylib + 55586112) [0x11f8aad40]
+                                  13   ??? (libscf.dylib + 55694920) [0x11f8c5648]
+                                    13   ??? (libscf.dylib + 55647088) [0x11f8b9b70]
+                                      13   pwrite + 8 (libsystem_kernel.dylib + 17436) [0x181b1d41c]
+                                        5    <Frontmost App>
+                            1    ??? (libscf.dylib + 55714420) [0x11f8ca274]
+                              1    ??? (libscf.dylib + 56313912) [0x11f95c838]
+                                1    ??? (libscf.dylib + 56401184) [0x11f971d20]
+                                  1    ??? (libscf.dylib + 56398252) [0x11f9711ac]
+                                    1    ??? (libscf.dylib + 56324704) [0x11f95f260]
+                                      1    ??? (libscf.dylib + 55577060) [0x11f8a89e4]
+                                        1    ??? (libscf.dylib + 55747816) [0x11f8d24e8]
+                                          1    ??? (libscf.dylib + 55777832) [0x11f8d9a28]
+                                            1    ??? (libscf.dylib + 55689592) [0x11f8c4178]
+                                              1    ??? (libscf.dylib + 55690140) [0x11f8c439c]
+                                                1    ??? (libscf.dylib + 55647088) [0x11f8b9b70]
+                                                  1    pwrite + 8 (libsystem_kernel.dylib + 17436) [0x181b1d41c]
+                                                    1    <Frontmost App>
+                        5    ??? (libscf.dylib + 55746284) [0x11f8d1eec]
+                          4    ??? (libscf.dylib + 55779668) [0x11f8da154]
+                            4    ??? (libscf.dylib + 55689592) [0x11f8c4178]
+                              4    ??? (libscf.dylib + 55690140) [0x11f8c439c]
+                                4    ??? (libscf.dylib + 55647088) [0x11f8b9b70]
+                                  4    pwrite + 8 (libsystem_kernel.dylib + 17436) [0x181b1d41c]
+                                    1    <Frontmost App>
+                                    1    <e-core>
+                          1    ??? (libscf.dylib + 55779860) [0x11f8da214]
+                            1    ??? (libscf.dylib + 55805896) [0x11f8e07c8]
+                              1    ??? (libscf.dylib + 55794992) [0x11f8ddd30]
+                                1    ??? (libscf.dylib + 55689592) [0x11f8c4178]
+                                  1    ??? (libscf.dylib + 55690140) [0x11f8c439c]
+                                    1    ??? (libscf.dylib + 55647088) [0x11f8b9b70]
+                                      1    pwrite + 8 (libsystem_kernel.dylib + 17436) [0x181b1d41c]
+                                        1    <e-core>
+                        1    ??? (libscf.dylib + 55734556) [0x11f8cf11c]
+                          1    ??? (libscf.dylib + 56312304) [0x11f95c1f0]
+                            1    ??? (libscf.dylib + 56392216) [0x11f96fa18]
+                              1    ??? (libscf.dylib + 55577060) [0x11f8a89e4]
+                                1    ??? (libscf.dylib + 55746284) [0x11f8d1eec]
+                                  1    ??? (libscf.dylib + 55779668) [0x11f8da154]
+                                    1    ??? (libscf.dylib + 55689812) [0x11f8c4254]
+                                      1    ??? (libscf.dylib + 55690740) [0x11f8c45f4]
+                                        1    ??? (libscf.dylib + 55647088) [0x11f8b9b70]
+                                          1    pwrite + 8 (libsystem_kernel.dylib + 17436) [0x181b1d41c]
+                  10   ??? (libscf.dylib + 8674960) [0x11cbede90]
+                    10   DatabaseWrapper::DBWrapper::_insertIntoDatabase(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::vector<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>>> const&, std::__1::vector<std::__1::vector<DatabaseWrapper::DBType, std::__1::allocator<DatabaseWrapper::DBType>>, std::__1::allocator<std::__1::vector<DatabaseWrapper::DBType, std::__1::allocator<DatabaseWrapper::DBType>>>> const&, bool, bool) + 2164 (libscf.dylib + 9077960) [0x11cc504c8]
+                      10   ??? (libscf.dylib + 55577060) [0x11f8a89e4]
+                        6    ??? (libscf.dylib + 55751900) [0x11f8d34dc]
+                          6    ??? (libscf.dylib + 55779668) [0x11f8da154]
+                            5    ??? (libscf.dylib + 55689592) [0x11f8c4178]
+                              5    ??? (libscf.dylib + 55690140) [0x11f8c439c]
+                                5    ??? (libscf.dylib + 55647088) [0x11f8b9b70]
+                                  5    pwrite + 8 (libsystem_kernel.dylib + 17436) [0x181b1d41c]
+                                    3    <Frontmost App>
+                            1    ??? (libscf.dylib + 55689812) [0x11f8c4254]
+                              1    ??? (libscf.dylib + 55690740) [0x11f8c45f4]
+                                1    ??? (libscf.dylib + 55647088) [0x11f8b9b70]
+                                  1    pwrite + 8 (libsystem_kernel.dylib + 17436) [0x181b1d41c]
+                                    1    <Frontmost App>
+                        3    ??? (libscf.dylib + 55746284) [0x11f8d1eec]
+                          2    ??? (libscf.dylib + 55779668) [0x11f8da154]
+                            2    ??? (libscf.dylib + 55689592) [0x11f8c4178]
+                              2    ??? (libscf.dylib + 55690140) [0x11f8c439c]
+                                2    ??? (libscf.dylib + 55647088) [0x11f8b9b70]
+                                  2    pwrite + 8 (libsystem_kernel.dylib + 17436) [0x181b1d41c]
+                                    2    <Frontmost App>
+                          1    ??? (libscf.dylib + 55779860) [0x11f8da214]
+                            1    ??? (libscf.dylib + 55805896) [0x11f8e07c8]
+                              1    ??? (libscf.dylib + 55794992) [0x11f8ddd30]
+                                1    ??? (libscf.dylib + 55689592) [0x11f8c4178]
+                                  1    ??? (libscf.dylib + 55690140) [0x11f8c439c]
+                                    1    ??? (libscf.dylib + 55647088) [0x11f8b9b70]
+                                      1    pwrite + 8 (libsystem_kernel.dylib + 17436) [0x181b1d41c]
+                                        1    <Frontmost App>
+                        1    ??? (libscf.dylib + 55747816) [0x11f8d24e8]
+                          1    ??? (libscf.dylib + 55778304) [0x11f8d9c00]
+                            1    ??? (libscf.dylib + 55799876) [0x11f8df044]
+                              1    ??? (libscf.dylib + 55706248) [0x11f8c8288]
+                                1    ??? (libscf.dylib + 55689592) [0x11f8c4178]
+                                  1    ??? (libscf.dylib + 55690140) [0x11f8c439c]
+                                    1    ??? (libscf.dylib + 55647088) [0x11f8b9b70]
+                                      1    pwrite + 8 (libsystem_kernel.dylib + 17436) [0x181b1d41c]
+                                        1    <Frontmost App>
+                  8    ??? (libscf.dylib + 8846768) [0x11cc17db0]
+                    4    DatabaseWrapper::DBWrapper::_insertIntoDatabase(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::vector<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>>> const&, std::__1::vector<std::__1::vector<DatabaseWrapper::DBType, std::__1::allocator<DatabaseWrapper::DBType>>, std::__1::allocator<std::__1::vector<DatabaseWrapper::DBType, std::__1::allocator<DatabaseWrapper::DBType>>>> const&, bool, bool) + 2384 (libscf.dylib + 9078180) [0x11cc505a4]
+                      4    DatabaseWrapper::ScopedTransaction::~ScopedTransaction() + 20 (libscf.dylib + 56847280) [0x11f9debb0]
+                        4    DatabaseWrapper::ScopedTransaction::finish() + 140 (libscf.dylib + 56847484) [0x11f9dec7c]
+                          4    DatabaseWrapper::DBWrapper::commitTransaction() + 60 (libscf.dylib + 9054368) [0x11cc4a8a0]
+                            4    DatabaseWrapper::DBWrapper::executeDatabaseQuery(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, bool) + 24 (libscf.dylib + 8985476) [0x11cc39b84]
+                              4    database::SQLiteDatabase::executeQuery(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 60 (libscf.dylib + 55548172) [0x11f8a190c]
+                                4    ??? (libscf.dylib + 55580552) [0x11f8a9788]
+                                  4    ??? (libscf.dylib + 55577060) [0x11f8a89e4]
+                                    4    ??? (libscf.dylib + 55763548) [0x11f8d625c]
+                                      4    ??? (libscf.dylib + 55712860) [0x11f8c9c5c]
+                                        4    ??? (libscf.dylib + 55715072) [0x11f8ca500]
+                                          4    ??? (libscf.dylib + 55586756) [0x11f8aafc4]
+                                            4    ??? (libscf.dylib + 55586112) [0x11f8aad40]
+                                              4    ??? (libscf.dylib + 55694920) [0x11f8c5648]
+                                                4    ??? (libscf.dylib + 55647088) [0x11f8b9b70]
+                                                  4    pwrite + 8 (libsystem_kernel.dylib + 17436) [0x181b1d41c]
+                                                    1    <Frontmost App>
+                    4    DatabaseWrapper::DBWrapper::_insertIntoDatabase(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::vector<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>>> const&, std::__1::vector<std::__1::vector<DatabaseWrapper::DBType, std::__1::allocator<DatabaseWrapper::DBType>>, std::__1::allocator<std::__1::vector<DatabaseWrapper::DBType, std::__1::allocator<DatabaseWrapper::DBType>>>> const&, bool, bool) + 2164 (libscf.dylib + 9077960) [0x11cc504c8]
+                      4    ??? (libscf.dylib + 55577060) [0x11f8a89e4]
+                        2    ??? (libscf.dylib + 55751900) [0x11f8d34dc]
+                          2    ??? (libscf.dylib + 55779668) [0x11f8da154]
+                            2    ??? (libscf.dylib + 55689592) [0x11f8c4178]
+                              2    ??? (libscf.dylib + 55690140) [0x11f8c439c]
+                                2    ??? (libscf.dylib + 55647088) [0x11f8b9b70]
+                                  2    pwrite + 8 (libsystem_kernel.dylib + 17436) [0x181b1d41c]
+                        2    ??? (libscf.dylib + 55747920) [0x11f8d2550]
+                          1    ??? (libscf.dylib + 55778304) [0x11f8d9c00]
+                            1    ??? (libscf.dylib + 55803476) [0x11f8dfe54]
+                              1    ??? (libscf.dylib + 55689592) [0x11f8c4178]
+                                1    ??? (libscf.dylib + 55690140) [0x11f8c439c]
+                                  1    ??? (libscf.dylib + 55647088) [0x11f8b9b70]
+                                    1    pwrite + 8 (libsystem_kernel.dylib + 17436) [0x181b1d41c]
+                          1    ??? (libscf.dylib + 55778032) [0x11f8d9af0]
+                            1    ??? (libscf.dylib + 55689812) [0x11f8c4254]
+                              1    ??? (libscf.dylib + 55690740) [0x11f8c45f4]
+                                1    ??? (libscf.dylib + 55647088) [0x11f8b9b70]
+                                  1    pwrite + 8 (libsystem_kernel.dylib + 17436) [0x181b1d41c]
+                                    1    <Frontmost App>
+                  7    ??? (libscf.dylib + 8676416) [0x11cbee440]
+                    7    DatabaseWrapper::ScopedTransaction::~ScopedTransaction() + 20 (libscf.dylib + 56847280) [0x11f9debb0]
+                      7    DatabaseWrapper::ScopedTransaction::finish() + 140 (libscf.dylib + 56847484) [0x11f9dec7c]
+                        7    DatabaseWrapper::DBWrapper::commitTransaction() + 60 (libscf.dylib + 9054368) [0x11cc4a8a0]
+                          7    DatabaseWrapper::DBWrapper::executeDatabaseQuery(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, bool) + 24 (libscf.dylib + 8985476) [0x11cc39b84]
+                            7    database::SQLiteDatabase::executeQuery(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 60 (libscf.dylib + 55548172) [0x11f8a190c]
+                              7    ??? (libscf.dylib + 55580552) [0x11f8a9788]
+                                7    ??? (libscf.dylib + 55577060) [0x11f8a89e4]
+                                  7    ??? (libscf.dylib + 55763548) [0x11f8d625c]
+                                    7    ??? (libscf.dylib + 55712860) [0x11f8c9c5c]
+                                      7    ??? (libscf.dylib + 55715072) [0x11f8ca500]
+                                        7    ??? (libscf.dylib + 55586756) [0x11f8aafc4]
+                                          6    ??? (libscf.dylib + 55586112) [0x11f8aad40]
+                                            6    ??? (libscf.dylib + 55694920) [0x11f8c5648]
+                                              6    ??? (libscf.dylib + 55647088) [0x11f8b9b70]
+                                                6    pwrite + 8 (libsystem_kernel.dylib + 17436) [0x181b1d41c]
+                                                  3    <Frontmost App>
+                                          1    ??? (libscf.dylib + 55586044) [0x11f8aacfc]
+                                            1    ??? (libscf.dylib + 55693580) [0x11f8c510c]
+                                              1    ??? (libscf.dylib + 55689592) [0x11f8c4178]
+                                                1    ??? (libscf.dylib + 55690140) [0x11f8c439c]
+                                                  1    ??? (libscf.dylib + 55647088) [0x11f8b9b70]
+                                                    1    pwrite + 8 (libsystem_kernel.dylib + 17436) [0x181b1d41c]
+                  6    ??? (CiscoSparkPlugin + 87078052) [0x118a734a4]
+                    6    DatabaseWrapper::DBWrapper::_insertIntoDatabase(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::vector<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>>> const&, std::__1::vector<std::__1::vector<DatabaseWrapper::DBType, std::__1::allocator<DatabaseWrapper::DBType>>, std::__1::allocator<std::__1::vector<DatabaseWrapper::DBType, std::__1::allocator<DatabaseWrapper::DBType>>>> const&, bool, bool) + 2164 (libscf.dylib + 9077960) [0x11cc504c8]
+                      6    ??? (libscf.dylib + 55577060) [0x11f8a89e4]
+                        6    ??? (libscf.dylib + 55763496) [0x11f8d6228]
+                          6    ??? (libscf.dylib + 55712860) [0x11f8c9c5c]
+                            5    ??? (libscf.dylib + 55715072) [0x11f8ca500]
+                              5    ??? (libscf.dylib + 55586756) [0x11f8aafc4]
+                                4    ??? (libscf.dylib + 55586112) [0x11f8aad40]
+                                  4    ??? (libscf.dylib + 55694920) [0x11f8c5648]
+                                    4    ??? (libscf.dylib + 55647088) [0x11f8b9b70]
+                                      4    pwrite + 8 (libsystem_kernel.dylib + 17436) [0x181b1d41c]
+                                        4    <Frontmost App>
+                                1    ??? (libscf.dylib + 55586044) [0x11f8aacfc]
+                                  1    ??? (libscf.dylib + 55693580) [0x11f8c510c]
+                                    1    ??? (libscf.dylib + 55689592) [0x11f8c4178]
+                                      1    ??? (libscf.dylib + 55690140) [0x11f8c439c]
+                                        1    ??? (libscf.dylib + 55647088) [0x11f8b9b70]
+                                          1    pwrite + 8 (libsystem_kernel.dylib + 17436) [0x181b1d41c]
+                                            1    <Frontmost App>
+                            1    ??? (libscf.dylib + 55714420) [0x11f8ca274]
+                              1    ??? (libscf.dylib + 56313912) [0x11f95c838]
+                                1    ??? (libscf.dylib + 56401208) [0x11f971d38]
+                                  1    ??? (libscf.dylib + 56356980) [0x11f967074]
+                                    1    ??? (libscf.dylib + 56366400) [0x11f969540]
+                                      1    ??? (libscf.dylib + 56366260) [0x11f9694b4]
+                                        1    ??? (libscf.dylib + 56324704) [0x11f95f260]
+                                          1    ??? (libscf.dylib + 55577060) [0x11f8a89e4]
+                                            1    ??? (libscf.dylib + 55747816) [0x11f8d24e8]
+                                              1    ??? (libscf.dylib + 55778304) [0x11f8d9c00]
+                                                1    ??? (libscf.dylib + 55803476) [0x11f8dfe54]
+                                                  1    ??? (libscf.dylib + 55689592) [0x11f8c4178]
+                                                    1    ??? (libscf.dylib + 55690140) [0x11f8c439c]
+                                                      1    ??? (libscf.dylib + 55647088) [0x11f8b9b70]
+                                                        1    pwrite + 8 (libsystem_kernel.dylib + 17436) [0x181b1d41c]
+                                                          1    <Frontmost App>
+                  2    ??? (libscf.dylib + 8829852) [0x11cc13b9c]
+                    2    DatabaseWrapper::DBWrapper::_insertIntoDatabase(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::vector<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>>> const&, std::__1::vector<std::__1::vector<DatabaseWrapper::DBType, std::__1::allocator<DatabaseWrapper::DBType>>, std::__1::allocator<std::__1::vector<DatabaseWrapper::DBType, std::__1::allocator<DatabaseWrapper::DBType>>>> const&, bool, bool) + 2164 (libscf.dylib + 9077960) [0x11cc504c8]
+                      2    ??? (libscf.dylib + 55577060) [0x11f8a89e4]
+                        1    ??? (libscf.dylib + 55763496) [0x11f8d6228]
+                          1    ??? (libscf.dylib + 55712860) [0x11f8c9c5c]
+                            1    ??? (libscf.dylib + 55715072) [0x11f8ca500]
+                              1    ??? (libscf.dylib + 55586756) [0x11f8aafc4]
+                                1    ??? (libscf.dylib + 55586084) [0x11f8aad24]
+                                  1    ??? (libscf.dylib + 55694480) [0x11f8c5490]
+                                    1    fsync + 8 (libsystem_kernel.dylib + 18416) [0x181b1d7f0]
+                        1    ??? (libscf.dylib + 55747816) [0x11f8d24e8]
+                          1    ??? (libscf.dylib + 55778304) [0x11f8d9c00]
+                            1    ??? (libscf.dylib + 55799876) [0x11f8df044]
+                              1    ??? (libscf.dylib + 55705408) [0x11f8c7f40]
+                                1    ??? (libscf.dylib + 55689592) [0x11f8c4178]
+                                  1    ??? (libscf.dylib + 55690140) [0x11f8c439c]
+                                    1    ??? (libscf.dylib + 55647088) [0x11f8b9b70]
+                                      1    pwrite + 8 (libsystem_kernel.dylib + 17436) [0x181b1d41c]
+                  1    ??? (libscf.dylib + 8676180) [0x11cbee354]
+                    1    DatabaseWrapper::DBWrapper::_insertIntoDatabase(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::vector<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>>> const&, std::__1::vector<std::__1::vector<DatabaseWrapper::DBType, std::__1::allocator<DatabaseWrapper::DBType>>, std::__1::allocator<std::__1::vector<DatabaseWrapper::DBType, std::__1::allocator<DatabaseWrapper::DBType>>>> const&, bool, bool) + 2164 (libscf.dylib + 9077960) [0x11cc504c8]
+                      1    ??? (libscf.dylib + 55577060) [0x11f8a89e4]
+                        1    ??? (libscf.dylib + 55751900) [0x11f8d34dc]
+                          1    ??? (libscf.dylib + 55779668) [0x11f8da154]
+                            1    ??? (libscf.dylib + 55689592) [0x11f8c4178]
+                              1    ??? (libscf.dylib + 55690140) [0x11f8c439c]
+                                1    ??? (libscf.dylib + 55647088) [0x11f8b9b70]
+                                  1    pwrite + 8 (libsystem_kernel.dylib + 17436) [0x181b1d41c]
+                  1    ??? (CiscoSparkPlugin + 87080708) [0x118a73f04]
+                    1    DatabaseWrapper::DBWrapper::_updateDatabase(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::vector<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>>> const&, std::__1::vector<DatabaseWrapper::DBType, std::__1::allocator<DatabaseWrapper::DBType>> const&, std::__1::vector<std::__1::tuple<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>, DatabaseWrapper::DBType, DatabaseWrapper::DBOperatorType>, std::__1::allocator<std::__1::tuple<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>, DatabaseWrapper::DBType, DatabaseWrapper::DBOperatorType>>>, bool) + 2236 (libscf.dylib + 9099228) [0x11cc557dc]
+                      1    DatabaseWrapper::ScopedTransaction::~ScopedTransaction() + 20 (libscf.dylib + 56847280) [0x11f9debb0]
+                        1    DatabaseWrapper::ScopedTransaction::finish() + 140 (libscf.dylib + 56847484) [0x11f9dec7c]
+                          1    DatabaseWrapper::DBWrapper::commitTransaction() + 60 (libscf.dylib + 9054368) [0x11cc4a8a0]
+                            1    DatabaseWrapper::DBWrapper::executeDatabaseQuery(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, bool) + 24 (libscf.dylib + 8985476) [0x11cc39b84]
+                              1    database::SQLiteDatabase::executeQuery(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 60 (libscf.dylib + 55548172) [0x11f8a190c]
+                                1    ??? (libscf.dylib + 55580552) [0x11f8a9788]
+                                  1    ??? (libscf.dylib + 55577060) [0x11f8a89e4]
+                                    1    ??? (libscf.dylib + 55763548) [0x11f8d625c]
+                                      1    ??? (libscf.dylib + 55712860) [0x11f8c9c5c]
+                                        1    ??? (libscf.dylib + 55715072) [0x11f8ca500]
+                                          1    ??? (libscf.dylib + 55586756) [0x11f8aafc4]
+                                            1    ??? (libscf.dylib + 55586112) [0x11f8aad40]
+                                              1    ??? (libscf.dylib + 55694920) [0x11f8c5648]
+                                                1    ??? (libscf.dylib + 55647088) [0x11f8b9b70]
+                                                  1    pwrite + 8 (libsystem_kernel.dylib + 17436) [0x181b1d41c]
+                                                    1    <Frontmost App>
+                  1    ??? (CiscoSparkPlugin + 86249904) [0x1189a91b0]
+                    1    DatabaseWrapper::DBWrapper::_insertIntoDatabase(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::vector<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>>> const&, std::__1::vector<std::__1::vector<DatabaseWrapper::DBType, std::__1::allocator<DatabaseWrapper::DBType>>, std::__1::allocator<std::__1::vector<DatabaseWrapper::DBType, std::__1::allocator<DatabaseWrapper::DBType>>>> const&, bool, bool) + 2384 (libscf.dylib + 9078180) [0x11cc505a4]
+                      1    DatabaseWrapper::ScopedTransaction::~ScopedTransaction() + 20 (libscf.dylib + 56847280) [0x11f9debb0]
+                        1    DatabaseWrapper::ScopedTransaction::finish() + 140 (libscf.dylib + 56847484) [0x11f9dec7c]
+                          1    DatabaseWrapper::DBWrapper::commitTransaction() + 60 (libscf.dylib + 9054368) [0x11cc4a8a0]
+                            1    DatabaseWrapper::DBWrapper::executeDatabaseQuery(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, bool) + 24 (libscf.dylib + 8985476) [0x11cc39b84]
+                              1    database::SQLiteDatabase::executeQuery(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 60 (libscf.dylib + 55548172) [0x11f8a190c]
+                                1    ??? (libscf.dylib + 55580552) [0x11f8a9788]
+                                  1    ??? (libscf.dylib + 55577060) [0x11f8a89e4]
+                                    1    ??? (libscf.dylib + 55763548) [0x11f8d625c]
+                                      1    ??? (libscf.dylib + 55712860) [0x11f8c9c5c]
+                                        1    ??? (libscf.dylib + 55715072) [0x11f8ca500]
+                                          1    ??? (libscf.dylib + 55586756) [0x11f8aafc4]
+                                            1    ??? (libscf.dylib + 55586112) [0x11f8aad40]
+                                              1    ??? (libscf.dylib + 55694920) [0x11f8c5648]
+                                                1    ??? (libscf.dylib + 55647088) [0x11f8b9b70]
+                                                  1    pwrite + 8 (libsystem_kernel.dylib + 17436) [0x181b1d41c]
+                                                    1    <Frontmost App>
+                23   ??? (libscf.dylib + 56840108) [0x11f9dcfac]
+                  23   DatabaseWrapper::ScopedTransaction::~ScopedTransaction() + 20 (libscf.dylib + 56847280) [0x11f9debb0]
+                    23   DatabaseWrapper::ScopedTransaction::finish() + 140 (libscf.dylib + 56847484) [0x11f9dec7c]
+                      23   DatabaseWrapper::DBWrapper::commitTransaction() + 60 (libscf.dylib + 9054368) [0x11cc4a8a0]
+                        23   DatabaseWrapper::DBWrapper::executeDatabaseQuery(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, bool) + 24 (libscf.dylib + 8985476) [0x11cc39b84]
+                          23   database::SQLiteDatabase::executeQuery(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 60 (libscf.dylib + 55548172) [0x11f8a190c]
+                            23   ??? (libscf.dylib + 55580552) [0x11f8a9788]
+                              23   ??? (libscf.dylib + 55577060) [0x11f8a89e4]
+                                23   ??? (libscf.dylib + 55763548) [0x11f8d625c]
+                                  23   ??? (libscf.dylib + 55712860) [0x11f8c9c5c]
+                                    23   ??? (libscf.dylib + 55715072) [0x11f8ca500]
+                                      23   ??? (libscf.dylib + 55586756) [0x11f8aafc4]
+                                        20   ??? (libscf.dylib + 55586112) [0x11f8aad40]
+                                          20   ??? (libscf.dylib + 55694920) [0x11f8c5648]
+                                            20   ??? (libscf.dylib + 55647088) [0x11f8b9b70]
+                                              20   pwrite + 8 (libsystem_kernel.dylib + 17436) [0x181b1d41c]
+                                                9    <Frontmost App>
+                                                2    <e-core>
+                                        2    ??? (libscf.dylib + 55586084) [0x11f8aad24]
+                                          2    ??? (libscf.dylib + 55694480) [0x11f8c5490]
+                                            2    fsync + 8 (libsystem_kernel.dylib + 18416) [0x181b1d7f0]
+                                              1    <e-core>
+                                        1    ??? (libscf.dylib + 55586044) [0x11f8aacfc]
+                                          1    ??? (libscf.dylib + 55693580) [0x11f8c510c]
+                                            1    ??? (libscf.dylib + 55689592) [0x11f8c4178]
+                                              1    ??? (libscf.dylib + 55690140) [0x11f8c439c]
+                                                1    ??? (libscf.dylib + 55647088) [0x11f8b9b70]
+                                                  1    pwrite + 8 (libsystem_kernel.dylib + 17436) [0x181b1d41c]
+                                                    1    <Frontmost App, e-core>
+                11   ??? (libscf.dylib + 9121352) [0x11cc5ae48]
+                  11   DatabaseWrapper::DBWrapper::_insertIntoDatabase(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::vector<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>>> const&, std::__1::vector<std::__1::vector<DatabaseWrapper::DBType, std::__1::allocator<DatabaseWrapper::DBType>>, std::__1::allocator<std::__1::vector<DatabaseWrapper::DBType, std::__1::allocator<DatabaseWrapper::DBType>>>> const&, bool, bool) + 2164 (libscf.dylib + 9077960) [0x11cc504c8]
+                    11   ??? (libscf.dylib + 55577060) [0x11f8a89e4]
+                      7    ??? (libscf.dylib + 55763496) [0x11f8d6228]
+                        7    ??? (libscf.dylib + 55712860) [0x11f8c9c5c]
+                          7    ??? (libscf.dylib + 55715072) [0x11f8ca500]
+                            7    ??? (libscf.dylib + 55586756) [0x11f8aafc4]
+                              6    ??? (libscf.dylib + 55586112) [0x11f8aad40]
+                                6    ??? (libscf.dylib + 55694920) [0x11f8c5648]
+                                  6    ??? (libscf.dylib + 55647088) [0x11f8b9b70]
+                                    6    pwrite + 8 (libsystem_kernel.dylib + 17436) [0x181b1d41c]
+                                      4    <Frontmost App>
+                              1    ??? (libscf.dylib + 55586044) [0x11f8aacfc]
+                                1    ??? (libscf.dylib + 55693580) [0x11f8c510c]
+                                  1    ??? (libscf.dylib + 55689592) [0x11f8c4178]
+                                    1    ??? (libscf.dylib + 55690140) [0x11f8c439c]
+                                      1    ??? (libscf.dylib + 55647088) [0x11f8b9b70]
+                                        1    pwrite + 8 (libsystem_kernel.dylib + 17436) [0x181b1d41c]
+                                          1    <Frontmost App>
+                      3    ??? (libscf.dylib + 55746284) [0x11f8d1eec]
+                        2    ??? (libscf.dylib + 55779668) [0x11f8da154]
+                          2    ??? (libscf.dylib + 55689812) [0x11f8c4254]
+                            2    ??? (libscf.dylib + 55690740) [0x11f8c45f4]
+                              2    ??? (libscf.dylib + 55647088) [0x11f8b9b70]
+                                2    pwrite + 8 (libsystem_kernel.dylib + 17436) [0x181b1d41c]
+                                  1    <Frontmost App>
+                                  1    <Frontmost App, e-core>
+                        1    ??? (libscf.dylib + 55779860) [0x11f8da214]
+                          1    ??? (libscf.dylib + 55803476) [0x11f8dfe54]
+                            1    ??? (libscf.dylib + 55689592) [0x11f8c4178]
+                              1    ??? (libscf.dylib + 55690140) [0x11f8c439c]
+                                1    ??? (libscf.dylib + 55647088) [0x11f8b9b70]
+                                  1    pwrite + 8 (libsystem_kernel.dylib + 17436) [0x181b1d41c]
+                                    1    <e-core>
+                      1    ??? (libscf.dylib + 55747920) [0x11f8d2550]
+                        1    ??? (libscf.dylib + 55778032) [0x11f8d9af0]
+                          1    ??? (libscf.dylib + 55689592) [0x11f8c4178]
+                            1    ??? (libscf.dylib + 55690140) [0x11f8c439c]
+                              1    ??? (libscf.dylib + 55647088) [0x11f8b9b70]
+                                1    pwrite + 8 (libsystem_kernel.dylib + 17436) [0x181b1d41c]
+                                  1    <Frontmost App>
+                3    ??? (libscf.dylib + 45086884) [0x11eea78a4]
+                  3    DatabaseWrapper::DBWrapper::_updateDatabase(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::vector<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>>> const&, std::__1::vector<DatabaseWrapper::DBType, std::__1::allocator<DatabaseWrapper::DBType>> const&, std::__1::vector<std::__1::tuple<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>, DatabaseWrapper::DBType, DatabaseWrapper::DBOperatorType>, std::__1::allocator<std::__1::tuple<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>, DatabaseWrapper::DBType, DatabaseWrapper::DBOperatorType>>>, bool) + 2020 (libscf.dylib + 9099012) [0x11cc55704]
+                    3    ??? (libscf.dylib + 55577060) [0x11f8a89e4]
+                      2    ??? (libscf.dylib + 55747816) [0x11f8d24e8]
+                        2    ??? (libscf.dylib + 55806608) [0x11f8e0a90]
+                          2    ??? (libscf.dylib + 55689812) [0x11f8c4254]
+                            2    ??? (libscf.dylib + 55690740) [0x11f8c45f4]
+                              2    ??? (libscf.dylib + 55647088) [0x11f8b9b70]
+                                2    pwrite + 8 (libsystem_kernel.dylib + 17436) [0x181b1d41c]
+                                  1    <Frontmost App>
+                      1    ??? (libscf.dylib + 55763496) [0x11f8d6228]
+                        1    ??? (libscf.dylib + 55712860) [0x11f8c9c5c]
+                          1    ??? (libscf.dylib + 55715072) [0x11f8ca500]
+                            1    ??? (libscf.dylib + 55586756) [0x11f8aafc4]
+                              1    ??? (libscf.dylib + 55586112) [0x11f8aad40]
+                                1    ??? (libscf.dylib + 55694920) [0x11f8c5648]
+                                  1    ??? (libscf.dylib + 55647088) [0x11f8b9b70]
+                                    1    pwrite + 8 (libsystem_kernel.dylib + 17436) [0x181b1d41c]
+                                      1    <Frontmost App>
+                1    ??? (libscf.dylib + 9599104) [0x11cccf880]
+                  1    DatabaseWrapper::ScopedTransaction::~ScopedTransaction() + 20 (libscf.dylib + 56847280) [0x11f9debb0]
+                    1    DatabaseWrapper::ScopedTransaction::finish() + 140 (libscf.dylib + 56847484) [0x11f9dec7c]
+                      1    DatabaseWrapper::DBWrapper::commitTransaction() + 60 (libscf.dylib + 9054368) [0x11cc4a8a0]
+                        1    DatabaseWrapper::DBWrapper::executeDatabaseQuery(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, bool) + 24 (libscf.dylib + 8985476) [0x11cc39b84]
+                          1    database::SQLiteDatabase::executeQuery(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 60 (libscf.dylib + 55548172) [0x11f8a190c]
+                            1    ??? (libscf.dylib + 55580552) [0x11f8a9788]
+                              1    ??? (libscf.dylib + 55577060) [0x11f8a89e4]
+                                1    ??? (libscf.dylib + 55763548) [0x11f8d625c]
+                                  1    ??? (libscf.dylib + 55712860) [0x11f8c9c5c]
+                                    1    ??? (libscf.dylib + 55715072) [0x11f8ca500]
+                                      1    ??? (libscf.dylib + 55586756) [0x11f8aafc4]
+                                        1    ??? (libscf.dylib + 55586112) [0x11f8aad40]
+                                          1    ??? (libscf.dylib + 55694920) [0x11f8c5648]
+                                            1    ??? (libscf.dylib + 55647088) [0x11f8b9b70]
+                                              1    pwrite + 8 (libsystem_kernel.dylib + 17436) [0x181b1d41c]
+                                                1    <Frontmost App>
+                1    ??? (libscf.dylib + 9120336) [0x11cc5aa50]
+                  1    DatabaseWrapper::DBWrapper::_deleteFromDatabase(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::vector<std::__1::vector<std::__1::tuple<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>, DatabaseWrapper::DBType, DatabaseWrapper::DBOperatorType>, std::__1::allocator<std::__1::tuple<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>, DatabaseWrapper::DBType, DatabaseWrapper::DBOperatorType>>>, std::__1::allocator<std::__1::vector<std::__1::tuple<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>, DatabaseWrapper::DBType, DatabaseWrapper::DBOperatorType>, std::__1::allocator<std::__1::tuple<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>, DatabaseWrapper::DBType, DatabaseWrapper::DBOperatorType>>>>> const&, bool) + 1244 (libscf.dylib + 9066928) [0x11cc4d9b0]
+                    1    ??? (libscf.dylib + 55577060) [0x11f8a89e4]
+                      1    ??? (libscf.dylib + 55751900) [0x11f8d34dc]
+                        1    ??? (libscf.dylib + 55779668) [0x11f8da154]
+                          1    ??? (libscf.dylib + 55689592) [0x11f8c4178]
+                            1    ??? (libscf.dylib + 55690140) [0x11f8c439c]
+                              1    ??? (libscf.dylib + 55647088) [0x11f8b9b70]
+                                1    pwrite + 8 (libsystem_kernel.dylib + 17436) [0x181b1d41c]
+                                  1    <Frontmost App>
+      13   ??? (RootLogger + 87896) [0x10c21d758]
+        13   AsyncQueue::Context::doWork() + 1324 (RootLogger + 76372) [0x10c21aa54]
+          13   ??? (RootLogger + 80376) [0x10c21b9f8]
+            13   ??? (RootLogger + 26616) [0x10c20e7f8]
+              9    spark::BaseFileLogger::logMessage(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 116 (libscf.dylib + 32650856) [0x11e2cb668]
+                9    ??? (libscf.dylib + 61126204) [0x11fdf363c]
+                  9    ??? (libscf.dylib + 61126816) [0x11fdf38a0]
+                    9    fflush + 124 (libsystem_c.dylib + 66180) [0x1819f9284]
+                      9    __sflush + 232 (libsystem_c.dylib + 66532) [0x1819f93e4]
+                        9    _swrite + 108 (libsystem_c.dylib + 74588) [0x1819fb35c]
+                          9    __write_nocancel + 8 (libsystem_kernel.dylib + 19408) [0x181b1dbd0]
+                            4    <e-core>
+                            2    <Frontmost App>
+                            1    <Frontmost App, e-core>
+              3    spark::BaseFileLogger::logMessage(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 252 (libscf.dylib + 32650992) [0x11e2cb6f0]
+                3    std::__1::basic_ostream<char, std::__1::char_traits<char>>::flush() + 156 (libc++.1.dylib + 157220) [0x181a91624]
+                  3    ??? (libscf.dylib + 61126816) [0x11fdf38a0]
+                    3    fflush + 124 (libsystem_c.dylib + 66180) [0x1819f9284]
+                      3    __sflush + 232 (libsystem_c.dylib + 66532) [0x1819f93e4]
+                        3    _swrite + 108 (libsystem_c.dylib + 74588) [0x1819fb35c]
+                          3    __write_nocancel + 8 (libsystem_kernel.dylib + 19408) [0x181b1dbd0]
+                            1    <Frontmost App>
+              1    spark::MediaLogger::logMessage(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, spark::LogComponents const&) + 364 (libscf.dylib + 50055460) [0x11f364924]
+                1    std::__1::basic_ostream<char, std::__1::char_traits<char>>::flush() + 156 (libc++.1.dylib + 157220) [0x181a91624]
+                  1    ??? (libscf.dylib + 61126816) [0x11fdf38a0]
+                    1    fflush + 124 (libsystem_c.dylib + 66180) [0x1819f9284]
+                      1    __sflush + 232 (libsystem_c.dylib + 66532) [0x1819f93e4]
+                        1    _swrite + 108 (libsystem_c.dylib + 74588) [0x1819fb35c]
+                          1    __write_nocancel + 8 (libsystem_kernel.dylib + 19408) [0x181b1dbd0]
+                            1    <Frontmost App, e-core>
+  7    start_wqthread + 8 (libsystem_pthread.dylib + 7028) [0x181b57b74]
+    7    _pthread_wqthread + 232 (libsystem_pthread.dylib + 11752) [0x181b58de8]
+      7    _dispatch_worker_thread2 + 180 (libdispatch.dylib + 83812) [0x1819b3764]
+        7    _dispatch_root_queue_drain + 736 (libdispatch.dylib + 82204) [0x1819b311c]
+          7    <deduplicated_symbol> + 32 (libdispatch.dylib + 231864) [0x1819d79b8]
+            7    _dispatch_client_callout + 16 (libdispatch.dylib + 113316) [0x1819baaa4]
+              7    pplx::details::_TaskProcHandle::_RunChoreBridge(void*) + 28 (CiscoSparkPlugin + 90156060) [0x118d62c1c]
+                7    ??? (libscf.dylib + 60722792) [0x11fd90e68]
+                  7    ??? (libscf.dylib + 60723360) [0x11fd910a0]
+                    7    ??? (libscf.dylib + 3977172) [0x11c772fd4]
+                      7    ??? (libscf.dylib + 60715572) [0x11fd8f234]
+                        7    ??? (libscf.dylib + 60721460) [0x11fd90934]
+                          7    ??? (libscf.dylib + 9058200) [0x11cc4b798]
+                            7    ??? (libscf.dylib + 547880) [0x11c42dc28]
+                              7    ??? (libscf.dylib + 14227096) [0x11d139698]
+                                2    MeetingStateUtils::writeApplicationMeetingStateFile(MeetingStateUtils::MeetingStates const&) const + 676 (libscf.dylib + 50853796) [0x11f4277a4]
+                                  2    MeetingStateUtils::updateKeyValue(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, char) const + 396 (libscf.dylib + 50855328) [0x11f427da0]
+                                    2    FileUtils::writeAllLines(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::vector<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>>> const&) const + 156 (libscf.dylib + 62465716) [0x11ff3a6b4]
+                                      2    ??? (libscf.dylib + 13786848) [0x11d0cdee0]
+                                        2    ??? (libscf.dylib + 2630032) [0x11c62a190]
+                                          2    ??? (libscf.dylib + 61126816) [0x11fdf38a0]
+                                            2    fflush + 124 (libsystem_c.dylib + 66180) [0x1819f9284]
+                                              2    __sflush + 232 (libsystem_c.dylib + 66532) [0x1819f93e4]
+                                                2    _swrite + 108 (libsystem_c.dylib + 74588) [0x1819fb35c]
+                                                  2    __write_nocancel + 8 (libsystem_kernel.dylib + 19408) [0x181b1dbd0]
+                                                    1    <e-core>
+                                2    MeetingStateUtils::writeApplicationMeetingStateFile(MeetingStateUtils::MeetingStates const&) const + 576 (libscf.dylib + 50853696) [0x11f427740]
+                                  2    MeetingStateUtils::updateKeyValue(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, char) const + 396 (libscf.dylib + 50855328) [0x11f427da0]
+                                    2    FileUtils::writeAllLines(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::vector<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>>> const&) const + 156 (libscf.dylib + 62465716) [0x11ff3a6b4]
+                                      2    ??? (libscf.dylib + 13786848) [0x11d0cdee0]
+                                        2    ??? (libscf.dylib + 2630032) [0x11c62a190]
+                                          2    ??? (libscf.dylib + 61126816) [0x11fdf38a0]
+                                            2    fflush + 124 (libsystem_c.dylib + 66180) [0x1819f9284]
+                                              2    __sflush + 232 (libsystem_c.dylib + 66532) [0x1819f93e4]
+                                                2    _swrite + 108 (libsystem_c.dylib + 74588) [0x1819fb35c]
+                                                  2    __write_nocancel + 8 (libsystem_kernel.dylib + 19408) [0x181b1dbd0]
+                                2    MeetingStateUtils::writeApplicationMeetingStateFile(MeetingStateUtils::MeetingStates const&) const + 432 (libscf.dylib + 50853552) [0x11f4276b0]
+                                  2    MeetingStateUtils::updateKeyValue(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, char) const + 396 (libscf.dylib + 50855328) [0x11f427da0]
+                                    2    FileUtils::writeAllLines(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::vector<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>>> const&) const + 156 (libscf.dylib + 62465716) [0x11ff3a6b4]
+                                      2    ??? (libscf.dylib + 13786848) [0x11d0cdee0]
+                                        2    ??? (libscf.dylib + 2630032) [0x11c62a190]
+                                          2    ??? (libscf.dylib + 61126816) [0x11fdf38a0]
+                                            2    fflush + 124 (libsystem_c.dylib + 66180) [0x1819f9284]
+                                              2    __sflush + 232 (libsystem_c.dylib + 66532) [0x1819f93e4]
+                                                2    _swrite + 108 (libsystem_c.dylib + 74588) [0x1819fb35c]
+                                                  2    __write_nocancel + 8 (libsystem_kernel.dylib + 19408) [0x181b1dbd0]
+                                                    1    <e-core>
+                                1    MeetingStateUtils::writeApplicationMeetingStateFile(MeetingStateUtils::MeetingStates const&) const + 324 (libscf.dylib + 50853444) [0x11f427644]
+                                  1    MeetingStateUtils::updateKeyValue(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, char) const + 396 (libscf.dylib + 50855328) [0x11f427da0]
+                                    1    FileUtils::writeAllLines(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::vector<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>>> const&) const + 56 (libscf.dylib + 62465616) [0x11ff3a650]
+                                      1    ??? (libscf.dylib + 13794676) [0x11d0cfd74]
+                                        1    ??? (libscf.dylib + 13794808) [0x11d0cfdf8]
+                                          1    ??? (libscf.dylib + 61122624) [0x11fdf2840]
+                                            1    fopen + 244 (libsystem_c.dylib + 67764) [0x1819f98b4]
+                                              1    __open_nocancel + 8 (libsystem_kernel.dylib + 6452) [0x181b1a934]
+                                                1    <Frontmost App, e-core>
+
+  Binary Images:
+           0x10237c000 -                ???  Cisco-Systems.Spark 45.10.0.32870 (32870)      <A8231C0A-7053-3718-8A07-C2B42D97BA90>  /Applications/Webex.app/Contents/MacOS/Webex
+           0x10c208000 -        0x10c283fff  com.cisco.webex.RootLogger (0)                 <28DFC750-CBBF-3306-8159-AB1B3954DDB5>  /Applications/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/RootLogger.framework/Versions/A/RootLogger
+           0x113768000 -        0x11af8bfff  Cisco-Systems.Spark.main 45.10.0.32906 (32906) <8A8FAF5A-944D-346A-9916-F31436DF1999>  /Users/USER/Library/Application Support/Cisco Spark/*/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/MacOS/CiscoSparkPlugin
+           0x11c3a8000 -        0x12166bfff  libscf.dylib (0)                               <AAACCC4B-3F47-3D56-BA7C-FEA03E6C424A>  /Users/USER/Library/Application Support/Cisco Spark/*/Webex.app/Contents/PlugIns/CiscoSparkPlugin.bundle/Contents/Frameworks/libscf.dylib
+           0x18199f000 -        0x1819e5e5f  libdispatch.dylib (1542.0.4)                   <52A8A18F-3738-3C6B-BC95-4CBAADCC3BB8>  /usr/lib/system/libdispatch.dylib
+           0x1819e9000 -        0x181a6aff7  libsystem_c.dylib (1725.0.11)                  <1DCCF320-9BEC-3C27-8929-E218BAFBEADF>  /usr/lib/system/libsystem_c.dylib
+           0x181a6b000 -        0x181afde53  libc++.1.dylib (2000.62)                       <28AA2B1B-8CF4-334F-AFF2-017194BA6B0D>  /usr/lib/libc++.1.dylib
+           0x181b19000 -        0x181b5545f  libsystem_kernel.dylib (12377.0.154.0.2)       <6992BDBD-95DD-377B-ADB2-2C8C0789997A>  /usr/lib/system/libsystem_kernel.dylib
+           0x181b56000 -        0x181b62a67  libsystem_pthread.dylib (539)                  <E79F8E8F-108D-3ECC-B14F-305B1D990384>  /usr/lib/system/libsystem_pthread.dylib
+
+System Profile:
+Network Service: Wi-Fi, AirPort, en1
+Boot Volume File System Type: apfs
+Memory Module: LPDDR4, Hynix
+Thunderbolt Bus: iMac, Apple Inc.
+Thunderbolt Bus: iMac, Apple Inc.
+Display: iMac, Retina 4.5K (4480 x 2520), Main, MirrorOff, Online
+Model: iMac21,1, BootROM 13822.0.233, proc 8:4:4 processors, 8 GB, SMC 
+Graphics: Apple M1, Apple M1, Built-In
+AirPort: spairport_wireless_card_type_wifi (0x14E4, 0x4378), wl0: Jun 21 2025 05:55:03 version 18.20.477.0.7.8.185 FWID 01-044ef96c
+IO80211_driverkit-1525.83 "IO80211_driverkit-1525.83" Jul 10 2025 22:45:24
+AirPort: 
+Bluetooth: Version (null), 0 services, 0 devices, 0 incoming serial ports

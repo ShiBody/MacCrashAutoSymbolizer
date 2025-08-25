@@ -1,0 +1,22 @@
+    0   libobjc.A.dylib               	       0x1928ad820 objc_msgSend + 32
+    1   IOHIDLib                      	       0x1295de728 0x1295d4000 + 42792
+    2   CoreFoundation                	       0x192d4cd80 __NSDICTIONARY_IS_CALLING_OUT_TO_A_BLOCK__ + 24
+    3   CoreFoundation                	       0x192d8ba34 -[__NSDictionaryM enumerateKeysAndObjectsWithOptions:usingBlock:] + 288
+    4   IOHIDLib                      	       0x1295de4b0 0x1295d4000 + 42160
+    5   IOKit                         	       0x196b67980 IOHIDDeviceCopyMatchingElements + 60
+    6   CiscoPluginController.dylib   	       0x12dfbab98 0x12df80000 + 240536
+    7   CiscoPluginController.dylib   	       0x12e02e6e8 0x12df80000 + 714472
+    8   CiscoPluginController.dylib   	       0x12dfd500c 0x12df80000 + 348172
+    9   IOKit                         	       0x196bca6c8 __IOHIDManagerDeviceApplier + 588
+    10  IOKit                         	       0x196b2abd4 __IOHIDManagerDeviceAdded + 800
+    11  IOKit                         	       0x196b2a218 IODispatchCalloutFromCFMessage + 196
+    12  CoreFoundation                	       0x192db62b4 __CFMachPortPerform + 288
+    13  CoreFoundation                	       0x192d8a250 __CFRUNLOOP_IS_CALLING_OUT_TO_A_SOURCE1_PERFORM_FUNCTION__ + 60
+    14  CoreFoundation                	       0x192d8a178 __CFRunLoopDoSource1 + 508
+    15  CoreFoundation                	       0x192d88b78 __CFRunLoopRun + 2200
+    16  CoreFoundation                	       0x192d87c58 CFRunLoopRunSpecific + 572
+    17  CiscoPluginController.dylib   	       0x12dfd47c0 0x12df80000 + 346048
+    18  libsystem_pthread.dylib       	       0x192c9ec0c _pthread_start + 136
+    19  libsystem_pthread.dylib       	       0x192c99b80 thread_start + 8
+
+

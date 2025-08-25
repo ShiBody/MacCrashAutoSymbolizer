@@ -1,0 +1,735 @@
+{"app_name":"Webex Relay","timestamp":"2025-08-20 14:56:11.00 +0800","app_version":"45.10.0.32917","slice_uuid":"beb5011e-3b1d-38d2-af3f-865bd8e8ca86","build_version":"32917","platform":1,"bundleID":"Cisco-Systems.Relay","share_with_app_devs":0,"is_first_party":0,"bug_type":"309","os_version":"macOS 15.6 (24G84)","roots_installed":0,"name":"Webex Relay","incident_id":"90F87515-FD74-4852-AFE5-AA6B81C1CE3A"}
+{
+  "uptime" : 210000,
+  "procRole" : "Background",
+  "version" : 2,
+  "userID" : 501,
+  "deployVersion" : 210,
+  "modelCode" : "Mac15,7",
+  "coalitionID" : 1849,
+  "osVersion" : {
+    "train" : "macOS 15.6",
+    "build" : "24G84",
+    "releaseType" : "User"
+  },
+  "captureTime" : "2025-08-20 14:56:05.2775 +0800",
+  "codeSigningMonitor" : 1,
+  "incident" : "90F87515-FD74-4852-AFE5-AA6B81C1CE3A",
+  "pid" : 23761,
+  "translated" : false,
+  "cpuType" : "ARM-64",
+  "roots_installed" : 0,
+  "bug_type" : "309",
+  "procLaunch" : "2025-08-18 10:51:45.2806 +0800",
+  "procStartAbsTime" : 2735825835073,
+  "procExitAbsTime" : 5186957823962,
+  "procName" : "Webex Relay",
+  "procPath" : "\/Applications\/Webex Relay.app\/Contents\/MacOS\/Webex Relay",
+  "bundleInfo" : {"CFBundleShortVersionString":"45.10.0.32917","CFBundleVersion":"32917","CFBundleIdentifier":"Cisco-Systems.Relay"},
+  "storeInfo" : {"deviceIdentifierForVendor":"1148D504-4EEB-5D16-85B1-4AEE947EDF1D","thirdParty":true},
+  "parentProc" : "launchd",
+  "parentPid" : 1,
+  "coalitionName" : "Cisco-Systems.Relay",
+  "crashReporterKey" : "F78974E8-E1FB-6D64-D43D-0FF52D1A601A",
+  "appleIntelligenceStatus" : {"state":"unavailable","reasons":["selectedLanguageDoesNotMatchSelectedSiriLanguage","countryBillingIneligible","countryLocationIneligible","regionIneligible"]},
+  "codeSigningID" : "Cisco-Systems.Relay",
+  "codeSigningTeamID" : "DE8Y96K9QP",
+  "codeSigningFlags" : 570520337,
+  "codeSigningValidationCategory" : 6,
+  "codeSigningTrustLevel" : 4294967295,
+  "codeSigningAuxiliaryInfo" : 0,
+  "instructionByteStream" : {"beforePC":"fyMD1f17v6n9AwCRm+D\/l78DAJH9e8Go\/w9f1sADX9YQKYDSARAA1A==","atPC":"AwEAVH8jA9X9e7+p\/QMAkZDg\/5e\/AwCR\/XvBqP8PX9bAA1\/WcAqA0g=="},
+  "bootSessionUUID" : "8ACE26B3-FD77-47A3-BF61-B88F6F5A482D",
+  "wakeTime" : 7483,
+  "sleepWakeUUID" : "F1F7F04F-CB42-40F0-8DA6-0EB025B5497C",
+  "sip" : "enabled",
+  "exception" : {"codes":"0x0000000000000000, 0x0000000000000000","rawCodes":[0,0],"type":"EXC_CRASH","signal":"SIGABRT"},
+  "asi" : {"libsystem_c.dylib":["abort() called"]},
+  "extMods" : {"caller":{"thread_create":0,"thread_set_state":0,"task_for_pid":0},"system":{"thread_create":0,"thread_set_state":0,"task_for_pid":0},"targeted":{"thread_create":0,"thread_set_state":0,"task_for_pid":0},"warnings":0},
+  "faultingThread" : 0,
+  "threads" : [{"threadState":{"x":[{"value":0},{"value":0},{"value":0},{"value":0},{"value":8426292152,"symbolLocation":0,"symbol":"_os_log_current_test_callback"},{"value":1302763559142555652},{"value":0},{"value":0},{"value":3036634067287367851},{"value":3036634072247107691},{"value":76681489},{"value":76681489},{"value":6009390964},{"value":76681489},{"value":76681489},{"value":76681489},{"value":328},{"value":8483362136},{"value":0},{"value":6},{"value":259},{"value":8466227616,"symbolLocation":224,"symbol":"_main_thread"},{"value":6099780308},{"value":8466214912},{"value":8426274816,"symbolLocation":0,"symbol":"OBJC_IVAR_$_Object.isa"},{"value":4798402560},{"value":4798586880},{"value":0},{"value":56}],"flavor":"ARM_THREAD_STATE64","lr":{"value":6621182092},"cpsr":{"value":1073745920},"fp":{"value":6099779888},"sp":{"value":6099779856},"esr":{"value":1442840704,"description":" Address size fault"},"pc":{"value":6620947336,"matchesCrashFrame":1},"far":{"value":0}},"id":3489890,"triggered":true,"name":"t-main-ui","queue":"com.apple.main-thread","frames":[{"imageOffset":37768,"symbol":"__pthread_kill","symbolLocation":8,"imageIndex":45},{"imageOffset":26764,"symbol":"pthread_kill","symbolLocation":296,"imageIndex":46},{"imageOffset":494140,"symbol":"abort","symbolLocation":124,"imageIndex":47},{"imageOffset":3758996,"symbol":"swift::fatalErrorv(unsigned int, char const*, char*)","symbolLocation":144,"imageIndex":48},{"imageOffset":3759028,"symbol":"swift::fatalError(unsigned int, char const*, ...)","symbolLocation":32,"imageIndex":48},{"imageOffset":3760624,"symbol":"swift::runtime::AccessSet::insert(swift::runtime::Access*, void*, void*, swift::ExclusivityFlags)","symbolLocation":540,"imageIndex":48},{"imageOffset":3760708,"symbol":"swift_beginAccess","symbolLocation":84,"imageIndex":48},{"imageOffset":2064592,"imageIndex":3},{"imageOffset":2065172,"imageIndex":3},{"imageOffset":1704700,"symbol":"-[NSWindowController release]","symbolLocation":168,"imageIndex":49},{"imageOffset":8302988,"imageIndex":3},{"imageOffset":81408,"symbol":"object_cxxDestructFromClass(objc_object*, objc_class*)","symbolLocation":116,"imageIndex":50},{"imageOffset":243656,"symbol":"objc_destructInstance_nonnull_realized(objc_object*)","symbolLocation":76,"imageIndex":50},{"imageOffset":45956,"symbol":"_objc_rootDealloc","symbolLocation":72,"imageIndex":50},{"imageOffset":2814072,"imageIndex":3},{"imageOffset":81408,"symbol":"object_cxxDestructFromClass(objc_object*, objc_class*)","symbolLocation":116,"imageIndex":50},{"imageOffset":243656,"symbol":"objc_destructInstance_nonnull_realized(objc_object*)","symbolLocation":76,"imageIndex":50},{"imageOffset":45956,"symbol":"_objc_rootDealloc","symbolLocation":72,"imageIndex":50},{"imageOffset":2813812,"imageIndex":3},{"imageOffset":2813916,"imageIndex":3},{"imageOffset":1727268,"imageIndex":3},{"imageOffset":2538112,"imageIndex":3},{"imageOffset":21393296,"imageIndex":3},{"imageOffset":3557800,"imageIndex":3},{"imageOffset":503480,"imageIndex":3},{"imageOffset":499456,"imageIndex":3},{"imageOffset":50853480,"imageIndex":3},{"imageOffset":50852556,"symbol":"appsession::AppSessionManager::destroySession(appsession::AppSessionDestroyReason)","symbolLocation":984,"imageIndex":3},{"imageOffset":493844,"imageIndex":3},{"imageOffset":1206352,"imageIndex":3},{"imageOffset":21267660,"imageIndex":3},{"imageOffset":21269276,"imageIndex":3},{"imageOffset":21269760,"imageIndex":3},{"imageOffset":463980,"symbol":"__CFNOTIFICATIONCENTER_IS_CALLING_OUT_TO_AN_OBSERVER__","symbolLocation":148,"imageIndex":51},{"imageOffset":1051432,"symbol":"___CFXRegistrationPost_block_invoke","symbolLocation":92,"imageIndex":51},{"imageOffset":1051244,"symbol":"_CFXRegistrationPost","symbolLocation":436,"imageIndex":51},{"imageOffset":264376,"symbol":"_CFXNotificationPost","symbolLocation":740,"imageIndex":51},{"imageOffset":38528,"symbol":"-[NSNotificationCenter postNotificationName:object:userInfo:]","symbolLocation":88,"imageIndex":52},{"imageOffset":2363792,"symbol":"-[NSApplication terminate:]","symbolLocation":1660,"imageIndex":49},{"imageOffset":876208,"imageIndex":3},{"imageOffset":606156,"symbol":"__NSFireTimer","symbolLocation":104,"imageIndex":52},{"imageOffset":613456,"symbol":"__CFRUNLOOP_IS_CALLING_OUT_TO_A_TIMER_CALLBACK_FUNCTION__","symbolLocation":32,"imageIndex":51},{"imageOffset":612624,"symbol":"__CFRunLoopDoTimer","symbolLocation":980,"imageIndex":51},{"imageOffset":611404,"symbol":"__CFRunLoopDoTimers","symbolLocation":332,"imageIndex":51},{"imageOffset":505944,"symbol":"__CFRunLoopRun","symbolLocation":1848,"imageIndex":51},{"imageOffset":502424,"symbol":"CFRunLoopRunSpecific","symbolLocation":572,"imageIndex":51},{"imageOffset":799356,"symbol":"RunCurrentEventLoopInMode","symbolLocation":324,"imageIndex":53},{"imageOffset":812264,"symbol":"ReceiveNextEventCommon","symbolLocation":676,"imageIndex":53},{"imageOffset":2430084,"symbol":"_BlockUntilNextEventMatchingListInModeWithFilter","symbolLocation":76,"imageIndex":53},{"imageOffset":240180,"symbol":"_DPSNextEvent","symbolLocation":684,"imageIndex":49},{"imageOffset":10328384,"symbol":"-[NSApplication(NSEventRouting) _nextEventMatchingEventMask:untilDate:inMode:dequeue:]","symbolLocation":688,"imageIndex":49},{"imageOffset":187364,"symbol":"-[NSApplication run]","symbolLocation":480,"imageIndex":49},{"imageOffset":17116,"symbol":"NSApplicationMain","symbolLocation":880,"imageIndex":49},{"imageOffset":27544,"symbol":"start","symbolLocation":6076,"imageIndex":54}]},{"id":3499214,"name":"AsyncQueue::RootLogger","threadState":{"x":[{"value":260},{"value":0},{"value":150031360},{"value":0},{"value":0},{"value":160},{"value":0},{"value":0},{"value":6107802136},{"value":0},{"value":5684992},{"value":24416854723706626},{"value":24416854723706626},{"value":5684992},{"value":0},{"value":24416854723706624},{"value":305},{"value":8483362064},{"value":0},{"value":5228161544},{"value":5228161728},{"value":6107803872},{"value":0},{"value":0},{"value":150031360},{"value":150031361},{"value":150031616},{"value":4560421107},{"value":4560437848}],"flavor":"ARM_THREAD_STATE64","lr":{"value":6621184224},"cpsr":{"value":1610616832},"fp":{"value":6107802256},"sp":{"value":6107802112},"esr":{"value":1442840704,"description":" Address size fault"},"pc":{"value":6620926924},"far":{"value":0}},"frames":[{"imageOffset":17356,"symbol":"__psynch_cvwait","symbolLocation":8,"imageIndex":45},{"imageOffset":28896,"symbol":"_pthread_cond_wait","symbolLocation":984,"imageIndex":46},{"imageOffset":123496,"symbol":"std::__1::condition_variable::wait(std::__1::unique_lock<std::__1::mutex>&)","symbolLocation":32,"imageIndex":56},{"imageOffset":76076,"symbol":"AsyncQueue::Context::doWork()","symbolLocation":1560,"imageIndex":34},{"imageOffset":87364,"imageIndex":34},{"imageOffset":27660,"symbol":"_pthread_start","symbolLocation":136,"imageIndex":46},{"imageOffset":7040,"symbol":"thread_start","symbolLocation":8,"imageIndex":46}]},{"id":3499228,"name":"AsyncQueue::UrlProtocolStateMachine","threadState":{"x":[{"value":260},{"value":0},{"value":512},{"value":0},{"value":0},{"value":160},{"value":0},{"value":0},{"value":6108375576},{"value":0},{"value":0},{"value":2},{"value":2},{"value":0},{"value":0},{"value":0},{"value":305},{"value":8483362064},{"value":0},{"value":5475797176},{"value":5475797360},{"value":6108377312},{"value":0},{"value":0},{"value":512},{"value":513},{"value":768},{"value":4905191217},{"value":4906715672,"symbolLocation":112,"symbol":"typeinfo for MediaDeviceManagerListener"}],"flavor":"ARM_THREAD_STATE64","lr":{"value":6621184224},"cpsr":{"value":1610616832},"fp":{"value":6108375696},"sp":{"value":6108375552},"esr":{"value":1442840704,"description":" Address size fault"},"pc":{"value":6620926924},"far":{"value":0}},"frames":[{"imageOffset":17356,"symbol":"__psynch_cvwait","symbolLocation":8,"imageIndex":45},{"imageOffset":28896,"symbol":"_pthread_cond_wait","symbolLocation":984,"imageIndex":46},{"imageOffset":123496,"symbol":"std::__1::condition_variable::wait(std::__1::unique_lock<std::__1::mutex>&)","symbolLocation":32,"imageIndex":56},{"imageOffset":60949648,"symbol":"AsyncQueue::Context::doWork()","symbolLocation":1560,"imageIndex":20},{"imageOffset":60959680,"imageIndex":20},{"imageOffset":27660,"symbol":"_pthread_start","symbolLocation":136,"imageIndex":46},{"imageOffset":7040,"symbol":"thread_start","symbolLocation":8,"imageIndex":46}]},{"id":3499229,"name":"TimerManager","threadState":{"x":[{"value":603239914194208},{"value":13710319400},{"value":65884928},{"value":65885185},{"value":282974714931794944},{"value":282973611125199872},{"value":0},{"value":221656000},{"value":13276316368},{"value":914194208},{"value":1000000000},{"value":3499229},{"value":3041024},{"value":13061098629392128},{"value":65884928},{"value":0},{"value":6620913676,"symbolLocation":0,"symbol":"mach_continuous_time"},{"value":8483363816},{"value":0},{"value":5475961944},{"value":5475962136},{"value":5475962096},{"value":5475962008},{"value":221656000},{"value":4905189029},{"value":13681962144},{"value":13681962144},{"value":5475962144},{"value":13908288400}],"flavor":"ARM_THREAD_STATE64","lr":{"value":4884351096},"cpsr":{"value":2147487744},"fp":{"value":6108950416},"sp":{"value":6108950112},"esr":{"value":2449473547,"description":"(Data Abort) byte read Access flag fault"},"pc":{"value":4884351180},"far":{"value":0}},"frames":[{"imageOffset":60868812,"symbol":"TimerManager::Context::threadStart()","symbolLocation":828,"imageIndex":20},{"imageOffset":60876484,"imageIndex":20},{"imageOffset":27660,"symbol":"_pthread_start","symbolLocation":136,"imageIndex":46},{"imageOffset":7040,"symbol":"thread_start","symbolLocation":8,"imageIndex":46}]},{"id":3499232,"name":"AsyncQueue::common-task-queue","threadState":{"x":[{"value":260},{"value":0},{"value":0},{"value":0},{"value":0},{"value":160},{"value":0},{"value":0},{"value":6110095896},{"value":0},{"value":0},{"value":2},{"value":2},{"value":0},{"value":0},{"value":0},{"value":305},{"value":8483362064},{"value":0},{"value":5474421928},{"value":5474422112},{"value":6110097632},{"value":0},{"value":0},{"value":0},{"value":1},{"value":256},{"value":4905191217},{"value":4906715672,"symbolLocation":112,"symbol":"typeinfo for MediaDeviceManagerListener"}],"flavor":"ARM_THREAD_STATE64","lr":{"value":6621184224},"cpsr":{"value":1610616832},"fp":{"value":6110096016},"sp":{"value":6110095872},"esr":{"value":1442840704,"description":" Address size fault"},"pc":{"value":6620926924},"far":{"value":0}},"frames":[{"imageOffset":17356,"symbol":"__psynch_cvwait","symbolLocation":8,"imageIndex":45},{"imageOffset":28896,"symbol":"_pthread_cond_wait","symbolLocation":984,"imageIndex":46},{"imageOffset":123496,"symbol":"std::__1::condition_variable::wait(std::__1::unique_lock<std::__1::mutex>&)","symbolLocation":32,"imageIndex":56},{"imageOffset":60949648,"symbol":"AsyncQueue::Context::doWork()","symbolLocation":1560,"imageIndex":20},{"imageOffset":60959680,"imageIndex":20},{"imageOffset":27660,"symbol":"_pthread_start","symbolLocation":136,"imageIndex":46},{"imageOffset":7040,"symbol":"thread_start","symbolLocation":8,"imageIndex":46}]},{"id":3499233,"frames":[{"imageOffset":16840,"symbol":"__semwait_signal","symbolLocation":8,"imageIndex":45},{"imageOffset":55028,"symbol":"nanosleep","symbolLocation":220,"imageIndex":47},{"imageOffset":130872,"symbol":"std::__1::this_thread::sleep_for(std::__1::chrono::duration<long long, std::__1::ratio<1l, 1000000000l>> const&)","symbolLocation":84,"imageIndex":56},{"imageOffset":4314268,"imageIndex":20},{"imageOffset":57337912,"symbol":"spark::TaskMonitor::statusLoop(std::__1::weak_ptr<spark::TaskMonitor>)","symbolLocation":680,"imageIndex":20},{"imageOffset":57338320,"imageIndex":20},{"imageOffset":27660,"symbol":"_pthread_start","symbolLocation":136,"imageIndex":46},{"imageOffset":7040,"symbol":"thread_start","symbolLocation":8,"imageIndex":46}],"threadState":{"x":[{"value":4},{"value":0},{"value":1},{"value":1},{"value":1},{"value":0},{"value":52},{"value":0},{"value":8466264984,"symbolLocation":0,"symbol":"clock_sem"},{"value":16387},{"value":17},{"value":5474428152},{"value":0},{"value":0},{"value":0},{"value":0},{"value":334},{"value":8483362184},{"value":0},{"value":6110670144},{"value":6110670144},{"value":6110670424},{"value":1},{"value":1},{"value":4906715816,"symbolLocation":256,"symbol":"typeinfo for MediaDeviceManagerListener"},{"value":4906715672,"symbolLocation":112,"symbol":"typeinfo for MediaDeviceManagerListener"},{"value":5474428144},{"value":18446744073709551615},{"value":5474428184}],"flavor":"ARM_THREAD_STATE64","lr":{"value":6619731700},"cpsr":{"value":1610616832},"fp":{"value":6110670128},"sp":{"value":6110670080},"esr":{"value":1442840704,"description":" Address size fault"},"pc":{"value":6620926408},"far":{"value":0}}},{"id":3499244,"name":"Sentry::monitorCachedData","threadState":{"x":[{"value":4},{"value":0},{"value":1},{"value":1},{"value":60},{"value":0},{"value":52},{"value":0},{"value":8466264984,"symbolLocation":0,"symbol":"clock_sem"},{"value":16387},{"value":17},{"value":57867},{"value":57867},{"value":4367348256},{"value":13627310208},{"value":89392},{"value":334},{"value":8483362184},{"value":0},{"value":6111816480},{"value":6111816496},{"value":4544655360,"symbolLocation":56,"symbol":"(anonymous namespace)::_threadUnsafe_gTraceProfilerLock"},{"value":515},{"value":4544673040,"symbolLocation":0,"symbol":"g_semaphoreCount"},{"value":4544671744,"symbolLocation":264,"symbol":"g_stackCursor"},{"value":4544671744,"symbolLocation":264,"symbol":"g_stackCursor"},{"value":0},{"value":4544671744,"symbolLocation":264,"symbol":"g_stackCursor"},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":6619731700},"cpsr":{"value":1610616832},"fp":{"value":6111816464},"sp":{"value":6111816416},"esr":{"value":1442840704,"description":" Address size fault"},"pc":{"value":6620926408},"far":{"value":0}},"frames":[{"imageOffset":16840,"symbol":"__semwait_signal","symbolLocation":8,"imageIndex":45},{"imageOffset":55028,"symbol":"nanosleep","symbolLocation":220,"imageIndex":47},{"imageOffset":91856,"symbol":"sleep","symbolLocation":52,"imageIndex":47},{"imageOffset":308068,"symbol":"monitorCachedData","symbolLocation":676,"imageIndex":6},{"imageOffset":27660,"symbol":"_pthread_start","symbolLocation":136,"imageIndex":46},{"imageOffset":7040,"symbol":"thread_start","symbolLocation":8,"imageIndex":46}]},{"id":3499245,"name":"SentryCrash Exception Handler (Secondary)","threadState":{"x":[{"value":0},{"value":8589934595},{"value":103079220499},{"value":222114233763843},{"value":15483357102080},{"value":222114233712640},{"value":44},{"value":0},{"value":6621122560,"symbolLocation":40,"symbol":"mach_voucher_debug_info"},{"value":8466269912,"symbolLocation":0,"symbol":"_current_pid"},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":18446744073709551569},{"value":4544433872},{"value":0},{"value":0},{"value":44},{"value":222114233712640},{"value":15483357102080},{"value":222114233763843},{"value":6112388688},{"value":103079220499},{"value":8589934595},{"value":18446744073709550527},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":6620988320},"cpsr":{"value":2147487744},"fp":{"value":6112388672},"sp":{"value":6112388592},"esr":{"value":1442840704,"description":" Address size fault"},"pc":{"value":6620912692},"far":{"value":0}},"frames":[{"imageOffset":3124,"symbol":"mach_msg2_trap","symbolLocation":8,"imageIndex":45},{"imageOffset":78752,"symbol":"mach_msg2_internal","symbolLocation":76,"imageIndex":45},{"imageOffset":198788,"symbol":"thread_suspend","symbolLocation":108,"imageIndex":45},{"imageOffset":230960,"symbol":"handleExceptions","symbolLocation":120,"imageIndex":6},{"imageOffset":27660,"symbol":"_pthread_start","symbolLocation":136,"imageIndex":46},{"imageOffset":7040,"symbol":"thread_start","symbolLocation":8,"imageIndex":46}]},{"id":3499246,"name":"SentryCrash Exception Handler (Primary)","threadState":{"x":[{"value":268451845},{"value":17179869186},{"value":0},{"value":0},{"value":0},{"value":218815698829312},{"value":580},{"value":0},{"value":0},{"value":17179869184},{"value":580},{"value":0},{"value":0},{"value":0},{"value":50947},{"value":0},{"value":18446744073709551569},{"value":4544432352},{"value":0},{"value":0},{"value":580},{"value":218815698829312},{"value":0},{"value":0},{"value":6112963908},{"value":0},{"value":17179869186},{"value":18446744073709550527},{"value":2}],"flavor":"ARM_THREAD_STATE64","lr":{"value":6620988320},"cpsr":{"value":4096},"fp":{"value":6112961872},"sp":{"value":6112961792},"esr":{"value":1442840704,"description":" Address size fault"},"pc":{"value":6620912692},"far":{"value":0}},"frames":[{"imageOffset":3124,"symbol":"mach_msg2_trap","symbolLocation":8,"imageIndex":45},{"imageOffset":78752,"symbol":"mach_msg2_internal","symbolLocation":76,"imageIndex":45},{"imageOffset":38756,"symbol":"mach_msg_overwrite","symbolLocation":484,"imageIndex":45},{"imageOffset":4008,"symbol":"mach_msg","symbolLocation":24,"imageIndex":45},{"imageOffset":231004,"symbol":"handleExceptions","symbolLocation":164,"imageIndex":6},{"imageOffset":27660,"symbol":"_pthread_start","symbolLocation":136,"imageIndex":46},{"imageOffset":7040,"symbol":"thread_start","symbolLocation":8,"imageIndex":46}]},{"id":3499249,"name":"com.apple.NSEventThread","threadState":{"x":[{"value":268451845},{"value":21592279046},{"value":8589934592},{"value":295798692642816},{"value":0},{"value":295798692642816},{"value":2},{"value":4294967295},{"value":0},{"value":17179869184},{"value":0},{"value":2},{"value":0},{"value":0},{"value":68871},{"value":0},{"value":18446744073709551569},{"value":8483363944},{"value":0},{"value":4294967295},{"value":2},{"value":295798692642816},{"value":0},{"value":295798692642816},{"value":6113534088},{"value":8589934592},{"value":21592279046},{"value":18446744073709550527},{"value":4412409862}],"flavor":"ARM_THREAD_STATE64","lr":{"value":6620988320},"cpsr":{"value":4096},"fp":{"value":6113533936},"sp":{"value":6113533856},"esr":{"value":1442840704,"description":" Address size fault"},"pc":{"value":6620912692},"far":{"value":0}},"frames":[{"imageOffset":3124,"symbol":"mach_msg2_trap","symbolLocation":8,"imageIndex":45},{"imageOffset":78752,"symbol":"mach_msg2_internal","symbolLocation":76,"imageIndex":45},{"imageOffset":38756,"symbol":"mach_msg_overwrite","symbolLocation":484,"imageIndex":45},{"imageOffset":4008,"symbol":"mach_msg","symbolLocation":24,"imageIndex":45},{"imageOffset":511164,"symbol":"__CFRunLoopServiceMachPort","symbolLocation":160,"imageIndex":51},{"imageOffset":505304,"symbol":"__CFRunLoopRun","symbolLocation":1208,"imageIndex":51},{"imageOffset":502424,"symbol":"CFRunLoopRunSpecific","symbolLocation":572,"imageIndex":51},{"imageOffset":1435532,"symbol":"_NSEventThread","symbolLocation":140,"imageIndex":49},{"imageOffset":27660,"symbol":"_pthread_start","symbolLocation":136,"imageIndex":46},{"imageOffset":7040,"symbol":"thread_start","symbolLocation":8,"imageIndex":46}]},{"id":3499527,"name":"AsyncQueue::DeviceManagerDispatcher","threadState":{"x":[{"value":260},{"value":0},{"value":88576},{"value":0},{"value":0},{"value":160},{"value":0},{"value":0},{"value":6120991256},{"value":0},{"value":3328},{"value":14293651164418},{"value":14293651164418},{"value":3328},{"value":0},{"value":14293651164416},{"value":305},{"value":8483362064},{"value":0},{"value":5529673992},{"value":5529674176},{"value":6120992992},{"value":0},{"value":0},{"value":88576},{"value":88577},{"value":88832},{"value":4905191217},{"value":4906715672,"symbolLocation":112,"symbol":"typeinfo for MediaDeviceManagerListener"}],"flavor":"ARM_THREAD_STATE64","lr":{"value":6621184224},"cpsr":{"value":1610616832},"fp":{"value":6120991376},"sp":{"value":6120991232},"esr":{"value":1442840704,"description":" Address size fault"},"pc":{"value":6620926924},"far":{"value":0}},"frames":[{"imageOffset":17356,"symbol":"__psynch_cvwait","symbolLocation":8,"imageIndex":45},{"imageOffset":28896,"symbol":"_pthread_cond_wait","symbolLocation":984,"imageIndex":46},{"imageOffset":123496,"symbol":"std::__1::condition_variable::wait(std::__1::unique_lock<std::__1::mutex>&)","symbolLocation":32,"imageIndex":56},{"imageOffset":60949648,"symbol":"AsyncQueue::Context::doWork()","symbolLocation":1560,"imageIndex":20},{"imageOffset":60959680,"imageIndex":20},{"imageOffset":27660,"symbol":"_pthread_start","symbolLocation":136,"imageIndex":46},{"imageOffset":7040,"symbol":"thread_start","symbolLocation":8,"imageIndex":46}]},{"id":3499540,"name":"caulk.messenger.shared:17","threadState":{"x":[{"value":14},{"value":1},{"value":0},{"value":1},{"value":0},{"value":1},{"value":0},{"value":0},{"value":0},{"value":4294967295},{"value":0},{"value":0},{"value":5699518488},{"value":6124433016},{"value":7},{"value":0},{"value":18446744073709551580},{"value":8483366376},{"value":0},{"value":5528662384},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":6812495048},"cpsr":{"value":2147487744},"fp":{"value":6124433280},"sp":{"value":6124433248},"esr":{"value":1442840704,"description":" Address size fault"},"pc":{"value":6620912560},"far":{"value":0}},"frames":[{"imageOffset":2992,"symbol":"semaphore_wait_trap","symbolLocation":8,"imageIndex":45},{"imageOffset":7368,"symbol":"caulk::semaphore::timed_wait(double)","symbolLocation":224,"imageIndex":57},{"imageOffset":7024,"symbol":"caulk::concurrent::details::worker_thread::run()","symbolLocation":32,"imageIndex":57},{"imageOffset":6212,"symbol":"void* caulk::thread_proxy<std::__1::tuple<caulk::thread::attributes, void (caulk::concurrent::details::worker_thread::*)(), std::__1::tuple<caulk::concurrent::details::worker_thread*>>>(void*)","symbolLocation":96,"imageIndex":57},{"imageOffset":27660,"symbol":"_pthread_start","symbolLocation":136,"imageIndex":46},{"imageOffset":7040,"symbol":"thread_start","symbolLocation":8,"imageIndex":46}]},{"id":3499541,"name":"caulk.messenger.shared:high","threadState":{"x":[{"value":14},{"value":99843},{"value":99843},{"value":63},{"value":4294967295},{"value":0},{"value":0},{"value":0},{"value":0},{"value":4294967295},{"value":1},{"value":5470479576},{"value":0},{"value":0},{"value":0},{"value":0},{"value":18446744073709551580},{"value":8483366376},{"value":0},{"value":5470444416},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":6812495048},"cpsr":{"value":2147487744},"fp":{"value":6125006720},"sp":{"value":6125006688},"esr":{"value":1442840704,"description":" Address size fault"},"pc":{"value":6620912560},"far":{"value":0}},"frames":[{"imageOffset":2992,"symbol":"semaphore_wait_trap","symbolLocation":8,"imageIndex":45},{"imageOffset":7368,"symbol":"caulk::semaphore::timed_wait(double)","symbolLocation":224,"imageIndex":57},{"imageOffset":7024,"symbol":"caulk::concurrent::details::worker_thread::run()","symbolLocation":32,"imageIndex":57},{"imageOffset":6212,"symbol":"void* caulk::thread_proxy<std::__1::tuple<caulk::thread::attributes, void (caulk::concurrent::details::worker_thread::*)(), std::__1::tuple<caulk::concurrent::details::worker_thread*>>>(void*)","symbolLocation":96,"imageIndex":57},{"imageOffset":27660,"symbol":"_pthread_start","symbolLocation":136,"imageIndex":46},{"imageOffset":7040,"symbol":"thread_start","symbolLocation":8,"imageIndex":46}]},{"id":3499645,"name":"com.apple.NSURLConnectionLoader","threadState":{"x":[{"value":268451845},{"value":21592279046},{"value":8589934592},{"value":509189847777280},{"value":0},{"value":509189847777280},{"value":2},{"value":4294967295},{"value":0},{"value":17179869184},{"value":0},{"value":2},{"value":0},{"value":0},{"value":118555},{"value":0},{"value":18446744073709551569},{"value":8483363944},{"value":0},{"value":4294967295},{"value":2},{"value":509189847777280},{"value":0},{"value":509189847777280},{"value":6131883336},{"value":8589934592},{"value":21592279046},{"value":18446744073709550527},{"value":4412409862}],"flavor":"ARM_THREAD_STATE64","lr":{"value":6620988320},"cpsr":{"value":4096},"fp":{"value":6131883184},"sp":{"value":6131883104},"esr":{"value":1442840704,"description":" Address size fault"},"pc":{"value":6620912692},"far":{"value":0}},"frames":[{"imageOffset":3124,"symbol":"mach_msg2_trap","symbolLocation":8,"imageIndex":45},{"imageOffset":78752,"symbol":"mach_msg2_internal","symbolLocation":76,"imageIndex":45},{"imageOffset":38756,"symbol":"mach_msg_overwrite","symbolLocation":484,"imageIndex":45},{"imageOffset":4008,"symbol":"mach_msg","symbolLocation":24,"imageIndex":45},{"imageOffset":511164,"symbol":"__CFRunLoopServiceMachPort","symbolLocation":160,"imageIndex":51},{"imageOffset":505304,"symbol":"__CFRunLoopRun","symbolLocation":1208,"imageIndex":51},{"imageOffset":502424,"symbol":"CFRunLoopRunSpecific","symbolLocation":572,"imageIndex":51},{"imageOffset":2441972,"symbol":"+[__CFN_CoreSchedulingSetRunnable _run:]","symbolLocation":416,"imageIndex":58},{"imageOffset":342952,"symbol":"__NSThread__start__","symbolLocation":732,"imageIndex":52},{"imageOffset":27660,"symbol":"_pthread_start","symbolLocation":136,"imageIndex":46},{"imageOffset":7040,"symbol":"thread_start","symbolLocation":8,"imageIndex":46}]},{"id":3499662,"name":"AsyncQueue::AccessoriesDispatcher","threadState":{"x":[{"value":260},{"value":0},{"value":2310144},{"value":0},{"value":0},{"value":160},{"value":0},{"value":0},{"value":6133033496},{"value":0},{"value":2560},{"value":10995116280322},{"value":10995116280322},{"value":2560},{"value":0},{"value":10995116280320},{"value":305},{"value":8483362064},{"value":0},{"value":5396628696},{"value":5396628880},{"value":6133035232},{"value":0},{"value":0},{"value":2310144},{"value":2310145},{"value":2310400},{"value":4905191217},{"value":4906715672,"symbolLocation":112,"symbol":"typeinfo for MediaDeviceManagerListener"}],"flavor":"ARM_THREAD_STATE64","lr":{"value":6621184224},"cpsr":{"value":1610616832},"fp":{"value":6133033616},"sp":{"value":6133033472},"esr":{"value":1442840704,"description":" Address size fault"},"pc":{"value":6620926924},"far":{"value":0}},"frames":[{"imageOffset":17356,"symbol":"__psynch_cvwait","symbolLocation":8,"imageIndex":45},{"imageOffset":28896,"symbol":"_pthread_cond_wait","symbolLocation":984,"imageIndex":46},{"imageOffset":123496,"symbol":"std::__1::condition_variable::wait(std::__1::unique_lock<std::__1::mutex>&)","symbolLocation":32,"imageIndex":56},{"imageOffset":60949648,"symbol":"AsyncQueue::Context::doWork()","symbolLocation":1560,"imageIndex":20},{"imageOffset":60959680,"imageIndex":20},{"imageOffset":27660,"symbol":"_pthread_start","symbolLocation":136,"imageIndex":46},{"imageOffset":7040,"symbol":"thread_start","symbolLocation":8,"imageIndex":46}]},{"id":3499704,"name":"H11ANEServicesThread","threadState":{"x":[{"value":268451845},{"value":21592279046},{"value":8589934592},{"value":1089628908027904},{"value":0},{"value":1089628908027904},{"value":2},{"value":4294967295},{"value":0},{"value":17179869184},{"value":0},{"value":2},{"value":0},{"value":0},{"value":253699},{"value":0},{"value":18446744073709551569},{"value":8483363944},{"value":0},{"value":4294967295},{"value":2},{"value":1089628908027904},{"value":0},{"value":1089628908027904},{"value":6135324744},{"value":8589934592},{"value":21592279046},{"value":18446744073709550527},{"value":4412409862}],"flavor":"ARM_THREAD_STATE64","lr":{"value":6620988320},"cpsr":{"value":4096},"fp":{"value":6135324592},"sp":{"value":6135324512},"esr":{"value":1442840704,"description":" Address size fault"},"pc":{"value":6620912692},"far":{"value":0}},"frames":[{"imageOffset":3124,"symbol":"mach_msg2_trap","symbolLocation":8,"imageIndex":45},{"imageOffset":78752,"symbol":"mach_msg2_internal","symbolLocation":76,"imageIndex":45},{"imageOffset":38756,"symbol":"mach_msg_overwrite","symbolLocation":484,"imageIndex":45},{"imageOffset":4008,"symbol":"mach_msg","symbolLocation":24,"imageIndex":45},{"imageOffset":511164,"symbol":"__CFRunLoopServiceMachPort","symbolLocation":160,"imageIndex":51},{"imageOffset":505304,"symbol":"__CFRunLoopRun","symbolLocation":1208,"imageIndex":51},{"imageOffset":502424,"symbol":"CFRunLoopRunSpecific","symbolLocation":572,"imageIndex":51},{"imageOffset":1000788,"symbol":"CFRunLoopRun","symbolLocation":64,"imageIndex":51},{"imageOffset":87332,"symbol":"H11ANE::H11ANEServicesThreadStart(H11ANE::H11ANEServicesThreadParams*)","symbolLocation":152,"imageIndex":59},{"imageOffset":27660,"symbol":"_pthread_start","symbolLocation":136,"imageIndex":46},{"imageOffset":7040,"symbol":"thread_start","symbolLocation":8,"imageIndex":46}]},{"id":3499705,"name":"H11ANEServicesThread","threadState":{"x":[{"value":268451845},{"value":21592279046},{"value":8589934592},{"value":1081932326633472},{"value":0},{"value":1081932326633472},{"value":2},{"value":4294967295},{"value":0},{"value":17179869184},{"value":0},{"value":2},{"value":0},{"value":0},{"value":251907},{"value":0},{"value":18446744073709551569},{"value":8483363944},{"value":0},{"value":4294967295},{"value":2},{"value":1081932326633472},{"value":0},{"value":1081932326633472},{"value":6135898184},{"value":8589934592},{"value":21592279046},{"value":18446744073709550527},{"value":4412409862}],"flavor":"ARM_THREAD_STATE64","lr":{"value":6620988320},"cpsr":{"value":4096},"fp":{"value":6135898032},"sp":{"value":6135897952},"esr":{"value":1442840704,"description":" Address size fault"},"pc":{"value":6620912692},"far":{"value":0}},"frames":[{"imageOffset":3124,"symbol":"mach_msg2_trap","symbolLocation":8,"imageIndex":45},{"imageOffset":78752,"symbol":"mach_msg2_internal","symbolLocation":76,"imageIndex":45},{"imageOffset":38756,"symbol":"mach_msg_overwrite","symbolLocation":484,"imageIndex":45},{"imageOffset":4008,"symbol":"mach_msg","symbolLocation":24,"imageIndex":45},{"imageOffset":511164,"symbol":"__CFRunLoopServiceMachPort","symbolLocation":160,"imageIndex":51},{"imageOffset":505304,"symbol":"__CFRunLoopRun","symbolLocation":1208,"imageIndex":51},{"imageOffset":502424,"symbol":"CFRunLoopRunSpecific","symbolLocation":572,"imageIndex":51},{"imageOffset":1000788,"symbol":"CFRunLoopRun","symbolLocation":64,"imageIndex":51},{"imageOffset":87332,"symbol":"H11ANE::H11ANEServicesThreadStart(H11ANE::H11ANEServicesThreadParams*)","symbolLocation":152,"imageIndex":59},{"imageOffset":27660,"symbol":"_pthread_start","symbolLocation":136,"imageIndex":46},{"imageOffset":7040,"symbol":"thread_start","symbolLocation":8,"imageIndex":46}]},{"id":3499707,"name":"H11ANEServicesThread","threadState":{"x":[{"value":268451845},{"value":21592279046},{"value":8589934592},{"value":793860280156160},{"value":0},{"value":793860280156160},{"value":2},{"value":4294967295},{"value":0},{"value":17179869184},{"value":0},{"value":2},{"value":0},{"value":0},{"value":184835},{"value":0},{"value":18446744073709551569},{"value":8483363944},{"value":0},{"value":4294967295},{"value":2},{"value":793860280156160},{"value":0},{"value":793860280156160},{"value":6136471624},{"value":8589934592},{"value":21592279046},{"value":18446744073709550527},{"value":4412409862}],"flavor":"ARM_THREAD_STATE64","lr":{"value":6620988320},"cpsr":{"value":4096},"fp":{"value":6136471472},"sp":{"value":6136471392},"esr":{"value":1442840704,"description":" Address size fault"},"pc":{"value":6620912692},"far":{"value":0}},"frames":[{"imageOffset":3124,"symbol":"mach_msg2_trap","symbolLocation":8,"imageIndex":45},{"imageOffset":78752,"symbol":"mach_msg2_internal","symbolLocation":76,"imageIndex":45},{"imageOffset":38756,"symbol":"mach_msg_overwrite","symbolLocation":484,"imageIndex":45},{"imageOffset":4008,"symbol":"mach_msg","symbolLocation":24,"imageIndex":45},{"imageOffset":511164,"symbol":"__CFRunLoopServiceMachPort","symbolLocation":160,"imageIndex":51},{"imageOffset":505304,"symbol":"__CFRunLoopRun","symbolLocation":1208,"imageIndex":51},{"imageOffset":502424,"symbol":"CFRunLoopRunSpecific","symbolLocation":572,"imageIndex":51},{"imageOffset":1000788,"symbol":"CFRunLoopRun","symbolLocation":64,"imageIndex":51},{"imageOffset":87332,"symbol":"H11ANE::H11ANEServicesThreadStart(H11ANE::H11ANEServicesThreadParams*)","symbolLocation":152,"imageIndex":59},{"imageOffset":27660,"symbol":"_pthread_start","symbolLocation":136,"imageIndex":46},{"imageOffset":7040,"symbol":"thread_start","symbolLocation":8,"imageIndex":46}]},{"id":3499961,"name":"AsyncQueue::MediaConnectionQueue","threadState":{"x":[{"value":260},{"value":0},{"value":256},{"value":0},{"value":0},{"value":160},{"value":0},{"value":0},{"value":6139914776},{"value":0},{"value":0},{"value":2},{"value":2},{"value":0},{"value":0},{"value":0},{"value":305},{"value":8483362064},{"value":0},{"value":5539325128},{"value":5539325312},{"value":6139916512},{"value":0},{"value":0},{"value":256},{"value":257},{"value":512},{"value":4905191217},{"value":4906715672,"symbolLocation":112,"symbol":"typeinfo for MediaDeviceManagerListener"}],"flavor":"ARM_THREAD_STATE64","lr":{"value":6621184224},"cpsr":{"value":1610616832},"fp":{"value":6139914896},"sp":{"value":6139914752},"esr":{"value":1442840704,"description":" Address size fault"},"pc":{"value":6620926924},"far":{"value":0}},"frames":[{"imageOffset":17356,"symbol":"__psynch_cvwait","symbolLocation":8,"imageIndex":45},{"imageOffset":28896,"symbol":"_pthread_cond_wait","symbolLocation":984,"imageIndex":46},{"imageOffset":123496,"symbol":"std::__1::condition_variable::wait(std::__1::unique_lock<std::__1::mutex>&)","symbolLocation":32,"imageIndex":56},{"imageOffset":60949648,"symbol":"AsyncQueue::Context::doWork()","symbolLocation":1560,"imageIndex":20},{"imageOffset":60959680,"imageIndex":20},{"imageOffset":27660,"symbol":"_pthread_start","symbolLocation":136,"imageIndex":46},{"imageOffset":7040,"symbol":"thread_start","symbolLocation":8,"imageIndex":46}]},{"id":3500173,"name":"caulk::deferred_logger","threadState":{"x":[{"value":14},{"value":5813939447},{"value":0},{"value":6202552423},{"value":5813939424},{"value":22},{"value":0},{"value":0},{"value":0},{"value":4294967295},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":18446744073709551580},{"value":8483366376},{"value":0},{"value":5813939032},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":6812495048},"cpsr":{"value":2147487744},"fp":{"value":6202552192},"sp":{"value":6202552160},"esr":{"value":1442840704,"description":" Address size fault"},"pc":{"value":6620912560},"far":{"value":0}},"frames":[{"imageOffset":2992,"symbol":"semaphore_wait_trap","symbolLocation":8,"imageIndex":45},{"imageOffset":7368,"symbol":"caulk::semaphore::timed_wait(double)","symbolLocation":224,"imageIndex":57},{"imageOffset":7024,"symbol":"caulk::concurrent::details::worker_thread::run()","symbolLocation":32,"imageIndex":57},{"imageOffset":6212,"symbol":"void* caulk::thread_proxy<std::__1::tuple<caulk::thread::attributes, void (caulk::concurrent::details::worker_thread::*)(), std::__1::tuple<caulk::concurrent::details::worker_thread*>>>(void*)","symbolLocation":96,"imageIndex":57},{"imageOffset":27660,"symbol":"_pthread_start","symbolLocation":136,"imageIndex":46},{"imageOffset":7040,"symbol":"thread_start","symbolLocation":8,"imageIndex":46}]},{"id":3628362,"name":"wseenc_s_0x148cdea00","threadState":{"x":[{"value":260},{"value":0},{"value":0},{"value":0},{"value":0},{"value":160},{"value":0},{"value":0},{"value":6106650568},{"value":0},{"value":0},{"value":2},{"value":2},{"value":0},{"value":0},{"value":0},{"value":305},{"value":8483362064},{"value":0},{"value":5516975984},{"value":5516976064},{"value":6106656992},{"value":0},{"value":0},{"value":0},{"value":1},{"value":256},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":6621184224},"cpsr":{"value":1610616832},"fp":{"value":6106650688},"sp":{"value":6106650544},"esr":{"value":1442840704,"description":" Address size fault"},"pc":{"value":6620926924},"far":{"value":0}},"frames":[{"imageOffset":17356,"symbol":"__psynch_cvwait","symbolLocation":8,"imageIndex":45},{"imageOffset":28896,"symbol":"_pthread_cond_wait","symbolLocation":984,"imageIndex":46},{"imageOffset":61792,"imageIndex":27},{"imageOffset":220324,"imageIndex":27},{"imageOffset":11764,"sourceLine":62,"sourceFile":"WseTaskThread.cpp","symbol":"WSEUTIL::ComTaskThread::OnThreadRun()","imageIndex":30,"symbolLocation":372},{"imageOffset":205208,"imageIndex":27},{"imageOffset":202020,"imageIndex":27},{"imageOffset":27660,"symbol":"_pthread_start","symbolLocation":136,"imageIndex":46},{"imageOffset":7040,"symbol":"thread_start","symbolLocation":8,"imageIndex":46}]},{"id":3628363,"name":"av1enc","threadState":{"x":[{"value":4},{"value":0},{"value":0},{"value":0},{"value":0},{"value":160},{"value":0},{"value":0},{"value":6107229880},{"value":0},{"value":0},{"value":2},{"value":2},{"value":0},{"value":0},{"value":0},{"value":305},{"value":8483362064},{"value":0},{"value":5509098704},{"value":5509098656},{"value":6107230432},{"value":0},{"value":0},{"value":0},{"value":1},{"value":256},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":6621184224},"cpsr":{"value":1610616832},"fp":{"value":6107230000},"sp":{"value":6107229856},"esr":{"value":1442840704,"description":" Address size fault"},"pc":{"value":6620926924},"far":{"value":0}},"frames":[{"imageOffset":17356,"symbol":"__psynch_cvwait","symbolLocation":8,"imageIndex":45},{"imageOffset":28896,"symbol":"_pthread_cond_wait","symbolLocation":984,"imageIndex":46},{"imageOffset":123496,"symbol":"std::__1::condition_variable::wait(std::__1::unique_lock<std::__1::mutex>&)","symbolLocation":32,"imageIndex":56},{"imageOffset":382272,"imageIndex":25},{"imageOffset":406068,"imageIndex":25},{"imageOffset":27660,"symbol":"_pthread_start","symbolLocation":136,"imageIndex":46},{"imageOffset":7040,"symbol":"thread_start","symbolLocation":8,"imageIndex":46}]},{"id":3628364,"name":"av1enc","threadState":{"x":[{"value":260},{"value":0},{"value":0},{"value":0},{"value":0},{"value":160},{"value":0},{"value":0},{"value":6134181560},{"value":0},{"value":0},{"value":2},{"value":2},{"value":0},{"value":0},{"value":0},{"value":305},{"value":8483362064},{"value":0},{"value":5509098704},{"value":5509098656},{"value":6134182112},{"value":0},{"value":0},{"value":0},{"value":0},{"value":512},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":6621184224},"cpsr":{"value":1610616832},"fp":{"value":6134181680},"sp":{"value":6134181536},"esr":{"value":1442840704,"description":" Address size fault"},"pc":{"value":6620926924},"far":{"value":0}},"frames":[{"imageOffset":17356,"symbol":"__psynch_cvwait","symbolLocation":8,"imageIndex":45},{"imageOffset":28896,"symbol":"_pthread_cond_wait","symbolLocation":984,"imageIndex":46},{"imageOffset":123496,"symbol":"std::__1::condition_variable::wait(std::__1::unique_lock<std::__1::mutex>&)","symbolLocation":32,"imageIndex":56},{"imageOffset":382272,"imageIndex":25},{"imageOffset":406068,"imageIndex":25},{"imageOffset":27660,"symbol":"_pthread_start","symbolLocation":136,"imageIndex":46},{"imageOffset":7040,"symbol":"thread_start","symbolLocation":8,"imageIndex":46}]},{"id":6683408,"frames":[{"imageOffset":7020,"symbol":"start_wqthread","symbolLocation":0,"imageIndex":46}],"threadState":{"x":[{"value":13826027520},{"value":3450207},{"value":13825490944},{"value":0},{"value":409603},{"value":18446744073709551615},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":0},"cpsr":{"value":4096},"fp":{"value":0},"sp":{"value":13826027520},"esr":{"value":1442840704,"description":" Address size fault"},"pc":{"value":6621162348},"far":{"value":0}}},{"id":6684976,"frames":[{"imageOffset":7020,"symbol":"start_wqthread","symbolLocation":0,"imageIndex":46}],"threadState":{"x":[{"value":13900476416},{"value":3364367},{"value":13899939840},{"value":0},{"value":409603},{"value":18446744073709551615},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":0},"cpsr":{"value":4096},"fp":{"value":0},"sp":{"value":13900476416},"esr":{"value":1442840704,"description":" Address size fault"},"pc":{"value":6621162348},"far":{"value":0}}},{"id":6686748,"threadState":{"x":[{"value":8487272192,"symbolLocation":0,"symbol":"__kCFAllocatorSystemDefault"},{"value":13721312736},{"value":13511950336},{"value":13512250912},{"value":32},{"value":13512250912},{"value":2},{"value":35},{"value":13721312776},{"value":13512779072},{"value":13721312720},{"value":61193424},{"value":13511966508},{"value":4367358496},{"value":13511950336},{"value":1409845282},{"value":8466338984,"symbolLocation":0,"symbol":"OBJC_CLASS_$___NSCFSet"},{"value":8466338984,"symbolLocation":0,"symbol":"OBJC_CLASS_$___NSCFSet"},{"value":0},{"value":13721312736},{"value":13721312736},{"value":8487286504,"symbolLocation":0,"symbol":"__CFSetClass"},{"value":0},{"value":539980669653376},{"value":0},{"value":3},{"value":8466244928,"symbolLocation":2048,"symbol":"_dispatch_root_queues"},{"value":18437737153627684860},{"value":13810299104}],"flavor":"ARM_THREAD_STATE64","lr":{"value":6621747820},"cpsr":{"value":4096},"fp":{"value":13810295872},"sp":{"value":13810295760},"esr":{"value":2449473547,"description":"(Data Abort) byte read Access flag fault"},"pc":{"value":6621747840},"far":{"value":0}},"queue":"com.apple.root.user-interactive-qos.overcommit","frames":[{"imageOffset":113280,"symbol":"__CFBasicHashDrain","symbolLocation":80,"imageIndex":51},{"imageOffset":1378804,"symbol":"_CFRelease","symbolLocation":296,"imageIndex":51},{"imageOffset":694968,"symbol":"__CFRunLoopDeallocate","symbolLocation":336,"imageIndex":51},{"imageOffset":1378804,"symbol":"_CFRelease","symbolLocation":296,"imageIndex":51},{"imageOffset":9568364,"symbol":"__45-[NSConcreteTask launchWithDictionary:error:]_block_invoke.192","symbolLocation":464,"imageIndex":52},{"imageOffset":112732,"symbol":"_dispatch_client_callout","symbolLocation":16,"imageIndex":60},{"imageOffset":26080,"symbol":"_dispatch_continuation_pop","symbolLocation":596,"imageIndex":60},{"imageOffset":103968,"symbol":"_dispatch_source_latch_and_call","symbolLocation":396,"imageIndex":60},{"imageOffset":99064,"symbol":"_dispatch_source_invoke","symbolLocation":844,"imageIndex":60},{"imageOffset":85868,"symbol":"_dispatch_root_queue_drain_deferred_item","symbolLocation":216,"imageIndex":60},{"imageOffset":83984,"symbol":"_dispatch_kevent_worker_thread","symbolLocation":500,"imageIndex":60},{"imageOffset":11932,"symbol":"_pthread_wqthread","symbolLocation":348,"imageIndex":46},{"imageOffset":7028,"symbol":"start_wqthread","symbolLocation":8,"imageIndex":46}]},{"id":6686872,"frames":[{"imageOffset":7020,"symbol":"start_wqthread","symbolLocation":0,"imageIndex":46}],"threadState":{"x":[{"value":13818572800},{"value":3447903},{"value":13818036224},{"value":0},{"value":409604},{"value":18446744073709551615},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":0},"cpsr":{"value":4096},"fp":{"value":0},"sp":{"value":13818572800},"esr":{"value":1442840704,"description":" Address size fault"},"pc":{"value":6621162348},"far":{"value":0}}},{"id":6686873,"frames":[{"imageOffset":7020,"symbol":"start_wqthread","symbolLocation":0,"imageIndex":46}],"threadState":{"x":[{"value":13830221824},{"value":154271},{"value":13829685248},{"value":0},{"value":409604},{"value":18446744073709551615},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":0},"cpsr":{"value":4096},"fp":{"value":0},"sp":{"value":13830221824},"esr":{"value":1442840704,"description":" Address size fault"},"pc":{"value":6621162348},"far":{"value":0}}}],
+  "usedImages" : [
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4367089664,
+    "CFBundleShortVersionString" : "45.10.0.32917",
+    "CFBundleIdentifier" : "Cisco-Systems.Relay",
+    "size" : 49152,
+    "uuid" : "beb5011e-3b1d-38d2-af3f-865bd8e8ca86",
+    "path" : "\/Applications\/Webex Relay.app\/Contents\/MacOS\/Webex Relay",
+    "name" : "Webex Relay",
+    "CFBundleVersion" : "32917"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4535222272,
+    "CFBundleShortVersionString" : "45.10.0.32917",
+    "CFBundleIdentifier" : "cisco.SparkFinder",
+    "size" : 49152,
+    "uuid" : "70042da3-533c-34e3-bfa1-65a61af4a7dc",
+    "path" : "\/Applications\/Webex Relay.app\/Contents\/PlugIns\/WebexRelayPlugin.bundle\/Contents\/PlugIns\/SparkFinder.bundle\/Contents\/MacOS\/SparkFinder",
+    "name" : "SparkFinder",
+    "CFBundleVersion" : "32917"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 4535779328,
+    "CFBundleShortVersionString" : "3.0",
+    "CFBundleIdentifier" : "com.apple.security.csparser",
+    "size" : 131072,
+    "uuid" : "3a905673-ada9-3c57-992e-b83f555baa61",
+    "path" : "\/System\/Library\/Frameworks\/Security.framework\/Versions\/A\/PlugIns\/csparser.bundle\/Contents\/MacOS\/csparser",
+    "name" : "csparser",
+    "CFBundleVersion" : "61439.140.12"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4679417856,
+    "CFBundleShortVersionString" : "45.10.0.32937",
+    "CFBundleIdentifier" : "Cisco-Systems.Relay.main",
+    "size" : 113836032,
+    "uuid" : "37949af7-b6ec-33d3-bb9c-b40003b0d539",
+    "path" : "\/Users\/USER\/Library\/Application Support\/Webex Relay\/*\/Webex Relay.app\/Contents\/PlugIns\/WebexRelayPlugin.bundle\/Contents\/MacOS\/WebexRelayPlugin",
+    "name" : "WebexRelayPlugin",
+    "CFBundleVersion" : "32937"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4539662336,
+    "CFBundleIdentifier" : "com.cisco.webex.UIToolkit",
+    "size" : 2506752,
+    "uuid" : "7ebdee29-426a-396a-bba8-a0e15e02719f",
+    "path" : "\/Users\/USER\/Library\/Application Support\/Webex Relay\/*\/Webex Relay.app\/Contents\/PlugIns\/WebexRelayPlugin.bundle\/Contents\/Frameworks\/UIToolkit.framework\/Versions\/A\/UIToolkit",
+    "name" : "UIToolkit"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4551835648,
+    "CFBundleShortVersionString" : "1.0",
+    "CFBundleIdentifier" : "com.airbnb.Lottie",
+    "size" : 1507328,
+    "uuid" : "83b8d293-bf99-3fb9-9bb6-d7f1169ad7a6",
+    "path" : "\/Users\/USER\/Library\/Application Support\/Webex Relay\/*\/Webex Relay.app\/Contents\/PlugIns\/WebexRelayPlugin.bundle\/Contents\/Frameworks\/Lottie.framework\/Versions\/A\/Lottie",
+    "name" : "Lottie",
+    "CFBundleVersion" : "1"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 4543348736,
+    "CFBundleShortVersionString" : "8.52.1",
+    "CFBundleIdentifier" : "io.sentry.Sentry",
+    "size" : 1081344,
+    "uuid" : "47c143ad-9208-3bfa-9a0b-5a43e5fb522e",
+    "path" : "\/Users\/USER\/Library\/Application Support\/Webex Relay\/*\/Webex Relay.app\/Contents\/PlugIns\/WebexRelayPlugin.bundle\/Contents\/Frameworks\/Sentry.framework\/Versions\/A\/Sentry",
+    "name" : "Sentry",
+    "CFBundleVersion" : "8.52.1"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4537434112,
+    "CFBundleShortVersionString" : "1.0",
+    "CFBundleIdentifier" : "Cisco.appshare",
+    "size" : 1146880,
+    "uuid" : "5f45ad0f-797e-30df-9990-b2fb09b694b5",
+    "path" : "\/Users\/USER\/Library\/Application Support\/Webex Relay\/*\/Webex Relay.app\/Contents\/PlugIns\/WebexRelayPlugin.bundle\/Contents\/Frameworks\/appshare.framework\/Versions\/A\/appshare",
+    "name" : "appshare",
+    "CFBundleVersion" : "2508.15.15100.003631"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4535533568,
+    "CFBundleShortVersionString" : "1.0",
+    "CFBundleIdentifier" : "com.cisco.AudioDriverHost",
+    "size" : 98304,
+    "uuid" : "88e5901f-c7c0-3689-841c-83b7d27cfcd1",
+    "path" : "\/Users\/USER\/Library\/Application Support\/Webex Relay\/*\/Webex Relay.app\/Contents\/PlugIns\/WebexRelayPlugin.bundle\/Contents\/Frameworks\/AudioDriverHost.framework\/Versions\/A\/AudioDriverHost",
+    "name" : "AudioDriverHost",
+    "CFBundleVersion" : "2508.15.15100.003631"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4538859520,
+    "CFBundleShortVersionString" : "20500.2014",
+    "CFBundleIdentifier" : "com.cisco.mediaconverter",
+    "size" : 606208,
+    "uuid" : "425d6c94-e54c-370e-bb80-4a024268ef91",
+    "path" : "\/Users\/USER\/Library\/Application Support\/Webex Relay\/*\/Webex Relay.app\/Contents\/PlugIns\/WebexRelayPlugin.bundle\/Contents\/Frameworks\/mediaconverter.framework\/Versions\/A\/mediaconverter",
+    "name" : "mediaconverter",
+    "CFBundleVersion" : "2508.15.15100.003631"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4536025088,
+    "CFBundleShortVersionString" : "1.0",
+    "CFBundleIdentifier" : "www.cisco.wme.PluginInstall",
+    "size" : 49152,
+    "uuid" : "cda15656-06a5-3d51-9a60-62c8deea369c",
+    "path" : "\/Users\/USER\/Library\/Application Support\/Webex Relay\/*\/Webex Relay.app\/Contents\/PlugIns\/WebexRelayPlugin.bundle\/Contents\/Frameworks\/PluginInstall.framework\/Versions\/A\/PluginInstall",
+    "name" : "PluginInstall",
+    "CFBundleVersion" : "2508.15.15100.003631"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4556095488,
+    "CFBundleShortVersionString" : "20500.2014",
+    "CFBundleIdentifier" : "com.cisco.wmeclient",
+    "size" : 1884160,
+    "uuid" : "867303b6-fecd-34c6-a29a-7ef438f5fe8c",
+    "path" : "\/Users\/USER\/Library\/Application Support\/Webex Relay\/*\/Webex Relay.app\/Contents\/PlugIns\/WebexRelayPlugin.bundle\/Contents\/Frameworks\/wmeclient.framework\/Versions\/A\/wmeclient",
+    "name" : "wmeclient",
+    "CFBundleVersion" : "2508.15.15100.003631"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4562944000,
+    "CFBundleShortVersionString" : "20500.2014",
+    "CFBundleIdentifier" : "com.cisco.MediaSession",
+    "size" : 4079616,
+    "uuid" : "fb90b786-debd-323b-a5de-a3db43512c76",
+    "path" : "\/Users\/USER\/Library\/Application Support\/Webex Relay\/*\/Webex Relay.app\/Contents\/PlugIns\/WebexRelayPlugin.bundle\/Contents\/Frameworks\/MediaSession.framework\/Versions\/A\/MediaSession",
+    "name" : "MediaSession",
+    "CFBundleVersion" : "2508.15.15100.003631"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4536352768,
+    "CFBundleShortVersionString" : "15.43.0500",
+    "CFBundleIdentifier" : "com.cisco.webex.cwsinterface",
+    "size" : 114688,
+    "uuid" : "60386ddf-0aa9-38db-8707-b6602aac1e38",
+    "path" : "\/Users\/USER\/Library\/Application Support\/Webex Relay\/*\/Webex Relay.app\/Contents\/PlugIns\/WebexRelayPlugin.bundle\/Contents\/Frameworks\/cwsinterface.framework\/Versions\/A\/cwsinterface",
+    "name" : "cwsinterface",
+    "CFBundleVersion" : "15.43.0500.230323.0"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4550295552,
+    "size" : 1081344,
+    "uuid" : "2b98807d-a508-30ba-a3c7-600ea7a4b49c",
+    "path" : "\/Users\/USER\/Library\/Application Support\/Webex Relay\/*\/Webex Relay.app\/Contents\/PlugIns\/WebexRelayPlugin.bundle\/Contents\/Frameworks\/libxml2.2.dylib",
+    "name" : "libxml2.2.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4549001216,
+    "size" : 540672,
+    "uuid" : "9c2c2e81-b364-36d2-bda9-245fb4b42682",
+    "path" : "\/Users\/USER\/Library\/Application Support\/Webex Relay\/*\/Webex Relay.app\/Contents\/PlugIns\/WebexRelayPlugin.bundle\/Contents\/Frameworks\/libcurl.dylib",
+    "name" : "libcurl.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4536565760,
+    "size" : 147456,
+    "uuid" : "b6832d29-855f-3ef7-9ecf-4276c1d2cf5e",
+    "path" : "\/Users\/USER\/Library\/Application Support\/Webex Relay\/*\/Webex Relay.app\/Contents\/PlugIns\/WebexRelayPlugin.bundle\/Contents\/Frameworks\/libnghttp2.dylib",
+    "name" : "libnghttp2.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4537008128,
+    "size" : 131072,
+    "uuid" : "afb3565e-4135-3414-8b99-7d51eb5dd79d",
+    "path" : "\/Users\/USER\/Library\/Application Support\/Webex Relay\/*\/Webex Relay.app\/Contents\/PlugIns\/WebexRelayPlugin.bundle\/Contents\/Frameworks\/libcsflogger.dylib",
+    "name" : "libcsflogger.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4560584704,
+    "size" : 1884160,
+    "uuid" : "d2f2140b-b85a-3849-b41d-e933107b7337",
+    "path" : "\/Users\/USER\/Library\/Application Support\/Webex Relay\/*\/Webex Relay.app\/Contents\/PlugIns\/WebexRelayPlugin.bundle\/Contents\/Frameworks\/libcrypto.dylib",
+    "name" : "libcrypto.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4558290944,
+    "size" : 360448,
+    "uuid" : "7110fcda-51b0-3bd6-939d-ae9a51da2202",
+    "path" : "\/Users\/USER\/Library\/Application Support\/Webex Relay\/*\/Webex Relay.app\/Contents\/PlugIns\/WebexRelayPlugin.bundle\/Contents\/Frameworks\/libssl.dylib",
+    "name" : "libssl.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4823482368,
+    "size" : 83165184,
+    "uuid" : "78309896-ccc2-3c63-ad7d-738db3f29677",
+    "path" : "\/Users\/USER\/Library\/Application Support\/Webex Relay\/*\/Webex Relay.app\/Contents\/PlugIns\/WebexRelayPlugin.bundle\/Contents\/Frameworks\/libscf.dylib",
+    "name" : "libscf.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4575363072,
+    "size" : 6275072,
+    "uuid" : "36112eeb-a67a-31da-afba-cbd4a958bac6",
+    "path" : "\/Users\/USER\/Library\/Application Support\/Webex Relay\/*\/Webex Relay.app\/Contents\/PlugIns\/WebexRelayPlugin.bundle\/Contents\/Frameworks\/libbwc.dylib",
+    "name" : "libbwc.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4536139776,
+    "size" : 65536,
+    "uuid" : "3797fd2d-e6e5-3a65-9203-bfb1ca80c334",
+    "path" : "\/Users\/USER\/Library\/Application Support\/Webex Relay\/*\/Webex Relay.app\/Contents\/PlugIns\/WebexRelayPlugin.bundle\/Contents\/Frameworks\/libusb.dylib",
+    "name" : "libusb.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4536778752,
+    "size" : 114688,
+    "uuid" : "07634fe5-06a6-3e55-ad7b-a39e58a88fb8",
+    "path" : "\/Users\/USER\/Library\/Application Support\/Webex Relay\/*\/Webex Relay.app\/Contents\/PlugIns\/WebexRelayPlugin.bundle\/Contents\/Frameworks\/libsrtp.dylib",
+    "name" : "libsrtp.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4597137408,
+    "size" : 12042240,
+    "uuid" : "f266ac16-01b6-3bb5-9120-67f5615182f3",
+    "path" : "\/Users\/USER\/Library\/Application Support\/Webex Relay\/*\/Webex Relay.app\/Contents\/PlugIns\/WebexRelayPlugin.bundle\/Contents\/Frameworks\/libenhanced-callcontrol.dylib",
+    "name" : "libenhanced-callcontrol.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4570152960,
+    "CFBundleIdentifier" : "com.cisco.wseclient",
+    "size" : 2129920,
+    "uuid" : "bf8de367-c222-3213-8a08-dd7f43e4f844",
+    "path" : "\/Users\/USER\/Library\/Application Support\/Webex Relay\/*\/Webex Relay.app\/Contents\/PlugIns\/WebexRelayPlugin.bundle\/Contents\/Frameworks\/wseclient.framework\/Versions\/A\/wseclient",
+    "name" : "wseclient",
+    "CFBundleVersion" : "2508.15.15100.003631"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4567613440,
+    "CFBundleShortVersionString" : "1.0",
+    "CFBundleIdentifier" : "com.cisco.tp",
+    "size" : 1163264,
+    "uuid" : "98f9d7e2-04ca-3394-a3e8-891d0005ece9",
+    "path" : "\/Users\/USER\/Library\/Application Support\/Webex Relay\/*\/Webex Relay.app\/Contents\/PlugIns\/WebexRelayPlugin.bundle\/Contents\/Frameworks\/tp.framework\/Versions\/A\/tp",
+    "name" : "tp",
+    "CFBundleVersion" : "2508.15.15100.003631"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4558782464,
+    "CFBundleShortVersionString" : "1.0",
+    "CFBundleIdentifier" : "com.cisco.util",
+    "size" : 409600,
+    "uuid" : "18ed933a-c139-3c35-b312-d55976e30281",
+    "path" : "\/Users\/USER\/Library\/Application Support\/Webex Relay\/*\/Webex Relay.app\/Contents\/PlugIns\/WebexRelayPlugin.bundle\/Contents\/Frameworks\/util.framework\/Versions\/A\/util",
+    "name" : "util",
+    "CFBundleVersion" : "2508.15.15100.003631"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4612964352,
+    "CFBundleShortVersionString" : "1.0",
+    "CFBundleIdentifier" : "com.cisco.wbxaecodec",
+    "size" : 4505600,
+    "uuid" : "f820bf43-0880-3246-beba-0b4d570d82f3",
+    "path" : "\/Users\/USER\/Library\/Application Support\/Webex Relay\/*\/Webex Relay.app\/Contents\/PlugIns\/WebexRelayPlugin.bundle\/Contents\/Frameworks\/wbxaecodec.framework\/Versions\/A\/wbxaecodec",
+    "name" : "wbxaecodec",
+    "CFBundleVersion" : "2508.15.15100.003631"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4641472512,
+    "CFBundleShortVersionString" : "3.0",
+    "CFBundleIdentifier" : "com.cisco.wbxaudioengine",
+    "size" : 2703360,
+    "uuid" : "49fddc07-8444-3e35-a2b4-44e3cf300c62",
+    "path" : "\/Users\/USER\/Library\/Application Support\/Webex Relay\/*\/Webex Relay.app\/Contents\/PlugIns\/WebexRelayPlugin.bundle\/Contents\/Frameworks\/wbxaudioengine.framework\/Versions\/A\/wbxaudioengine",
+    "name" : "wbxaudioengine",
+    "CFBundleVersion" : "2508.15.15100.003631"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4535418880,
+    "CFBundleShortVersionString" : "1.0",
+    "CFBundleIdentifier" : "com.cisco.wmeutil",
+    "size" : 16384,
+    "uuid" : "a6bfe4f8-4787-3259-8abd-85b807037bc1",
+    "path" : "\/Users\/USER\/Library\/Application Support\/Webex Relay\/*\/Webex Relay.app\/Contents\/PlugIns\/WebexRelayPlugin.bundle\/Contents\/Frameworks\/wmeutil.framework\/Versions\/A\/wmeutil",
+    "name" : "wmeutil",
+    "CFBundleVersion" : "2508.15.15100.003631"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4569022464,
+    "CFBundleShortVersionString" : "1.0",
+    "CFBundleIdentifier" : "com.cisco.wqos",
+    "size" : 606208,
+    "uuid" : "73319eda-ecac-3bbb-be29-b95116c36766",
+    "path" : "\/Users\/USER\/Library\/Application Support\/Webex Relay\/*\/Webex Relay.app\/Contents\/PlugIns\/WebexRelayPlugin.bundle\/Contents\/Frameworks\/wqos.framework\/Versions\/A\/wqos",
+    "name" : "wqos",
+    "CFBundleVersion" : "2508.15.15100.003631"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4583129088,
+    "CFBundleShortVersionString" : "1.0",
+    "CFBundleIdentifier" : "com.cisco.wrtp",
+    "size" : 1343488,
+    "uuid" : "14796155-2781-39a9-904b-b9d7250d96fb",
+    "path" : "\/Users\/USER\/Library\/Application Support\/Webex Relay\/*\/Webex Relay.app\/Contents\/PlugIns\/WebexRelayPlugin.bundle\/Contents\/Frameworks\/wrtp.framework\/Versions\/A\/wrtp",
+    "name" : "wrtp",
+    "CFBundleVersion" : "2508.15.15100.003631"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4549918720,
+    "size" : 147456,
+    "uuid" : "b5ae8ff3-599e-3d21-9724-8588271c351e",
+    "path" : "\/Users\/USER\/Library\/Application Support\/Webex Relay\/*\/Webex Relay.app\/Contents\/PlugIns\/WebexRelayPlugin.bundle\/Contents\/Frameworks\/libEncryptedString.dylib",
+    "name" : "libEncryptedString.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4559962112,
+    "CFBundleIdentifier" : "com.cisco.webex.RootLogger",
+    "size" : 475136,
+    "uuid" : "04d2ec02-23e7-38c4-a7d3-4c0c5307cecf",
+    "path" : "\/Users\/USER\/Library\/Application Support\/Webex Relay\/*\/Webex Relay.app\/Contents\/PlugIns\/WebexRelayPlugin.bundle\/Contents\/Frameworks\/RootLogger.framework\/Versions\/A\/RootLogger",
+    "name" : "RootLogger"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4559650816,
+    "CFBundleIdentifier" : "com.cisco.webex.ThreadUtilities",
+    "size" : 163840,
+    "uuid" : "b63c522c-c8b5-346e-a923-5b11af90684d",
+    "path" : "\/Users\/USER\/Library\/Application Support\/Webex Relay\/*\/Webex Relay.app\/Contents\/PlugIns\/WebexRelayPlugin.bundle\/Contents\/Frameworks\/ThreadUtilities.framework\/Versions\/A\/ThreadUtilities",
+    "name" : "ThreadUtilities"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4551589888,
+    "CFBundleShortVersionString" : "1.0",
+    "CFBundleIdentifier" : "com.cisco.mediastores",
+    "size" : 131072,
+    "uuid" : "47b25f6f-df53-3091-a2ab-c6029e41503c",
+    "path" : "\/Users\/USER\/Library\/Application Support\/Webex Relay\/*\/Webex Relay.app\/Contents\/PlugIns\/WebexRelayPlugin.bundle\/Contents\/Frameworks\/mediastores.framework\/Versions\/A\/mediastores",
+    "name" : "mediastores",
+    "CFBundleVersion" : "2508.15.15100.003631"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4573429760,
+    "size" : 606208,
+    "uuid" : "0ddc798f-74c6-3a9f-a844-4c5a52eb2b0c",
+    "path" : "\/Users\/USER\/Library\/Application Support\/Webex Relay\/*\/Webex Relay.app\/Contents\/PlugIns\/WebexRelayPlugin.bundle\/Contents\/Frameworks\/libvideoprocess.dylib",
+    "name" : "libvideoprocess.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 4535336960,
+    "size" : 49152,
+    "uuid" : "a3faee04-0f8b-3428-9497-560c97eca6fb",
+    "path" : "\/usr\/lib\/libobjc-trampolines.dylib",
+    "name" : "libobjc-trampolines.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 5069504512,
+    "CFBundleShortVersionString" : "329.2",
+    "CFBundleIdentifier" : "com.apple.AGXMetalG15X-M1",
+    "size" : 7553024,
+    "uuid" : "cdc48620-e31f-3f04-9455-5f54282a08ab",
+    "path" : "\/System\/Library\/Extensions\/AGXMetalG15X_M1.bundle\/Contents\/MacOS\/AGXMetalG15X_M1",
+    "name" : "AGXMetalG15X_M1",
+    "CFBundleVersion" : "329.2"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 5163433984,
+    "CFBundleShortVersionString" : "1.5.2",
+    "CFBundleIdentifier" : "com.cisco.ladon.LadonSDK",
+    "size" : 3227648,
+    "uuid" : "d52b302d-44ea-386f-9056-ff79dfb62194",
+    "path" : "\/Users\/USER\/Library\/Application Support\/Webex Relay\/*\/Webex Relay.app\/Contents\/PlugIns\/WebexRelayPlugin.bundle\/Contents\/Frameworks\/LadonSDK.framework\/Versions\/A\/LadonSDK",
+    "name" : "LadonSDK",
+    "CFBundleVersion" : "1"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 5634277376,
+    "CFBundleShortVersionString" : "1.14",
+    "CFBundleIdentifier" : "com.apple.audio.units.Components",
+    "size" : 1294336,
+    "uuid" : "351a431e-1520-3b3b-bb1e-f034da294ecd",
+    "path" : "\/System\/Library\/Components\/CoreAudio.component\/Contents\/MacOS\/CoreAudio",
+    "name" : "CoreAudio",
+    "CFBundleVersion" : "1.14"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4515708928,
+    "size" : 1212416,
+    "uuid" : "bf0ab923-30ae-3e55-8676-879df78ffec1",
+    "path" : "\/Users\/USER\/Library\/Application Support\/Webex Relay\/*\/Webex Relay.app\/Contents\/PlugIns\/WebexRelayPlugin.bundle\/Contents\/Frameworks\/libav1enc.dylib",
+    "name" : "libav1enc.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 5156700160,
+    "size" : 1081344,
+    "uuid" : "880defba-c0a7-3749-9454-781e3c05698d",
+    "path" : "\/Users\/USER\/Library\/Application Support\/Webex Relay\/*\/Webex Relay.app\/Contents\/PlugIns\/WebexRelayPlugin.bundle\/Contents\/Frameworks\/libopenh264.dylib",
+    "name" : "libopenh264.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 6159876096,
+    "CFBundleShortVersionString" : "1.0",
+    "CFBundleIdentifier" : "com.apple.audio.AudioDSPComponents",
+    "size" : 9764864,
+    "uuid" : "a6c9df5a-a3a9-3018-b05c-b20ef924641a",
+    "path" : "\/System\/Library\/Components\/AudioDSP.component\/Contents\/MacOS\/AudioDSP",
+    "name" : "AudioDSP",
+    "CFBundleVersion" : "1"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 6620909568,
+    "size" : 243284,
+    "uuid" : "6e4a96ad-04b8-3e8a-b91d-087e62306246",
+    "path" : "\/usr\/lib\/system\/libsystem_kernel.dylib",
+    "name" : "libsystem_kernel.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 6621155328,
+    "size" : 51784,
+    "uuid" : "d6494ba9-171e-39fc-b1aa-28ecf87975d1",
+    "path" : "\/usr\/lib\/system\/libsystem_pthread.dylib",
+    "name" : "libsystem_pthread.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 6619676672,
+    "size" : 528964,
+    "uuid" : "dfea8794-80ce-37c3-8f6a-108aa1d0b1b0",
+    "path" : "\/usr\/lib\/system\/libsystem_c.dylib",
+    "name" : "libsystem_c.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 6914375680,
+    "size" : 5697344,
+    "uuid" : "7186c5c8-2a46-3f35-b27f-f7f6923f7186",
+    "path" : "\/usr\/lib\/swift\/libswiftCore.dylib",
+    "name" : "libswiftCore.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 6688108544,
+    "CFBundleShortVersionString" : "6.9",
+    "CFBundleIdentifier" : "com.apple.AppKit",
+    "size" : 21564992,
+    "uuid" : "860c164c-d04c-30ff-8c6f-e672b74caf11",
+    "path" : "\/System\/Library\/Frameworks\/AppKit.framework\/Versions\/C\/AppKit",
+    "name" : "AppKit",
+    "CFBundleVersion" : "2575.70.52"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 6617006080,
+    "size" : 342164,
+    "uuid" : "8ca52e4d-f699-3d14-8061-eea9d4366538",
+    "path" : "\/usr\/lib\/libobjc.A.dylib",
+    "name" : "libobjc.A.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 6621634560,
+    "CFBundleShortVersionString" : "6.9",
+    "CFBundleIdentifier" : "com.apple.CoreFoundation",
+    "size" : 5500928,
+    "uuid" : "8d45baee-6cc0-3b89-93fd-ea1c8e15c6d7",
+    "path" : "\/System\/Library\/Frameworks\/CoreFoundation.framework\/Versions\/A\/CoreFoundation",
+    "name" : "CoreFoundation",
+    "CFBundleVersion" : "3603"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 6644641792,
+    "CFBundleShortVersionString" : "6.9",
+    "CFBundleIdentifier" : "com.apple.Foundation",
+    "size" : 14587296,
+    "uuid" : "b9a92060-f21e-3ecf-9ded-94a65c68a6f4",
+    "path" : "\/System\/Library\/Frameworks\/Foundation.framework\/Versions\/C\/Foundation",
+    "name" : "Foundation",
+    "CFBundleVersion" : "3603"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 6817038336,
+    "CFBundleShortVersionString" : "2.1.1",
+    "CFBundleIdentifier" : "com.apple.HIToolbox",
+    "size" : 3174368,
+    "uuid" : "1a037942-11e0-3fc8-aad2-20b11e7ae1a4",
+    "path" : "\/System\/Library\/Frameworks\/Carbon.framework\/Versions\/A\/Frameworks\/HIToolbox.framework\/Versions\/A\/HIToolbox",
+    "name" : "HIToolbox"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 6617350144,
+    "size" : 636280,
+    "uuid" : "3247e185-ced2-36ff-9e29-47a77c23e004",
+    "path" : "\/usr\/lib\/dyld",
+    "name" : "dyld"
+  },
+  {
+    "size" : 0,
+    "source" : "A",
+    "base" : 0,
+    "uuid" : "00000000-0000-0000-0000-000000000000"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 6620209152,
+    "size" : 577528,
+    "uuid" : "643ed232-ce19-3f63-8015-0aee768c002f",
+    "path" : "\/usr\/lib\/libc++.1.dylib",
+    "name" : "libc++.1.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 6812487680,
+    "CFBundleShortVersionString" : "1.0",
+    "CFBundleIdentifier" : "com.apple.audio.caulk",
+    "size" : 163296,
+    "uuid" : "42085f32-42e2-3f11-b0b4-0343137b5f72",
+    "path" : "\/System\/Library\/PrivateFrameworks\/caulk.framework\/Versions\/A\/caulk",
+    "name" : "caulk"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 6717255680,
+    "CFBundleShortVersionString" : "1.0",
+    "CFBundleIdentifier" : "com.apple.CFNetwork",
+    "size" : 3971680,
+    "uuid" : "45ad6442-531d-3e9a-967e-b3aa0d01f24f",
+    "path" : "\/System\/Library\/Frameworks\/CFNetwork.framework\/Versions\/A\/CFNetwork",
+    "name" : "CFNetwork",
+    "CFBundleVersion" : "3826.600.41"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 7077957632,
+    "CFBundleShortVersionString" : "8.600",
+    "CFBundleIdentifier" : "com.apple.ANEServices",
+    "size" : 184352,
+    "uuid" : "d4c6f312-d1c4-3130-9c71-d63ca4e4cbfe",
+    "path" : "\/System\/Library\/PrivateFrameworks\/ANEServices.framework\/Versions\/A\/ANEServices",
+    "name" : "ANEServices",
+    "CFBundleVersion" : "8.600"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 6619373568,
+    "size" : 288608,
+    "uuid" : "24ce0d89-4114-30c2-a81a-3db1f5931cff",
+    "path" : "\/usr\/lib\/system\/libdispatch.dylib",
+    "name" : "libdispatch.dylib"
+  }
+],
+  "sharedCache" : {
+  "base" : 6616514560,
+  "size" : 5040898048,
+  "uuid" : "032c7bce-a479-35b8-97bc-ce7f8f80ccab"
+},
+  "legacyInfo" : {
+  "threadTriggered" : {
+    "name" : "t-main-ui",
+    "queue" : "com.apple.main-thread"
+  }
+},
+  "logWritingSignature" : "0eeda298fe3a004dc1bb5bc8f6ec43ea36107c3e",
+  "trialInfo" : {
+  "rollouts" : [
+    {
+      "rolloutId" : "6246d6a916a70b047e454124",
+      "factorPackIds" : {
+
+      },
+      "deploymentId" : 240000010
+    },
+    {
+      "rolloutId" : "63508950b3714d3622fc77f7",
+      "factorPackIds" : {
+        "SIRI_MEMORY_SYNC_CONFIG" : "6526e111d0c9ce2f459b54a8"
+      },
+      "deploymentId" : 240000015
+    }
+  ],
+  "experiments" : [
+    {
+      "treatmentId" : "f18344bb-554f-48ae-8449-e108a8813a55",
+      "experimentId" : "6685b5584477001000e8c6c9",
+      "deploymentId" : 400000009
+    }
+  ]
+}
+}
