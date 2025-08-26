@@ -138,14 +138,6 @@ def monitor_resources_during_operation():
 
 
 def show_environment_variables_usage():
-    """展示环境变量的使用方法"""
-    logger.info("=== 环境变量配置示例 ===")
-    
-    logger.info("可以通过以下环境变量调整资源限制:")
-    logger.info("export MAC_SYMBOLIZER_MAX_CONCURRENT=10")
-    logger.info("export MAC_SYMBOLIZER_MAX_FILE_SEARCH=5")
-    logger.info("export MAC_SYMBOLIZER_SUBPROCESS_TIMEOUT=60")
-    logger.info("export MAC_SYMBOLIZER_FILE_SEARCH_LIMIT=3")
     
     # 显示当前环境变量设置
     env_vars = [
