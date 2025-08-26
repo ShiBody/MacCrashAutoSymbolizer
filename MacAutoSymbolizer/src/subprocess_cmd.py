@@ -1,5 +1,8 @@
 import asyncio.subprocess
 import asyncio
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 __author__  = "Cindy Shi <body1992218@gmail.com>"
@@ -22,7 +25,15 @@ class SubProcessCmd:
         self._stdin = kwargs.pop(r'stdin') if r'stdin' in kwargs else None
         self._stdout = kwargs.pop(r'stdout') if r'stdout' in kwargs else asyncio.subprocess.PIPE
         self._stderr = kwargs.pop(r'stderr') if r'stderr' in kwargs else asyncio.subprocess.PIPE
+        
+        # 如果没有指定超时时间，使用配置文件中的默认值
         self._timeout = kwargs.pop(r'timeout') if r'timeout' in kwargs else None
+        if self._timeout is None:
+            try:
+                from MacAutoSymbolizer.src.resource_config import resource_config
+                self._timeout = resource_config.subprocess_timeout
+            except ImportError:
+                self._timeout = 30  # 默认30秒超时
 
     @property
     def stdin(self):
@@ -37,34 +48,66 @@ class SubProcessCmd:
         return self._stderr
 
     async def cmd(self, *args):
-        process = await asyncio.create_subprocess_exec(
-            self._program,
-            *args,
-            stdin=self._stdin,
-            stdout=self._stdout,
-            stderr=self._stderr,
-            **self._kwargs
-        )
-        stdout, stderr = await process.communicate()
-        
-        # 尝试安全解码输出，处理可能的编码问题
-        def safe_decode(data):
-            if not data:
-                return ""
+        process = None
+        try:
+            process = await asyncio.create_subprocess_exec(
+                self._program,
+                *args,
+                stdin=self._stdin,
+                stdout=self._stdout,
+                stderr=self._stderr,
+                **self._kwargs
+            )
             
-            # 尝试多种编码方式
-            encodings = ['utf-8', 'latin1', 'cp1252', 'iso-8859-1']
+            # 添加超时控制，防止进程挂起导致资源泄漏
+            try:
+                stdout, stderr = await asyncio.wait_for(
+                    process.communicate(), 
+                    timeout=self._timeout
+                )
+            except asyncio.TimeoutError:
+                # 超时时强制终止进程
+                if process:
+                    process.terminate()
+                    try:
+                        await asyncio.wait_for(process.wait(), timeout=5.0)
+                    except asyncio.TimeoutError:
+                        process.kill()
+                        await process.wait()
+                raise asyncio.TimeoutError(f"子进程执行超时: {self._program} {' '.join(args)}")
             
-            for encoding in encodings:
+            # 尝试安全解码输出，处理可能的编码问题
+            def safe_decode(data):
+                if not data:
+                    return ""
+                
+                # 尝试多种编码方式
+                encodings = ['utf-8', 'latin1', 'cp1252', 'iso-8859-1']
+                
+                for encoding in encodings:
+                    try:
+                        return data.decode(encoding)
+                    except UnicodeDecodeError:
+                        continue
+                
+                # 如果所有编码都失败，使用 utf-8 并替换错误字符
+                return data.decode('utf-8', errors='replace')
+            
+            return process.returncode, safe_decode(stdout), safe_decode(stderr)
+            
+        except Exception as e:
+            # 确保进程被正确清理
+            if process and process.returncode is None:
                 try:
-                    return data.decode(encoding)
-                except UnicodeDecodeError:
-                    continue
-            
-            # 如果所有编码都失败，使用 utf-8 并替换错误字符
-            return data.decode('utf-8', errors='replace')
-        
-        return process.returncode, safe_decode(stdout), safe_decode(stderr)
+                    process.terminate()
+                    await asyncio.wait_for(process.wait(), timeout=5.0)
+                except:
+                    try:
+                        process.kill()
+                        await process.wait()
+                    except:
+                        pass
+            raise
 
     async def start(self, args_list):
         tasks = [self.cmd(*x) for x in args_list]

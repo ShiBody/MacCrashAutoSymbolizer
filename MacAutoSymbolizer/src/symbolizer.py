@@ -29,15 +29,30 @@ from MacAutoSymbolizer.src.advanced_downloader import (
     SevenZipValidator
 )
 from MacAutoSymbolizer.src.subprocess_cmd import SubProcessCmd
+from MacAutoSymbolizer.src.resource_config import resource_config
 
 
 class Symbolizer:
     def __init__(
             self,
-            result_processor: Callable | None = None
+            result_processor: Callable | None = None,
+            max_concurrent_symbolize: int = None  # 限制并发符号化任务数量，None时使用配置文件
     ):
         self.loop = asyncio.get_event_loop()
         self.scanner = CrashScanner()
+        
+        # 使用配置文件中的设置，如果未指定参数的话
+        if max_concurrent_symbolize is None:
+            max_concurrent_symbolize = resource_config.max_concurrent_symbolize
+        
+        # 添加信号量来控制并发数量，防止创建过多文件句柄
+        self.symbolize_semaphore = asyncio.Semaphore(max_concurrent_symbolize)
+        self.max_concurrent_symbolize = max_concurrent_symbolize
+        
+        # 记录资源配置
+        logger.info(f"符号化器初始化: 最大并发数={max_concurrent_symbolize}")
+        logger.debug(resource_config.get_config_summary())
+        
         username = os.getenv('DOWNLOAD_USER')
         password = os.getenv('DOWNLOAD_PASSWORD')
         basic_token = AdvancedDownloader.create_basic_token(username, password) if username and password else None
@@ -59,10 +74,23 @@ class Symbolizer:
         logger.debug(f"使用 atos 工具路径: {atos_path}")
 
     async def symbolize_async(self, thread_block: list, symbol_dir: str, arch: Arch, image_dict: dict | None = None):
+        # 提取需要处理的二进制文件
         image_binarys: list[ImageBinary] = [a_line.binary for a_line in thread_block if isinstance(a_line, RawLine) or isinstance(a_line, SymbolizedLine) or isinstance(a_line, DiagLine)]
-        tasks1 = [self._update_image_binary(binary, symbol_dir, arch, image_dict) for binary in image_binarys]
+        
+        # 批量更新二进制文件信息，但控制并发数量
+        async def update_with_semaphore(binary):
+            async with self.symbolize_semaphore:
+                return await self._update_image_binary(binary, symbol_dir, arch, image_dict)
+        
+        tasks1 = [update_with_semaphore(binary) for binary in image_binarys]
         await asyncio.gather(*tasks1)
-        tasks2 = [self._symbolize_line(a_line) for a_line in thread_block]
+        
+        # 符号化处理也需要控制并发数量
+        async def symbolize_with_semaphore(a_line):
+            async with self.symbolize_semaphore:
+                return await self._symbolize_line(a_line)
+        
+        tasks2 = [symbolize_with_semaphore(a_line) for a_line in thread_block]
         return await asyncio.gather(*tasks2)
 
     @staticmethod
@@ -84,16 +112,34 @@ class Symbolizer:
         if not binary.pathToDSYMFile:
             if os.path.exists(symbol_dir):
                 dsym_file = None
-                dsym_files = [str(f) for f in Path(symbol_dir).rglob(f'*{binary.name}*') if f.is_dir()]
-                if dsym_files:
-                    dsym_file = dsym_files[0]
-                elif binary.name_from_binary:
-                    dsym_files = [str(f) for f in Path(symbol_dir).rglob(f'*{binary.name_from_binary}*') if f.is_dir()]
-                    if dsym_files:
-                        dsym_file = dsym_files[0]
-                if dsym_file:
-                    binary.pathToDSYMFile = dsym_file
-                else:
+                try:
+                    # 优化文件搜索：使用生成器表达式减少内存使用，限制搜索结果数量
+                    symbol_path = Path(symbol_dir)
+                    
+                    # 首先尝试搜索primary name，最多搜索5个结果避免过度消耗资源
+                    for i, f in enumerate(symbol_path.rglob(f'*{binary.name}*')):
+                        if i >= 5:  # 限制搜索结果数量
+                            break
+                        if f.is_dir():
+                            dsym_file = str(f)
+                            break
+                    
+                    # 如果没找到且有备用名称，再尝试搜索backup name
+                    if not dsym_file and binary.name_from_binary:
+                        for i, f in enumerate(symbol_path.rglob(f'*{binary.name_from_binary}*')):
+                            if i >= 5:  # 限制搜索结果数量
+                                break
+                            if f.is_dir():
+                                dsym_file = str(f)
+                                break
+                                
+                    if dsym_file:
+                        binary.pathToDSYMFile = dsym_file
+                    else:
+                        return
+                except (OSError, PermissionError) as e:
+                    # 处理文件系统错误，避免程序崩溃
+                    logger.warning(f"文件搜索出错: {e}")
                     return
 
     async def _symbolize_line(self, line: ScannedLine):

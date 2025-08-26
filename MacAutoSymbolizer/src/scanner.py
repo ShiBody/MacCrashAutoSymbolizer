@@ -357,21 +357,29 @@ class CrashScanner:
         start_code = time.monotonic()
         loop = asyncio.new_event_loop()
         asyncio.set_event_loop(loop)
-        self._reset()
-        results = loop.run_until_complete(self.scan_crash_async(lines))
-        results.sort(key=lambda x: x.idx)
-        logger.info(f'[{__name__}.scan_crash] takes {time.monotonic() - start_code} seconds!')
-        return self._generate_result(results)
+        try:
+            self._reset()
+            results = loop.run_until_complete(self.scan_crash_async(lines))
+            results.sort(key=lambda x: x.idx)
+            logger.info(f'[{__name__}.scan_crash] takes {time.monotonic() - start_code} seconds!')
+            return self._generate_result(results)
+        finally:
+            # 确保事件循环被正确关闭，释放资源
+            loop.close()
 
     def scan_diagnostic(self, content: str | list[str]):
         lines = content.splitlines(keepends=True) if isinstance(content, str) else content
         start_code = time.monotonic()
         loop = asyncio.new_event_loop()
         asyncio.set_event_loop(loop)
-        self._reset()
-        results = loop.run_until_complete(self.scan_crash_async(lines))
-        logger.info(f'[{__name__}.scan_crash] takes {time.monotonic() - start_code} seconds!')
-        return self._generate_result(results)
+        try:
+            self._reset()
+            results = loop.run_until_complete(self.scan_crash_async(lines))
+            logger.info(f'[{__name__}.scan_crash] takes {time.monotonic() - start_code} seconds!')
+            return self._generate_result(results)
+        finally:
+            # 确保事件循环被正确关闭，释放资源
+            loop.close()
 
     def scan_file(self, file_path: str) -> ScanResult | None:
         """
