@@ -88,9 +88,10 @@ class RawLine(ScannedLine):
     symbolizedRes: Any = None
     space1: str = ' '
     space2: str = ' '
+    space3: str = ' '
 
     def __str__(self):
-        return f'{self.threadIdx}{self.space1}{self.binary.name}{self.space2}{self.addressesToSymbolicate} {self.symbolizedRes}' if self.isSymbolized else self.line
+        return f'{self.threadIdx}{self.space1}{self.binary.name}{self.space2}{self.addressesToSymbolicate}{self.space3}{self.symbolizedRes}' if self.isSymbolized else self.line
 
     def cmd_args(self):
         if not self.binary or not self.binary.path() or not self.binary.loadAddress or not self.addressesToSymbolicate:
@@ -245,7 +246,7 @@ class CrashScanner:
 
         ok, stack_groups = CrashScanner.is_raw_stack_line(crash_line)
         if ok:
-            (_, thread_idx, space1, image_name, space2, addr_to_symbolicate, load_addr) = stack_groups
+            (_, thread_idx, space1, image_name, space2, addr_to_symbolicate, space3, load_addr) = stack_groups
             return RawLine(
                 idx=idx,
                 line=crash_line,
@@ -256,6 +257,7 @@ class CrashScanner:
                 threadIdx=thread_idx,
                 space1=space1,
                 space2=space2,
+                space3=space3
             )
         ok, binary_image_groups = CrashScanner.is_binary_image_line(crash_line)
         if ok:
@@ -280,7 +282,7 @@ class CrashScanner:
             return ScannedLine(idx=idx, type=CrashLineType.BINARY, info=binary_image_groups, line=crash_line)
         ok, symboled_groups = CrashScanner.is_symboled_line(crash_line)
         if ok:
-            (_, thread_idx, space1, image_name, space2, addr_to_symbolicate, symbolized_func, _) = symboled_groups
+            (_, thread_idx, space1, image_name, space2, addr_to_symbolicate, space3, symbolized_func, _) = symboled_groups
             binary = ImageBinary(name=image_name) if image_name else None
             return SymbolizedLine(
                 idx=idx,
@@ -292,6 +294,7 @@ class CrashScanner:
                 threadIdx=thread_idx,
                 space1=space1,
                 space2=space2,
+                space3=space3
             )
         ok, diag_groups = CrashScanner.is_diag_line(crash_line)
         if ok:

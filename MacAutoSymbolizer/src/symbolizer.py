@@ -117,7 +117,7 @@ class Symbolizer:
                     symbol_path = Path(symbol_dir)
                     
                     # 首先尝试搜索primary name，最多搜索5个结果避免过度消耗资源
-                    for i, f in enumerate(symbol_path.rglob(f'*{binary.name}*')):
+                    for i, f in enumerate(symbol_path.rglob(f'{binary.name}*')):
                         if i >= 5:  # 限制搜索结果数量
                             break
                         if f.is_dir():
@@ -126,7 +126,7 @@ class Symbolizer:
                     
                     # 如果没找到且有备用名称，再尝试搜索backup name
                     if not dsym_file and binary.name_from_binary:
-                        for i, f in enumerate(symbol_path.rglob(f'*{binary.name_from_binary}*')):
+                        for i, f in enumerate(symbol_path.rglob(f'{binary.name_from_binary}*')):
                             if i >= 5:  # 限制搜索结果数量
                                 break
                             if f.is_dir():

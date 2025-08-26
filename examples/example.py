@@ -49,7 +49,7 @@ def sentry_file_test():
     symbolizer = Symbolizer()
     # result = symbolizer.symbolize('examples/crash_files/Webex Relay-2025-08-20-145611.ips', "45.10.0.32917", 'arm64', isBackup=True)
 
-    result = symbolizer.symbolize('examples/crash_files/sentry.crash', "45.9.0.32959", 'arm64')
+    result = symbolizer.symbolize('examples/crash_files/632fc3d32f3c49938876e20244f125df.crash', "45.9.0.32959", 'arm64')
     for block in result:
         print(f'\n{"-" * 50}\n')
         [print(line) for line in block]
@@ -57,5 +57,5 @@ def sentry_file_test():
 
 if __name__=='__main__':
     # test_content()
-    # ips_file_test()
-    sentry_file_test()
+    ips_file_test()
+    # sentry_file_test()
