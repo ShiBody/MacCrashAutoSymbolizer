@@ -32,7 +32,6 @@ def check_system_before_symbolization():
     
     # 检查并显示当前配置
     config = ResourceConfig()
-    print(config.get_config_summary())
     
     # 检查系统资源
     if not ResourceConfig.check_system_resources():

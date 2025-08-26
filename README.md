@@ -1,11 +1,11 @@
 # MacCrashAutoSymbolizer
 
-A powerful tool for automatically symbolizing macOS crash logs and stack traces. This tool can process various crash log formats (.ips, .diag, .spin files and raw text) and automatically download the required symbol files to provide detailed, human-readable crash analysis.
+A powerful tool for automatically symbolizing macOS crash logs and stack traces. This tool can process various crash log formats (.ips, .diag, .spin, .crash files and raw text) and automatically download the required symbol files to provide detailed, human-readable crash analysis.
 
 ## Features
 
 - 🔍 **Auto Symbol Download**: Automatically downloads debug symbols (dSYM files) from remote repositories
-- 📊 **Multiple Format Support**: Supports .ips, .diag, .spin files and raw crash stack text
+- 📊 **Multiple Format Support**: Supports .ips, .diag, .spin, .crash files and raw crash stack text
 - 🏗️ **Multi-Architecture**: Supports both x86_64 (Intel) and arm64 (Apple Silicon) architectures
 - ⚡ **Async Processing**: High-performance async processing for large crash logs
 - 🧹 **Smart Cleanup**: Automatically manages symbol file storage with cleanup of old downloads
@@ -113,6 +113,9 @@ result = symbolizer.symbolize('crash_files/example.diag', "45.10.0.32870", Arch.
 
 # Process .spin file
 result = symbolizer.symbolize('crash_files/example.spin', "45.10.0.32891", Arch.osx)
+
+# Process .crash file
+result = symbolizer.symbolize('crash_files/example.crash', "45.10.0.32891", Arch.arm)
 ```
 
 ## API Reference
@@ -222,7 +225,7 @@ symbolizer = Symbolizer()
 crash_files_dir = "crash_logs"
 
 for filename in os.listdir(crash_files_dir):
-    if filename.endswith(('.ips', '.diag', '.spin')):
+    if filename.endswith(('.ips', '.diag', '.spin', '.crash')):
         filepath = os.path.join(crash_files_dir, filename)
         print(f"Processing {filename}...")
         

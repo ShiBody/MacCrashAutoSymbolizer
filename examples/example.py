@@ -45,6 +45,17 @@ def ips_file_test():
     # logger.info(f"Symbolization result: {result}")
 
 
+def sentry_file_test():
+    symbolizer = Symbolizer()
+    # result = symbolizer.symbolize('examples/crash_files/Webex Relay-2025-08-20-145611.ips', "45.10.0.32917", 'arm64', isBackup=True)
+
+    result = symbolizer.symbolize('examples/crash_files/sentry.crash', "45.9.0.32959", 'arm64')
+    for block in result:
+        print(f'\n{"-" * 50}\n')
+        [print(line) for line in block]
+
+
 if __name__=='__main__':
-    test_content()
+    # test_content()
     # ips_file_test()
+    sentry_file_test()

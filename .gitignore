@@ -21,3 +21,4 @@
 **/download_symbols
 dev.env
 examples/crash_files/
+config.ini
