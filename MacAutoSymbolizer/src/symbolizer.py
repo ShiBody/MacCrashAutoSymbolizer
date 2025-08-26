@@ -356,7 +356,7 @@ class Symbolizer:
         if not ok:
             raise Exception("Failed to download or validate symbol files.")
         res: list = []
-        for thread_block in scan_res.stack_blocks[:3]:
+        for thread_block in scan_res.stack_blocks[:10]:
             res.append(self.loop.run_until_complete(self.symbolize_async(thread_block, symbol_dir, arch, scan_res.images_dict)))
 
         logger.debug('Symbolization process completed')
