@@ -51,7 +51,7 @@ class Symbolizer:
         
         # 记录资源配置
         logger.info(f"符号化器初始化: 最大并发数={max_concurrent_symbolize}")
-        logger.debug(resource_config.get_config_summary())
+        # logger.debug(resource_config.get_config_summary())
         
         username = os.getenv('DOWNLOAD_USER')
         password = os.getenv('DOWNLOAD_PASSWORD')

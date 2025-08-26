@@ -71,12 +71,6 @@ class ResourceConfig:
 - 最大并发文件搜索: {self.max_concurrent_file_search}
 - 子进程超时时间: {self.subprocess_timeout}秒
 - 文件搜索结果限制: {self.file_search_limit}
-
-环境变量配置:
-- MAC_SYMBOLIZER_MAX_CONCURRENT: 最大并发符号化任务数
-- MAC_SYMBOLIZER_MAX_FILE_SEARCH: 最大并发文件搜索数  
-- MAC_SYMBOLIZER_SUBPROCESS_TIMEOUT: 子进程超时时间
-- MAC_SYMBOLIZER_FILE_SEARCH_LIMIT: 文件搜索结果限制
 """
 
     @staticmethod
