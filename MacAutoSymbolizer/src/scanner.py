@@ -396,7 +396,7 @@ class CrashScanner:
             logger.info(f'[{__name__}.scan_file] is scanning crash file {file_path}...')
             lines = content.splitlines(keepends=False) if isinstance(content, str) else content
             return self.scan_crash(lines)
-        elif file_path.endswith('.diag') or file_path.endswith('.spin') or file_path.endswith('.crash'):
+        elif file_path.endswith('.diag') or file_path.endswith('.spin') or file_path.endswith('.crash') or file_path.endswith('.rtf'):
             logger.info(f'[{__name__}.scan_file] is extracting diag/spin file {file_path}...')
             content = safe_read_file(file_path)
             return self.scan_diagnostic(content)

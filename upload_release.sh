@@ -233,7 +233,7 @@ Then open \`http://localhost:8000\` in your browser.
 ### ✨ Key Features
 
 - 🔍 Auto symbol download from remote repositories
-- 📊 Multiple format support (.ips, .diag, .spin, .crash files)
+- 📊 Multiple format support (.ips, .diag, .spin, .crash, .rtf files)
 - 🏗️ Multi-architecture support (x86_64, arm64)
 - 🌐 Modern web interface with GitHub Primer design
 - 🌍 Multi-language support (Chinese/English)

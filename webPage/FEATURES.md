@@ -35,7 +35,7 @@ MacCrash Auto Symbolizer Web 是一个基于 FastAPI 的现代化 Web 应用，�
 ### 输入方式选择
 - **分段控制器**: GitHub 风格的输入方式切换
 - **文本输入**: 直接粘贴 Stack 堆栈内容
-- **文件上传**: 支持拖拽上传 .ips/.diag/.txt/.crash 文件
+- **文件上传**: 支持拖拽上传 .ips/.diag/.txt/.crash/.rtf 文件
 - **智能切换**: 自动清空另一种输入方式的内容
 
 ### 输出结果面板
