@@ -258,13 +258,22 @@ body {
     max-width: 1600px;
     margin: 0 auto;
     padding: 0 var(--space-md);
+    /* 确保容器不会超过视窗宽度 */
+    width: 100%;
+    box-sizing: border-box;
+    /* 确保容器内容可以右对齐 */
+    position: relative;
 }
 
 .content-layout {
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: minmax(280px, 1fr) minmax(350px, 2.5fr);
     gap: var(--space-lg);
     margin: var(--space-xl) 0;
+    /* 确保整个布局不超过容器宽度 */
+    max-width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
 }
 
 /* 卡片样式 */
@@ -275,6 +284,10 @@ body {
     box-shadow: var(--shadow-medium);
     overflow: hidden;
     transition: all 0.3s ease;
+    /* 确保面板不会超过其容器 */
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .panel:hover {
@@ -752,6 +765,22 @@ input[name="inputMethod"]:checked + .segment-item {
     opacity: 0.5;
 }
 
+/* 特定元素的宽度限制 */
+#symbolizeResult,
+#logsResult {
+    /* 确保与output-code样式一致 */
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    /* 强制内容换行，防止水平溢出 */
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    /* 隐藏水平滚动条，强制换行显示 */
+    overflow-x: hidden;
+}
+
 /* 进度指示器 */
 .progress-container {
     margin-top: var(--space-lg);
@@ -880,7 +909,7 @@ input[name="inputMethod"]:checked + .segment-item {
 /* 响应式设计 */
 @media (max-width: 1400px) {
     .content-layout {
-        grid-template-columns: 1fr 2fr;
+        grid-template-columns: minmax(260px, 1fr) minmax(320px, 2fr);
         gap: var(--space-md);
     }
 }
@@ -889,10 +918,25 @@ input[name="inputMethod"]:checked + .segment-item {
     .content-layout {
         grid-template-columns: 1fr;
         gap: var(--space-lg);
+        /* 在单列布局中确保不会溢出 */
+        max-width: 100%;
     }
     
     .container {
         padding: 0 var(--space-sm);
+        max-width: 100vw;
+    }
+    
+    /* 单列布局时，确保两个面板都不溢出 */
+    .input-panel,
+    .output-panel {
+        max-width: 100%;
+        overflow: hidden;
+    }
+    
+    /* 在单列布局中，output-panel仍然右对齐 */
+    .output-panel {
+        align-self: start;
     }
 }
 
@@ -947,15 +991,31 @@ input[name="inputMethod"]:checked + .segment-item {
     }
     
     /* 输出面板在小屏幕上的优化 */
+    .input-panel,
     .output-panel {
-        margin-right: var(--space-md);
-        max-width: calc(100vw - var(--space-lg) * 2);
+        max-width: 100%;
+        overflow: hidden;
+        margin: 0; /* 移除所有外边距 */
+    }
+    
+    /* 保持output-panel右对齐，即使在小屏幕上 */
+    .output-panel {
+        align-self: start;
     }
     
     /* 确保输出代码区域在小屏幕上正确换行 */
     .output-code {
         font-size: 12px; /* 在小屏幕上使用更小的字体 */
-        max-height: 400px; /* 减少最大高度以节省空间 */
+        max-height: 50vh; /* 使用视窗高度，更灵活 */
+        padding: var(--space-md); /* 减少内边距 */
+    }
+    
+    /* 特定元素在小屏幕上的优化 */
+    #symbolizeResult,
+    #logsResult {
+        font-size: 12px;
+        max-height: 50vh;
+        padding: var(--space-md);
     }
 }
 
@@ -977,17 +1037,20 @@ input[name="inputMethod"]:checked + .segment-item {
     }
 }
 
-/* 输出面板样式 */
-.output-panel {
-    margin-right: 24px;
-    /* 确保内容不会过宽，保持合理的最大宽度 */
-    max-width: calc(100vw - 400px); /* 根据左侧面板预留空间 */
+/* 输入面板样式 */
+.input-panel {
     min-width: 0; /* 允许收缩 */
+    max-width: 100%; /* 不超过网格分配的空间 */
+    overflow: hidden; /* 防止内容溢出 */
+    box-sizing: border-box;
 }
 
-/* 优化输出面板内的网格布局 */
-@media (min-width: 1000px) {
-    .output-panel {
-        max-width: none; /* 在大屏幕上移除宽度限制，让grid控制 */
-    }
+/* 输出面板样式 */
+.output-panel {
+    min-width: 0; /* 允许收缩 */
+    max-width: 100%; /* 不超过网格分配的空间 */
+    overflow: hidden; /* 防止内容溢出 */
+    box-sizing: border-box;
+    /* 右对齐到父容器的右边界 */
+    align-self: start;
 }
