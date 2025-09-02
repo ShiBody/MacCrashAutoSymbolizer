@@ -669,8 +669,6 @@ input[name="inputMethod"]:checked + .segment-item {
 .btn-group {
     display: flex;
     gap: var(--space-sm);
-    flex-wrap: wrap; /* 允许按钮换行 */
-    align-items: center;
 }
 
 .btn-tab {
@@ -705,8 +703,6 @@ input[name="inputMethod"]:checked + .segment-item {
     display: flex;
     gap: var(--space-md);
     align-items: center;
-    flex-wrap: wrap; /* 允许按钮换行以避免被遮挡 */
-    min-height: 40px; /* 确保有足够的高度 */
 }
 
 /* 输出区域 */
@@ -729,16 +725,10 @@ input[name="inputMethod"]:checked + .segment-item {
     color: var(--text-primary);
     white-space: pre-wrap;
     word-wrap: break-word;
-    word-break: break-word; /* 强制长单词换行 */
-    overflow-wrap: break-word; /* 现代浏览器的换行属性 */
     max-height: 500px;
     overflow-y: auto;
-    overflow-x: auto; /* 允许水平滚动以防万一 */
     margin: 0;
     position: relative;
-    /* 确保内容不会溢出容器 */
-    width: 100%;
-    box-sizing: border-box;
 }
 
 .output-code::before {
@@ -915,7 +905,6 @@ input[name="inputMethod"]:checked + .segment-item {
     
     .panel-actions {
         align-self: stretch;
-        justify-content: space-between; /* 在小屏幕上分布按钮组 */
     }
     
     .form-actions {
@@ -945,18 +934,6 @@ input[name="inputMethod"]:checked + .segment-item {
     .panel-body {
         padding: var(--space-lg);
     }
-    
-    /* 输出面板在小屏幕上的优化 */
-    .output-panel {
-        margin-right: var(--space-md);
-        max-width: calc(100vw - var(--space-lg) * 2);
-    }
-    
-    /* 确保输出代码区域在小屏幕上正确换行 */
-    .output-code {
-        font-size: 12px; /* 在小屏幕上使用更小的字体 */
-        max-height: 400px; /* 减少最大高度以节省空间 */
-    }
 }
 
 @media (max-width: 480px) {
@@ -977,17 +954,8 @@ input[name="inputMethod"]:checked + .segment-item {
     }
 }
 
-/* 输出面板样式 */
 .output-panel {
-    margin-right: 24px;
-    /* 确保内容不会过宽，保持合理的最大宽度 */
-    max-width: calc(100vw - 400px); /* 根据左侧面板预留空间 */
-    min-width: 0; /* 允许收缩 */
-}
-
-/* 优化输出面板内的网格布局 */
-@media (min-width: 1000px) {
-    .output-panel {
-        max-width: none; /* 在大屏幕上移除宽度限制，让grid控制 */
-    }
+    width: 90%;
+    margin-right: 30px;
+    overflow-x: auto;
 }
